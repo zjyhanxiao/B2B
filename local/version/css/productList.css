@@ -1,4 +1,7 @@
 body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{margin:0;padding:0;border:0;}
+a{
+    text-decoration: none;
+}
 body{
     font-size: 14px;
     font-family: "微软雅黑";
@@ -27,7 +30,10 @@ body{
 .w_270{
     width: 270px;
 }
-table tr:first-child{
+.color_223976{
+    color: #223976;
+}
+table tr td:first-child{
     font-size: 18px;
     color: #223976;
 }
@@ -46,4 +52,8 @@ table tr td{
 }
 .table_th{
     background: #ebf4ff;
+}
+.state{
+    padding: 3px 10px;
+    background: red;
 }
