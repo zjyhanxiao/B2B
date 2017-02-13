@@ -66,7 +66,7 @@ gulp.task('second_include', function() {
 
 /* Watch Files For Changes */
 gulp.task('watch', function() {
-    livereload.listen();
+    // livereload.listen();
     // Trigger a live reload on any css changes
     gulp.watch('../local/version/css/**/*.css', ['css']);
 
