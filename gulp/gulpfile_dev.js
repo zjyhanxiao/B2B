@@ -6,9 +6,7 @@ var watch = require('gulp-watch');
 var minifycss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var gzip = require('gulp-gzip');
-
-//var livereload = require('gulp-livereload');
-
+// var livereload = require('gulp-livereload');
 var uglify = require('gulp-uglify');
 const imagemin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
@@ -68,7 +66,7 @@ gulp.task('second_include', function() {
 
 /* Watch Files For Changes */
 gulp.task('watch', function() {
-    //livereload.listen();
+    livereload.listen();
     // Trigger a live reload on any css changes
     gulp.watch('../local/version/css/**/*.css', ['css']);
 
