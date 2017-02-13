@@ -1,12 +1,15 @@
-body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{margin:0;padding:0;border:0;}
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{margin:0;padding:0;}
 a{
     text-decoration: none;
+}
+a:hover{
+    text-decoration:none;
 }
 body{
     font-size: 14px;
     font-family: "微软雅黑";
 }
-#productlist{
+#main{
     width: 1200px;
     margin: 0 auto;
 }
@@ -38,7 +41,7 @@ table tr td:first-child{
     color: #223976;
 }
 table{
-    border: 1px solid #000000;
+    border: 1px solid #dddddd;
     box-sizing: border-box;
 }
 table{
@@ -53,7 +56,26 @@ table tr td{
 .table_th{
     background: #ebf4ff;
 }
-.state{
-    padding: 3px 10px;
-    background: red;
+a.state:hover{
+    color: #ffffff;
 }
+.state{
+    color: #ffffff;
+    padding: 5px 12px;
+}
+.bg_yu{
+    background: #4faeff;
+}
+.bg_zai{
+    background: #ff9933;
+}
+.bg_qing{
+    background: #cccccc;
+}
+.unfold{
+    cursor: pointer;
+}
+.packup{
+    cursor: pointer;
+}
+
