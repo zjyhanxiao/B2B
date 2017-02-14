@@ -2,10 +2,20 @@ $(function () {
     /*$.cookie('mx_token',null);
      $.cookie('mx_secret',null);
      $.cookie('is_admin', null)*/
+    // input 获取焦点时删除错误警告
     $('.user_warp input').focus(function () {
-        $(this).css('border-color', '#ccc')
+        if ($(this).css('border-color') == 'red') {
+            $(this).css('border-color', '#ccc')
+        }
     });
-    $('.user_button button').on('click', function () {
+    // 回车提交数据
+    $(window).keydown(function(event){
+        if(event.keyCode==13){
+            $('.user_button button').click();
+        }
+    });
+    // 点击提交登录信息
+    $('.user_button button').on('click enter', function () {
         $(this).prop('disabled', true)
         if ($('.user_error').html('') != '') {
             $('.user_error').html('')

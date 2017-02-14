@@ -6,6 +6,7 @@ function getUrlParam(name) {
     if (r != null) return unescape(r[2]);
     return null; //返回参数值
 }
+//公用post请求
 var postData = function (opt) {
     $.ajax({
         type: 'post',
@@ -32,7 +33,7 @@ var postData = function (opt) {
         }
     })
 };
-
+//公用get请求
 var getData = function (opt) {
     $.ajax({
         type: 'get',
@@ -61,7 +62,7 @@ var getData = function (opt) {
 };
 
 $(function () {
-    // 验证登录
+    // 验证登录（登录页，首次登录修改密码页，找回密码页，手机找回密码修改页）
     if (window.location.pathname !== '/login.html' &&
         window.location.pathname !== '/firstLogin_reset.html' &&
         window.location.pathname !== '/find_password.html' &&
@@ -73,6 +74,7 @@ $(function () {
             failFn: no_login
         });
     }
+    // 未登录状态跳转至登录页
     function no_login() {
         window.location = '/login.html'
     }
@@ -86,7 +88,7 @@ $(function () {
             // failFn: ''
         })
     });
-
+    // 登出成功，清除本地cookie
     function logout_success() {
         $.cookie('mx_token', null);
         $.cookie('mx_secret', null);
