@@ -61,6 +61,8 @@ var getData = function (opt) {
     })
 };
 
+
+// 验证登录和登出操作
 $(function () {
     // 验证登录（登录页，首次登录修改密码页，找回密码页，手机找回密码修改页）
     if (window.location.pathname !== '/login.html' &&
