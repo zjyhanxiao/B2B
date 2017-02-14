@@ -1,5 +1,5 @@
 $(function () {
-    var phone = getUrlParam('phone');
+    var phone = getUrlParam('phone');  // 取链接带的用户名（手机号）参数
     // input 获取焦点时删除错误警告
     $('.user_warp input').focus(function () {
         if ($(this).css('border-color') == 'red') {
@@ -21,7 +21,7 @@ $(function () {
         var password = $('#password').val();
         var new_password = $('#new_password').val();
         var confirm_password = $('#confirm_password').val();
-        // 密码不能为空
+        // 原始密码不能为空
         if (password == '') {
             $('#password').css('border-color', 'red');
             $('.user_button button').prop('disabled', false);
