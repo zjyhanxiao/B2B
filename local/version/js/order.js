@@ -1,21 +1,20 @@
 $(function () {
     // 获取cookie
-    var is_admin = $.cookie('is_admin'),
-        mx_secret = $.cookie('mx_secret'),
+    var mx_secret = $.cookie('mx_secret'),
         mx_token = $.cookie('mx_token');
 
     // 如果是主渠道 ，筛选条件显示投资顾问，订单列表显示投资顾问，否则不显示
-    if (is_admin == 'true') {
+    if (is_admin) {
         $('.adviser').html('<label for="adviser">投资顾问</label>' +
             '<input type="text" class="form-control" id="adviser" placeholder="投资顾问">');
         $('.order-list thead').html(
             '<th>订单号</th>' +
             '<th>产品</th>' +
             '<th>投资人</th>' +
-            '<th>金额</th>' +
-            '<th>投资顾问</th>' +
-            '<th>状态</th>' +
-            '<th>投资日期</th>'
+            '<th style="width: 4em;">金额</th>' +
+            '<th style="width: 5em;">投资顾问</th>' +
+            '<th style="width: 6em;">状态</th>' +
+            '<th style="width: 6em;">投资日期</th>'
         )
     } else {
         $('.adviser').html('');
@@ -23,10 +22,10 @@ $(function () {
             '<th>订单号</th>' +
             '<th>产品</th>' +
             '<th>投资人</th>' +
-            '<th>金额</th>' +
+            '<th style="width: 5em;">金额</th>' +
             // '<th>投资顾问</th>' +
-            '<th>状态</th>' +
-            '<th>投资日期</th>'
+            '<th style="width: 5em;">状态</th>' +
+            '<th style="width: 5em;">投资日期</th>'
         )
     }
 
@@ -39,6 +38,8 @@ $(function () {
         data.user = getUrlParam('user')
         data.product = getUrlParam('product')
         data.channel_advisor_name = getUrlParam('channel_advisor_name');
+        var status = "not_commit, not_received, start_audit, audit_failed, audit_success, start_interest";
+        data.status = status;
         getOrderList(data);
     }
     // 选择日期范围
@@ -55,20 +56,16 @@ $(function () {
         $('#product').val('');
         $('#invest-date').val('');
         $('.checkbox input[type="checkbox"]').each(function (i, item) {
-            if (i < 7) { // 默认显示前6项
-                if ($(item).attr('checked') == false) {
-                    $(item).prop('checked', true)
-                }
+            if (i < 6) { // 默认显示前6项
+                $(item).prop('checked', true)
             } else {
-                if ($(item).attr('checked') == true) {
-                    $(item).prop('checked', false)
-                }
+                $(item).prop('checked', false)
             }
         });
         return false;
     });
     $('.search').on('click', function () {
-        $(this).prop('disabled',true);
+        $(this).prop('disabled', true);
         var data = {}, arr = [];
         var checkedBox = $('.checkbox input[type="checkbox"]:checked'); //获取选中的筛选条件checkbox
         $.each(checkedBox, function () {
@@ -97,13 +94,14 @@ $(function () {
             failFn: order_fail
         });
     }
+
     // 获取订单列表成功回调
     function order_list(data) {
         if (data.body && data.body.length > 0) {
             var jsonData = $.grep(data.body, function (n, i) {
                 return i > 10;
             }, true);
-            if (is_admin == 'true') {// 管理员和客户分别渲染不同数据
+            if (is_admin) {// 管理员和客户分别渲染不同数据
                 admin_order_list(jsonData)
             } else {
                 non_admin_order_list(jsonData)
@@ -111,7 +109,7 @@ $(function () {
         } else {
             $('.order-list tbody').html('无数据！')
         }
-        $('.search').prop('disabled',false);
+        $('.search').prop('disabled', false);
     }
 
     // 写入管理员的订单列表信息
@@ -155,13 +153,13 @@ $(function () {
             }
             html +=
                 '<tr>' +
-                '<td class="text-left"><a href="/orderDetails.html?order_number=' + order_number + '">' + order_number + '</a></td>' +
-                '<td class="text-left">' + product_number + ' ' + product_name + '</td>' +
-                '<td class="text-left">' + first_name + ' ' + last_name + phone + '</td>' +
-                '<td style="{width: 5em;}">' + invest_amount + '</td>' +
-                '<td style="{width: 5em;}">' + advisor_name + '</td>' +
-                '<td style="{width: 5em;}">' + fa_investment_status + '</td>' +
-                '<td style="{width: 5em;}">' + created_at + '</td>' +
+                '<td><a href="/orderDetails.html?order_number=' + order_number + '">' + order_number + '</a></td>' +
+                '<td>' + product_number + ' ' + product_name + '</td>' +
+                '<td>' + first_name + ' ' + last_name + phone + '</td>' +
+                '<td>' + invest_amount + '</td>' +
+                '<td>' + advisor_name + '</td>' +
+                '<td>' + fa_investment_status + '</td>' +
+                '<td>' + created_at + '</td>' +
                 '</tr>'
         })
         $('.order-list tbody').html(html);
@@ -209,13 +207,13 @@ $(function () {
             }
             html +=
                 '<tr>' +
-                '<td class="text-left"><a href="/orderDetails.html?order_number=' + order_number + '">' + order_number + '</a></td>' +
-                '<td class="text-left">' + product_number + ' ' + product_name + '</td>' +
-                '<td class="text-left">' + first_name + ' ' + last_name + phone + '</td>' +
-                '<td style="{width: 5em;}">' + invest_amount + '</td>' +
-                '<td style="{width: 5em;}">' + advisor_name + '</td>' +
-                '<td style="{width: 5em;}">' + fa_investment_status + '</td>' +
-                '<td style="{width: 5em;}">' + created_at + '</td>' +
+                '<td><a href="/orderDetails.html?order_number=' + order_number + '">' + order_number + '</a></td>' +
+                '<td>' + product_number + ' ' + product_name + '</td>' +
+                '<td>' + first_name + ' ' + last_name + phone + '</td>' +
+                '<td>' + invest_amount + '</td>' +
+                '<td>' + advisor_name + '</td>' +
+                '<td>' + fa_investment_status + '</td>' +
+                '<td>' + created_at + '</td>' +
                 '</tr>'
         })
         $('.order-list tbody').html(html);
@@ -223,7 +221,7 @@ $(function () {
 
     //  获取订单失败执行
     function order_fail(res) {
-        $('.search').prop('disabled',false);
+        $('.search').prop('disabled', false);
         alert(res.msg)
     }
 });

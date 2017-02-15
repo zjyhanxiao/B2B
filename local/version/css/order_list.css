@@ -71,9 +71,9 @@
 }
 .order-list th,.order-list td{
     border: 1px solid #ccc;
+    text-align: center;
 }
 .order-list th{
-    text-align: center;
     padding: 16px 0;
     font-size: 18px;
     color: #223976;
@@ -85,5 +85,7 @@
     color: #555;
 }
 .order-list td a{
+    display: inline-block;
+    text-align: left;
     color: #159bd6;
 }

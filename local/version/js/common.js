@@ -81,7 +81,7 @@ $(function () {
         });
     }
     function is_login(res) {
-        is_admin = res.body.is_admin;
+        is_admin = res.body;
     }
 
     // 未登录状态跳转至登录页

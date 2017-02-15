@@ -59,7 +59,8 @@ gulp.task('first_include', function() {
 // second_include
 gulp.task('second_include', function() {
     gulp.src(['../dev/html/**'])
-        .pipe(replaceSrc('http://localhost:8080', 'http://192.168.1.109:8080'))
+        // .pipe(replaceSrc('http://localhost:8080', 'http://192.168.1.109:8080'))
+        .pipe(replaceSrc('http://localhost:8080', 'https://zion.meixincn.com'))
         .pipe(gulp.dest('../dev/html'));
 });
 
