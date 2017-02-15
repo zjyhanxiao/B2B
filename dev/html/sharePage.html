@@ -10,18 +10,64 @@
 
 <style>
     #main{
-        width: 1200px;
-        background: red;
-        height: 20px;
+        width: 1000px;
         margin: 0 auto;
+    }
+    .invest{
+        float: right;
+    }
+    .product_n{
+        margin-bottom: 10px;
+    }
+    .ditch{
+        margin-bottom: 10px;
     }
     @media (max-width: 992px) {
         #main{
-            width: 100%;
-            height: 100vh;
+            width: 90%;
+            margin: 5%;
         }
-        button{
+
+        .invest{
+            width: 100%;
+        }
+        .product_explain{
+            width: 100%;
+        }
+        .table1{
+            width: 100%;
+            text-align: center;
+            border: 1px solid #dddddd;
+            border-bottom: none;
+            box-sizing: border-box;
+        }
+        .table_th td{
+            height: 40px;
+            width: 33.33%;
+        }
+        .table2{
+            width: 100%;
+            border: 1px solid #dddddd;
+            border-top: none;
+            box-sizing: border-box;
+        }
+        .table2 tr{
+        }
+        .table2 tr td{
             display: block;
+            border: none;
+            height: auto;
+            width: 100%;
+            margin: 0 5%;
+        }
+        .table2 tr td:first-child{
+            font-weight: 600;
+            text-align: left;
+        }
+        .table2 tr td p{
+            width: 90%;
+            line-height: 26px;
+            margin-left: 0px;
         }
     }
 
@@ -30,9 +76,65 @@
 <body>
     <div id="main">
         <div class="head">
-            <p class="head_left"><span style="font-size: 20px;color: #223976">安心定期五期 AD20170101</span>&nbsp;&nbsp;&nbsp;<a href="" class="state bg_yu">预售</a></p>
-            <button>立即投资</button>
+            <div class="head_left">
+                <p class="product_n"><span style="font-size: 18px;color: #223976">安心定期五期 AD20170101</span>&nbsp;&nbsp;&nbsp;<a href="" class="state bg_yu">预售</a></p>
+                <p class="ditch">海洋金融——张超 （12345678901）</p>
+            </div>
+            <p class="invest"><button type="button" class="btn btn-primary">立即投资</button></p>
         </div>
+        <div class="product_explain">
+            <table class="table1">
+                <tr class="table_th">
+                    <td class="color_223976">8+10%</td>
+                    <td class="color_223976">18个月</td>
+                    <td class="color_223976">$10000</td>
+                </tr>
+                <tr class="table_th">
+                    <td>预计年化</td>
+                    <td>投资期限</td>
+                    <td>起投金额</td>
+                </tr>
+            </table>
+            <table class="table2">
+                <tr>
+                    <td>项目类型</td>
+                    <td><p>投资期限投资期限投资期限投资期限投资期限</p></td>
+                </tr>
+                <tr>
+                    <td>项目周期</td>
+                    <td><p>投资期限投资期限投资期限投资期限投资期限</p></td>
+                </tr>
+                <tr>
+                    <td>投资期限</td>
+                    <td><p>投资期限投资期限投资期限投资期限投资期限</p></td>
+                </tr>
+                <tr>
+                    <td>预计收益</td>
+                    <td><p>投资期限投资期限投资期限投资期限投资期限</p></td>
+                </tr>
+                <tr>
+                    <td>风控措施</td>
+                    <td>
+                        <p>投资期限投资期限投资期限投资期限投资期限</p>
+                        <p>投资期限投资期限投资期限投资期限投资期限</p>
+                        <p>投资期限投资期限投资期限投资期限投资期限</p>
+                        <p>投资期限投资期限投资期限投资期限投资期限</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>投资亮点</td>
+                    <td><p>投资期限投资期限投资期限投资期限投资期限</p></td>
+                </tr>
+                <tr>
+                    <td>产品介绍文件</td>
+                    <td>
+                        <p><a href="">投资期限投资期限投资期限投资期限投资期限</a></p>
+                        <p><a href="">投资期限投资期限投资期限投资期限投资期限</a></p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
     </div>
 
 

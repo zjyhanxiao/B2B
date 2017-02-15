@@ -1,4 +1,7 @@
 body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{margin:0;padding:0;border:0;}
+ul li{
+    list-style: none;
+}
 a{
     text-decoration: none;
 }
@@ -18,6 +21,55 @@ body{
     height: 90px;
     background: url("../img/header_bg.png");
 }
+
+
+
+.header{
+    margin: 0 15px;
+    overflow: hidden;
+}
+.product_logo{
+    margin-top: 20px;
+    width: 150px;
+    height: 40px;
+    float: left;
+}
+.product_logo img{
+    display: block;
+    width: 100%;
+}
+
+.header ul{
+    overflow: hidden;
+    float: right;
+}
+.header ul li{
+    margin: 35px 30px 0;
+    padding: 10px 0;
+    float: left;
+    font-size: 16px;
+    color: #ffffff;
+    cursor: pointer;
+}
+.header ul li a{
+    color: #ffffff;
+}
+.header ul li.user_img{
+
+    margin: 45px 20px 0;
+    padding: 0;
+}
+.header ul li.user_img img{
+    display: block;
+    width: 100%;
+}
+.header ul li.active{
+    border-bottom: 3px solid #ffffff;
+}
+
+
+
+
 #product_content{
     width: 100%;
 }
@@ -110,7 +162,7 @@ a.state:hover{
     text-align: center;
 }
 .table3 tr td p{
-    line-height: 34px;
+    line-height: 36px;
     margin-left: 55px;
 }
 .table3 tr td p button{
@@ -143,6 +195,9 @@ a.state:hover{
     display: block;
     width: 100%;
 }
+.modal-body{
+    margin-left: 30px;
+}
 .modal-body div{
     overflow: hidden;
     margin-bottom: 8px;
@@ -157,4 +212,9 @@ a.state:hover{
 .price{
     color: #999999;
     width: 75%;
+}
+.youku{
+    width: 480px;
+    height: 400px;
+    margin:  30px auto;
 }

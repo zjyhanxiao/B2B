@@ -5,18 +5,30 @@
     <title>Title</title>
 </head>
 <link href="http://localhost:8080/vendor/css/bootstrap.min.css" rel="stylesheet">
-<link href="http://localhost:8080//version/dist/css/productList.min.css" rel="stylesheet">
+<link href="http://localhost:8080/version/dist/css/productList.min.css" rel="stylesheet">
 <body>
     <div id="main">
         <div id="product_head">
-
+            <div class="header">
+                <div class="product_logo">
+                    <img src="http://localhost:8080/version/dist/img/logo.png" alt="">
+                </div>
+                <ul>
+                    <li class="active"><a href="">产品</a></li>
+                    <li><a href="">订单</a></li>
+                    <li><a href="">客户</a></li>
+                    <li class="backstage"><a href="">内部管理</a></li>
+                    <li class="user_img"><a href=""><img src="http://localhost:8080/version/dist/img/user.png" alt=""></a></li>
+                    <li class="user_img"><a href=""><img src="http://localhost:8080/version/dist/img/exit.png" alt=""></a></li>
+                </ul>
+            </div>
         </div>
         <div id="product_content">
             <div class="product_main">
                 <div class="product_chunk1">
                     <h3>计划理财</h3>
                     <div class="chunk1_series1">
-                        <table>
+                        <table class="a">
                             <tr class="table_th">
                                 <td class="w_270">安心计划6个月</td>
                                 <td>预计年化</td>
@@ -57,16 +69,70 @@
                                 <td></td>
                                 <td class="unfold color_223976">查看其他售罄产品 <i class="glyphicon glyphicon-menu-down"></i></td>
                             </tr>
+                            <!--<tr>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <!--<td class="packup color_223976">隐藏其他售罄产品 <i class="glyphicon glyphicon-menu-up"></i></td>-->
+                            <!--</tr>-->
+
+                        </table>
+                        <table class="a">
+                            <tr class="table_th">
+                                <td class="w_270">安心计划6个月</td>
+                                <td>预计年化</td>
+                                <td>投资期限</td>
+                                <td>起息时期</td>
+                                <td>开售日期</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><a href="" class="color_223976">AX12M20170201</a></td>
+                                <td class="color_223976">8%</td>
+                                <td class="color_223976">6个月</td>
+                                <td class="color_223976">2017.03.01</td>
+                                <td class="color_223976">2017.01.26</td>
+                                <td class=""><a href="" class="state bg_yu">预售</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="" class="color_223976">AX12M20170201</a></td>
+                                <td class="color_223976">8%</td>
+                                <td class="color_223976">6个月</td>
+                                <td class="color_223976">2017.03.01</td>
+                                <td class="color_223976">2017.01.26</td>
+                                <td class=""><a href="" class="state bg_zai">在售</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="" class="color_223976">AX12M20170201</a></td>
+                                <td class="color_223976">8%</td>
+                                <td class="color_223976">6个月</td>
+                                <td class="color_223976">2017.03.01</td>
+                                <td class="color_223976">2017.01.26</td>
+                                <td class=""><a href="" class="state bg_qing">售罄</a></td>
+                            </tr>
                             <tr>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td class="packup color_223976">隐藏其他售罄产品 <i class="glyphicon glyphicon-menu-up"></i></td>
+                                <td class="unfold color_223976">查看其他售罄产品 <i class="glyphicon glyphicon-menu-down"></i></td>
                             </tr>
+                            <!--<tr>-->
+                            <!--<td></td>-->
+                            <!--<td></td>-->
+                            <!--<td></td>-->
+                            <!--<td></td>-->
+                            <!--<td></td>-->
+                            <!--<td class="packup color_223976">隐藏其他售罄产品 <i class="glyphicon glyphicon-menu-up"></i></td>-->
+                            <!--</tr>-->
 
                         </table>
+
+
+
                     </div>
                 </div>
             </div>
@@ -76,6 +142,54 @@
 <script src="http://localhost:8080/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
 <script src="http://localhost:8080/vendor/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="http://localhost:8080/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
+<script>
+    $(function () {
 
+        $.ajax({
+            type: 'get',
+            url: 'http://192.168.1.106:8001/channel/product/list',
+            contentType: "application/json; charset=utf-8",
+            headers: {
+                "mx_token": '9fcaaa22af462d0e547b3a5400f07bad',
+                "mx_secret": 'f313af5bd67d4987fa17a3a2d02e0ae9'
+            },
+            success: function (res) {
+                console.log(res)
+            },
+            error:function () {
+
+            },
+
+        })
+
+    })
+
+
+
+
+    //列表卷帘门封装函数
+    function showLsit( obj ) {
+        var b = false;
+        obj.click(function () {
+            if (b){
+                obj.parent().parent().parent().animate({height:"200px"})
+                obj.html('查看其他售罄产品 <i class="glyphicon glyphicon-menu-down"></i>')
+                b = false;
+            }else {
+                obj.parent().parent().parent().animate({height:"600px"})
+                obj.html('隐藏其他售罄产品 <i class="glyphicon glyphicon-menu-up"></i>')
+                b = true;
+            }
+        })
+    }
+
+    //列表卷帘门封装函数
+    showLsit( $('.unfold') );
+
+
+
+
+
+</script>
 
 </html>

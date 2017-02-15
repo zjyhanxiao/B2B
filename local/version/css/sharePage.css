@@ -8,3 +8,42 @@ a:hover{
 body{
     font-family: "微软雅黑";
 }
+.table1{
+    width: 1000px;
+    text-align: center;
+    border: 1px solid #dddddd;
+    border-bottom: none;
+    box-sizing: border-box;
+}
+.table1 .table_th{
+    background: #ebf4ff;
+}
+.table_th td{
+    height: 40px;
+    width: 33.33%;
+}
+.color_223976{
+    font-size: 16px;
+    color: #223976;
+}
+.table2{
+    width: 1000px;
+    border: 1px solid #dddddd;
+    border-top: none;
+    box-sizing: border-box;
+}
+.table2 tr td{
+    border: 1px solid #dddddd;
+    border-top: none;
+    height: 40px;
+    width: 820px;
+}
+.table2 tr td:first-child{
+    font-weight: 600;
+    width: 180px;
+    text-align: center;
+}
+.table2 tr td p{
+    line-height: 34px;
+    margin-left: 55px;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link href="http://localhost:8080/vendor/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://localhost:8080/version/dist/css/customerList.min.css" rel="stylesheet">
+<body>
+<div id="main">
+    <div id="product_head">
+        <div class="header">
+            <div class="product_logo">
+                <img src="http://localhost:8080/version/dist/img/logo.png" alt="">
+            </div>
+            <ul>
+                <li><a href="">产品</a></li>
+                <li><a href="">订单</a></li>
+                <li class="active"><a href="">客户</a></li>
+                <li><a href="">内部管理</a></li>
+                <li class="user_img"><a href=""><img src="http://localhost:8080/version/dist/img/user.png" alt=""></a></li>
+                <li class="user_img"><a href=""><img src="http://localhost:8080/version/dist/img/exit.png" alt=""></a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="product_content">
+        <div class="product_main">
+            <div class="backstageList_head">
+                <p class="backstageList_search">
+                    <input type="text" placeholder="请输入要搜索的内容">
+                    <i class="glyphicon glyphicon-search"></i>
+                </p>
+            </div>
+            <div>
+                <table class="chart_head">
+                    <tr>
+                        <th class="w_160">姓名</th>
+                        <th class="w_175">电话</th>
+                        <th class="w_285">电子邮箱</th>
+                        <th class="w_190">最近投资</th>
+                        <th class="w_160">订单数量</th>
+                        <th class="w_200">总投资金额</th>
+                    </tr>
+                </table>
+                <table class="chart_body">
+                    <tr>
+                        <td class="w_160"><a class="btn" href="">1111111111</a></td>
+                        <td class="w_175">销售员</td>
+                        <td class="w_285">负责人电话</td>
+                        <td class="w_190">负责人邮箱</td>
+                        <td class="w_160"><a href="">21</a></td>
+                        <td class="w_200">总销售金额</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+<script src="http://localhost:8080/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="http://localhost:8080/vendor/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="http://localhost:8080/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
+<script>
+    //添加顾问模态框
+    $('.add_btn').click(function () {
+        $('.add_counselor').modal('show')
+    })
+</script>
+
+</html>

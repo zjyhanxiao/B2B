@@ -67,69 +67,41 @@ body{
 .header ul li.active{
     border-bottom: 3px solid #ffffff;
 }
-
-
-
-
 #product_content{
     width: 100%;
 }
 .product_main{
-    overflow: hidden;
-    margin: 0 15px;
+    width: 1000px;
+    margin: 0 auto;
 }
-.product_main h3{
-    color: #223976;
-    padding: 0 20px;
+.head{
     margin: 30px 0 20px;
-    border-left: 3px solid #223976;
+    overflow: hidden;
 }
-.w_270{
-    width: 270px;
+.head_left{
+    float: left;
 }
-.color_223976{
-    color: #223976;
-}
-table tr td:first-child{
+.head_right{
+    float: right;
     font-size: 18px;
-    color: #223976;
+    color: #159bd6;
 }
-table{
-    border: 1px solid #dddddd;
-    box-sizing: border-box;
+.show_permission{
+    font-size: 14px;
+    color: red;
 }
-table{
+label{
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: 500;
     text-align: center;
 }
-table tr{
-    height: 40px;
+.counselor_info{
+    border: 1px solid #cccccc;
+    box-sizing: border-box;
 }
-table tr td{
-    width: 180px;
+.counselor_info .line50{
+    line-height: 50px;
 }
-.table_th{
-    background: #ebf4ff;
-}
-a.state:hover{
-    color: #ffffff;
-}
-.state{
-    color: #ffffff;
-    padding: 5px 12px;
-}
-.bg_yu{
-    background: #4faeff;
-}
-.bg_zai{
-    background: #ff9933;
-}
-.bg_qing{
-    background: #cccccc;
-}
-.unfold{
-    cursor: pointer;
-}
-.packup{
-    cursor: pointer;
-}
+
 
