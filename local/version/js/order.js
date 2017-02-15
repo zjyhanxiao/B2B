@@ -1,10 +1,10 @@
 $(function () {
 // 回车提交数据
-    $(window).keydown(function (event) {
-        if (event.keyCode == 13) {
-            $('.search').click();
-        }
-    });
+    /*    $(window).keydown(function (event) {
+     if (event.keyCode == 13) {
+     $('.search').click();
+     }
+     });*/
     // 如果是主渠道 ，筛选条件显示投资顾问，订单列表显示投资顾问，否则不显示
     if (is_admin) {
         $('.adviser').html('<label for="adviser">投资顾问</label>' +
@@ -47,11 +47,19 @@ $(function () {
         getOrderList(data);
     } else {  // 从其他页面跳转进来的，请求附带参数的订单数据
         var data = {};
-        data.user = getUrlParam('user')
-        data.product = getUrlParam('product')
-        data.channel_advisor_name = getUrlParam('channel_advisor_name');
-        var status = "not_commit, not_received, start_audit, audit_failed, audit_success, start_interest";
-        data.status = status;
+        var search_user = getUrlParam('user') || '';
+        var search_product = getUrlParam('product') || '';
+        var search_channel_advisor_name = getUrlParam('channel_advisor_name');
+        data.user = search_user;
+        data.product = search_product;
+        data.channel_advisor_name = search_channel_advisor_name;
+        $('#product').val(search_product);
+        $('#user').val(search_user);
+        if (is_admin) {
+            $('#adviser').val(channel_advisor_name);
+        }
+        var search_status = "not_commit, not_received, start_audit, audit_failed, audit_success, start_interest";
+        data.status = search_status;
         getOrderList(data);
     }
     // 选择日期范围
@@ -165,15 +173,15 @@ $(function () {
             }
             html +=
                 '<tr>' +
-                    '<td><a href="/orderDetails.html?order_id=' + item.id + '">' + order_number + '</a></td>' +
-                    '<td>' + product_name + '</td>' +
-                    '<td>' + product_number + '</td>' +
-                    '<td>' + first_name + ' ' + last_name + '</td>' +
-                    '<td>' + phone + '</td>' +
-                    '<td>' + invest_amount + '</td>' +
-                    '<td>' + advisor_name + '</td>' +
-                    '<td>' + fa_investment_status + '</td>' +
-                    '<td>' + created_at + '</td>' +
+                '<td><a href="/orderDetails.html?order_id=' + item.id + '">' + order_number + '</a></td>' +
+                '<td>' + product_name + '</td>' +
+                '<td>' + product_number + '</td>' +
+                '<td>' + first_name + ' ' + last_name + '</td>' +
+                '<td>' + phone + '</td>' +
+                '<td>' + invest_amount + '</td>' +
+                '<td>' + advisor_name + '</td>' +
+                '<td>' + fa_investment_status + '</td>' +
+                '<td>' + created_at + '</td>' +
                 '</tr>'
         })
         $('.order-list tbody').html(html);
