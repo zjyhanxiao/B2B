@@ -1,4 +1,6 @@
 var base_url = 'http://192.168.1.102:8001';
+// 定义用户权限
+var is_admin;
 //获取url中的参数
 function getUrlParam(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
@@ -73,9 +75,15 @@ $(function () {
         getData({
             url: base_url + '/zion/channel_advisor/authentication',
             data: {mx_secret: $.cookie('mx_secret') || '', mx_token: $.cookie('mx_token') || ''},
+            async: false,
+            sucFn: is_login,
             failFn: no_login
         });
     }
+    function is_login(res) {
+        is_admin = res.body.is_admin;
+    }
+
     // 未登录状态跳转至登录页
     function no_login() {
         window.location = '/login.html'
@@ -94,6 +102,5 @@ $(function () {
     function logout_success() {
         $.cookie('mx_token', null);
         $.cookie('mx_secret', null);
-        $.cookie('is_admin', null);
     }
 });
