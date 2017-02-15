@@ -8,6 +8,9 @@ function getUrlParam(name) {
     if (r != null) return unescape(r[2]);
     return null; //返回参数值
 }
+// 获取cookie
+var mx_secret = $.cookie('mx_secret')||'',
+    mx_token = $.cookie('mx_token')||'';
 //公用post请求
 var postData = function (opt) {
     $.ajax({

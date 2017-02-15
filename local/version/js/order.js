@@ -1,35 +1,47 @@
 $(function () {
-    // 获取cookie
-    var mx_secret = $.cookie('mx_secret'),
-        mx_token = $.cookie('mx_token');
-
+// 回车提交数据
+    $(window).keydown(function (event) {
+        if (event.keyCode == 13) {
+            $('.search').click();
+        }
+    });
     // 如果是主渠道 ，筛选条件显示投资顾问，订单列表显示投资顾问，否则不显示
     if (is_admin) {
         $('.adviser').html('<label for="adviser">投资顾问</label>' +
             '<input type="text" class="form-control" id="adviser" placeholder="投资顾问">');
         $('.order-list thead').html(
             '<th>订单号</th>' +
-            '<th>产品</th>' +
-            '<th>投资人</th>' +
+            '<th style="width: 130px;">产品名称</th>' +
+            '<th>产品编号</th>' +
+            '<th>投资人姓名</th>' +
+            '<th style="width: 132px;">投资人电话</th>' +
             '<th style="width: 4em;">金额</th>' +
             '<th style="width: 5em;">投资顾问</th>' +
-            '<th style="width: 6em;">状态</th>' +
-            '<th style="width: 6em;">投资日期</th>'
+            '<th style="width: 100px;">状态</th>' +
+            '<th style="width: 100px;">投资日期</th>'
         )
     } else {
         $('.adviser').html('');
         $('.order-list thead').html(
             '<th>订单号</th>' +
-            '<th>产品</th>' +
-            '<th>投资人</th>' +
+            '<th>产品名称</th>' +
+            '<th>产品编号</th>' +
+            '<th>投资人姓名</th>' +
+            '<th style="width: 132px;">投资人电话</th>' +
             '<th style="width: 5em;">金额</th>' +
-            // '<th>投资顾问</th>' +
-            '<th style="width: 5em;">状态</th>' +
-            '<th style="width: 5em;">投资日期</th>'
+            '<th style="width: 100px;">状态</th>' +
+            '<th style="width: 100px;">投资日期</th>'
         )
     }
 
     if (window.location.search == '') {  // 不是从其他页面跳转进来的，默认请求该所有订单数据
+        $('.checkbox input[type="checkbox"]').each(function (i, item) {
+            if (i < 6) { // 默认显示前6项
+                $(item).prop('checked', true)
+            } else {
+                $(item).prop('checked', false)
+            }
+        });
         var status = "not_commit, not_received, start_audit, audit_failed, audit_success, start_interest";
         var data = {status: status};
         getOrderList(data);
@@ -99,7 +111,7 @@ $(function () {
     function order_list(data) {
         if (data.body && data.body.length > 0) {
             var jsonData = $.grep(data.body, function (n, i) {
-                return i > 100;
+                return i > 2000;
             }, true);
             if (is_admin) {// 管理员和客户分别渲染不同数据
                 admin_order_list(jsonData)
@@ -118,7 +130,7 @@ $(function () {
         var html = '';
         $.each(data, function (i, item) {
             var advisor_name = item.advisor_name != null ? item.advisor_name : '',
-                phone = item.phone != null ? ' [ ' + item.phone + ' ]' : '',
+                phone = item.phone != null ? item.phone : '',
                 product_number = item.product_number != null ? item.product_number : '',
                 product_name = item.product_name != null ? item.product_name : '',
                 invest_amount = item.invest_amount != null ? item.invest_amount : '',
@@ -153,13 +165,15 @@ $(function () {
             }
             html +=
                 '<tr>' +
-                '<td><a href="/orderDetails.html?order_number=' + order_number + '">' + order_number + '</a></td>' +
-                '<td>' + product_number + ' ' + product_name + '</td>' +
-                '<td>' + first_name + ' ' + last_name + phone + '</td>' +
-                '<td>' + invest_amount + '</td>' +
-                '<td>' + advisor_name + '</td>' +
-                '<td>' + fa_investment_status + '</td>' +
-                '<td>' + created_at + '</td>' +
+                    '<td><a href="/orderDetails.html?order_id=' + item.id + '">' + order_number + '</a></td>' +
+                    '<td>' + product_name + '</td>' +
+                    '<td>' + product_number + '</td>' +
+                    '<td>' + first_name + ' ' + last_name + '</td>' +
+                    '<td>' + phone + '</td>' +
+                    '<td>' + invest_amount + '</td>' +
+                    '<td>' + advisor_name + '</td>' +
+                    '<td>' + fa_investment_status + '</td>' +
+                    '<td>' + created_at + '</td>' +
                 '</tr>'
         })
         $('.order-list tbody').html(html);
@@ -171,8 +185,7 @@ $(function () {
         var html = '';
         $.each(data, function (i, item) {
             var
-                advisor_name = item.advisor_name != null ? item.advisor_name : '',
-                phone = item.phone != null ? ' [ ' + item.phone + ' ]' : '',
+                phone = item.phone != null ? item.phone : '',
                 product_number = item.product_number != null ? item.product_number : '',
                 product_name = item.product_name != null ? item.product_name : '',
                 invest_amount = item.invest_amount != null ? item.invest_amount : '',
@@ -207,11 +220,12 @@ $(function () {
             }
             html +=
                 '<tr>' +
-                '<td><a href="/orderDetails.html?order_number=' + order_number + '">' + order_number + '</a></td>' +
-                '<td>' + product_number + ' ' + product_name + '</td>' +
-                '<td>' + first_name + ' ' + last_name + phone + '</td>' +
+                '<td><a href="/orderDetails.html?order_id=' + item.id + '">' + order_number + '</a></td>' +
+                '<td>' + product_name + '</td>' +
+                '<td>' + product_number + '</td>' +
+                '<td>' + first_name + ' ' + last_name + '</td>' +
+                '<td>' + phone + '</td>' +
                 '<td>' + invest_amount + '</td>' +
-                '<td>' + advisor_name + '</td>' +
                 '<td>' + fa_investment_status + '</td>' +
                 '<td>' + created_at + '</td>' +
                 '</tr>'
