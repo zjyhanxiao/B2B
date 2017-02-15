@@ -72,8 +72,6 @@ $(function () {
     // 首次登录密码重置成功，自动触发登录
     function reset_success(res) {
         $('.user_button button').prop('disabled', false);
-        var user_name = $('#user_name').val();
-        var password = $('#password').val();
         postData({
             url: base_url + '/zion/channel_advisor/login',
             data: {phone: phone, password: $('#new_password').val()},
@@ -85,7 +83,6 @@ $(function () {
     function login_success(res) {
         $.cookie('mx_token', res.body.mx_token);
         $.cookie('mx_secret', res.body.mx_secret);
-        $.cookie('is_admin', res.body.is_admin);
         window.location = '/productList.html'
     }
 });

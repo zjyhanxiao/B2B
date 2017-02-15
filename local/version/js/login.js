@@ -2,7 +2,6 @@ $(function () {
     // 进登录页面，先清除本地cookie
     $.cookie('mx_token', null);
     $.cookie('mx_secret', null);
-    $.cookie('is_admin', null)
     // input 获取焦点时删除错误警告
     $('.user_warp input').focus(function () {
         if ($(this).css('border-color') == 'red') {
