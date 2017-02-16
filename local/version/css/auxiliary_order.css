@@ -98,7 +98,7 @@ body {
 
 #update_order {
     border: none;
-    width:120px;
+    width: 120px;
     height: 44px;
     border-radius: 22px;
     color: #fff;
@@ -110,6 +110,10 @@ body {
 @media (max-width: 767px) {
     .invest_value, .user-info, .document-info, .signature {
         width: 100%;
+    }
+
+    .user-info {
+        margin-top: 15px;
     }
 
     .hide-info {
