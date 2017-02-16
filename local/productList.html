@@ -207,36 +207,30 @@
 
     })
 
+    window.onload = function () {
 
-    $('body').on('click','.unfold', function () {
-        $(this).closest('table').find('tr.big').show();
-        $(this).html('隐藏其他售罄产品 <i class="glyphicon glyphicon-menu-up"></i>');
-        $(this).removeClass('unfold').addClass('fold');
-    }) ;
-    $('body').on('click','.fold', function () {
-        $(this).closest('table').find('tr.big').hide();
-        $(this).html('隐藏其他售罄产品 <i class="glyphicon glyphicon-menu-down"></i>');
-        $(this).removeClass('fold').addClass('unfold');
-    })
+        if (!is_admin){
+            $('.backstage').hide();
+        }else {
+            $('.backstage').show();
+        }
 
-    //列表卷帘门封装函数
-    function showLsit( obj ) {
-        var b = false;
-        obj.click(function () {
-            if (b){
-                obj.parent().parent().parent().animate({height:"200px"})
-                obj.html('查看其他售罄产品 <i class="glyphicon glyphicon-menu-down"></i>')
-                b = false;
-            }else {
-                obj.parent().parent().parent().animate({height:"600px"})
-                obj.html('隐藏其他售罄产品 <i class="glyphicon glyphicon-menu-up"></i>')
-                b = true;
-            }
+        //列表显示隐藏函数
+        $('body').on('click','.unfold', function () {
+            $(this).closest('table').find('tr.big').show();
+            $(this).html('隐藏其他售罄产品 <i class="glyphicon glyphicon-menu-up"></i>');
+            $(this).removeClass('unfold').addClass('fold');
+        }) ;
+        $('body').on('click','.fold', function () {
+            $(this).closest('table').find('tr.big').hide();
+            $(this).html('隐藏其他售罄产品 <i class="glyphicon glyphicon-menu-down"></i>');
+            $(this).removeClass('fold').addClass('unfold');
         })
+
     }
 
-    //列表卷帘门封装函数
-    showLsit( $('.unfold') );
+
+
 
 
 

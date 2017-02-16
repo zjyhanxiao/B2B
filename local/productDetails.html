@@ -17,7 +17,7 @@
                     <li class="active"><a href="">产品</a></li>
                     <li><a href="">订单</a></li>
                     <li><a href="">客户</a></li>
-                    <li><a href="">内部管理</a></li>
+                    <li class="backstage"><a href="">内部管理</a></li>
                     <li class="user_img"><a href=""><img src="http://localhost:8080/version/dist/img/user.png" alt=""></a></li>
                     <li class="user_img"><a href=""><img src="http://localhost:8080/version/dist/img/exit.png" alt=""></a></li>
                 </ul>
@@ -128,8 +128,8 @@
                         <tr>
                             <td>自助下单</td>
                             <td>
-                                <p>投资顾问&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <select style="height: 28px;margin-top: 5px" name="selectAge" id="select1">
+                                <p class="backstage1">投资顾问&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <select style="height: 28px;margin-top: 5px"  id="select1">
                                         <option value="1">F2CG8M01 - 海洋金融</option>
                                     </select>
                                 </p>
@@ -142,8 +142,8 @@
                         <tr>
                             <td>辅助下单</td>
                             <td>
-                                <p>投资顾问&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <select style="height: 28px" name="selectAge" id="select2">
+                                <p class="backstage2">投资顾问&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <select style="height: 28px"  id="select2">
                                         <option value="1">F2CG8M01 - 海洋金融</option>
                                     </select>&nbsp;&nbsp;&nbsp;&nbsp;
                                     <button type="button" class="btn btn-primary" style="outline:none;">下单</button>
@@ -247,7 +247,7 @@
         $.ajax({
             type: 'get',
             url: base_url + '/channel/product/info',
-            data: {'product_id':GetQueryString('product_id')},
+            data: {'product_id':getUrlParam('product_id')},
             contentType: "application/json; charset=utf-8",
             headers: {
                 "mx_token": $.cookie('mx_token'),
@@ -329,7 +329,7 @@
         $.ajax({
             type: 'get',
             url: base_url + '/channel/product/document',
-            data: {'product_id':GetQueryString('product_id')},
+            data: {'product_id':getUrlParam('product_id')},
             contentType: "application/json; charset=utf-8",
             headers: {
                 "mx_token": $.cookie('mx_token'),
@@ -364,7 +364,7 @@
         $.ajax({
             type: 'get',
             url: base_url + '/channel/product/payment',
-            data: {'product_id':GetQueryString('product_id')},
+            data: {'product_id':getUrlParam('product_id')},
             contentType: "application/json; charset=utf-8",
             headers: {
                 "mx_token": $.cookie('mx_token'),
@@ -409,7 +409,7 @@
                 $.each(res.body,function (i,item) {
                     selecthtml1 += '<option value="'+item.code+'">'+item.code+' - '+item.name+'</option>'
                 })
-                $('.sharelink').attr("value","https://invest.meixinglobal.com/invest.html?product_id="+GetQueryString('product_id')+"&partner_id="+res.body[0].code)
+                $('.sharelink').attr("value","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code)
                 $('#select1').html(selecthtml1)
                 $('#select2').html(selecthtml1)
             },
@@ -420,26 +420,37 @@
     })
 
 
-    //分享模态框
-    $('.share').click(function () {
-        $('#share').modal('show')
-    })
-    //入金模态框
-    $('body').on('click','.payway', function (){
-        $('.bs-example-modal-lg').modal('show')
-    })
-    //分享了链接改变
-    $('#select1').change(function () {
-        $('.sharelink').attr("value","https://invest.meixinglobal.com/invest.html?product_id="+GetQueryString('product_id')+"&partner_id="+$('#select1').val())
-    })
+    window.onload = function () {
 
+        if (!is_admin){
+            $('.backstage').hide();
+            $('.backstage1').hide();
+            $('.backstage2').hide();
 
+        }else {
+            $('.backstage').show();
+            $('.backstage1').show();
+            $('.backstage2').show();
 
-    function GetQueryString(name) {
-        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if(r!=null)return  unescape(r[2]); return null;
+        }
+
+        //分享模态框
+        $('.share').click(function () {
+            $('#share').modal('show')
+        })
+        //入金模态框
+        $('body').on('click','.payway', function (){
+            $('.bs-example-modal-lg').modal('show')
+        })
+        //分享了链接改变
+        $('#select1').change(function () {
+            $('.sharelink').attr("value","https://invest.meixinglobal.com/invest.html?product_id="+GetQueryString('product_id')+"&partner_id="+$('#select1').val())
+        })
+
     }
+
+
+
 </script>
 
 </html>
