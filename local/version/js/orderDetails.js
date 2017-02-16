@@ -33,8 +33,8 @@ $(function () {
                 '<input type="text" id="cancel-order-number" class="form-control">'
             );
             $('#myModal').modal('show');
-            $('#cancel_order').on('click',function () {
-                $(this).prop('disabled',true);
+            $('#cancel_order').on('click', function () {
+                $(this).prop('disabled', true);
                 getData({
                     url: base_url + '/zion/order/cancel',
                     data: {order_number: order_number},
@@ -48,8 +48,9 @@ $(function () {
             function cancelSuc() {
                 window.location.reload();
             }
+
             function cancelFail(res) {
-                $('#cancel_order').prop('disabled',false);
+                $('#cancel_order').prop('disabled', false);
                 alert(res.msg);
             }
         }
@@ -73,6 +74,7 @@ $(function () {
                 fa_investment_status = d.fa_investment_status != null ? d.fa_investment_status : '',
                 product_name = d.product_name != null ? d.product_name : '',
                 product_number = d.product_number != null ? d.product_number : '',
+                product_id = d.product_id != null ? d.product_id : '',
                 first_name = d.first_name != null ? d.first_name : '',
                 last_name = d.last_name != null ? d.last_name : '',
                 invest_amount = d.invest_amount != null ? '$' + d.invest_amount : 0,
@@ -117,7 +119,7 @@ $(function () {
                 '<div class="order-product-detail">' +
                 '<div class="col-md-6">' +
                 '<label>产品</label>' +
-                '<a href="javascript:;">' + product_name + ' ' + product_number + '</a>' +
+                '<a href="productDetails.html?product_id="' + product_id + '>' + product_name + ' ' + product_number + '</a>' +
                 '</div>' +
                 '<div class="col-md-6">' +
                 '<label>投资顾问</label>' +
