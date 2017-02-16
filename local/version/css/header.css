@@ -55,3 +55,13 @@ a:hover{
 .header ul li.active{
     border-bottom: 3px solid #ffffff;
 }
+.myAccount a{
+    display: block;
+    width: 26px;
+    height: 25px;
+    background: url("../img/user_k.png");
+}
+.myAccount a.active_bg{
+    background: url("../img/user.png");
+}
+

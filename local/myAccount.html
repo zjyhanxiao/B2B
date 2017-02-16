@@ -53,6 +53,8 @@
 
     window.onload = function () {
 
+        $('.myAccount').find('a').addClass('active_bg');
+
         if (!is_admin) {
             $('.backstage').hide();
         } else {
