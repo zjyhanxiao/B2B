@@ -1,4 +1,5 @@
 $(function () {
+    $('#product_head ul li[data-name="订单"]').addClass('active');
 // 回车提交数据
     /*    $(window).keydown(function (event) {
      if (event.keyCode == 13) {

@@ -1,4 +1,5 @@
 $(function () {
+    $('#product_head ul li[data-name="订单"]').addClass('active');
     var order_id = getUrlParam('order_id');
     var product_id = '', order_number;
     // 取订单信息
