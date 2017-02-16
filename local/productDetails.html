@@ -48,7 +48,7 @@
                     </div>
 
                 </div>
-                <p style="margin-bottom: 20px"><a href="">查看订单</a></p>
+                <p style="margin-bottom: 20px"><a class="vieworder" href="">查看订单</a></p>
                 <div class="product_explain">
                     <table class="table1 mar0">
                         <tr class="table_th">
@@ -260,6 +260,7 @@
                 console.log(res.body)
                 //头部信息
                 var product_name = res.body.name;
+                $('.vieworder').attr('href','/order.html?product='+res.body.number)
                 $('#name_number').html(res.body.name+' '+res.body.number)
                 if (res.body.status == 'FOR_APPOINTMENT'){
                     $('#state').html('预售').addClass('bg_yu')
