@@ -12,10 +12,10 @@ body {
 }
 
 .invest_value {
-    font-size: 18px;
+    font-size: 24px;
     width: 40%;
-    line-height: 6;
-    height: 6em;
+    line-height: 5;
+    height: 5em;
     margin: auto;
     color: #335095;
     border: 1px solid #ccc;
