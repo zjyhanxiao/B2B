@@ -7,22 +7,8 @@
 <link href="http://localhost:8080/vendor/css/bootstrap.min.css" rel="stylesheet">
 <link href="http://localhost:8080/version/dist/css/backstageList.min.css" rel="stylesheet">
 <body>
+@@include('includes/header.html')
 <div id="main">
-    <div id="product_head">
-        <div class="header">
-            <div class="product_logo">
-                <img src="http://localhost:8080/version/dist/img/logo.png" alt="">
-            </div>
-            <ul>
-                <li><a href="">产品</a></li>
-                <li><a href="">订单</a></li>
-                <li><a href="">客户</a></li>
-                <li class="active"><a href="">内部管理</a></li>
-                <li class="user_img"><a href=""><img src="http://localhost:8080/version/dist/img/user.png" alt=""></a></li>
-                <li class="user_img"><a href=""><img src="http://localhost:8080/version/dist/img/exit.png" alt=""></a></li>
-            </ul>
-        </div>
-    </div>
     <div id="product_content">
         <div class="product_main">
             <div class="backstageList_head">
@@ -138,6 +124,8 @@
 <script src="http://localhost:8080/vendor/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="http://localhost:8080/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
 <script>
+
+    $('#product_head ul li[data-name="内部管理"]').addClass('active');
     //添加顾问模态框
     $('.add_btn').click(function () {
         $('.add_counselor').modal('show')
