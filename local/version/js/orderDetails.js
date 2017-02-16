@@ -118,7 +118,7 @@ $(function () {
                 '<div class="order-product-detail">' +
                 '<div class="col-md-6">' +
                 '<label>产品</label>' +
-                '<a href="productDetails.html?product_id=' + product_id + '">' + product_name + ' ' + product_number + '</a>' +
+                '<a href="/productDetails.html?product_id=' + product_id + '">' + product_name + ' ' + product_number + '</a>' +
                 '</div>' +
                 '<div class="col-md-6">' +
                 '<label>投资顾问</label>' +
