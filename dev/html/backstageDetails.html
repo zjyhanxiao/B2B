@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link href="http://zion.meixincn.com/vendor/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://zion.meixincn.com/version/dist/css/backstageDetails.min.css" rel="stylesheet">
+<body>
+<div id="main">
+    <div id="product_head">
+        <div class="header">
+            <div class="product_logo">
+                <img src="http://zion.meixincn.com/version/dist/img/logo.png" alt="">
+            </div>
+            <ul>
+                <li><a href="">产品</a></li>
+                <li><a href="">订单</a></li>
+                <li><a href="">客户</a></li>
+                <li class="active"><a href="">内部管理</a></li>
+                <li class="user_img"><a href=""><img src="http://zion.meixincn.com/version/dist/img/user.png" alt=""></a></li>
+                <li class="user_img"><a href=""><img src="http://zion.meixincn.com/version/dist/img/exit.png" alt=""></a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="product_content">
+        <div class="product_main">
+            <div class="head">
+                <p class="head_left"><span style="font-size: 20px;color: #223976;border-left: 3px solid #223967;padding: 0 20px">投资顾问&nbsp;&nbsp;&nbsp;张启靓&nbsp;&nbsp;(123456)</span></p>
+                <span class="head_right show_permission">登录权限已暂停</span>
+            </div>
+            <p style="margin-bottom: 20px"><a href="">查看订单</a></p>
+            <div class="counselor_info">
+
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-5 line50">
+                        <label>电话:</label>&nbsp;&nbsp;&nbsp;
+                        <span id="phone">1234556789</span>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-5 line50">
+                        <label>邮箱:</label>&nbsp;&nbsp;&nbsp;
+                        <span id="email">1234556789@qq.com</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-5 line50">
+                        <label>订单数量:</label>&nbsp;&nbsp;&nbsp;
+                        <span id="number"> <a>123</a> </span>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-5 line50">
+                        <label>总销售金额:</label>&nbsp;&nbsp;&nbsp;
+                        <span id="price"> <a>$123</a> </span>
+                    </div>
+                </div>
+
+            </div>
+            <p class="" style="margin:20px 0 20px;"> <a class="change" style="cursor: pointer">修改信息</a></p>
+            <p style="margin-bottom: 20px;"> <a class="reset" style="cursor: pointer">重置密码</a></p>
+            <p style="margin-bottom: 20px;"> <a class="" style="cursor: pointer">开启登录权限</a></p>
+            <!--修改信息模态框-->
+            <div class="modal fade bs-example-modal-lg change_info" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">修改信息</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row" style="margin: 15px">
+                                <div class="col-sm-6">
+                                    <label for="name" class="col-sm-2 control-label text-left">姓名</label>
+                                    <div class="col-sm-9 relative">
+                                        <input type="text" style="height: 30px" class="form-control" id="name">
+                                        <p class="caution first_name_caution" style="display: block">请填写投资顾问姓名</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="col-sm-1"></div>
+                                    <label for="code" class="col-sm-2 control-label text-left">编码</label>
+                                    <div class="col-sm-9 relative">
+                                        <span style="display: block;height: 30px;line-height: 30px" id="code">221123</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin: 15px">
+                                <div class="col-sm-6">
+                                    <label for="phone" class="col-sm-2 control-label text-left">电话</label>
+                                    <div class="col-sm-9 relative">
+                                        <input type="text" style="height: 30px" class="form-control" id="phone">
+                                        <p class="caution first_name_caution" style="display: block">请填写投资顾问电话</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="col-sm-1"></div>
+                                    <label for="email" class="col-sm-2 control-label text-left">邮箱</label>
+                                    <div class="col-sm-9 relative">
+                                        <input type="text" style="height: 30px" class="form-control" id="email">
+
+                                        <p class="caution first_name_caution" style="display: block">请填写投资顾问邮箱</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin: 30px 0 20px 0">
+                                <div class="col-sm-6 text-center">
+                                    <button type="button" class="btn btn-default" style="width: 100px;height: 34px;outline: none">取消</button>
+                                </div>
+                                <div class="col-sm-6 text-center">
+                                    <button type="button" class="btn btn-primary" style="width: 100px;height: 34px;outline: none">保存</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--重置密码模态框-->
+            <div class="modal fade bs-example-modal-lg reset_password" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">重置密码</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row" style="margin: 15px">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-12">
+                                        <p class="counselor-name"> 张超 （12234567543）  </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin: 15px">
+                                <div class="col-sm-6">
+                                    <label for="password" class="col-sm-2 control-label text-left">密码</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" style="height: 30px" class="form-control" id="password">
+                                        <p class="caution _caution" style="color: red">注：用户首次登陆后将被强制修改密码</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin: 15px">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-12 send_email">
+                                        <input type="checkbox"> 把登录信息发至邮箱：chao.zhang@haiyangfinance.com
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin: 15px">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-12 send_phone">
+                                        <input type="checkbox"> 把登录信息发至电话：13827382838
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin: 30px 0 20px 0">
+                                <div class="col-sm-6 text-center">
+                                    <button type="button" class="btn btn-default" style="width: 100px;height: 34px;outline: none">取消</button>
+                                </div>
+                                <div class="col-sm-6 text-center">
+                                    <button type="button" class="btn btn-primary" style="width: 100px;height: 34px;outline: none">保存</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+</body>
+<script src="http://zion.meixincn.com/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="http://zion.meixincn.com/vendor/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="http://zion.meixincn.com/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
+<script>
+    //修改模态框
+    $('.change').click(function () {
+        $('.change_info').modal('show')
+    })
+    //重置密码模态框
+    $('.reset').click(function () {
+        $('.reset_password').modal('show')
+    })
+</script>
+
+</html>

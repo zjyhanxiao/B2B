@@ -2,9 +2,7 @@ $(function () {
     var phone = getUrlParam('phone');  // 取链接带的用户名（手机号）参数
     // input 获取焦点时删除错误警告
     $('.user_warp input').focus(function () {
-        if ($(this).css('border-color') == 'red') {
             $(this).css('border-color', '#ccc')
-        }
     });
     // 回车提交数据
     $(window).keydown(function (event) {

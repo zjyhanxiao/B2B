@@ -1,5 +1,11 @@
+body{
+    overflow-y: scroll;
+}
 .float-r{
     float: right;
+}
+.container{
+    width: 1230px;
 }
 .row{
     margin-top:15px;
@@ -9,8 +15,9 @@
     font-size: 12px;
 }
 .form-inline label{
-    width: 80px;
+    width: 110px;
     text-align: left;
+    font-weight: normal;
 }
 .form_datetime{
     border: none;
@@ -39,7 +46,7 @@
 .clear-search{
     width: 120px;
     font-size: 14px;
-    padding: 9px 0;
+    padding: 6px 0;
     text-align: center;
     border:1px solid #335095;
     color: #335095;
@@ -53,7 +60,7 @@
 .search{
     width: 120px;
     font-size: 14px;
-    padding: 9px 0;
+    padding: 6px 0;
     text-align: center;
     border:none;
     color: #fff;
@@ -71,19 +78,21 @@
 }
 .order-list th,.order-list td{
     border: 1px solid #ccc;
+    text-align: center;
 }
 .order-list th{
-    text-align: center;
     padding: 16px 0;
-    font-size: 18px;
+    font-size: 16px;
     color: #223976;
     background: #ebf4ff;
 }
 .order-list td{
     font-size: 14px;
-    padding: 13px 8px;
+    padding: 10px 8px;
     color: #555;
 }
 .order-list td a{
+    display: inline-block;
+    text-align: left;
     color: #159bd6;
 }

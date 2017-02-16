@@ -8,6 +8,9 @@ function getUrlParam(name) {
     if (r != null) return unescape(r[2]);
     return null; //返回参数值
 }
+// 获取cookie
+var mx_secret = $.cookie('mx_secret')||'',
+    mx_token = $.cookie('mx_token')||'';
 //公用post请求
 var postData = function (opt) {
     $.ajax({
@@ -81,7 +84,7 @@ $(function () {
         });
     }
     function is_login(res) {
-        is_admin = res.body.is_admin;
+        is_admin = res.body;
     }
 
     // 未登录状态跳转至登录页
