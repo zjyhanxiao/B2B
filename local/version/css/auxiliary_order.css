@@ -68,6 +68,7 @@ body {
 }
 
 .user-info span {
+    max-width: 65%;
     display: inline-block;
     font-weight: normal;
 }
