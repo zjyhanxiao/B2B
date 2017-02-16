@@ -91,7 +91,7 @@ body{
     color: #223976;
 }
 table tr td:first-child{
-    font-size: 18px;
+    font-size: 16px;
     color: #223976;
 }
 table{
@@ -100,6 +100,7 @@ table{
 }
 table{
     text-align: center;
+    margin-bottom: 20px;
 }
 table tr{
     height: 40px;
@@ -115,7 +116,7 @@ a.state:hover{
 }
 .state{
     color: #ffffff;
-    padding: 5px 12px;
+    padding: 5px 20px;
 }
 .bg_yu{
     background: #4faeff;
@@ -126,10 +127,14 @@ a.state:hover{
 .bg_qing{
     background: #cccccc;
 }
-.unfold{
+.unfold,.fold{
     cursor: pointer;
 }
 .packup{
     cursor: pointer;
 }
+.big{
+    display: none;
+}
+
 

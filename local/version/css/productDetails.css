@@ -101,12 +101,7 @@ a.state:hover{
 .head_left{
     float: left;
 }
-.head_right{
-    cursor: pointer;
-    float: right;
-    font-size: 18px;
-    color: #159bd6;
-}
+
 .table1{
     width: 1000px;
     text-align: center;
@@ -217,4 +212,50 @@ a.state:hover{
     width: 480px;
     height: 400px;
     margin:  30px auto;
+}
+.w_270{
+    width: 270px;
+}
+.color_223976{
+    color: #223976;
+}
+table tr td:first-child{
+    font-size: 16px;
+    color: #223976;
+}
+table{
+    border: 1px solid #dddddd;
+    box-sizing: border-box;
+}
+table{
+    text-align: center;
+    margin-bottom: 20px;
+}
+table.mar0{
+    margin-bottom: 0px;
+}
+table tr{
+    height: 40px;
+}
+table tr td{
+    width: 180px;
+}
+.thead{
+    background: #ebf4ff;
+}
+a.state:hover{
+    color: #ffffff;
+}
+.state{
+    color: #ffffff;
+    padding: 5px 20px;
+}
+.bg_yu{
+    background: #4faeff;
+}
+.bg_zai{
+    background: #ff9933;
+}
+.bg_qing{
+    background: #cccccc;
 }
