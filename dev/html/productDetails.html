@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<link href="http://zion.meixincn.com/vendor/css/bootstrap.min.css" rel="stylesheet">
-<link href="http://zion.meixincn.com//version/dist/css/productDetails.min.css" rel="stylesheet">
+<link href="http://localhost:8080/vendor/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://localhost:8080//version/dist/css/productDetails.min.css" rel="stylesheet">
 <body>
     <div id="main">
         <div id="product_head">
             <div class="header">
                 <div class="product_logo">
-                    <img src="http://zion.meixincn.com/version/dist/img/logo.png" alt="">
+                    <img src="http://localhost:8080/version/dist/img/logo.png" alt="">
                 </div>
                 <ul>
                     <li class="active"><a href="">产品</a></li>
                     <li><a href="">订单</a></li>
                     <li><a href="">客户</a></li>
                     <li class="backstage"><a href="">内部管理</a></li>
-                    <li class="user_img"><a href=""><img src="http://zion.meixincn.com/version/dist/img/user.png" alt=""></a></li>
-                    <li class="user_img"><a href=""><img src="http://zion.meixincn.com/version/dist/img/exit.png" alt=""></a></li>
+                    <li class="user_img"><a href=""><img src="http://localhost:8080/version/dist/img/user.png" alt=""></a></li>
+                    <li class="user_img"><a href=""><img src="http://localhost:8080/version/dist/img/exit.png" alt=""></a></li>
                 </ul>
             </div>
         </div>
@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <p class="text-center" style="color: #223976">请复制链接使用手机扫码分享链接至客户</p>
-                                    <p style="margin:20px 30px 20px 0"> <input class="sharelink" type="text" value="123456789" style="width: 420px;height: 33px"> <button type="button" class="btn btn-primary" style="margin-left: -4px;margin-top: -3px;border-radius: 0 3px 3px 0">复制链接</button>
+                                    <p style="margin:20px 30px 20px 0"> <input id="sharelink_copy" class="sharelink" type="text" value="123456789" style="width: 420px;height: 33px"> <button id="copy" type="button" class="btn btn-primary" style="margin-left: -4px;margin-top: -3px;border-radius: 0 3px 3px 0">复制链接</button>
                                     <div class="QRcode">
                                         <img src="" alt="">
                                     </div>
@@ -130,7 +130,7 @@
                             <td>
                                 <p class="backstage1">投资顾问&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <select style="height: 28px;margin-top: 5px"  id="select1">
-                                        <option value="1">F2CG8M01 - 海洋金融</option>
+                                        <option value="1"></option>
                                     </select>
                                 </p>
                                 <p>
@@ -142,11 +142,14 @@
                         <tr>
                             <td>辅助下单</td>
                             <td>
-                                <p class="backstage2">投资顾问&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <select style="height: 28px"  id="select2">
-                                        <option value="1">F2CG8M01 - 海洋金融</option>
-                                    </select>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <button type="button" class="btn btn-primary" style="outline:none;">下单</button>
+                                <p>
+                                    <span class="backstage2">
+                                        投资顾问&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <select style="height: 28px"  id="select2">
+                                            <option value="1"></option>
+                                        </select>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </span>
+                                    <a class="assist" href=""><button type="button" class="btn btn-primary" style="outline:none;">下单</button></a>
                                 </p>
                             </td>
                         </tr>
@@ -233,10 +236,10 @@
     </div>
 
 </body>
-<script src="http://zion.meixincn.com/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
-<script src="http://zion.meixincn.com/vendor/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="http://zion.meixincn.com/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
-<script src="http://zion.meixincn.com/version/dist/js/common.min.js" type="text/javascript"></script>
+<script src="http://localhost:8080/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="http://localhost:8080/vendor/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="http://localhost:8080/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
+<script src="http://localhost:8080/version/dist/js/common.min.js" type="text/javascript"></script>
 <script>
 
 //    var base_url = 'http://192.168.1.102:8001';
@@ -409,9 +412,11 @@
                 $.each(res.body,function (i,item) {
                     selecthtml1 += '<option value="'+item.code+'">'+item.code+' - '+item.name+'</option>'
                 })
-                $('.sharelink').attr("value","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code)
                 $('#select1').html(selecthtml1)
                 $('#select2').html(selecthtml1)
+                $('.sharelink').attr("value","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code)
+                $('.assist').attr("href","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code)
+
             },
             error: function () {
             }
@@ -426,12 +431,10 @@
             $('.backstage').hide();
             $('.backstage1').hide();
             $('.backstage2').hide();
-
         }else {
             $('.backstage').show();
             $('.backstage1').show();
             $('.backstage2').show();
-
         }
 
         //分享模态框
@@ -444,13 +447,18 @@
         })
         //分享了链接改变
         $('#select1').change(function () {
-            $('.sharelink').attr("value","https://invest.meixinglobal.com/invest.html?product_id="+GetQueryString('product_id')+"&partner_id="+$('#select1').val())
+            $('.sharelink').attr("value","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select1').val())
+        })
+        $('#select2').change(function () {
+            $('.assist').attr("href","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select2').val())
+        })
+        //复制分享链接
+        $('#copy').click(function () {
+            alert("您的浏览器不支持点击复制，请使用 Ctrl + C 手动复制！")
         })
 
+
     }
-
-
-
 </script>
 
 </html>
