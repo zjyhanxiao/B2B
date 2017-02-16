@@ -119,7 +119,7 @@ $(function () {
     function order_list(data) {
         if (data.body && data.body.length > 0) {
             var jsonData = $.grep(data.body, function (n, i) {
-                return i > 2000;
+                return i > 20;
             }, true);
             if (is_admin) {// 管理员和客户分别渲染不同数据
                 admin_order_list(jsonData)
@@ -174,7 +174,7 @@ $(function () {
             html +=
                 '<tr>' +
                 '<td><a href="/orderDetails.html?order_id=' + item.id + '">' + order_number + '</a></td>' +
-                '<td>' + product_name + '</td>' +
+                '<td><a href="/productDetails.html?product_id=' + item.product_id + '">' + product_name + '</a></td>' +
                 '<td>' + product_number + '</td>' +
                 '<td>' + first_name + ' ' + last_name + '</td>' +
                 '<td>' + phone + '</td>' +
@@ -229,7 +229,7 @@ $(function () {
             html +=
                 '<tr>' +
                 '<td><a href="/orderDetails.html?order_id=' + item.id + '">' + order_number + '</a></td>' +
-                '<td>' + product_name + '</td>' +
+                '<td><a href="/productDetails.html?product_id=' + item.product_id + '">' + product_name + '</a></td>' +
                 '<td>' + product_number + '</td>' +
                 '<td>' + first_name + ' ' + last_name + '</td>' +
                 '<td>' + phone + '</td>' +
