@@ -688,9 +688,9 @@ $(function () {
             $("#bank-info").removeClass('active').next().addClass('active');
             $('body').scrollTop(0);
             if(middle_bank_name=='' || middle_bank_address=='' || middle_bank_swift_code==''){
-                $("#get-middle-bank-name").prev('div').hide();
-                $("#get-middle-bank-address").prev('div').hide();
-                $("#get-middle-bank-swift-code").prev('div').hide();
+                $("#get-middle-bank-name").closest('div').hide();
+                $("#get-middle-bank-address").closest('div').hide();
+                $("#get-middle-bank-swift-code").closest('div').hide();
             }
             //账户号加密处理
             account_number_secret = '**********' + account_number.substr(account_number.length-4);
@@ -928,7 +928,7 @@ $(function () {
                 $("#get-ach-user-name").html(first_name + " " + last_name);
                 $("#get-ach-bank-name").html(bank_name);
                 if(routing_number==''){
-                    $("#get-ach-aba").prev('div').hide();
+                    $("#get-ach-aba").closest('div').hide();
                 }else{
                     $("#get-ach-aba").html(routing_number);
                 }
@@ -1042,7 +1042,7 @@ $(function () {
                 dataType: 'json',
                 contentType: 'application/json',
                 data: orderForm,
-                url: baseUrlChannel + '/order/create_order',
+                url: baseUrlChannelS + '/order/create_order',
                 success: createOrder
             });
         }else{
