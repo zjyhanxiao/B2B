@@ -92,24 +92,17 @@ $(function () {
         type: 'get',
         dataType:'json',
         contentType:'application/json',
-        url: baseUrlChannel + '/product_list',
+        url: baseUrlChannel + '/product_info',
         success: function (res) {
             if(res.code==1){
                 d = res.body;
-                $.each(d,function (i) {
-                    if(product_id==d[i].id){
-                        console.log(d[i].name);
-                        $("#invest-error").hide();
-                        $("#base-info .base-info-title").show();
-                        $("#base-info .base-info-wrapper").show();
-                        $(".product_name").html(d[i].name);
-                    }else{
-                        // console.log(d[i].name+2);
-                        // $("#invest-error").show();
-                        // $("#base-info .base-info-title").hide();
-                        // $("#base-info .base-info-wrapper").hide();
-                    }
-                });
+                if(product_id==d.id){
+                    console.log(d.name);
+                    $("#invest-error").hide();
+                    $("#base-info .base-info-title").show();
+                    $("#base-info .base-info-wrapper").show();
+                    $(".product_name").html(d.name);
+                }
             }
         }
     });
@@ -265,14 +258,14 @@ $(function () {
             $('body').scrollTop(t);
             return false;
         }
-        if(industry == ''){
+        if(industry == '' || industry == '请选择'){
             next_step = false;
             $("#industry").addClass('red-shadow');
             t = $('.red-shadow').eq(0).offset().top;
             $('body').scrollTop(t);
             return false;
         }
-        if(occupation == ''){
+        if(occupation == '' || occupation == '请选择'){
             next_step = false;
             $("#occupation").addClass('red-shadow');
             t = $('.red-shadow').eq(0).offset().top;
