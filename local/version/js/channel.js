@@ -688,9 +688,7 @@ $(function () {
             $("#bank-info").removeClass('active').next().addClass('active');
             $('body').scrollTop(0);
             if(middle_bank_name=='' || middle_bank_address=='' || middle_bank_swift_code==''){
-                $("#get-middle-bank-name").closest('div').hide();
-                $("#get-middle-bank-address").closest('div').hide();
-                $("#get-middle-bank-swift-code").closest('div').hide();
+                $(".get-middle-bank").hide();
             }
             //账户号加密处理
             account_number_secret = '**********' + account_number.substr(account_number.length-4);
@@ -928,7 +926,7 @@ $(function () {
                 $("#get-ach-user-name").html(first_name + " " + last_name);
                 $("#get-ach-bank-name").html(bank_name);
                 if(routing_number==''){
-                    $("#get-ach-aba").closest('div').hide();
+                    $("#get-ach-aba").closest('label').hide();
                 }else{
                     $("#get-ach-aba").html(routing_number);
                 }
