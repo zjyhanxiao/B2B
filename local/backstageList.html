@@ -123,7 +123,30 @@
 <script src="http://localhost:8080/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
 <script src="http://localhost:8080/vendor/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="http://localhost:8080/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
+<script src="http://localhost:8080/version/dist/js/common.min.js" type="text/javascript"></script>
 <script>
+    $(function () {
+
+        $.ajax({
+            type: 'get',
+            url: base_url + '/channel/product/list',
+            contentType: "application/json; charset=utf-8",
+            headers: {
+                "mx_token": $.cookie('mx_token'),
+                "mx_secret": $.cookie('mx_secret')
+            },
+            success: function (res) {
+                console.log(res.body)
+            },
+            error:function () {
+            }
+        })
+
+    })
+
+
+
+
 
     $('#product_head ul li[data-name="内部管理"]').addClass('active');
     //添加顾问模态框
