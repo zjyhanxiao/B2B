@@ -726,7 +726,7 @@ $(function () {
     function getProductInfo(res) {
         var d = res.body;
         if(d == 0){
-            alert('请检查您的产品ID是否有误');
+            alert(res.msg);
         }
         invest_par_value = d.invest_par_value;
         minimum_invest_amount = d.minimum_invest_amount;
