@@ -92,6 +92,7 @@ $(function () {
         type: 'get',
         dataType:'json',
         contentType:'application/json',
+        data:{'product_id':product_id},
         url: baseUrlChannel + '/product_info',
         success: function (res) {
             if(res.code==1){
