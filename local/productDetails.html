@@ -332,19 +332,19 @@
                 //法律文件
                 var legalhtml = '';
                 $.each(res.body.legal_document,function ( i , item ) {
-                    legalhtml += '<p><a href="'+item.document_url+'">'+item.document_name+'</a></p>'
+                    legalhtml += '<p><a target="_blank" href="'+item.document_url+'">'+item.document_name+'</a></p>'
                 })
                 $('#legal_document').html(legalhtml )
                 //销售文件
                 var saleshtml = '';
                 $.each(res.body.sales_document,function ( i , item ) {
-                    saleshtml += '<p><a href="'+item.document_url+'">'+item.document_name+'</a></p>'
+                    saleshtml += '<p><a target="_blank" href="'+item.document_url+'">'+item.document_name+'</a></p>'
                 })
                 $('#sales_document').html(saleshtml )
                 //产品介绍文件
                 var introducehtml = '';
                 $.each(res.body.introduce_document,function ( i , item ) {
-                    introducehtml += '<p><a href="'+item.document_url+'">'+item.document_name+'</a></p>'
+                    introducehtml += '<p><a target="_blank" href="'+item.document_url+'">'+item.document_name+'</a></p>'
                 })
                 $('#introduce_document').html(introducehtml )
             },

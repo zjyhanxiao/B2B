@@ -81,10 +81,10 @@
                                 </div>
                                 <div class="row" style="margin: 30px 0 20px 0">
                                     <div class="col-sm-6 text-center">
-                                        <button type="button" class="btn btn-default" style="width: 100px;height: 34px;outline: none">取消</button>
+                                        <button type="button" class="btn btn-default invest_abolish" style="width: 100px;height: 34px;outline: none">取消</button>
                                     </div>
                                     <div class="col-sm-6 text-center">
-                                        <button type="button" class="btn btn-primary" style="width: 100px;height: 34px;outline: none">创建</button>
+                                        <button type="button" class="btn btn-primary invest_create" style="width: 100px;height: 34px;outline: none">创建</button>
                                     </div>
                                 </div>
                             </div>
@@ -129,7 +129,7 @@
 
         $.ajax({
             type: 'get',
-            url: base_url + '/channel/product/list',
+            url: base_url + '/zion/channel/searchChannelList',
             contentType: "application/json; charset=utf-8",
             headers: {
                 "mx_token": $.cookie('mx_token'),
@@ -149,10 +149,34 @@
 
 
     $('#product_head ul li[data-name="内部管理"]').addClass('active');
+
+
+
     //添加顾问模态框
     $('.add_btn').click(function () {
         $('.add_counselor').modal('show')
     })
+
+    //顾问模态框验证
+    $('#first_name').blur(function () {
+        if ( reg.test($('#first_name').val()) ){
+            $('#first_name').parent().removeClass('has-error')
+            $('.first_name_caution').css("display", "none")
+        }else {
+            $('#first_name').parent().addClass('has-error')
+            $('.first_name_caution').css("display", "block")
+        }
+    })
+    //顾问模态框创建按钮
+    $('.invest_create').click(function () {
+        $('.add_counselor').modal('show')
+    })
+
+    //顾问模态框取消按钮
+    $('.invest_abolish').click(function () {
+        $('.add_counselor').modal('hide')
+    })
+
 </script>
 
 </html>
