@@ -1,8 +1,7 @@
 /**
  * Created by zhiqiang.li on 2017/1/17.
  */
-
-var baseUrlChannel = 'https://zion-api.meixincn.com/channel';
+var baseUrlChannel = 'https://zion-api.meixincn.com/white_label';
 // var baseUrlChannel = 'https://prod-gl-api.meixincn.com/channel';
 var invest_success = false;
 $(function () {
