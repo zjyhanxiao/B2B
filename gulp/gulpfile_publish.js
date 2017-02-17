@@ -19,7 +19,7 @@ gulp.task('img_compress', function() {
             use: [pngquant()],
             optimizationLevel: 7
         }))
-        .pipe(gulp.dest('../publish/version_'+version+'/dist/img'))
+        .pipe(gulp.dest('../publish/zion/version_'+version+'/dist/img'))
 });
 
 /* Watch JS For Changes */
@@ -27,7 +27,7 @@ gulp.task('js', function() {
     return gulp.src(['../local/version/js/**/*.js'])
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
-        .pipe(gulp.dest('../publish/version_'+version+'/dist/js'))
+        .pipe(gulp.dest('../publish/zion/version_'+version+'/dist/js'))
 });
 
 /* Watch CSS For Changes */
@@ -35,7 +35,7 @@ gulp.task('css', function () {
     return gulp.src('../local/version/css/**/*.css')
         .pipe(rename({suffix: '.min'}))
         .pipe(minifycss())
-        .pipe(gulp.dest('../publish/version_'+version+'/dist/css'))
+        .pipe(gulp.dest('../publish/zion/version_'+version+'/dist/css'))
         ;
 });
 
@@ -60,7 +60,7 @@ gulp.task('first_include', function() {
 gulp.task('second_include', function() {
     gulp.src(['../publish/html/**'])
         .pipe(replaceSrc('http://localhost:8080', 'https://test.meixincn.com'))
-        .pipe(replaceSrc('local/version/', 'local/version_'+ version+'/'))
+        .pipe(replaceSrc('/version/dist/', '/zion/version_'+ version+'/dist/'))
         .pipe(gulp.dest('../publish/html'));
 });
 

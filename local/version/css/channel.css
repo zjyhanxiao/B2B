@@ -964,3 +964,21 @@ div#document-loading p, div#document-error p {
         margin-top: 150px;
     }
 }
+
+.form-control{
+    border-radius: 0!important;
+}
+.productAndOrder{
+    width: 75%;
+    margin: 30px auto 0;
+    color: #555;
+    font-size: 14px;
+}
+.about_product,.about_order{
+    width: 50%;
+    float: left;
+}
+.about_product span,.about_order span{
+    margin-right: 10px;
+    font-weight: 500;
+}
