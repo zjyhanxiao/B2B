@@ -2,7 +2,7 @@
  * Created by zhiqiang.li on 2017/1/17.
  */
 var baseUrlChannel = 'https://zion-api.meixincn.com/white_label';
-// var baseUrlChannel = 'https://prod-gl-api.meixincn.com/channel';
+var baseUrlChannelS = 'https://prod-gl-api.meixincn.com/channel';
 var invest_success = false;
 $(function () {
     // 让用户知道，如果要关掉此页面则会丢去所有工作
@@ -688,9 +688,9 @@ $(function () {
             $("#bank-info").removeClass('active').next().addClass('active');
             $('body').scrollTop(0);
             if(middle_bank_name=='' || middle_bank_address=='' || middle_bank_swift_code==''){
-                $("#get-middle-bank-name").hide();
-                $("#get-middle-bank-address").hide();
-                $("#get-middle-bank-swift-code").hide();
+                $("#get-middle-bank-name").prev('div').hide();
+                $("#get-middle-bank-address").prev('div').hide();
+                $("#get-middle-bank-swift-code").prev('div').hide();
             }
             //账户号加密处理
             account_number_secret = '**********' + account_number.substr(account_number.length-4);
@@ -812,7 +812,7 @@ $(function () {
             $('#document-loading').show();
             $.ajax({
                 type:"post",
-                url: baseUrlChannel + '/doc/preview',
+                url: baseUrlChannelS + '/doc/preview',
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify(populate_data),
                 success: populate
@@ -928,7 +928,7 @@ $(function () {
                 $("#get-ach-user-name").html(first_name + " " + last_name);
                 $("#get-ach-bank-name").html(bank_name);
                 if(routing_number==''){
-                    $("#get-ach-aba").hide();
+                    $("#get-ach-aba").prev('div').hide();
                 }else{
                     $("#get-ach-aba").html(routing_number);
                 }
