@@ -401,46 +401,68 @@
         })
 
         //投资顾问分享接口    // 二维码生成
-        $.ajax({
-            type: 'get',
-            url: base_url + '/zion/channel_advisor/list',
-            contentType: "application/json; charset=utf-8",
-            headers: {
-                "mx_token": $.cookie('mx_token'),
-                "mx_secret": $.cookie('mx_secret')
-            },
-            success: function (res) {
-                console.log(res.body)
-                var selecthtml1 = '';
-                $.each(res.body,function (i,item) {
-                    selecthtml1 += '<option value="'+item.code+'">'+item.code+' - '+item.name+'</option>'
-                })
-                $('#select1').html(selecthtml1)
-                $('#select2').html(selecthtml1)
-                $('.sharelink').attr("value","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code)
+        console.log( is_admin )
+        if (is_admin){
+
+            $.ajax({
+                type: 'get',
+                url: base_url + '/zion/channel_advisor/list',
+                contentType: "application/json; charset=utf-8",
+                headers: {
+                    "mx_token": $.cookie('mx_token'),
+                    "mx_secret": $.cookie('mx_secret')
+                },
+                success: function (res) {
+                    console.log(res.body)
+                    var selecthtml1 = '';
+                    $.each(res.body,function (i,item) {
+                        selecthtml1 += '<option value="'+item.code+'">'+item.code+' - '+item.name+'</option>'
+                    })
+                    $('#select1').html(selecthtml1)
+                    $('#select2').html(selecthtml1)
+                    $('.sharelink').attr("value","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code)
 //                $('.assist').attr("href","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code)
 
-                $.ajax({
-                    type: 'get',
-                    url: base_url + '/channel/qrcode/create',
-                    data: {"content":"https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code},
-                    contentType: "application/json; charset=utf-8",
-                    headers: {
-                        "mx_token": $.cookie('mx_token'),
-                        "mx_secret": $.cookie('mx_secret')
-                    },
-                    success: function (res) {
-                        console.log(res.body)
-                        $('#QRcode').attr( 'src',res.body )
-                    },
-                    error: function () {
-                    }
-                })
+                    $.ajax({
+                        type: 'get',
+                        url: base_url + '/channel/qrcode/create',
+                        data: {"content":"https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code},
+                        contentType: "application/json; charset=utf-8",
+                        headers: {
+                            "mx_token": $.cookie('mx_token'),
+                            "mx_secret": $.cookie('mx_secret')
+                        },
+                        success: function (res) {
+                            console.log(res.body)
+                            $('#QRcode').attr( 'src',res.body )
+                        },
+                        error: function () {
+                        }
+                    })
+                },
+                error: function () {
+                }
+            })
+        }else {
+            $('.sharelink').attr("value","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id=")
+            $.ajax({
+                type: 'get',
+                url: base_url + '/channel/qrcode/create',
+                data: {"content":"https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="},
+                contentType: "application/json; charset=utf-8",
+                headers: {
+                    "mx_token": $.cookie('mx_token'),
+                    "mx_secret": $.cookie('mx_secret')
+                },
+                success: function (res) {
+                    console.log(res.body)
+                    $('#QRcode').attr( 'src',res.body )
+                },
+                error: function () {
+                }
+            })
+        }
 
-            },
-            error: function () {
-            }
-        })
 
     })
 
@@ -474,7 +496,7 @@
             $.ajax({
                 type: 'get',
                 url: base_url + '/channel/qrcode/create',
-                data: {"content":"https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code},
+                data: {"content":"https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select1').val()},
                 contentType: "application/json; charset=utf-8",
                 headers: {
                     "mx_token": $.cookie('mx_token'),
