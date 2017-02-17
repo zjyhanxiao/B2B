@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>美信金融</title>
+    <script src="http://zion.meixincn.com/vendor/js/jquery_1.11.1.min.js" type="text/javascript"></script>
+    <link href="http://zion.meixincn.com/vendor/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://zion.meixincn.com/version/dist/css/base.min.css" rel="stylesheet">
+    <link href="http://zion.meixincn.com/version/dist/css/fa_invest.min.css" rel="stylesheet">
+    <link href="http://zion.meixincn.com/version/dist/css/channel.min.css" rel="stylesheet">
+</head>
+<body>
+<div id="channel">
+    <div class="tab-content" id="modal-content">
+        <div role="tabpanel" class="tab-pane active" id="base-info">
+            <div id="invest-error">
+                <img src="http://zion.meixincn.com/version/dist/img/channel/invest_error.png" alt="">
+            </div>
+            <div class="base-info-title">
+                <span class="product_name"></span>
+                <br>
+                <span>基本信息</span>
+                <p>
+                    <hr>
+                </p>
+            </div>
+            <div class="base-info-wrapper">
+                <div class="personal-info">
+                    <span class="light-blue">个人信息</span>
+                    <span class="orange font-12">投资人姓名必须与汇款银行帐号上的姓名一致,且一旦提交不可修改</span>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-inline">
+                            <label for="last_name">姓氏</label>
+                            <input type="text" class="form-control input-sm" id="last_name" required placeholder="姓的汉语拼音"
+                                   onkeyup="value=value.replace(/[\W]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-inline">
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-inline">
+                            <label for="first_name">名</label>
+                            <input type="text" class="form-control input-sm" id="first_name" required placeholder="名的汉语拼音"
+                                   onkeyup="value=value.replace(/[\W]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-inline">
+                            <label id="phone-label" for="phone">电话</label>
+                            <select style="width: 25%; height: 34px; border: 1px solid #ccc;" class="text-center" name="" id="phone-code">
+                                <option value="+86">中国</option>
+                            </select>
+                            <input style="width: 42%;" type="text" class="form-control input-sm" id="phone" maxlength="11" required placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-inline">
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-inline">
+                            <label for="email">电子邮箱</label>
+                            <input type="text" class="form-control input-sm" id="email" required placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-inline">
+                            <label for="date-of-birth">出生日期</label>
+                            <input type="text" class="form-control input-sm date_input_style" id="date-of-birth" maxlength="10" placeholder="YYYY-MM-DD">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-inline">
+                            <label for="source-of-income">资金来源</label>
+                            <select name="source_of_income" id="source-of-income" class="form-control">
+                                <option value="">请选择</option>
+                                <option value="存款/Savings">存款/Savings</option>
+                                <option value="继承/Heritage">继承/Heritage</option>
+                                <option value="其他/Others">其他/Others</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-inline">
+                            <label for="industry">行业</label>
+                            <select id="industry" class="form-control bfh-countries" data-country="" required="">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-inline">
+                            <label for="occupation">职业</label>
+                            <select id="occupation" class="form-control" required="" disabled>
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="passport-info">
+                    <span class="light-blue">护照上传</span>
+                    <span class="orange font-12">&nbsp;&nbsp;请上传您的护照信息页照片或扫描文件</span>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-inline">
+                            <label for="passport-number">护照号</label>
+                            <input type="text" class="form-control input-sm" id="passport-number" maxlength="9" placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-inline">
+                            <label for="effective">有效期至</label>
+                            <input type="text" class="form-control input-sm date_input_style" id="effective" maxlength="10" placeholder="YYYY-MM-DD">
+                        </div>
+                    </div>
+                </div>
+                <form class="fa-steps col-sm-10 col-sm-offset-1">
+                    <div class="step-section text-center">
+                        <div class="col-md-3"></div>
+                        <div class="fa-upload-id-pic fa-upload-pic col-md-6 col-sm-12">
+                            <div id="passport-false" class="red text-center font-16" style="line-height: 40px; display: none;">请上传护照证件照片</div>
+                            <!--<div id="passport-uploading" class="orange text-center font-16" style="line-height: 40px; display: none;">请等待证件上传完毕</div>-->
+                            <img src="http://zion.meixincn.com/version/dist/img/channel/passport.png"><br/>
+                            <input id="passport-proof" name="identity-proof" type="file" data-parsley-required-message="请上传护照证件照片！" required/>
+                            <a class="btn btn-primary">点击上传</a>
+                        </div>
+                        <div class="col-md-3"></div>
+                        <span class="clearfix"></span>
+                    </div>
+                    <div class="upload-passport-info">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6 text-center">
+                        <p class="font-12">如果您的护照证件(例如:旧版中国护照)不包含签名部分,请将证件置于白纸之上, 并于证件下方签名, 拍照或扫描上传。证件必须为原件, 不能为复印件。</p>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+                </form>
+                <div class="text-center next-step-wrapper">
+                    <button class="next-step step-one">下一步</button>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane " id="address-prove">
+            <div class="base-info-title">
+                <span class="product_name"></span>
+                <br>
+                <span>地址证明</span>
+                <p>
+                <hr>
+                </p>
+            </div>
+            <div class="address-prove-wrapper">
+                <div class="personal-info">
+                    <span class="light-blue">地址证明上传</span>
+                    <p class="orange font-12">请上传您的中国居民身份证照片或扫描文件作为您的地址证明。</p>
+                </div>
+                <div class="row address">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4" id="address-effective-wrapper" style="padding: 0; height: 30px;">
+                        <div class="form-inline">
+                            <label for="address-effective" style="width: 30%;">有效期至</label>
+                            <input type="text" class="form-control input-sm date_input_style" maxlength="10" id="address-effective" required placeholder="YYYY-MM-DD">
+                        </div>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                <form class="fa-steps col-sm-10 col-sm-offset-1">
+                    <div class="step-section text-center">
+                        <div class="col-md-3"></div>
+                        <div class="fa-upload-id-pic fa-upload-pic col-md-6 col-sm-12">
+                            <div id="address-false" class="red text-center font-16" style="line-height: 40px; display: none;">请上传地址证明照片</div>
+                            <img src="http://zion.meixincn.com/version/dist/img/channel/passport.png"><br/>
+                            <input id="address-proof" name="identity-proof" type="file" data-parsley-required-message="请上传护照证件照片！" required/>
+                            <a class="btn btn-primary">点击上传</a>
+                        </div>
+                        <div class="col-md-3"></div>
+                        <span class="clearfix"></span>
+                    </div>
+                    <div class="upload-address-info">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6 text-center">
+                        <p class="font-12">请在下面区域填写您地址证明上的地址，务必与证件上的地址确保一致。</p>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+                </form>
+                <div class="row" id="address">
+                    <div class="col-md-5">
+                        <div class="form-inline">
+                            <label for="country">省/直辖市</label>
+                            <select id="country" class="form-control bfh-countries" required="">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-5" id="address-detail-wrapper">
+                        <div class="form-inline">
+                            <label for="address-effective">详细地址</label>
+                            <textarea style="height: 100px; width: 63%; position: absolute;" class="form-control input-sm" id="address-detail"
+                                      required placeholder="请用中文填写
+比如：幸福里小区23号楼A单元423号"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-inline">
+                            <label for="city">市/州/地区</label>
+                            <select id="city" class="form-control bfh-countries" disabled required="">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-inline">
+                            <label for="county">区/县</label>
+                            <select id="county" class="form-control bfh-countries" disabled required="">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-inline">
+                        </div>
+                    </div>
+                    <div class="col-md-5" id="post-code-mb">
+                        <div class="form-inline">
+                            <label for="post-code">邮编</label>
+                            <input type="text" class="form-control input-sm" id="post-code" required placeholder="xxxxxx" maxlength="6">
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center next-step-wrapper">
+                    <button class="prev-step prev-one">上一步</button>
+                    <button class="next-step step-two">下一步</button>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane " id="bank-info">
+            <div class="base-info-title">
+                <span class="product_name"></span>
+                <br>
+                <span>银行信息</span>
+                <p>
+                <hr>
+                </p>
+            </div>
+            <div class="bank-wrapper">
+                <div class="common-bank-detail">
+                    <div class="bank-info-wrapper">
+                        <span class="light-blue font-18">打款/回款银行信息</span>
+                        <p class="orange font-12">请注意：您的汇款与收款银行必须一致，而且银行账户上的姓名应当为投资人姓名。请仔细查填写以下信息，以免回款时给您带来不便。</p>
+                    </div>
+                    <div class="row bank-choose">
+                        <div style="text-align: right;" class="col-md-5">
+                            <div class="form-inline">
+                                <a href="javascript:;"><span class="button-blue non-us-bank">非美国银行</span></a>
+                            </div>
+                        </div>
+                        <div id="us-or-not" class="col-md-2 text-center">
+                            <div class="form-inline">
+                                <span class="light-blue font-14">or</span>
+                            </div>
+                        </div>
+                        <div style="text-align: left;" class="col-md-5">
+                            <div class="form-inline">
+                                <a href="javascript:;"><span class="button-white us-bank">美国银行</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bank-wrapper-background">
+                        <div class="row">
+                            <div class="col-md-12" id="bank-name-wrapper">
+                                <div class="form-inline">
+                                    <label for="bank-name">银行名称 / Bank name</label>
+                                    <input style="width: 64%;" type="text" class="form-control input-sm" id="bank-name" placeholder="标准银行名称(英语)">
+                                    <button class="font-14 button" data-toggle='modal' data-target='#Modal' id="find-common-banks">查找常用银行</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="height: 130px;">
+                            <div class="col-md-12">
+                                <div class="form-inline">
+                                    <label for="bank-address">银行地址 / Bank address</label>
+                                    <textarea style="height: 80px; font-size: 12px;" class="form-control us-bank-address" id="bank-address" type="text" placeholder="标准银行地址(英语)"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-inline">
+                                    <label for="swift-code">Swiftcode</label>
+                                    <input type="text" class="form-control input-sm" id="swift-code" maxlength="11" placeholder="8位或11位字母数字组合"
+                                           onkeyup="value=value.replace(/[\W]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="routing-number-wrapper" class="row" style="display: none;">
+                            <div class="col-md-12">
+                                <div class="form-inline">
+                                    <label for="swift-code">ABA / Routing number</label>
+                                    <input type="text" class="form-control input-sm" id="routing-number" maxlength="9" placeholder="9位数字"
+                                           onkeyup="value=value.replace(/[\W]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-inline">
+                                    <label for="account-number">账户号 / Account number</label>
+                                    <input type="text" class="form-control input-sm" id="account-number" maxlength="24"
+                                           onkeyup="value=value.replace(/[\W]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="middle-bank-info">
+                            <span style="font-size: 18px" class="light-blue">中间行信息（选填）</span>
+                            <p class="orange font-12">请填写您回款银行收美元时所使用的中间行信息。如您的银行不指定任何中间行，以下信息无需填写。</p>
+                        </div>
+                        <div class="row middle-bank">
+                            <div class="col-md-12">
+                                <div class="form-inline">
+                                    <label for="middle-bank-name">中间行名称 / Intermediary (correspondent) bank name</label>
+                                    <input type="text" class="form-control input-sm" id="middle-bank-name" placeholder="标准银行名称(英语)">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-inline">
+                                    <label for="middle-bank-address">中间行地址 / Intermediary (correspondent) bank address</label>
+                                <textarea style="height: 80px; font-size: 12px;" class="form-control input-sm" id="middle-bank-address" placeholder="标准银行地址(英语)"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-inline">
+                                    <label for="middle-bank-swift-code">中间行Swiftcode / Intermediary (correspondent) bank swiftcode</label>
+                                    <input type="text" class="form-control input-sm" id="middle-bank-swift-code" maxlength="11" placeholder="8位或11位字母数字组合"
+                                           onkeyup="value=value.replace(/[\W]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row checking-saving">
+                            <div class="col-md-3">
+                                <div class="form-inline">
+                                    <label style="width: 160px;" class="account-type">账户类型 / Account type</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-inline text-center">
+                                    <button type="text" class="form-control input-sm checked" id="checking">Checking</button>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-inline text-center">
+                                    <button type="text" class="form-control input-sm" id="saving">Saving</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center next-step-wrapper">
+                        <button class="prev-step prev-two">上一步</button>
+                        <button class="next-step step-three">下一步</button>
+                    </div>
+                </div>
+                <div class="common-bank-list">
+
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane " id="invest-info">
+            <div class="base-info-title">
+                <span class="product_name"></span>
+                <br>
+                <span>银行信息</span>
+                <p>
+                <hr>
+                </p>
+            </div>
+            <div class="invest-wrapper">
+                <div class="product-info text-center">
+                    <p class="product-name dark-blue">美信金融产品</p>
+                    <p class="product-rate dark-blue">预计年化收益: %</p>
+                    <p class="product-deadline dark-blue">投资期限: 个月</p>
+                </div>
+                <div class="text-center">
+                    <div id="invest-entrance">
+                        <p class="dark-blue" id="invest-amount-title">投资金额</p>
+                        <div class="text-center invest-amount">
+                            <a href="javascript:;"><img class="sub" src="http://zion.meixincn.com/version/dist/img/channel/sub.png"/></a>
+                        <span class="invest-money">
+                            <input class="invest-amounts orange text-center" value="">
+                            <span class="money orange">$</span>
+                        </span>
+                            <a href="javascript:;"><img class="add" src="http://zion.meixincn.com/version/dist/img/channel/add.png"/></a>
+                        </div>
+                        <p class="text-center font-12 dark-blue">投资金额为<span class="invest-par-value"></span>美元的整数倍</p>
+                    </div>
+                </div>
+                <div class="bottom-line">
+                    <p class="font-16">基本信息</p>
+                </div>
+                <div class="get-base-info">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-inline">
+                                <label for="get-name">姓名</label>
+                                <span class="form-control input-sm" id="get-name"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-inline">
+                                <label for="get-phone">电话</label>
+                                <span class="form-control input-sm" id="get-phone"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-2 s-hide">
+                            <div class="form-inline">
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-inline">
+                                <label for="get-email">电子邮箱</label>
+                                <span class="form-control input-sm" id="get-email"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-inline">
+                                <label for="get-date-of-birth">出生日期</label>
+                                <span class="form-control input-sm date_input_style" id="get-date-of-birth"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-2 s-hide">
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-inline">
+                                <label for="get-source-of-income">资金来源</label>
+                                <span id="get-source-of-income" class="form-control"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-inline">
+                                <label for="industry">行业</label>
+                                <span id="get-industry" class="form-control bfh-countries"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-2 s-hide">
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-inline">
+                                <label for="get-occupation">职业</label>
+                                <span id="get-occupation" class="form-control"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 col-xs-12">
+                            <div class="form-inline">
+                                <label for="get-passport-number">护照号</label>
+                                <span class="form-control input-sm" id="get-passport-number"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-2 s-hide">
+                        </div>
+                        <div class="col-md-5 col-xs-12">
+                            <div class="form-inline">
+                                <label for="get-effective">有效期至</label>
+                                <span class="form-control input-sm date_input_style" id="get-effective"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-line">
+                    <p class="font-16">地址</p>
+                </div>
+                <div class="get-address-info">
+                    <p class="get-address-line1">地址行</p>
+                    <p class="get-address-line2">地址行</p>
+                    <p class="get-address-line3">地址行</p>
+                </div>
+                <div class="bottom-line">
+                    <p class="font-16">银行信息</p>
+                </div>
+                <div class="get-bank-info">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-inline">
+                                <label for="get-bank-name">银行名称</label>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-inline">
+                                <p class="form-control input-sm get-bank-name" id="get-bank-name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-inline">
+                                <label for="get-bank-address">银行地址</label>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-inline">
+                                <p class="form-control input-sm" id="get-bank-address">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-inline">
+                                <label for="get-aba" id="get-bank-swift-code"  style="width: 100%;">Swiftcode</label>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-inline">
+                                <p class="form-control input-sm" id="get-Swift-code">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="get-bank-aba" style="display: none;">
+                        <div class="col-md-2">
+                            <div class="form-inline">
+                                <label for="get-aba" style="width: 100%;">ABA / routing #</label>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-inline">
+                                <p class="form-control input-sm" id="get-aba">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-inline">
+                                <label for="get-bank-user-name">银行账户姓名</label>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-inline">
+                                <p class="form-control input-sm" id="get-bank-user-name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-inline">
+                                <label for="get-bank-user-account">账户号</label>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-inline">
+                                <p class="form-control input-sm get-bank-user-account" id="get-bank-user-account">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row get-middle-bank">
+                        <div class="col-md-2">
+                            <div class="form-inline">
+                                <label for="get-aba" id="getmiddle-bank-name" style="width: 100%;">中间行名称</label>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-inline">
+                                <p class="form-control input-sm" id="get-middle-bank-name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row get-middle-bank">
+                        <div class="col-md-2">
+                            <div class="form-inline">
+                                <label for="get-middle-bank-address">中间行地址</label>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-inline">
+                                <p class="form-control input-sm" id="get-middle-bank-address">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row get-middle-bank">
+                        <div class="col-md-2">
+                            <div class="form-inline">
+                                <label for="get-middle-bank-swift-code" style="width: 150px">中间行Swiftcode</label>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-inline">
+                                <p class="form-control input-sm" id="get-middle-bank-swift-code">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center next-step-wrapper">
+                <button class="prev-step prev-three">上一步</button>
+                <button class="next-step step-four">下一步</button>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane " id="invest-signature">
+            <div class="base-info-title">
+                <span class="product_name"></span>
+                <br>
+                <span>签字确认</span>
+                <p>
+                <hr>
+                </p>
+            </div>
+            <div class="invest-wrapper">
+                <div class="product-info text-center">
+                    <p class="product-name dark-blue">美信金融产品</p>
+                    <p class="product-rate dark-blue">预计年化收益: %</p>
+                    <p class="product-deadline dark-blue">投资期限: 个月</p>
+                </div>
+                <div id="get-invest-entrance">
+                    <p class="text-center">
+                        <span class="dark-blue" style="font-size: 20px;">投资金额</span>
+                        <span class="get-invest-amount orange"></span></p>
+                </div>
+                <div style="margin-top: 25px;">
+                    <p class="font-14">请认真查看以下文件并核对所填写的信息和已勾选的选项：</p>
+                </div>
+                <div>
+                    <p id="document-waring" class="red" style="display: none; font-weight: 500;">请认真阅读并勾选以下所有文档!</p>
+                    <div id="get-invest-document">
+                        <p>
+                            <input type="checkbox" style="width: 15px; height: 15px;"/>
+                            <span class="font-14">我已阅读并接受</span> <span><a class="get-agreements font-14">安心定期四期认购协议 / Subscription Document</a></span>
+                        </p>
+                    </div>
+                    <p id="signature-declaration">本人声明：本人提供的所有信息均真实准确并同意在内容有任何变化的情况下以电话或邮件形式通知美信金融。必要时，本人授权美信金融对资料的准确性进行确认。此处输入本人签名并通过网络发送之前，本人确认，阅读并已了解申购过程中提供的所有信息；本人了解同意此签名同等于手写签名，同时授权美信金融在必要时可以使用此签名人作为确认依据。</p>
+                    <p class="dark-blue"><span>投资人(</span><span class="investor-signature"></span><span>)签名</span></p>
+                </div>
+                <div class="text-center" style="position: relative;">
+                    <div id="signature-box">
+                        <div id="signature-line">
+                        </div>
+                    </div>
+                    <p class="red signature-default" style="">请填写您的签名!</p>
+                    <span style="font-size: 14px; color: #ff6600; float: left; margin-left: 4px;">请注意：您的签名必须与已上传的证件上所提供的签名一致</span>
+                    <button class="reset-signature" id="signature-reset-button" type="button" onclick="$('#signature-line').jSignature('clear');">重新签名</button>
+                    <br/>
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+            <div class="text-center next-step-wrapper">
+                <button class="prev-step prev-four">上一步</button>
+                <button class="next-step step-five">下一步</button>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane " id="invest-golden">
+            <div class="base-info-title">
+                <span class="product_name"></span>
+                <br>
+                <span id="golden-page-title">选择入金方式</span>
+                <p>
+                <hr>
+                </p>
+            </div>
+            <div class="golden-wrapper">
+                <!-- Nav tabs -->
+                <ul id="nav-golden" class="nav nav-tabs nav-golden" role="tablist">
+                    <!--<li role="presentation" style="display: none;" class="nav-1 active"><a href="#ach" role="tab" data-toggle="tab">自动扣款 / ACH</a></li>
+                    <li role="presentation" style="display: none;" class="nav-2"><a href="#wire" role="tab" data-toggle="tab">银行电汇 / Wire</a></li>
+                    <li role="presentation" style="display: none;" class="nav-3"><a href="#check" role="tab" data-toggle="tab">支票 / Check</a></li>-->
+                </ul>
+
+                <!-- Tab panes -->
+                <div id="nav-golden-list" class="tab-content">
+                    <!--<div role="tabpanel" class="tab-pane active" id="ach">
+                        <div>
+                            <p class="light-blue golden-announce">确认入金后，美信金融将在三个工作日内完成扣款操作。您可以在 “我的投资” 中查看订单状态。</p>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-inline">
+                                        <label for="get-ach-user-name">账户名</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-inline">
+                                        <p class="form-control input-sm" id="get-ach-user-name"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-inline">
+                                        <label for="get-ach-bank-name">银行名称</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-inline">
+                                        <p class="form-control input-sm" id="get-ach-bank-name"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-inline">
+                                        <label for="get-ach-aba">ABA / routing #</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-inline">
+                                        <p class="form-control input-sm" id="get-ach-aba"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-inline">
+                                        <label for="get-ach-account-number">账户号</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-inline">
+                                        <p class="form-control input-sm" id="get-ach-account-number"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="font-14 ach-document">
+                                <input style="width: 15px; height: 15px;" type="checkbox" id="ach-document-checkbox"/>
+                                <label for="ach-document-checkbox"><span class="font-14">我已认真阅读并接受</span>
+                                <a class="font-14" href="javascript:;" target="_blank;">自动扣款协议 / ACH Agreement</a></label>
+                                <p class="red-shadow" style="display:none;">请认真阅读并接受自动扣款协议 / ACH Agreement</p>
+                            </div>
+                        </div>
+                    </div>-->
+                    <!--<div role="tabpanel" class="tab-pane" id="wire">
+                        <div class="golden-announce">
+                            <p class="light-blue">请注意：请使用您之前选择的银行账户 (<span class="get-bank-name">Bank of America</span>, <span class="get-bank-user-account"> **** **** **** ****</span>)完成入金。</p>
+                            <p style="color: #555;">我们将把以下支付信息发到您的邮箱。请您在三个工作日内完成打款操作。</p>
+                        </div>
+                        <div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-inline">
+                                        <label for="get-wire-user-name">收款人名字</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-inline">
+                                        <p class="form-control input-sm" id="get-wire-user-name"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-inline">
+                                        <label for="get-wire-user-address">收款人地址</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-inline">
+                                        <p class="form-control input-sm" id="get-wire-user-address"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-inline">
+                                        <label for="get-wire-bank-name">收款银行</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-inline">
+                                        <p Class="form-control input-sm" id="get-wire-bank-name"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-inline">
+                                        <label for="get-wire-bank-address">收款银行地址</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-inline">
+                                        <p class="form-control input-sm" id="get-wire-bank-address"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-inline">
+                                        <label for="get-wire-bank-aba" style="width: 110px;">ABA / Routing #</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-inline">
+                                        <p class="form-control input-sm" id="get-wire-bank-aba"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-inline">
+                                        <label for="get-wire-swift-code">Swift Code</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-inline">
+                                        <p class="form-control input-sm" id="get-wire-swift-code"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-inline">
+                                        <label for="get-wire-account">账户号</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-inline">
+                                        <p class="form-control input-sm" id="get-wire-account"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-inline">
+                                        <label for="get-wire-remark">备注栏请填写</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-inline">
+                                        <p class="form-control input-sm" id="get-wire-remark"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <!--<div role="tabpanel" class="tab-pane" id="check">
+                        <div class="golden-announce">
+                            <p class="light-blue">请注意：请使用您之前选择的银行账户 (<span class="get-bank-name">Bank of America</span>, <span class="get-bank-user-account"> **** **** **** ****</span>) 完成入金。</p>
+                            <p style="color: #555;">我们将把以下支付信息发到您的邮箱。请您在三个工作日内寄出支票。</p>
+                        </div>
+                        <div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-inline">
+                                        <label for="get-check-user-name">收款人</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-inline">
+                                        <p class="form-control input-sm" id="get-check-user-name"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-inline">
+                                        <label for="get-check-bank-name">银行账户名称</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-inline">
+                                        <p class="form-control input-sm" id="get-check-bank-name"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-inline">
+                                        <label for="get-check-post-address" style="width: 140px;">请将支票寄至以下地址</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-inline">
+                                        <p class="form-control input-sm" id="get-check-post-address"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+            <div class="text-center next-step-wrapper">
+                <button class="prev-step prev-five">上一步</button>
+                <button id="finish" class="next-step finish">确认投资</button>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane " id="order-id">
+            <div class="order-wrapper">
+                <div class="order-img">
+                    <img src="http://zion.meixincn.com/version/dist/img/channel/order_number.png" alt="">
+                </div>
+                <p id="invest-success" class="text-center font-18" style="margin-top: 20px; display: none;">
+                    恭喜您完成线上认购！
+                </p>
+                <p id="order-number" class="text-center">
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="Modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="padding: 30px;">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <div class="base-info-title" style="margin-top: 0">
+                <span class="product_name"></span>
+                <br>
+                <span style="margin-bottom: 10px;">查找常用银行</span>
+            </div>
+            <div class="row bank-list text-center">
+
+            </div>
+            <div class="text-center next-step-wrapper">
+                <button class="prev-step cancel-bank" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- The overlay -->
+<div id="document-preview" class="overlay">
+  <span class="overlay-left-top close-document-preview">&lt; 返回签字页面</span>
+
+  <div id="document-loading">
+    <img src="http://zion.meixincn.com/version/dist/img/channel/loading.gif"/>
+    <p>请稍后，正在生成文件...<br/><br/>Please wait, generating document...</p>
+  </div>
+  <div id="document-error">
+    <img src="http://zion.meixincn.com/version/dist/img/channel/error.png"/>
+    <p>暂时无法生成文件！请关闭重试。<br/><br/>Could not generate document! Please retry.</p>
+  </div>
+
+  <!-- Document -->
+  <div id="document-element-wrapper"></div>
+</div>
+</body>
+<script type="text/javascript" src="http://zion.meixincn.com/vendor/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://zion.meixincn.com/vendor/js/jSignature.min.js"></script>
+<script type="text/javascript" src="http://zion.meixincn.com/version/dist/js/channel.min.js"></script>
+</html>
