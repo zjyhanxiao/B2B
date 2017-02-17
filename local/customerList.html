@@ -52,7 +52,8 @@
     $(function () {
         $.ajax({
             type: 'get',
-            url: base_url + '/zion/channel/customer',
+            url: base_url + '/channel/customer/list',
+            data:{'condition':''},
             contentType: "application/json; charset=utf-8",
             headers: {
                 "mx_token": $.cookie('mx_token'),
@@ -65,7 +66,7 @@
                     userhtml += '<tr> <td class="w_160"><a class="" href="customerDetails.html?phone='+item.phone+'">'+item.first_name+' '+item.last_name+'</a></td>' +
                         ' <td class="w_175">'+item.phone+'</td>' +
                         ' <td class="w_285">'+item.email+'</td>' +
-                        ' <td class="w_190">'+item.last_time+'</td> ' +
+                        ' <td class="w_190">'+item.last_invest_time+'</td> ' +
                         '<td class="w_160"><a href="order.html?user='+item.phone+'">'+item.order_count+'</a></td>' +
                         ' <td class="w_200">'+item.invest_amount+'</td> </tr>'
                 })
@@ -83,21 +84,32 @@
 
             $.ajax({
                 type: 'get',
-                url: base_url + '/zion/channel/customer',
+                url: base_url + '/channel/customer/list',
+                data:{'condition':$('.search_input').val()},
                 contentType: "application/json; charset=utf-8",
                 headers: {
                     "mx_token": $.cookie('mx_token'),
                     "mx_secret": $.cookie('mx_secret')
                 },
                 success: function (res) {
-
+                    console.log(res.body)
+                    var userhtml = ''
+                    $.each(res.body,function (i,item) {
+                        userhtml += '<tr> <td class="w_160"><a class="" href="customerDetails.html?phone='+item.phone+'">'+item.first_name+' '+item.last_name+'</a></td>' +
+                            ' <td class="w_175">'+item.phone+'</td>' +
+                            ' <td class="w_285">'+item.email+'</td>' +
+                            ' <td class="w_190">'+item.last_invest_time+'</td> ' +
+                            '<td class="w_160"><a href="order.html?user='+item.phone+'">'+item.order_count+'</a></td>' +
+                            ' <td class="w_200">'+item.invest_amount+'</td> </tr>'
+                    })
+                    $('.chart_body').html(userhtml)
                 },
                 error: function () {
                 }
             })
 
         }else {
-            alert('1')
+            alert('请输入关键字')
         }
     })
 
