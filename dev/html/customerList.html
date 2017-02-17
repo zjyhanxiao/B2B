@@ -108,6 +108,12 @@
                 },
                 success: function (res) {
                     console.log(res.body)
+
+                    if (res.body.length!=0){
+
+                    }
+
+
                     var userhtml = ''
                     $.each(res.body,function (i,item) {
                         userhtml += '<tr> <td class="w_160"><a class="" href="customerDetails.html?phone='+item.phone+'">'+item.first_name+' '+item.last_name+'</a></td>' +
