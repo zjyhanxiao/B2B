@@ -2,8 +2,8 @@
  * Created by zhiqiang.li on 2017/1/17.
  */
 
-// var baseUrlChannel = 'https://gl-api2.meixincn.com/channel';
-var baseUrlChannel = 'https://prod-gl-api.meixincn.com/channel';
+var baseUrlChannel = 'https://zion-api.meixincn.com/channel';
+// var baseUrlChannel = 'https://prod-gl-api.meixincn.com/channel';
 var invest_success = false;
 $(function () {
     // 让用户知道，如果要关掉此页面则会丢去所有工作
@@ -127,7 +127,7 @@ $(function () {
             d = res.body;
             var html ='';
             $.each(d,function (i) {
-                html += '<option>' + d[i].nameCn + '</option>';
+                html += '<option value="' + d[i].nameCn + '">' + d[i].nameCn + '</option>';
             });
             $("#industry").empty().append("<option>"+ '请选择' +"</option>" + html);
         }
@@ -150,7 +150,7 @@ $(function () {
                     d = res.body;
                     var html ='';
                     $.each(d,function (i) {
-                        html += '<option>' + d[i].nameCn + '</option>';
+                        html += '<option value="' + d[i].nameCn + '">' + d[i].nameCn + '</option>';
                     });
                     $("#occupation").empty().append("<option>"+ '请选择' +"</option>" + html);
                 }
