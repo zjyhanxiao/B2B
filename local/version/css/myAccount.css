@@ -93,6 +93,28 @@ body{
 }
 .contactway{
     width: 100%;
-    height: 50px;
     border: 1px solid #cccccc;
+    margin-bottom: 20px;
+}
+.contactway_main{
+    margin: 15px;
+}
+.changepassword{
+    width: 100%;
+    border: 1px solid #cccccc;
+}
+.changepassword_main{
+    margin: 15px;
+}
+label{
+    line-height: 30px;
+    font-weight: 500;
+}
+.relative span{
+    color: #999999;
+}
+.caution{
+    font-size: 12px;
+    color: red;
+    line-height: 30px;
 }

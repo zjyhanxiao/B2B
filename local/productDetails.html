@@ -23,8 +23,8 @@
                                     <h4 class="modal-title" id="myModalLabel">分享</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <p class="text-center" style="color: #223976">请复制链接使用手机扫码分享链接至客户</p>
-                                    <p style="margin:20px 30px 20px 0"> <input id="sharelink_copy" class="sharelink" type="text" value="" style="width: 420px;height: 33px"> <button id="copy" type="button" class="btn btn-primary" style="margin-left: -4px;margin-top: -3px;border-radius: 0 3px 3px 0">复制链接</button>
+                                    <p class="text-center" style="color: #223976">请复制链接或使用手机扫码分享链接至客户</p>
+                                    <p style="margin:20px 30px 20px 0"> <input id="sharelink_copy" class="sharelink" type="text" value="" style="width: 420px;height: 33px" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"> <button id="copy" type="button" class="btn btn-primary" style="margin-left: -4px;margin-top: -3px;border-radius: 0 3px 3px 0"  data-clipboard-action="copy" data-clipboard-target="#sharelink_copy">复制链接</button>
                                     <div class="QRcode">
                                         <img id="QRcode" src="" alt="">
                                     </div>
@@ -227,6 +227,7 @@
 <script src="http://localhost:8080/vendor/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="http://localhost:8080/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
 <script src="http://localhost:8080/version/dist/js/common.min.js" type="text/javascript"></script>
+<script src="http://localhost:8080/vendor/js/clipboard.min.js" type="text/javascript"></script>
 <script>
 
 //    var base_url = 'http://192.168.1.102:8001';
@@ -502,9 +503,24 @@
 //            $('.assist').attr("href","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select2').val())
         })
         //复制分享链接
-        $('#copy').click(function () {
-            alert("您的浏览器不支持点击复制，请使用 Ctrl + C 手动复制！")
-        })
+//        $('#copy').click(function () {
+//            alert("您的浏览器不支持点击复制，请使用 Ctrl + C 手动复制！")
+//        })
+
+        var clipboard = new Clipboard('#copy');
+        clipboard.on('success', function(e) {
+            console.info('Action:', e.action);
+            console.info('Text:', e.text);
+            console.info('Trigger:', e.trigger);
+            alert("复制成功");
+            e.clearSelection();
+        });
+
+        clipboard.on('error', function(e) {
+            console.error('Action:', e.action);
+            console.error('Trigger:', e.trigger);
+        });
+
 
 
     }
