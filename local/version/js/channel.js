@@ -687,6 +687,11 @@ $(function () {
             }
             $("#bank-info").removeClass('active').next().addClass('active');
             $('body').scrollTop(0);
+            if(middle_bank_name=='' || middle_bank_address=='' || middle_bank_swift_code==''){
+                $("#get-middle-bank-name").hide();
+                $("#get-middle-bank-address").hide();
+                $("#get-middle-bank-swift-code").hide();
+            }
             //账户号加密处理
             account_number_secret = '**********' + account_number.substr(account_number.length-4);
             $("#get-name").html(first_name + ' ' + last_name);
@@ -788,7 +793,7 @@ $(function () {
     });
     
     function getProductDocument(res) {
-        var p = res.body;
+        var p = res.body.legal_document;
         $.each(p,function (i) {
             html += '<p class="documents">'+
                 '<span class="document_checkbox"><input name="checkbox" type="checkbox" style="width: 15px; height: 15px;" id="document_' + i + '"/></span>'+
@@ -922,7 +927,11 @@ $(function () {
                 $(".ach-document a").attr('href',d.ach.document);
                 $("#get-ach-user-name").html(first_name + " " + last_name);
                 $("#get-ach-bank-name").html(bank_name);
-                $("#get-ach-aba").html(routing_number);
+                if(routing_number==''){
+                    $("#get-ach-aba").hide();
+                }else{
+                    $("#get-ach-aba").html(routing_number);
+                }
                 $("#get-ach-account-number").html(account_number);
             }
             if(d.is_receive_bank_enabled){
