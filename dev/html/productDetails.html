@@ -49,6 +49,21 @@
                         </div>
                     </div>
 
+                    <div class="modal fade" id="placeanorder" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">下单</h4>
+                                </div>
+                                <div class="modal-body">
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <p style="margin-bottom: 20px"><a class="vieworder" href="">查看订单</a></p>
                 <div class="product_explain">
@@ -151,7 +166,8 @@
                                             <option value="1"></option>
                                         </select>&nbsp;&nbsp;&nbsp;&nbsp;
                                     </span>
-                                    <a class="assist" href=""><button type="button" class="btn btn-primary" style="outline:none;">下单</button></a>
+                                    <!--<a class="assist" href=""><button type="button" class="order_btn btn btn-primary" style="outline:none;">下单</button></a>-->
+                                    <button type="button" class="order_btn btn btn-primary" style="outline:none;">下单</button>
                                 </p>
                             </td>
                         </tr>
@@ -482,6 +498,11 @@
             $('.backstage2').show();
         }
 
+        //辅助下单模态框
+        $('.order_btn').click(function () {
+            $('#placeanorder').modal('show')
+        })
+
         //分享模态框
         $('.share').click(function () {
             $('#share').modal('show')
@@ -512,7 +533,6 @@
             })
 
         })
-
 
         $('#select2').change(function () {
 //            $('.assist').attr("href","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select2').val())

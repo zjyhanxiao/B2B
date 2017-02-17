@@ -13,7 +13,7 @@
         <div class="product_main">
             <div class="backstageList_head">
                 <p class="backstageList_search">
-                    <input type="text" placeholder="请输入要搜索的内容">
+                    <input type="text" class="search_input" placeholder="请输入要搜索的内容">
                     <i class="glyphicon glyphicon-search"></i>
                 </p>
             </div>
@@ -29,14 +29,14 @@
                     </tr>
                 </table>
                 <table class="chart_body">
-                    <tr>
-                        <td class="w_160"><a class="btn" href="">1111111111</a></td>
-                        <td class="w_175">销售员</td>
-                        <td class="w_285">负责人电话</td>
-                        <td class="w_190">负责人邮箱</td>
-                        <td class="w_160"><a href="">21</a></td>
-                        <td class="w_200">总销售金额</td>
-                    </tr>
+                    <!--<tr>-->
+                        <!--<td class="w_160"><a class="btn" href="">1111111111</a></td>-->
+                        <!--<td class="w_175">销售员</td>-->
+                        <!--<td class="w_285">负责人电话</td>-->
+                        <!--<td class="w_190">负责人邮箱</td>-->
+                        <!--<td class="w_160"><a href="">21</a></td>-->
+                        <!--<td class="w_200">总销售金额</td>-->
+                    <!--</tr>-->
                 </table>
             </div>
 
@@ -60,12 +60,45 @@
             },
             success: function (res) {
                 console.log(res.body)
+                var userhtml = ''
+                $.each(res.body,function (i,item) {
+                    userhtml += '<tr> <td class="w_160"><a class="" href="customerDetails.html?phone='+item.phone+'">'+item.first_name+' '+item.last_name+'</a></td>' +
+                        ' <td class="w_175">'+item.phone+'</td>' +
+                        ' <td class="w_285">'+item.email+'</td>' +
+                        ' <td class="w_190">'+item.last_time+'</td> ' +
+                        '<td class="w_160"><a href="order.html?user='+item.phone+'">'+item.order_count+'</a></td>' +
+                        ' <td class="w_200">'+item.invest_amount+'</td> </tr>'
+                })
+                $('.chart_body').html(userhtml)
             },
             error: function () {
             }
         })
 
+    })
 
+
+    $('.glyphicon-search').click(function () {
+        if ($('.search_input').val()!=''){
+
+            $.ajax({
+                type: 'get',
+                url: base_url + '/zion/channel/customer',
+                contentType: "application/json; charset=utf-8",
+                headers: {
+                    "mx_token": $.cookie('mx_token'),
+                    "mx_secret": $.cookie('mx_secret')
+                },
+                success: function (res) {
+
+                },
+                error: function () {
+                }
+            })
+
+        }else {
+            alert('1')
+        }
     })
 
 
