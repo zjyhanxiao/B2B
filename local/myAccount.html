@@ -59,7 +59,7 @@
                             <div class="col-sm-6">
                                 <label for="old_password" class="col-sm-4 control-label text-left">当前账户密码</label>
                                 <div class="col-sm-7 relative">
-                                    <input type="text" style="height: 30px" class="form-control" id="old_password">
+                                    <input type="password" style="height: 30px" class="form-control" id="old_password">
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -72,7 +72,7 @@
                             <div class="col-sm-6">
                                 <label for="new_password" class="col-sm-4 control-label text-left">当前账户密码</label>
                                 <div class="col-sm-7 relative">
-                                    <input type="text" style="height: 30px" class="form-control" id="new_password">
+                                    <input type="password" style="height: 30px" class="form-control" id="new_password">
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -85,7 +85,7 @@
                             <div class="col-sm-6">
                                 <label for="new_password1" class="col-sm-4 control-label text-left">新账户密码确认</label>
                                 <div class="col-sm-7 relative">
-                                    <input type="text" style="height: 30px" class="form-control" id="new_password1">
+                                    <input type="password" style="height: 30px" class="form-control" id="new_password1">
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -161,6 +161,15 @@
         })
 
         $('.recompose').click(function () {
+            if ($('#email').val() == ''){
+                $('#email').parent().addClass('has-error')
+                $('.email_caution').css("display", "block")
+            }else {
+                data.name = $('#email').val();
+            }
+
+
+
             if ($('#new_password1').val()!=''&&$('#new_password').val()!=''&&$('#old_password').val()!=''&&$('#new_password').val()!=$('#old_password').val()&&$('#new_password1').val()==$('#new_password').val()){
                 alert('1')
             }
