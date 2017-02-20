@@ -50,7 +50,7 @@ $(function () {
         var data = {};
         var search_user = getUrlParam('user') || '';
         var search_product = getUrlParam('product') || '';
-        var search_channel_advisor_name = getUrlParam('channel_advisor_name') || '';
+        var search_channel_advisor_name = getUrlParam('channel') || '';
         data.user = search_user;
         data.product = search_product;
         data.channel_advisor_name = search_channel_advisor_name;

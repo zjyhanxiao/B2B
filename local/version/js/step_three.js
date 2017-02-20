@@ -19,11 +19,13 @@ $(function () {
         var bank_name = $("#bank-name").val();
         var bank_address = $("#bank-address").val();
         var swift_code = $("#swift-code").val();
-        var routing_number = $("#routing-number").val();
+        var routing_number = $("#routing-number").val() || '';
         var account_number = $("#account-number").val();
-        var middle_bank_name = $("#middle-bank-name").val();
-        var middle_bank_address = $("#middle-bank-address").val();
-        var middle_bank_swift_code = $("#middle-bank-swift-code").val();
+        var middle_bank_name = $("#middle-bank-name").val() || '';
+        var middle_bank_address = $("#middle-bank-address").val() || '';
+        var middle_bank_swift_code = $("#middle-bank-swift-code").val() || '';
+        var have_middle_bank = 0;
+        var account_type = 'Checking';
         if (bank_name == '') {
             $("#bank-name").addClass('red-shadow');
             next_step = false;
@@ -41,9 +43,14 @@ $(function () {
                 $("#routing-number").addClass('red-shadow');
                 next_step = false;
             }
+            if ($('#saving').hasClass('checked')) {
+                account_type = 'Savings'
+            } else {
+                account_type = 'Checking';
+            }
         } else {
             if (middle_bank_name != '' && middle_bank_address != '' && middle_bank_swift_code != '') {
-
+                have_middle_bank = 1;
             }
         }
         if (account_number == '') {
@@ -51,55 +58,60 @@ $(function () {
             next_step = false;
         }
 
-        if (next_step) {
-            if (bank_type == 'US') {
-                $(".get-middle-bank").hide();
-                $("#routing-number-wrapper").show();
-                $("#get-bank-aba").show();
+        if (!next_step) {
+            var t = $('.red-shadow').eq(0).offset().top;
+            $('body').scrollTop(t);
+            $(this).prop('disabled', false);
+        } else {
+            var data = {};
+            data.bank_type = bank_type;
+            if (bank_type == 'NON_US') {
+                data.bank_non_us = {};
+                data.bank_non_us.bank_name = bank_name;
+                data.bank_non_us.bank_address = bank_address;
+                data.bank_non_us.swift_code = swift_code;
+                // data.bank_non_us.routing_number = routing_number;
+                data.bank_non_us.account_number = account_number;
+                data.bank_non_us.have_middle_bank = have_middle_bank;
+                if (have_middle_bank) {
+                    data.bank_non_us.middle_bank_name = middle_bank_name;
+                    data.bank_non_us.middle_bank_address = middle_bank_address;
+                    data.bank_non_us.middle_bank_swift_code = middle_bank_swift_code;
+                }
             } else {
-                $(".get-middle-bank").show();
-                $("#routing-number-wrapper").hide();
-                $("#get-bank-aba").hide();
+                data.bank_us = {};
+                data.bank_us.bank_name = bank_name;
+                data.bank_us.bank_address = bank_address;
+                data.bank_us.swift_code = swift_code;
+                data.bank_us.routing_number = routing_number;
+                data.bank_us.account_number = account_number;
+                data.bank_us.account_type = account_type;
             }
-            $("#bank-info").removeClass('active').next().addClass('active');
-            $('body').scrollTop(0);
-            if (middle_bank_name == '' || middle_bank_address == '' || middle_bank_swift_code == '') {
-                $(".get-middle-bank").hide();
-            }
-            //账户号加密处理
-            account_number_secret = '**********' + account_number.substr(account_number.length - 4);
-            $("#get-name").html(first_name + ' ' + last_name);
-            $("#get-phone").html(phone);
-            $("#get-email").html(email);
-            $("#get-date-of-birth").html(date_of_birth);
-            $("#get-source-of-income").html(source_of_income);
-            $("#get-industry").html(industry);
-            $("#get-occupation").html(occupation);
-            $("#get-passport-number").html(passport_number);
-            $("#get-effective").html(effective);
-            $(".get-bank-name").html(bank_name);
-            $("#get-bank-address").html(bank_address);
-            $("#get-Swift-code").html(swift_code);
-            $("#get-aba").html(routing_number);
-            $("#get-bank-user-name").html(first_name + ' ' + last_name);
-            $(".get-bank-user-account").html(account_number_secret);
-            $("#get-middle-bank-name").html(middle_bank_name);
-            $("#get-middle-bank-address").html(middle_bank_address);
-            $("#get-middle-bank-swift-code").html(middle_bank_swift_code);
-            $(".get-address-line2").html(address_detail);
-            $(".get-address-line1").html(region + " " + city + " " + county);
-            $(".get-address-line3").html(post_code);
-
-            var product = {'product_id': product_id};
-            $.ajax({
-                type: 'get',
-                dataType: 'json',
-                contentType: 'application/json',
-                data: product,
-                url: baseUrlChannel + '/white_label/product_info',
-                success: getProductInfo
+            postData({
+                url: base_url + '/zion/assist/operateUser',
+                data: JSON.stringify(data),
+                headers: {
+                    mx_secret: mx_secret, mx_token: mx_token
+                },
+                contentType: "application/json; charset=utf-8",
+                sucFn: stepThreeSuccess,
+                failFn: stepThreeFail
             })
+            function stepThreeSuccess(res) {
+                var d = res.body;
+                if (d) {
+                    /*window.location = '/auxiliary_order/information_validation.html?' +
+                     'product_id=' + product_id + '&phone=' + user_phone + '&channel_code=' + channel_code + '&order_number=' + order_number;*/
+                }
+
+            }
+
+            function stepThreeFail(res) {
+                $('.step-three').prop('disabled', false);
+                alert(res.msg)
+            }
         }
+        return false;
     });
 
 
@@ -120,6 +132,7 @@ $(function () {
         var d = res.body;
         if (d && d != null) {
             if (d.bank_type == 'US') {
+                $('.non-us-bank').addClass('button-white').removeClass('button-blue');
                 $('.us-bank').addClass('button-blue').removeClass('button-white');
                 $(".middle-bank").hide();
                 $(".middle-bank-info").hide();
@@ -140,7 +153,8 @@ $(function () {
                     }
                 }
             } else {
-                $('.non-us-bank').addClass('button-white').removeClass('button-blue');
+                $('.non-us-bank').addClass('button-blue').removeClass('button-white');
+                $('.us-bank').addClass('button-white').removeClass('button-blue');
                 $(".middle-bank").show();
                 $(".middle-bank-info").show();
                 $(".checking-saving").hide();
