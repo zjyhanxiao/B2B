@@ -37,14 +37,14 @@
                             <div class="col-sm-6">
                                 <label for="email" class="col-sm-2 control-label text-left">邮箱</label>
                                 <div class="col-sm-9 relative">
-                                    <span style="display: block;height: 30px;line-height: 30px" id="email">221123</span>
+                                    <span style="display: block;height: 30px;line-height: 30px" id="email"></span>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="col-sm-1"></div>
                                 <label for="phone" class="col-sm-2 control-label text-left">电话</label>
                                 <div class="col-sm-9 relative">
-                                    <span style="display: block;height: 30px;line-height: 30px" id="phone">221123</span>
+                                    <span style="display: block;height: 30px;line-height: 30px" id="phone"></span>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +110,26 @@
 <script src="http://localhost:8080/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
 <script src="http://localhost:8080/version/dist/js/common.min.js" type="text/javascript"></script>
 <script>
+    $(function () {
 
+        $.ajax({
+            type: 'get',
+            url: base_url + '/zion/channel_advisor/info',
+            contentType: "application/json; charset=utf-8",
+            headers: {
+                "mx_token": $.cookie('mx_token'),
+                "mx_secret": $.cookie('mx_secret')
+            },
+            success: function (res) {
+                console.log(res.body)
+                $('#email').html( res.body.email )
+                $('#phone').html( res.body.phone )
+            },
+            error: function () {
+            }
+        })
+
+    })
 
 
 
@@ -172,7 +191,6 @@
 
             if ($('#new_password1').val()!=''&&$('#new_password').val()!=''&&$('#old_password').val()!=''&&$('#new_password').val()!=$('#old_password').val()&&$('#new_password1').val()==$('#new_password').val()){
                 var data = {'old_password':$('#old_password').val(),'new_password':$('#new_password').val(),'confirm_password':$('#new_password1').val()}
-                console.log(data)
                 $.ajax({
                     type: 'post',
                     url: base_url + '/zion/channel_advisor/change_password',
@@ -198,8 +216,6 @@
                     }
                 })
 
-            }else {
-                alert('密码不能为空')
             }
 
         })
