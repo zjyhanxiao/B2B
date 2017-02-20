@@ -186,7 +186,35 @@
 
 
             if ($('#new_password1').val()!=''&&$('#new_password').val()!=''&&$('#old_password').val()!=''&&$('#new_password').val()!=$('#old_password').val()&&$('#new_password1').val()==$('#new_password').val()){
+                var data = {'old_password':$('#old_password').val(),'new_password':$('#new_password').val(),'confirm_password':$('#new_password1').val()}
+                console.log(data)
+                $.ajax({
+                    type: 'post',
+                    url: base_url + '/zion/channel_advisor/change_password',
+                    data: data,
+//                    contentType: "application/json; charset=utf-8",
+                    headers: {
+                        "mx_token": $.cookie('mx_token'),
+                        "mx_secret": $.cookie('mx_secret')
+                    },
+                    success: function (res) {
+                        if (res.msg == '您输入的旧密码有误'){
+                            $('#old_password').parent().addClass('has-error')
+                            $('.old_password_caution').css("display", "block")
+                        }else if (res.msg == '两次输入的新密码不一致'){
+                            $('#new_password1').parent().addClass('has-error')
+                            $('.new_password1_caution').css("display", "block")
+                        }
+                        if (res.code==1){
+                            $('#password_hint').modal('show')
+                        }
+                    },
+                    error: function () {
+                    }
+                })
 
+            }else {
+                alert('密码不能为空')
             }
 
         })
