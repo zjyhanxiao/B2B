@@ -65,7 +65,7 @@ $(function () {
 
     // 首次登录，跳转至首次登录重置密码页面
     function resetPassword() {
-        window.location = '/firstLogin_reset.html?phone=' + $('#user_name').val();
+        window.location = '/firstLogin_reset.html?phone=+86 ' + $('#user_name').val();
 
     }
 });

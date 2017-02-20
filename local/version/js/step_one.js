@@ -1,6 +1,11 @@
 $(function () {
     $('#product_head ul li[data-name="产品"]').addClass('active');
 
+    var user_phone = getUrlParam('phone') || ''; // 通过手机号查找用户信息
+    var channel_code = getUrlParam('channel_code') || ''; // 渠道编码
+    var product_id = getUrlParam('product_id') || ''; //获取产品id
+    var order_number = getUrlParam('order_number') || ''; // 获取订单编号
+
     var passport_photo_default = $('.fa-upload-pic img').attr('src');
     $('.step-one').on('click', function () {
         var passport_photo = $('.fa-upload-pic img').attr('src');
@@ -11,7 +16,7 @@ $(function () {
         var next_step = true;
         var last_name = $("#last_name").val();
         var first_name = $("#first_name").val();
-        var phone = $('#phone-code').val() + ' ' + $("#phone").val();
+        user_phone = $('#phone-code').val() + ' ' + $("#phone").val();
         var email = $("#email").val();
         var date_of_birth = $("#date-of-birth").val();
         var source_of_income = $("#source-of-income").val();
@@ -31,7 +36,7 @@ $(function () {
             $("#first_name").addClass('red-shadow');
             next_step = false;
         }
-        if (phone == '' || phone.length < 6) {
+        if (user_phone == '' || user_phone.length < 6) {
             $("#phone").addClass('red-shadow');
             next_step = false;
         }
@@ -55,11 +60,15 @@ $(function () {
             next_step = false;
             $("#source-of-income").addClass('red-shadow');
         }
-        if (industry == '' || industry == '请选择') {
+        if (industry == '') {
             next_step = false;
             $("#industry").addClass('red-shadow');
         }
-        if (occupation == '' || occupation == '请选择') {
+        if (occupation == '') {
+            next_step = false;
+            $("#occupation").addClass('red-shadow');
+        }
+        if (occupation == '') {
             next_step = false;
             $("#occupation").addClass('red-shadow');
         }
@@ -89,9 +98,12 @@ $(function () {
             $(this).prop('disabled', false);
         } else {
             var data = {};
+            data.channel_code = channel_code;
+            data.product_id = product_id;
+            data.order_number = order_number;
+            data.phone = user_phone;
             data.last_name = last_name;
             data.first_name = first_name;
-            data.phone = phone;
             data.email = email;
             data.base_info = {};
             data.base_info.date_of_birth = date_of_birth;
@@ -114,14 +126,25 @@ $(function () {
                 contentType: "application/json; charset=utf-8",
                 sucFn: stepOneSuccess,
                 failFn: stepOneFail
-            })
+            });
             function stepOneSuccess(res) {
-                window.location = ''
+                var d = res.body;
+                if (d) {
+                    if (d != null && d.order_number != '' && d.order_number != null && d.order_number != undefined) {
+                        order_number = d.order_number;
+                    }
+                    window.location = '/auxiliary_order/stepTwo.html?' +
+                        'product_id=' + product_id + '&phone=' + user_phone + '&channel_code=' + channel_code + '&order_number=' + order_number;
+                }
+
             }
+
             function stepOneFail(res) {
+                $('.step-one').prop('disabled', false);
                 alert(res.msg)
             }
         }
+        return false;
     });
 
     //获取行业
@@ -139,7 +162,7 @@ $(function () {
             $.each(d, function (i) {
                 html += '<option value="' + d[i].nameCn + '">' + d[i].nameCn + '</option>';
             });
-            $("#industry").empty().append("<option>" + '请选择' + "</option>" + html);
+            $("#industry").empty().append("<option value=''>" + '请选择' + "</option>" + html);
         }
     });
 
@@ -147,7 +170,7 @@ $(function () {
     $("#industry").on('change', function () {
         $("#occupation").prop('disabled', false);
         var industry = $("#industry").val();
-        if (industry != '请选择') {
+        if (industry != '') {
             var data = {'industry': industry};
             var pd = JSON.stringify(data);
             $.ajax({
@@ -162,7 +185,7 @@ $(function () {
                     $.each(d, function (i) {
                         html += '<option value="' + d[i].nameCn + '">' + d[i].nameCn + '</option>';
                     });
-                    $("#occupation").empty().append("<option>" + '请选择' + "</option>" + html);
+                    $("#occupation").empty().append("<option value=''>" + '请选择' + "</option>" + html);
                 }
             });
         } else {
@@ -190,7 +213,6 @@ $(function () {
     });
 
     // 通过手机号获取渠道用户信息
-    var user_phone = getUrlParam('phone') || '';
     if (user_phone != '') {
         getData({
             url: base_url + '/zion/assist/customerInfo',
@@ -207,6 +229,7 @@ $(function () {
     function baseInfo(res) {
         var d = res.body;
         if (d && d != null) {
+            $('#phone-code,#phone').prop({readOnly: true, disabled: true});
             $('#last_name').val(d.last_name);
             $('#first_name').val(d.first_name);
             if (d.phone != '' && d.phone.indexOf(' ')) {
@@ -236,7 +259,7 @@ $(function () {
                         $.each(d, function (i) {
                             html += '<option value="' + d[i].nameCn + '">' + d[i].nameCn + '</option>';
                         });
-                        $("#occupation").empty().append("<option>" + '请选择' + "</option>" + html).val(occupation).prop('disabled', false);
+                        $("#occupation").empty().append("<option value=''>" + '请选择' + "</option>" + html).val(occupation).prop('disabled', false);
                     }
                 })
             }

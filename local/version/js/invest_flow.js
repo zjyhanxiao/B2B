@@ -15,7 +15,7 @@ $(function () {
     }
 
     function getProductSuc(res) {
-        $('.about_product').append('<span>' + res.body.name + '</span>' + res.body.number);
+        $('.about_product').html('<span>' + res.body.name + '</span>' + res.body.number);
     }
 
     function getProductFail(res) {

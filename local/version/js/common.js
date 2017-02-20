@@ -1,5 +1,5 @@
 var base_url = 'https://zion-api.meixincn.com';
-// var base_url = 'http://192.168.1.104:8001'
+// var base_url = 'http://192.168.1.102:8001'
 // 定义用户权限
 var is_admin;
 //获取url中的参数
