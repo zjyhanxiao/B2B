@@ -10,8 +10,8 @@ function getUrlParam(name) {
     return null; //返回参数值
 }
 // 获取cookie
-var mx_secret = $.cookie('mx_secret', {path: '/'}) || '',
-    mx_token = $.cookie('mx_token', {path: '/'}) || '';
+var mx_secret = $.cookie('mx_secret') || '',
+    mx_token = $.cookie('mx_token') || '';
 //公用post请求
 var postData = function (opt) {
     $.ajax({
@@ -107,7 +107,7 @@ $(function () {
     });
     // 登出成功，清除本地cookie
     function logout_success() {
-        $.cookie('mx_token', null, {path: '/'});
-        $.cookie('mx_secret', null, {path: '/'});
+        $.cookie('mx_token', null);
+        $.cookie('mx_secret', null);
     }
 });

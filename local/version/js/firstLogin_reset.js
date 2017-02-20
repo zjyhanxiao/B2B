@@ -79,8 +79,8 @@ $(function () {
     }
     // 登录成功，跳转至产品。存储cookie
     function login_success(res) {
-        $.cookie('mx_token', res.body.mx_token, {path: '/'});
-        $.cookie('mx_secret', res.body.mx_secret, {path: '/'});
+        $.cookie('mx_token', res.body.mx_token);
+        $.cookie('mx_secret', res.body.mx_secret);
         window.location = '/productList.html'
     }
 });
