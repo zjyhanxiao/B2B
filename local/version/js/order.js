@@ -54,6 +54,7 @@ $(function () {
         data.user = search_user;
         data.product = search_product;
         data.channel_advisor_name = search_channel_advisor_name;
+
         $('#product').val(search_product);
         $('#user').val(search_user);
         if (is_admin) {

@@ -183,7 +183,7 @@
                 if (res.body.amount == null){
                     res.body.amount = 0;
                 }
-                $('.look_indent').attr('href','order.html?channel='+ res.body.name)
+                $('.look_indent').attr('href',encodeURI('/order.html?channel='+ res.body.name))
 
                 $('#counselor').html('投资顾问  '+res.body.name+'   ('+res.body.code+')')
                 $('#phone').html(res.body.phone)

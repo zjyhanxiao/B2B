@@ -64,6 +64,10 @@ $(function () {
             $(this).prop('disabled', false);
         } else {
             var data = {};
+            data.channel_code = channel_code;
+            data.product_id = product_id;
+            data.order_number = order_number;
+            data.phone = user_phone;
             data.bank_type = bank_type;
             if (bank_type == 'NON_US') {
                 data.bank_non_us = {};
@@ -100,8 +104,8 @@ $(function () {
             function stepThreeSuccess(res) {
                 var d = res.body;
                 if (d) {
-                    /*window.location = '/auxiliary_order/information_validation.html?' +
-                     'product_id=' + product_id + '&phone=' + user_phone + '&channel_code=' + channel_code + '&order_number=' + order_number;*/
+                    window.location = '/auxiliary_order/information_validation.html?' +
+                     'product_id=' + product_id + '&phone=' + user_phone + '&channel_code=' + channel_code + '&order_number=' + order_number;
                 }
 
             }
