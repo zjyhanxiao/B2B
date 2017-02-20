@@ -120,7 +120,7 @@ $(function () {
     function order_list(data) {
         if (data.body && data.body.length > 0) {
             var jsonData = $.grep(data.body, function (n, i) {
-                return i > 20;
+                return i > 2000;
             }, true);
             if (is_admin) {// 管理员和客户分别渲染不同数据
                 admin_order_list(jsonData)

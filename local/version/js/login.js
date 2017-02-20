@@ -1,7 +1,7 @@
 $(function () {
     // 进登录页面，先清除本地cookie
-    $.cookie('mx_token', null);
-    $.cookie('mx_secret', null);
+    $.cookie('mx_token', null, {path: '/'});
+    $.cookie('mx_secret', null, {path: '/'});
     // input 获取焦点时删除错误警告
     $('.user_warp input').focus(function () {
         $(this).css('border-color', '#ccc')
@@ -51,9 +51,8 @@ $(function () {
     });
     // 登录成功 设置cookie，跳转页面
     function login_success(res) {
-        $.cookie('mx_token', res.body.mx_token);
-        $.cookie('mx_secret', res.body.mx_secret);
-        $.cookie('is_admin', res.body.is_admin);
+        $.cookie('mx_token', res.body.mx_token, {path: '/'});
+        $.cookie('mx_secret', res.body.mx_secret, {path: '/'});
         $('.user_button button').prop('disabled', false);
         window.location = '/productList.html'
     }

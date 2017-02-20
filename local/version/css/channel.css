@@ -973,6 +973,8 @@ div#document-loading p, div#document-error p {
     margin: 30px auto 0;
     color: #555;
     font-size: 14px;
+    height: 20px;
+    line-height: 20px;
 }
 .about_product,.about_order{
     width: 50%;

@@ -1,5 +1,5 @@
- var base_url = 'https://zion-api.meixincn.com';
- // var base_url = 'http://192.168.1.104:8001'
+var base_url = 'https://zion-api.meixincn.com';
+// var base_url = 'http://192.168.1.104:8001'
 // 定义用户权限
 var is_admin;
 //获取url中的参数
@@ -34,7 +34,7 @@ var postData = function (opt) {
                 opt.resetPas && opt.resetPas(res)
             }
             if (res.code == -1 && res.msg == 'auth failed') {
-                window.location = '/login.html'
+                // window.location = '/login.html'
             }
         }
     })
@@ -61,7 +61,7 @@ var getData = function (opt) {
                 opt.resetPas && opt.resetPas(res);
             }
             if (res.code == -1 && res.msg == 'auth failed') {
-                window.location = '/login.html'
+                // window.location = '/login.html'
             }
         }
     })
@@ -93,7 +93,7 @@ $(function () {
 
     // 未登录状态跳转至登录页
     function no_login() {
-        window.location = '/login.html'
+        // window.location = '/login.html'
     }
 
     // 登出
@@ -107,7 +107,7 @@ $(function () {
     });
     // 登出成功，清除本地cookie
     function logout_success() {
-        $.cookie('mx_token', null);
-        $.cookie('mx_secret', null);
+        $.cookie('mx_token', null, {path: '/'});
+        $.cookie('mx_secret', null, {path: '/'});
     }
 });
