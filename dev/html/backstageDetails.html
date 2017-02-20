@@ -30,7 +30,7 @@
                 <p class="head_left"><span style="font-size: 20px;color: #223976;border-left: 3px solid #223967;padding: 0 20px" id="counselor"></span></p>
                 <span class="head_right show_permission">登录权限已暂停</span>
             </div>
-            <p style="margin-bottom: 20px"><a href="">查看订单</a></p>
+            <p style="margin-bottom: 20px"><a href="" class="look_indent">查看订单</a></p>
             <div class="counselor_info">
 
                 <div class="row">
@@ -195,6 +195,11 @@
             },
             success: function (res) {
                 console.log( res.body )
+                if (res.body.amount == null){
+                    res.body.amount = 0;
+                }
+                $('.look_indent').attr('href','order.html?channel='+ res.body.name)
+
                 $('#counselor').html('投资顾问  '+res.body.name+'   ('+res.body.code+')')
                 $('#phone').html(res.body.phone)
                 $('#email').html(res.body.email)
@@ -239,8 +244,7 @@
         }
     })
     $('#alter_phone').blur(function () {
-        var reg = /^0?1[3|4|5|8][0-9]\d{8}$/
-        if ( reg.test($('#alter_phone').val()) ){
+        if ( $('#alter_phone').val() > 10 ){
             $('#alter_phone').parent().removeClass('has-error')
             $('.phone_caution').css("display", "none")
         }else {
@@ -301,6 +305,7 @@
                 success: function (res) {
                     console.log( res.body )
                     $('.change_info').modal('hide')
+                    window.location.reload()
                 },
                 error: function () {
                     alert('修改失败')
@@ -330,10 +335,8 @@
     })
     //密码确定按钮
     $('#confirm_password').click(function () {
-//        var data = {}
-//        data.code = getUrlParam('code');
+
         if ($('#password').val()!=''){
-//            data.password = $('#password').val();
 
             var data = {'code':getUrlParam('code'),'password':$('#password').val()}
             console.log(data)
@@ -367,8 +370,46 @@
 
     //登录权限
     $('.login_on').click(function () {
+
         if ($('.login_on').html() == '关闭登录权限'){
-            alert('1')
+            var data = {'code':getUrlParam('code'),'is_active':false}
+            $.ajax({
+                type: 'get',
+                url: base_url + '/zion/channel/reviseLoginAuthority',
+                data: data  ,
+                contentType: "application/json; charset=utf-8",
+                headers: {
+                    "mx_token": $.cookie('mx_token'),
+                    "mx_secret": $.cookie('mx_secret')
+                },
+                success: function (res) {
+                    console.log( '1' )
+                    $('.show_permission').html('登录权限已暂停')
+                    $('.login_on').html('开启登录权限')
+                },
+                error: function () {
+                }
+            })
+        }else {
+            var data = {'code':getUrlParam('code'),'is_active':true}
+            $.ajax({
+                type: 'get',
+                url: base_url + '/zion/channel/reviseLoginAuthority',
+                data: data  ,
+                contentType: "application/json; charset=utf-8",
+                headers: {
+                    "mx_token": $.cookie('mx_token'),
+                    "mx_secret": $.cookie('mx_secret')
+                },
+                success: function (res) {
+                    console.log( '2' )
+                    $('.show_permission').html('')
+                    $('.login_on').html('关闭登录权限')
+                },
+                error: function () {
+                }
+            })
+
         }
     })
 

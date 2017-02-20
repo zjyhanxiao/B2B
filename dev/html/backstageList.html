@@ -170,7 +170,7 @@
                             '<td class="w_160">'+item.name+'</td> ' +
                             '<td class="w_190">'+item.phone+'</td> ' +
                             '<td class="w_285">'+item.email+'</td> ' +
-                            '<td class="w_160"><a href="order.html?user='+item.phone+'">'+item.count+'</a></td> ' +
+                            '<td class="w_160"><a href="order.html?channel='+item.name+'">'+item.count+'</a></td> ' +
                             '<td class="w_200">'+item.amount+'</td> </tr>'
                     })
                     $('.chart_body').html(userhtml)
@@ -207,7 +207,7 @@
                                 ' <td class="w_160">'+item.name+'</td>' +
                                 ' <td class="w_190">'+item.phone+'</td>' +
                                 ' <td class="w_285">'+item.code+'</td>' +
-                                ' <td class="w_160"><a href="order.html?user='+item.phone+'">'+item.count+'</a></td> ' +
+                                ' <td class="w_160"><a href="order.html?channel='+item.name+'">'+item.count+'</a></td> ' +
                                 '<td class="w_200">'+item.code+'</td> </tr>'
                         })
                         $('.chart_body').html(userhtml)
@@ -260,8 +260,7 @@
         }
     })
     $('#phone').blur(function () {
-        var reg = /^0?1[3|4|5|8][0-9]\d{8}$/
-        if ( reg.test($('#phone').val()) ){
+        if ( $('#phone').val().length >10 ){
             $('#phone').parent().removeClass('has-error')
             $('.phone_caution').css("display", "none")
         }else {
@@ -326,6 +325,7 @@
                     success: function (res) {
                         console.log( res.body )
                         $('.add_counselor').modal('hide')
+                        window.location.reload()
                     },
                     error: function () {
                         alert('创建失败')
