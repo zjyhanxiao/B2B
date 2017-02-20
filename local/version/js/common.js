@@ -10,8 +10,8 @@ function getUrlParam(name) {
     return null; //返回参数值
 }
 // 获取cookie
-var mx_secret = $.cookie('mx_secret') || '',
-    mx_token = $.cookie('mx_token') || '';
+var mx_secret = $.cookie('mx_secret', {path: '/'}) || '',
+    mx_token = $.cookie('mx_token', {path: '/'}) || '';
 //公用post请求
 var postData = function (opt) {
     $.ajax({
@@ -78,7 +78,7 @@ $(function () {
     ) {
         getData({
             url: base_url + '/zion/channel_advisor/authentication',
-            data: {mx_secret: $.cookie('mx_secret') || '', mx_token: $.cookie('mx_token') || ''},
+            data: {mx_secret: mx_secret, mx_token: mx_token},
             async: false,
             sucFn: is_login,
             failFn: no_login
