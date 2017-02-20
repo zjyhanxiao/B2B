@@ -78,7 +78,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <p class="caution old_password_caution" style="display: block">原密码有误，请重新输入。</p>
+                                <p class="caution old_password_caution" style="display: none">原密码有误，请重新输入。</p>
                             </div>
                         </div>
                     </p>
@@ -91,7 +91,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <p class="caution new_password_caution" style="display: block">与原密码重复，请重新设置密码。</p>
+                                <p class="caution new_password_caution" style="display: none">与原密码重复，请重新设置密码。</p>
                             </div>
                         </div>
                     </p>
@@ -104,12 +104,12 @@
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <p class="caution new_password1_caution" style="display: block">两次密码输入不一致，请重新输入。</p>
+                                <p class="caution new_password1_caution" style="display: none">两次密码输入不一致，请重新输入。</p>
                             </div>
                         </div>
                     </p>
                     <p>
-                        <button type="button" class="btn btn-primary" style="width: 120px;height: 30px;outline: none">修改</button>
+                        <button type="button" class="btn btn-primary recompose" style="width: 120px;height: 30px;outline: none">修改</button>
                     </p>
                 </div>
             </div>
@@ -143,6 +143,43 @@
         //关闭密码提示框
         $('.close_hint').click(function () {
             $('#password_hint').modal('hide')
+        })
+
+        //失去焦点验证
+        $('#old_password').blur(function () {
+            if ( $('#old_password').val()!='' ){
+                $('#old_password').parent().removeClass('has-error')
+                $('.old_password_caution').css("display", "none")
+            }else {
+                $('#old_password').parent().addClass('has-error')
+                $('.old_password_caution').css("display", "block")
+            }
+        })
+        $('#new_password').blur(function () {
+            if ( $('#new_password').val()==$('#old_password').val() ){
+                $('#new_password').parent().addClass('has-error')
+                $('.new_password_caution').css("display", "block")
+
+            }else {
+                $('#new_password').parent().removeClass('has-error')
+                $('.new_password_caution').css("display", "none")
+            }
+        })
+        $('#new_password1').blur(function () {
+            if ( $('#new_password1').val()==$('#new_password').val() ){
+                $('#new_password1').parent().removeClass('has-error')
+                $('.new_password1_caution').css("display", "none")
+            }else {
+                $('#new_password1').parent().addClass('has-error')
+                $('.new_password1_caution').css("display", "block")
+            }
+        })
+
+        $('.recompose').click(function () {
+            if ($('#new_password1').val()!=''&&$('#new_password').val()!=''&&$('#old_password').val()!=''&&$('#new_password').val()!=$('#old_password').val()&&$('#new_password1').val()==$('#new_password').val()){
+                alert('1')
+            }
+
         })
     }
 </script>
