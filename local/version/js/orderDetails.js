@@ -40,6 +40,7 @@ $(function () {
                 getData({
                     url: base_url + '/zion/order/cancel',
                     data: {order_number: order_number},
+                    async: false,
                     headers: {
                         mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
                     },
@@ -126,10 +127,10 @@ $(function () {
             dom += fa_investment_status + '<a href="javascript:;" class="status_notes"></a>' +
                 '</div>' +
                 '</div>';
-            if ( d.fa_investment_status == 'audit_failed' ) {
+            if (d.fa_investment_status == 'audit_failed') {
                 dom += '<div class="row">' +
-                    '<div class="col-md-12"><p style="color: red;">' + failRemark + '</p></div>'+
-                '</div>';
+                    '<div class="col-md-12"><p style="color: red;">' + failRemark + '</p></div>' +
+                    '</div>';
             }
             dom += '<div class="row">' +
                 '<div class="col-md-12">' +
