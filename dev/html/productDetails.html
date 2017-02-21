@@ -239,8 +239,8 @@
                     </div>
 
                 </div>
-                <p style="margin: 40px 0 15px;font-size: 18px">本期产品视频介绍</p>
-                <div class="product_videos">
+                <p class="none" style="margin: 40px 0 15px;font-size: 18px">本期产品视频介绍</p>
+                <div class="product_videos none">
                     <div class="videos">
 
                     </div>
@@ -425,7 +425,12 @@
 //                $('#introduce_document').html(introducehtml )
 
                 //视频文件
-                $('.videos').html( res.body.sales_video[0].document_url )
+                if (res.body.sales_video.length<1){
+                    $('.none').css('display','none')
+                }else {
+                    $('.videos').html( res.body.sales_video[0].document_url )
+                }
+
             },
             error: function () {
             }
