@@ -296,12 +296,14 @@
                 if (res.body.status == 'SOLD_OUT'||res.body.status == 'OFFLINE'){
                     $('#state').html('售罄').addClass('bg_qing')
                 }
+
+
                 //表格信息
-                $('#returnRate').html(res.body.returnRate+'%')
-                $('#investTerm').html(res.body.investTerm+'个月')
-                $('#minimumInvestAmount').html('$'+res.body.minimumInvestAmount)
-                $('#SaleDay').html('<p>'+res.body.startSaleDay+' —— '+res.body.endSaleDay+'</p>')
-                $('#closeFundStartInterestDay').html('<p>'+res.body.closeFundStartInterestDay+'</p>')
+                $('#returnRate').html(res.body.return_rate+'%')
+                $('#investTerm').html(res.body.invest_term+'个月')
+                $('#minimumInvestAmount').html('$'+res.body.min_total_invest_amount)
+                $('#SaleDay').html('<p>'+res.body.start_sale_day+' —— '+res.body.end_sale_day+'</p>')
+                $('#closeFundStartInterestDay').html('<p>'+res.body.close_fund_start_interest_day+'</p>')
 
                 //系列产品
                 $('#name').html(res.body.name);
@@ -317,7 +319,7 @@
                         "mx_secret": $.cookie('mx_secret')
                     },
                     success: function (res) {
-                        console.log(res.body)
+//                        console.log(res.body)
                         var tabhtml = '';
                         $.each(res.body,function (j,jtem) {
 
@@ -365,7 +367,7 @@
                 "mx_secret": $.cookie('mx_secret')
             },
             success: function (res) {
-                console.log(res.body)
+//                console.log(res.body)
                 //法律文件
                 var legalhtml = '';
                 $.each(res.body.legal_document,function ( i , item ) {
@@ -400,7 +402,7 @@
                 "mx_secret": $.cookie('mx_secret')
             },
             success: function (res) {
-                console.log(res.body)
+//                console.log(res.body)
                 var p = $('<p></p>')
                 if (res.body.is_ach_enabled){
                     p.append('ACH（仅支持美国银行账户） ；')
@@ -436,7 +438,7 @@
                     "mx_secret": $.cookie('mx_secret')
                 },
                 success: function (res) {
-                    console.log(res.body)
+//                    console.log(res.body)
                     var selecthtml1 = '';
                     $.each(res.body,function (i,item) {
                         selecthtml1 += '<option value="'+item.code+'">'+item.code+' - '+item.name+'</option>'
