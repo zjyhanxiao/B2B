@@ -2,6 +2,7 @@ $(function () {
     $('#product_head ul li[data-name="订单"]').addClass('active');
     var order_id = getUrlParam('order_id');
     var product_id = '', order_number;
+    var failRemark = '';
     // 取订单信息
     getData({
         url: base_url + '/zion/order/amount',
@@ -82,6 +83,17 @@ $(function () {
                 advisor_code = d.advisor_code != null ? d.advisor_code : '',
                 remain_amount = d.remain_amount != null ? '$' + d.remain_amount : 0,
                 close_fund_start_interest_day = d.close_fund_start_interest_day != null ? d.close_fund_start_interest_day : '';
+            if (fa_investment_status == 'audit_failed') {
+                getData({
+                    url: base_url + '/zion/order/failedRemark',
+                    data: {order_number: order_number},
+                    headers: {
+                        mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
+                    },
+                    sucFn: failedRemark,
+                    failFn: failFn
+                });
+            }
             var dom = '<div class="row">' +
                 '<div class="col-md-6 about_product_left">' +
                 '<span class="line"></span><span>订单 ' + order_number + '</span>' +
@@ -194,6 +206,13 @@ $(function () {
             dom += '</div>';
             $('.about_file').html(dom);
             return false;
+        }
+    }
+
+    // 获取审核失败原因
+    function failedRemark(res) {
+        if (res.body != null) {
+            failRemark = res.body;
         }
     }
 
