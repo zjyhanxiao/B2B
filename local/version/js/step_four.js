@@ -1,5 +1,7 @@
 $(function () {
     $('#product_head ul li[data-name="产品"]').addClass('active');
+
+    var user_data = {}; // 定义用户信息数据
     var user_phone = getUrlParam('phone') || ''; // 通过手机号查找用户信息
     var channel_code = getUrlParam('channel_code') || ''; // 渠道编码
     var product_id = getUrlParam('product_id') || ''; //获取产品id
@@ -21,15 +23,14 @@ $(function () {
             $(this).prop('disabled', false);
             return false;
         }
-        var data = {};
-        data.channel_code = channel_code;
-        data.product_id = product_id;
-        data.phone = user_phone;
-        data.order_number = order_number;
-        data.invest_amount = invest_value;
+        user_data.channel_code = channel_code;
+        user_data.product_id = product_id;
+        user_data.phone = user_phone;
+        user_data.order_number = order_number;
+        user_data.invest_amount = invest_value;
         postData({
             url: base_url + '/zion/assist/operateUser',
-            data: JSON.stringify(data),
+            data: JSON.stringify(user_data),
             headers: {
                 mx_secret: mx_secret, mx_token: mx_token
             },
@@ -84,6 +85,7 @@ $(function () {
     function baseInfo(res) {
         var d = res.body;
         if (d && d != null) {
+            user_data=d;
             $('#get-name').html(d.first_name + ' ' + d.last_name);
             $('#get-phone').html(d.phone);
             $('#get-email').html(d.email);

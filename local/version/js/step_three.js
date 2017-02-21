@@ -1,6 +1,7 @@
 $(function () {
     $('#product_head ul li[data-name="产品"]').addClass('active');
 
+    var user_data = {}; // 定义用户信息数据
     var user_phone = getUrlParam('phone') || ''; // 通过手机号查找用户信息
     var channel_code = getUrlParam('channel_code') || ''; // 渠道编码
     var product_id = getUrlParam('product_id') || ''; //获取产品id
@@ -63,37 +64,36 @@ $(function () {
             $('body').scrollTop(t);
             $(this).prop('disabled', false);
         } else {
-            var data = {};
-            data.channel_code = channel_code;
-            data.product_id = product_id;
-            data.order_number = order_number;
-            data.phone = user_phone;
-            data.bank_type = bank_type;
+            user_data.channel_code = channel_code;
+            user_data.product_id = product_id;
+            user_data.order_number = order_number;
+            user_data.phone = user_phone;
+            user_data.bank_type = bank_type;
             if (bank_type == 'NON_US') {
-                data.bank_non_us = {};
-                data.bank_non_us.bank_name = bank_name;
-                data.bank_non_us.bank_address = bank_address;
-                data.bank_non_us.swift_code = swift_code;
-                // data.bank_non_us.routing_number = routing_number;
-                data.bank_non_us.account_number = account_number;
-                data.bank_non_us.have_middle_bank = have_middle_bank;
+                user_data.bank_non_us = {};
+                user_data.bank_non_us.bank_name = bank_name;
+                user_data.bank_non_us.bank_address = bank_address;
+                user_data.bank_non_us.swift_code = swift_code;
+                // user_data.bank_non_us.routing_number = routing_number;
+                user_data.bank_non_us.account_number = account_number;
+                user_data.bank_non_us.have_middle_bank = have_middle_bank;
                 if (have_middle_bank) {
-                    data.bank_non_us.middle_bank_name = middle_bank_name;
-                    data.bank_non_us.middle_bank_address = middle_bank_address;
-                    data.bank_non_us.middle_bank_swift_code = middle_bank_swift_code;
+                    user_data.bank_non_us.middle_bank_name = middle_bank_name;
+                    user_data.bank_non_us.middle_bank_address = middle_bank_address;
+                    user_data.bank_non_us.middle_bank_swift_code = middle_bank_swift_code;
                 }
             } else {
-                data.bank_us = {};
-                data.bank_us.bank_name = bank_name;
-                data.bank_us.bank_address = bank_address;
-                data.bank_us.swift_code = swift_code;
-                data.bank_us.routing_number = routing_number;
-                data.bank_us.account_number = account_number;
-                data.bank_us.account_type = account_type;
+                user_data.bank_us = {};
+                user_data.bank_us.bank_name = bank_name;
+                user_data.bank_us.bank_address = bank_address;
+                user_data.bank_us.swift_code = swift_code;
+                user_data.bank_us.routing_number = routing_number;
+                user_data.bank_us.account_number = account_number;
+                user_data.bank_us.account_type = account_type;
             }
             postData({
                 url: base_url + '/zion/assist/operateUser',
-                data: JSON.stringify(data),
+                data: JSON.stringify(user_data),
                 headers: {
                     mx_secret: mx_secret, mx_token: mx_token
                 },
@@ -105,7 +105,7 @@ $(function () {
                 var d = res.body;
                 if (d) {
                     window.location = '/auxiliary_order/information_validation.html?' +
-                     'product_id=' + product_id + '&phone=' + user_phone + '&channel_code=' + channel_code + '&order_number=' + order_number;
+                        'product_id=' + product_id + '&phone=' + user_phone + '&channel_code=' + channel_code + '&order_number=' + order_number;
                 }
 
             }
@@ -135,6 +135,7 @@ $(function () {
     function bankInfo(res) {
         var d = res.body;
         if (d && d != null) {
+            user_data = d;
             if (d.bank_type == 'US') {
                 $('.non-us-bank').addClass('button-white').removeClass('button-blue');
                 $('.us-bank').addClass('button-blue').removeClass('button-white');

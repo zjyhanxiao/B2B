@@ -1,5 +1,7 @@
 $(function () {
     $('#product_head ul li[data-name="产品"]').addClass('active');
+
+    var user_data = {};// 定义用户信息数据
     var user_phone = getUrlParam('phone') || ''; // 通过手机号查找用户信息
     var channel_code = getUrlParam('channel_code') || ''; // 渠道编码
     var product_id = getUrlParam('product_id') || ''; //获取产品id
@@ -56,24 +58,23 @@ $(function () {
             var t = $('.red-shadow').eq(0).offset().top;
             $('body').scrollTop(t);
         } else {
-            var data = {};
-            data.channel_code = channel_code;
-            data.product_id = product_id;
-            data.order_number = order_number;
-            data.phone = user_phone;
-            data.id_card_url = id_card_url;
-            data.id_card_expire_date = address_effective;
-            data.address_type = 'CN';
-            data.address_cn = {};
-            data.address_cn.country = '中国';
-            data.address_cn.region = region;
-            data.address_cn.city = city;
-            data.address_cn.district = county;
-            data.address_cn.detail = address_detail;
-            data.address_cn.postal_code = post_code;
+            user_data.channel_code = channel_code;
+            user_data.product_id = product_id;
+            user_data.order_number = order_number;
+            user_data.phone = user_phone;
+            user_data.id_card_url = id_card_url;
+            user_data.id_card_expire_date = address_effective;
+            user_data.address_type = 'CN';
+            user_data.address_cn = {};
+            user_data.address_cn.country = '中国';
+            user_data.address_cn.region = region;
+            user_data.address_cn.city = city;
+            user_data.address_cn.district = county;
+            user_data.address_cn.detail = address_detail;
+            user_data.address_cn.postal_code = post_code;
             postData({
                 url: base_url + '/zion/assist/operateUser',
-                data: JSON.stringify(data),
+                data: JSON.stringify(user_data),
                 headers: {
                     mx_secret: mx_secret, mx_token: mx_token
                 },
@@ -147,6 +148,7 @@ $(function () {
     function addressInfo(res) {
         var d = res.body;
         if (d && d != null) {
+            user_data = d;
             if (d.id_card_expire_date != null && d.id_card_expire_date != '') {
                 $('#address-effective').val(d.id_card_expire_date);
             }

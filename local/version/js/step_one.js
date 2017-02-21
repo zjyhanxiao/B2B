@@ -1,6 +1,7 @@
 $(function () {
     $('#product_head ul li[data-name="产品"]').addClass('active');
 
+    var user_data = {}; // 用户数据
     var user_phone = getUrlParam('phone') || ''; // 通过手机号查找用户信息
     var channel_code = getUrlParam('channel_code') || ''; // 渠道编码
     var product_id = getUrlParam('product_id') || ''; //获取产品id
@@ -97,29 +98,29 @@ $(function () {
             $('body').scrollTop(t);
             $(this).prop('disabled', false);
         } else {
-            var data = {};
-            data.channel_code = channel_code;
-            data.product_id = product_id;
-            data.order_number = order_number;
-            data.phone = user_phone;
-            data.last_name = last_name;
-            data.first_name = first_name;
-            data.email = email;
-            data.base_info = {};
-            data.base_info.date_of_birth = date_of_birth;
-            data.base_info.source_of_capital = source_of_income;
-            data.base_info.country_of_birth = '中国';
-            data.base_info.country_of_tax_residency = '中国';
-            data.base_info.foreign_tax_number = 'CN N/A';
-            data.base_info.nationality = '中国';
-            data.base_info.industry = industry;
-            data.base_info.occupation = occupation;
-            data.passport_number = passport_number;
-            data.passport_expire_date = effective;
-            data.passport_url = passport_photo;
+            user_data.channel_code = channel_code;
+            user_data.product_id = product_id;
+            user_data.order_number = order_number;
+            user_data.phone = user_phone;
+            user_data.last_name = last_name;
+            user_data.first_name = first_name;
+            user_data.email = email;
+            user_data.investor_type = 1;
+            user_data.base_info = {};
+            user_data.base_info.date_of_birth = date_of_birth;
+            user_data.base_info.source_of_capital = source_of_income;
+            user_data.base_info.country_of_birth = '中国';
+            user_data.base_info.country_of_tax_residency = '中国';
+            user_data.base_info.foreign_tax_number = 'CN N/A';
+            user_data.base_info.nationality = '中国';
+            user_data.base_info.industry = industry;
+            user_data.base_info.occupation = occupation;
+            user_data.passport_number = passport_number;
+            user_data.passport_expire_date = effective;
+            user_data.passport_url = passport_photo;
             postData({
                 url: base_url + '/zion/assist/operateUser',
-                data: JSON.stringify(data),
+                data: JSON.stringify(user_data),
                 headers: {
                     mx_secret: mx_secret, mx_token: mx_token
                 },
@@ -130,6 +131,7 @@ $(function () {
             function stepOneSuccess(res) {
                 var d = res.body;
                 if (d) {
+                    user_data = d;
                     if (d != null && d.order_number != '' && d.order_number != null && d.order_number != undefined) {
                         order_number = d.order_number;
                     }
