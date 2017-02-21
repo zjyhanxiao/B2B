@@ -221,9 +221,7 @@ $(function () {
 
     // 获取审核失败原因
     function failedRemark(res) {
-        if (res.body != null && res.body != '') {
-            failRemark = res.body;
-        }
+        failRemark = res.body;
     }
 
     // 请求失败执行
