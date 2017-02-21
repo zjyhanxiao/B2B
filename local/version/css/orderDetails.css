@@ -25,7 +25,8 @@
 }
 
 .about_product_left p {
-    margin: 16px 23px;
+    margin: 16px;
+    font-size: 12px;
     color: #335095;
 }
 
