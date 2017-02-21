@@ -1,5 +1,5 @@
 $(function () {
-    $("#signature-line").jSignature({width: '100%', height: '10em'});
+    $("#signature-line").jSignature({width: 800, height: 200});
     var jSignatureData = $('#signature-line').jSignature('getData');
     var order_number = getUrlParam('order_number') || '';
     var product_id = getUrlParam('product_id') || '';
