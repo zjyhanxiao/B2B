@@ -119,7 +119,7 @@ $(function () {
                 $('#get-Swift-code').html(d.bank_non_us.swift_code);
                 if (d.bank_non_us.have_middle_bank) {
                     $('.get-middle-bank').show();
-                    $('#getmiddle-bank-name').html(d.bank_non_us.middle_bank_name);
+                    $('#get-middle-bank-name').html(d.bank_non_us.middle_bank_name);
                     $('#get-middle-bank-address').html(d.bank_non_us.middle_bank_address.replace(/\r\n|\r|\n/, ', '));
                     $('#get-middle-bank-swift-code').html(d.bank_non_us.middle_bank_swift_code);
                 } else {
