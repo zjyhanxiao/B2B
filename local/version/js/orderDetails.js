@@ -2,7 +2,7 @@ $(function () {
     $('#product_head ul li[data-name="订单"]').addClass('active');
     var order_id = getUrlParam('order_id');
     var product_id = '', order_number;
-    var failRemark = '';
+    var failRemark = ''; // 审核失败原因
     // 取订单信息
     getData({
         url: base_url + '/zion/order/amount',
@@ -125,18 +125,27 @@ $(function () {
             }
             dom += fa_investment_status + '<a href="javascript:;" class="status_notes"></a>' +
                 '</div>' +
-                '</div>' +
-                '<div class="row">' +
+                '</div>';
+            if (fa_investment_status == 'audit_failed') {
+                dom += '<div class="row">' +
+                    '<div class="col-md-12"><p style="color: red;">' + failRemark + '</p></div>'
+                '</div>'
+            }
+            dom += '<div class="row">' +
                 '<div class="col-md-12">' +
                 '<div class="order-product-detail">' +
                 '<div class="col-md-6">' +
                 '<label>产品</label>' +
                 '<a href="/productDetails.html?product_id=' + product_id + '">' + product_name + ' ' + product_number + '</a>' +
                 '</div>' +
-                '<div class="col-md-6">' +
-                '<label>投资顾问</label>' +
-                '<a href="javascript:;">' + advisor_name + ' [' + advisor_code + '] </a>' +
-                '</div>' +
+                '<div class="col-md-6">';
+            if (is_admin) {
+                dom += '<label>投资顾问</label>' +
+                    '<a href="javascript:;">' + advisor_name + ' [' + advisor_code + '] </a>';
+            }
+
+
+            dom += '</div>' +
                 '<div class="col-md-6">' +
                 '<label>投资人</label>' +
                 '<a href="javascript:;">' + first_name + ' ' + last_name + '</a>' +
