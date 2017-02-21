@@ -111,6 +111,7 @@ $(function () {
                 $('#get-aba').html(d.bank_us.routing_number);
                 $('#get-bank-user-name').html(d.first_name + ' ' + d.last_name);
                 $('#get-bank-user-account').html(d.bank_us.account_number.replace(/^\d+(\d{4})$/, "****************$1"));
+                $('#invest-info .checkbox label').html('<input type="checkbox">确认投资后通过ACH自动从'+d.bank_us.bank_name+'（'+d.bank_us.account_number.replace(/^\d+(\d{4})$/, "$1")+'）扣款')
             } else {
                 $('#get-bank-aba').hide();
                 $('#get-bank-name').html(d.bank_non_us.bank_name);
