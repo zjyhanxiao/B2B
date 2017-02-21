@@ -129,7 +129,7 @@ $(function () {
                 '</div>';
             if (d.fa_investment_status == 'audit_failed') {
                 dom += '<div class="row">' +
-                    '<div class="col-md-12"><p style="color: red;">' + failRemark + '</p></div>' +
+                    '<div class="col-md-12"><p style="color: red; text-align: right"><span style="font-weight: 700;">失败原因：</span>' + failRemark + '</p></div>' +
                     '</div>';
             }
             dom += '<div class="row">' +
