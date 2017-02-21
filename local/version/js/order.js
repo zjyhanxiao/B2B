@@ -178,7 +178,7 @@ $(function () {
                 '<td><a href="/orderDetails.html?order_id=' + item.id + '">' + order_number + '</a></td>' +
                 '<td><a href="/productDetails.html?product_id=' + item.product_id + '">' + product_name + '</a></td>' +
                 '<td>' + product_number + '</td>' +
-                '<td><a href="/customerDetails.html?phone=' + item.phone + '">' + first_name + ' ' + last_name + '</a>' +
+                '<td><a href="/customerDetails.html?phone=' + phone + '">' + first_name + ' ' + last_name + '</a>' +
                 '<td>' + phone + '</td>' +
                 '<td>' + invest_amount + '</td>' +
                 '<td>' + advisor_name + '</td>' +
