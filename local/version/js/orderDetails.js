@@ -126,7 +126,7 @@ $(function () {
             dom += fa_investment_status + '<a href="javascript:;" class="status_notes"></a>' +
                 '</div>' +
                 '</div>';
-            if (fa_investment_status == 'audit_failed') {
+            if (d.fa_investment_status == 'audit_failed') {
                 alert(11);
                 dom += '<div class="row">' +
                     '<div class="col-md-12"><p style="color: red;">' + failRemark + '</p></div>'
