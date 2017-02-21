@@ -449,7 +449,7 @@
                     $('#select1').html(selecthtml1)
                     $('#select2').html(selecthtml1)
                     $('.sharelink').attr("value","http://localhost:8080/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code)
-                    $('.order_btn').data('shuju',"http://localhost:8080/stepOne.html?product_id="+getUrlParam('product_id')+"&channel_id="+res.body[0].code)
+                    $('.order_btn').data('shuju',"http://localhost:8080/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&channel_id="+res.body[0].code)
 
                     $('.order_btn').data('code',res.body[0].code)
 
@@ -488,7 +488,7 @@
                 success: function (res) {
                     console.log(res.body)
                     $('.sharelink').attr("value","http://localhost:8080/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body.code)
-                    $('.order_btn').data('shuju',"http://localhost:8080/stepOne.html?product_id="+getUrlParam('product_id')+"&channel_id="+res.body.code)
+                    $('.order_btn').data('shuju',"http://localhost:8080/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&channel_id="+res.body.code)
 
                     $('.order_btn').data('code',res.body.code)
 
