@@ -56,12 +56,12 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <p class="text-center" style="margin: 10px 0 20px;"> <a href="" type="button" class="btn btn-primary choose_user">选择此投资人</a> </p>
+                                        <p class="text-center" style="margin: 10px 0 20px;"> <button type="button" class="btn btn-primary choose_user">选择此投资人</button> </p>
                                     </div>
                                     <div class="modal-right">
                                         <div class="new_user" style="margin-top: 60px">
                                             <p class="text-center"><img src="http://localhost:8080/version/dist/img/new_order.png" alt=""></p>
-                                            <p class="text-center" style="margin: 20px 0 20px;"> <a href="" type="button" class="btn btn-primary new_user"> <i class="glyphicon glyphicon-plus"></i> 新建投资人</a> </p>
+                                            <p class="text-center" style="margin: 20px 0 20px;"> <button type="button" class="btn btn-primary new_user"> <i class="glyphicon glyphicon-plus"></i> 新建投资人</button> </p>
                                         </div>
                                     </div>
                                 </div>
@@ -578,7 +578,6 @@
         $('body').on('click','.choose',function () {
             $(this).addClass('user_active').siblings().removeClass('user_active')
             choose_user = $(this).index()
-            $('.choose_user').attr('href',$('.order_btn').data('shuju')+'&phone='+userData[choose_user].phone)
         })
 
 
@@ -586,12 +585,17 @@
 
         //选择投资人按钮
         $('.choose_user').click(function () {
+            if (userData[choose_user]){
+                window.location.href = $('.order_btn').data('shuju')+'&phone='+userData[choose_user].phone;
+            }else{
+                alert('请选择投资人')
+            }
 
         })
 
         //新建投资人按钮
         $('.new_user').click(function () {
-
+            window.location.href = $('.order_btn').data('shuju');
         })
 
         //分享模态框
