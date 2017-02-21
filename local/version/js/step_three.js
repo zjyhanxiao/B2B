@@ -160,14 +160,14 @@ $(function () {
             } else {
                 $('.non-us-bank').addClass('button-blue').removeClass('button-white');
                 $('.us-bank').addClass('button-white').removeClass('button-blue');
-                $(".middle-bank").show();
-                $(".middle-bank-info").show();
+                $(".middle-bank-info,.middle-bank").show();
                 $(".checking-saving").hide();
                 $("#routing-number-wrapper").hide();$('#bank-name').val(d.bank_non_us.bank_name);
                 $('#bank-address').val(d.bank_non_us.bank_address);
                 $('#swift-code').val(d.bank_non_us.swift_code);
                 $('#account-number').val(d.bank_non_us.account_number);
                 if (d.bank_non_us.have_middle_bank) {
+                    $('.middle-bank-info').show();
                     $('#middle-bank-name').val(d.bank_non_us.middle_bank_name);
                     $('#middle-bank-address').val(d.bank_non_us.middle_bank_address);
                     $('#middle-bank-swift-code').val(d.bank_non_us.middle_bank_swift_code);
