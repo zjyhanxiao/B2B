@@ -23,18 +23,18 @@
         <button>打开</button>
     </div>
 </div>
-<div class="container" style="display: none;">
+<div class="container" id="signaturePage">
     <div class="row">
         <div class="col-md-12 text-center product-warp">
-            <h2>安心定期五期</h2>
-            <p>预计年化收益：8+10%</p>
-            <p>投资期限：36-60个月</p>
-            <div class="invest_value">投资金额<span>$1000000</span></div>
+            <h2 class="product_name">产品名称</h2>
+            <p class="return_rate">预计年化收益：%</p>
+            <p class="invest_term">投资期限：个月</p>
+            <div class="invest_value">投资金额<span></span></div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-            <div class="show-user-info text-center" style="display: none;"><a href="javascript:;">点击查看投资信息</a></div>
+            <div class="show-user-info text-center"><a href="javascript:;">点击查看投资信息</a></div>
             <div class="user-info">
                 <a href="javascript:;" class="hide-info">收起</a>
                 <div class="base_info">
@@ -42,47 +42,47 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label>姓名</label>
-                            <span>Yuechen zhao</span>
+                            <span class="full_name"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <label>电话</label>
-                            <span>13666688876</span>
+                            <span class="phone"></span>
                         </div>
                         <div class="col-md-6">
                             <label>电子邮箱</label>
-                            <span>667788990@qq.com</span>
+                            <span class="email"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <label>出生日期</label>
-                            <span>03/10/2014</span>
+                            <span class="date_of_birth"></span>
                         </div>
                         <div class="col-md-6">
                             <label>资金来源</label>
-                            <span>储蓄</span>
+                            <span class="source_of_capital"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <label>行业</label>
-                            <span>金融</span>
+                            <span class="industry"></span>
                         </div>
                         <div class="col-md-6">
                             <label>职业</label>
-                            <span>理财师</span>
+                            <span class="occupation"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <label>护照号</label>
-                            <span>*********6789</span>
+                            <span class="passport_number"></span>
                         </div>
                         <div class="col-md-6">
                             <label>有效期至</label>
-                            <span>08/10/2015</span>
+                            <span class="passport_expire_date"></span>
                         </div>
                     </div>
                 </div>
@@ -90,11 +90,14 @@
                 <div class="address_info">
                     <div class="info-title">地址信息</div>
                     <div class="row">
-                        <div class="col-md-12">
-                            Xing Fu Li Xiao Qu 23 Hao Lou A Dan Yuan 423 Hao
+                        <div class="col-md-12 line-1">
+
                         </div>
-                        <div class="col-md-12">
-                            Chaoyangqu, Beijing, China 100027
+                        <div class="col-md-12 line-2">
+
+                        </div>
+                        <div class="col-md-12 line-3">
+
                         </div>
                     </div>
                 </div>
@@ -103,23 +106,39 @@
                     <div class="row">
                         <div class="col-md-12">
                             <label>银行名称</label>
-                            <span>Bank of America</span>
+                            <span class="bank_name"></span>
                         </div>
                         <div class="col-md-12">
                             <label>银行地址</label>
-                            <span>222 Broadway, New York, NY, USA 10038</span>
+                            <span class="bank_address"></span>
                         </div>
                         <div class="col-md-12">
                             <label>ABA/routing #</label>
-                            <span>026009593</span>
+                            <span class="routing_number"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label>SwiftCode</label>
+                            <span class="swift_code"></span>
                         </div>
                         <div class="col-md-12">
                             <label>银行账户姓名</label>
-                            <span>Yuechen Zhao</span>
+                            <span class="full_name"></span>
                         </div>
                         <div class="col-md-12">
                             <label>账户号</label>
-                            <span>*******************6352</span>
+                            <span class="account_number"></span>
+                        </div>
+                        <div class="col-md-12 middle_bank">
+                            <label>中间行名称</label>
+                            <span class="middle_bank_name"></span>
+                        </div>
+                        <div class="col-md-12 middle_bank">
+                            <label>中间行地址</label>
+                            <span class="middle_bank_address"></span>
+                        </div>
+                        <div class="col-md-12 middle_bank">
+                            <label>中间行SwiftCode</label>
+                            <span class="middle_bank_swift_code"></span>
                         </div>
                     </div>
                 </div>
@@ -192,7 +211,9 @@
     </div>
 </div>
 <script src="http://zion.meixincn.com/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="http://zion.meixincn.com/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
 <script src="http://zion.meixincn.com/vendor/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="http://zion.meixincn.com/version/dist/js/common.min.js" type="text/javascript"></script>
 <script src="http://zion.meixincn.com/vendor/js/jSignature.min.js" type="text/javascript"></script>
 <script src="http://zion.meixincn.com/version/dist/js/auxiliary_order.min.js" type="text/javascript"></script>
 </body>

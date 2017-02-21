@@ -13,9 +13,6 @@ function getUrlParam(name) {
     if (r != null) return unescape(r[2]);
     return null; //返回参数值
 }
-// 获取cookie
-var mx_secret = $.cookie('mx_secret') || '',
-    mx_token = $.cookie('mx_token') || '';
 //公用post请求
 var postData = function (opt) {
     $.ajax({
@@ -74,11 +71,16 @@ var getData = function (opt) {
 
 // 验证登录和登出操作
 $(function () {
+// 获取cookie
+    var mx_secret = $.cookie('mx_secret') || '',
+        mx_token = $.cookie('mx_token') || '';
     // 验证登录（登录页，首次登录修改密码页，找回密码页，手机找回密码修改页）
     if (window.location.pathname !== '/login.html' &&
         window.location.pathname !== '/firstLogin_reset.html' &&
         window.location.pathname !== '/find_password.html' &&
-        window.location.pathname !== '/find_password_by_phone.html'
+        window.location.pathname !== '/find_password_by_phone.html' &&
+        window.location.pathname !== '/auxiliary_order/invest_success.html' &&
+        window.location.pathname !== '/auxiliary_order/shareAndSignature.html'
     ) {
         getData({
             url: base_url + '/zion/channel_advisor/authentication',
@@ -104,7 +106,7 @@ $(function () {
     $('#logout').on('click', function () {
         getData({
             url: base_url + '/zion/channel_advisor/logout',
-            data: {mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')},
+            data: {mx_secret: mx_secret, mx_token: mx_token},
             sucFn: logout_success
             // failFn: ''
         })

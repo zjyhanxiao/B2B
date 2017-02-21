@@ -7,7 +7,7 @@ $(function () {
         url: base_url + '/zion/order/amount',
         data: {order_id: order_id},
         headers: {
-            mx_secret: mx_secret, mx_token: mx_token
+            mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
         },
         async: false,
         sucFn: getOrderSuc,
@@ -18,7 +18,7 @@ $(function () {
         url: base_url + '/zion/order/document',
         data: {order_id: order_id, product_id: product_id},
         headers: {
-            mx_secret: mx_secret, mx_token: mx_token
+            mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
         },
         sucFn: getDocumentSuc,
         failFn: failFn
@@ -40,7 +40,7 @@ $(function () {
                     url: base_url + '/zion/order/cancel',
                     data: {order_number: order_number},
                     headers: {
-                        mx_secret: mx_secret, mx_token: mx_token
+                        mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
                     },
                     sucFn: cancelSuc,
                     failFn: cancelFail

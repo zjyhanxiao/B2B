@@ -122,7 +122,7 @@ $(function () {
                 url: base_url + '/zion/assist/operateUser',
                 data: JSON.stringify(user_data),
                 headers: {
-                    mx_secret: mx_secret, mx_token: mx_token
+                    mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
                 },
                 contentType: "application/json; charset=utf-8",
                 sucFn: stepOneSuccess,
@@ -220,7 +220,7 @@ $(function () {
             url: base_url + '/zion/assist/customerInfo',
             data: {phone: user_phone},
             headers: {
-                mx_secret: mx_secret, mx_token: mx_token
+                mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
             },
             sucFn: baseInfo,
             failFn: noBaseInfo

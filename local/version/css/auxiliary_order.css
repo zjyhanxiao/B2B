@@ -109,7 +109,7 @@ body {
 
 .beforeOpen {
     text-align: center;
-    padding: 0 15px;
+    padding: 5em 15px;
 }
 
 .beforeOpen p {
@@ -126,6 +126,22 @@ body {
     border: 1px solid #ccc;
     border-radius: 6px;
     text-align: center;
+}
+
+#signaturePage {
+    display: none;
+}
+
+.user-info {
+    display: none;
+}
+
+.middle_bank {
+    display: none;
+}
+
+.routing_number {
+    display: none;
 }
 
 .beforeOpen button {

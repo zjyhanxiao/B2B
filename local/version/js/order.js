@@ -109,7 +109,7 @@ $(function () {
             url: base_url + '/zion/order/list',
             data: data,
             headers: {
-                mx_secret: mx_secret, mx_token: mx_token
+                mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
             },
             contentType: "application/json; charset=utf-8",
             sucFn: order_list,

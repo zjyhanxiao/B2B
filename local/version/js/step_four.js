@@ -32,7 +32,7 @@ $(function () {
             url: base_url + '/zion/assist/operateUser',
             data: JSON.stringify(user_data),
             headers: {
-                mx_secret: mx_secret, mx_token: mx_token
+                mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
             },
             contentType: "application/json; charset=utf-8",
             sucFn: stepFourSuccess,
@@ -43,7 +43,7 @@ $(function () {
     function stepFourSuccess(res) {
         var d = res.body;
         if (d) {
-
+            window.location = '/auxiliary_order/share.html?product_id=' + product_id + '&channel_code=' + channel_code + '&verify_code=' + d.verify_code + '&order_number=' + order_number
         }
     }
 
@@ -62,7 +62,7 @@ $(function () {
             url: base_url + '/zion/assist/customerInfo',
             data: {phone: user_phone},
             headers: {
-                mx_secret: mx_secret, mx_token: mx_token
+                mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
             },
             sucFn: baseInfo,
             failFn: getFail
@@ -85,7 +85,7 @@ $(function () {
     function baseInfo(res) {
         var d = res.body;
         if (d && d != null) {
-            user_data=d;
+            user_data = d;
             $('#get-name').html(d.first_name + ' ' + d.last_name);
             $('#get-phone').html(d.phone);
             $('#get-email').html(d.email);
