@@ -71,12 +71,12 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <p class="text-center" style="margin: 10px 0 20px;"> <a href="" type="button" class="btn btn-primary">选择此投资人</a> </p>
+                                        <p class="text-center" style="margin: 10px 0 20px;"> <a href="" type="button" class="btn btn-primary choose_user">选择此投资人</a> </p>
                                     </div>
                                     <div class="modal-right">
                                         <div class="new_user" style="margin-top: 60px">
                                             <p class="text-center"><img src="http://zion.meixincn.com/version/dist/img/new_order.png" alt=""></p>
-                                            <p class="text-center" style="margin: 20px 0 20px;"> <a href="" type="button" class="btn btn-primary"> <i class="glyphicon glyphicon-plus"></i> 新建投资人</a> </p>
+                                            <p class="text-center" style="margin: 20px 0 20px;"> <a href="" type="button" class="btn btn-primary new_user"> <i class="glyphicon glyphicon-plus"></i> 新建投资人</a> </p>
                                         </div>
                                     </div>
                                 </div>
@@ -239,8 +239,8 @@
                 </div>
                 <p style="margin: 40px 0 15px;font-size: 18px">本期产品视频介绍</p>
                 <div class="product_videos">
-                    <div class="youku">
-                        <embed src='http://player.youku.com/player.php/Type/Folder/Fid//Ob//sid/XMjUwMzM5NjExMg==/v.swf' quality='high' width='480' height='400' align='middle' allowScriptAccess='always' allowFullScreen='true' mode='transparent' type='application/x-shockwave-flash'></embed>
+                    <div class="videos">
+
                     </div>
                 </div>
                 <p style="margin: 40px 0 15px;font-size: 18px">本期产品系列</p>
@@ -382,7 +382,7 @@
                 "mx_secret": $.cookie('mx_secret')
             },
             success: function (res) {
-//                console.log(res.body)
+                console.log(res.body)
                 //法律文件
                 var legalhtml = '';
                 $.each(res.body.legal_document,function ( i , item ) {
@@ -401,6 +401,9 @@
                     introducehtml += '<p><a target="_blank" href="'+item.document_url+'">'+item.document_name+'</a></p>'
                 })
                 $('#introduce_document').html(introducehtml )
+
+                //视频文件
+                $('.videos').html( res.body.sales_video[0].document_url )
             },
             error: function () {
             }
@@ -460,13 +463,17 @@
                     })
                     $('#select1').html(selecthtml1)
                     $('#select2').html(selecthtml1)
-                    $('.sharelink').attr("value","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code)
+                    $('.sharelink').attr("value","http://zion.meixincn.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code)
+                    $('.order_btn').data('shuju',"http://zion.meixincn.com/stepOne.html?product_id="+getUrlParam('product_id')+"&channel_id="+res.body[0].code)
+
+                    $('.order_btn').data('code',res.body[0].code)
+
 //                $('.assist').attr("href","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code)
 
                     $.ajax({
                         type: 'get',
                         url: base_url + '/channel/qrcode/create',
-                        data: {"content":"https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code},
+                        data: {"content":"http://zion.meixincn.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code},
                         contentType: "application/json; charset=utf-8",
                         headers: {
                             "mx_token": $.cookie('mx_token'),
@@ -484,11 +491,10 @@
                 }
             })
         }else {
-            $('.sharelink').attr("value","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id=")
+
             $.ajax({
                 type: 'get',
-                url: base_url + '/channel/qrcode/create',
-                data: {"content":"https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="},
+                url: base_url + '/zion/channel_advisor/info',
                 contentType: "application/json; charset=utf-8",
                 headers: {
                     "mx_token": $.cookie('mx_token'),
@@ -496,11 +502,38 @@
                 },
                 success: function (res) {
                     console.log(res.body)
-                    $('#QRcode').attr( 'src',res.body )
+                    $('.sharelink').attr("value","http://zion.meixincn.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body.code)
+                    $('.order_btn').data('shuju',"http://zion.meixincn.com/stepOne.html?product_id="+getUrlParam('product_id')+"&channel_id="+res.body.code)
+
+                    $('.order_btn').data('code',res.body.code)
+
+                    $.ajax({
+                        type: 'get',
+                        url: base_url + '/channel/qrcode/create',
+                        data: {"content":"http://zion.meixincn.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body.code},
+                        contentType: "application/json; charset=utf-8",
+                        headers: {
+                            "mx_token": $.cookie('mx_token'),
+                            "mx_secret": $.cookie('mx_secret')
+                        },
+                        success: function (res) {
+                            console.log(res.body)
+                            $('#QRcode').attr( 'src',res.body )
+                        },
+                        error: function () {
+                        }
+                    })
+
+
                 },
                 error: function () {
                 }
             })
+
+
+
+
+
         }
 
 
@@ -522,8 +555,58 @@
         }
 
         //辅助下单模态框
+        var userData = {}
+        var choose_user = '';
         $('.order_btn').click(function () {
             $('#placeanorder').modal('show')
+            console.log( $('.order_btn').data('shuju'))
+
+            console.log( $('.order_btn').data('code'))
+
+            $.ajax({
+                type: 'get',
+                url: base_url + '/zion/assist/customer',
+                data: {'code':$('.order_btn').data('code')},
+                contentType: "application/json; charset=utf-8",
+                headers: {
+                    "mx_token": $.cookie('mx_token'),
+                    "mx_secret": $.cookie('mx_secret')
+                },
+                success: function (res) {
+                    console.log(res.body)
+                    userData = res.body;
+                    var userhtml = '';
+                    $.each(res.body,function (i,item) {
+                        userhtml += '<tr class="choose"> <td class="w_110">'+item.first_name+''+item.last_name+'</td>' +
+                            ' <td class="w_178">'+item.phone+'</td> </tr>'
+                    })
+                    $('.order_info').html(userhtml)
+                    $('.user_table').css('overflow-y','scroll')
+                },
+                error: function () {
+                }
+            })
+
+        })
+
+        //选择投资人按钮
+        $('body').on('click','.choose',function () {
+            $(this).addClass('user_active').siblings().removeClass('user_active')
+            choose_user = $(this).index()
+            $('.choose_user').attr('href',$('.order_btn').data('shuju')+'&phone='+userData[choose_user].phone)
+        })
+
+
+
+
+        //选择投资人按钮
+        $('.choose_user').click(function () {
+
+        })
+
+        //新建投资人按钮
+        $('.new_user').click(function () {
+
         })
 
         //分享模态框
@@ -556,15 +639,14 @@
             })
 
         })
-
+        //辅助下单改变
         $('#select2').change(function () {
 //            $('.assist').attr("href","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select2').val())
+            $('.order_btn').data('shuju',"https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select2').val())
+            $('.order_btn').data('code',$('#select2').val())
         })
-        //复制分享链接
-//        $('#copy').click(function () {
-//            alert("您的浏览器不支持点击复制，请使用 Ctrl + C 手动复制！")
-//        })
 
+        //复制分享链接
         var clipboard = new Clipboard('#copy');
         clipboard.on('success', function(e) {
             console.info('Action:', e.action);

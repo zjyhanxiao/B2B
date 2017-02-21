@@ -220,9 +220,8 @@ a.state:hover{
     color: #999999;
     width: 75%;
 }
-.youku{
-    width: 480px;
-    height: 400px;
+.videos{
+    width: 720px;
     margin:  30px auto;
 }
 .w_270{
@@ -269,14 +268,14 @@ table tr td{
     cursor: pointer;
 }
 .haveuser thead tr td{
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 500;
     color: #223976;
     border: 1px solid #dddddd;
     box-sizing: border-box;
 }
 .haveuser tbody tr td{
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 500;
     color: #727272;
     border: 1px solid #dddddd;
@@ -284,12 +283,15 @@ table tr td{
 }
 .w_110{
     width: 110px;
+    overflow: hidden;
 }
 .w_178{
     width: 178px;
 }
 
-
+.user_active{
+    background: #00abd7;
+}
 
 a.state:hover{
     color: #ffffff;
