@@ -220,7 +220,7 @@ $(function () {
 
     // 获取审核失败原因
     function failedRemark(res) {
-        if (res.body != null) {
+        if (res.body != null && res.body != '') {
             failRemark = res.body;
         }
     }
