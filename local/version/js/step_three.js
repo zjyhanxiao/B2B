@@ -163,20 +163,16 @@ $(function () {
                 $(".middle-bank").show();
                 $(".middle-bank-info").show();
                 $(".checking-saving").hide();
-                $("#routing-number-wrapper").hide();
-                if (d.bank_no_us) {
-                    $('#bank-name').val(d.bank_no_us.bank_name);
-                    $('#bank-address').val(d.bank_no_us.bank_address);
-                    $('#swift-code').val(d.bank_no_us.swift_code);
-                    $('#account-number').val(d.bank_no_us.account_number);
-                    if (d.bank_no_us.have_middle_bank) {
-                        $('#middle-bank-name').val(d.bank_no_us.middle_bank_name);
-                        $('#middle-bank-address').val(d.bank_no_us.middle_bank_address);
-                        $('#middle-bank-swift-code').val(d.bank_no_us.middle_bank_swift_code);
-                    }
+                $("#routing-number-wrapper").hide();$('#bank-name').val(d.bank_no_us.bank_name);
+                $('#bank-address').val(d.bank_no_us.bank_address);
+                $('#swift-code').val(d.bank_no_us.swift_code);
+                $('#account-number').val(d.bank_no_us.account_number);
+                if (d.bank_no_us.have_middle_bank) {
+                    $('#middle-bank-name').val(d.bank_no_us.middle_bank_name);
+                    $('#middle-bank-address').val(d.bank_no_us.middle_bank_address);
+                    $('#middle-bank-swift-code').val(d.bank_no_us.middle_bank_swift_code);
                 }
             }
-
         }
     }
 
