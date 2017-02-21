@@ -79,7 +79,11 @@ body {
 }
 
 .document-item .checkbox {
+    display: block;
     margin-top: 6px;
+}
+.document-item .checkbox a{
+    cursor: pointer;
 }
 
 #signature-reset-button {
@@ -152,6 +156,67 @@ body {
     margin-top: 2em;
     color: #fff;
     font-size: 16px;
+}
+
+div#document-loading, div#document-error {
+    width: 320px;
+    height: 180px;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+    display: none;
+    font-size: 15px;
+}
+
+div#document-loading img, div#document-error img {
+    display: block;
+    margin: 0 auto;
+    width: 64px;
+    height: 64px;
+}
+
+div#document-loading p, div#document-error p {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* The Overlay (background) */
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
+    height: 100%;
+    width: 0;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: #eee;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    text-align: center;
+}
+
+.overlay-left-top {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 16px;
+    color: #fff;
+    background: #fdad13;
+    width: 100%;
+    text-align: left;
+    padding: 8px 10px;
+}
+
+.overlay-left-top:hover {
+    cursor: pointer;
+}
+#document-preview-element {
+    height: 100%;
+    width: 90%;
 }
 
 @media (max-width: 767px) {
