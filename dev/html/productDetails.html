@@ -464,7 +464,7 @@
                     $('#select1').html(selecthtml1)
                     $('#select2').html(selecthtml1)
                     $('.sharelink').attr("value","http://zion.meixincn.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code)
-                    $('.order_btn').data('shuju',"http://zion.meixincn.com/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&channel_id="+res.body[0].code)
+                    $('.order_btn').data('shuju',"http://zion.meixincn.com/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&channel_code="+res.body[0].code)
 
                     $('.order_btn').data('code',res.body[0].code)
 
@@ -503,7 +503,7 @@
                 success: function (res) {
                     console.log(res.body)
                     $('.sharelink').attr("value","http://zion.meixincn.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body.code)
-                    $('.order_btn').data('shuju',"http://zion.meixincn.com/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&channel_id="+res.body.code)
+                    $('.order_btn').data('shuju',"http://zion.meixincn.com/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&channel_code="+res.body.code)
 
                     $('.order_btn').data('code',res.body.code)
 
