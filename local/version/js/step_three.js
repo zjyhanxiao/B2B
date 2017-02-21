@@ -140,7 +140,6 @@ $(function () {
                 $('.non-us-bank').addClass('button-white').removeClass('button-blue');
                 $('.us-bank').addClass('button-blue').removeClass('button-white');
                 $(".middle-bank").hide();
-                $(".middle-bank-info").hide();
                 $(".checking-saving").show();
                 $("#routing-number-wrapper").show();
                 if (d.bank_us) {
@@ -160,7 +159,7 @@ $(function () {
             } else {
                 $('.non-us-bank').addClass('button-blue').removeClass('button-white');
                 $('.us-bank').addClass('button-white').removeClass('button-blue');
-                $(".middle-bank-info,.middle-bank").show();
+                $(".middle-bank").show();
                 $(".checking-saving").hide();
                 $("#routing-number-wrapper").hide();$('#bank-name').val(d.bank_non_us.bank_name);
                 $('#bank-address').val(d.bank_non_us.bank_address);
