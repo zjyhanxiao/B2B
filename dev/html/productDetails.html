@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>产品详情</title>
 </head>
 <link href="http://zion.meixincn.com/vendor/css/bootstrap.min.css" rel="stylesheet">
 <link href="http://zion.meixincn.com//version/dist/css/productDetails.min.css" rel="stylesheet">
@@ -100,43 +100,45 @@
                             <td>起投金额</td>
                         </tr>
                     </table>
-                    <table class="table2">
-                        <tr>
-                            <td>项目类型</td>
-                            <td><p></p></td>
-                        </tr>
-                        <tr>
-                            <td>项目周期</td>
-                            <td><p></p></td>
-                        </tr>
-                        <tr>
-                            <td>投资期限</td>
-                            <td><p></p></td>
-                        </tr>
-                        <tr>
-                            <td>预计收益</td>
-                            <td><p></p></td>
-                        </tr>
-                        <tr>
-                            <td>风控措施</td>
-                            <td>
-                                <p></p>
-                                <p></p>
-                                <p></p>
-                                <p></p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>投资亮点</td>
-                            <td><p></p></td>
-                        </tr>
-                        <tr>
-                            <td>产品介绍文件</td>
-                            <td id="introduce_document">
+                    <div class="product_html"></div>
 
-                            </td>
-                        </tr>
-                    </table>
+                    <!--<table class="table2">-->
+                        <!--<tr>-->
+                            <!--<td>项目类型</td>-->
+                            <!--<td><p></p></td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td>项目周期</td>-->
+                            <!--<td><p></p></td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td>投资期限</td>-->
+                            <!--<td><p></p></td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td>预计收益</td>-->
+                            <!--<td><p></p></td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td>风控措施</td>-->
+                            <!--<td>-->
+                                <!--<p></p>-->
+                                <!--<p></p>-->
+                                <!--<p></p>-->
+                                <!--<p></p>-->
+                            <!--</td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td>投资亮点</td>-->
+                            <!--<td><p></p></td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td>产品介绍文件</td>-->
+                            <!--<td id="introduce_document">-->
+
+                            <!--</td>-->
+                        <!--</tr>-->
+                    <!--</table>-->
                 </div>
                 <p style="margin: 40px 0 15px;font-size: 18px">本期产品销售信息</p>
                 <div class="sell_info">
@@ -286,6 +288,26 @@
 //    var base_url = 'https://zion-api.meixincn.com';
     $(function () {
 
+
+        //产品描述接口
+        $.ajax({
+            type: 'get',
+            url: base_url + '/channel/product/description',
+            data: {'product_id':getUrlParam('product_id')},
+            contentType: "application/json; charset=utf-8",
+            headers: {
+                "mx_token": $.cookie('mx_token'),
+                "mx_secret": $.cookie('mx_secret')
+            },
+            success: function (res) {
+                console.log(res.body)
+                $('.product_html').html(res.body)
+            },
+            error: function () {
+            }
+        })
+
+
         //产品信息接口    //系列产品接口
         $.ajax({
             type: 'get',
@@ -396,11 +418,11 @@
                 })
                 $('#sales_document').html(saleshtml )
                 //产品介绍文件
-                var introducehtml = '';
-                $.each(res.body.introduce_document,function ( i , item ) {
-                    introducehtml += '<p><a target="_blank" href="'+item.document_url+'">'+item.document_name+'</a></p>'
-                })
-                $('#introduce_document').html(introducehtml )
+//                var introducehtml = '';
+//                $.each(res.body.introduce_document,function ( i , item ) {
+//                    introducehtml += '<p><a target="_blank" href="'+item.document_url+'">'+item.document_name+'</a></p>'
+//                })
+//                $('#introduce_document').html(introducehtml )
 
                 //视频文件
                 $('.videos').html( res.body.sales_video[0].document_url )
