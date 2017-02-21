@@ -18,6 +18,10 @@
     outline: none;
 }
 
+.modal-content {
+    padding-top: 100px;
+}
+
 .modal-title {
     text-align: center;
     color: #fff;
