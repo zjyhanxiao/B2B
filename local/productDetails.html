@@ -658,7 +658,7 @@
         //辅助下单改变
         $('#select2').change(function () {
 //            $('.assist').attr("href","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select2').val())
-            $('.order_btn').data('shuju',"https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select2').val())
+            $('.order_btn').data('shuju',"http://localhost:8080/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select2').val())
             $('.order_btn').data('code',$('#select2').val())
         })
 
