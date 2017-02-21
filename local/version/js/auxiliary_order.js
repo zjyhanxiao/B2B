@@ -100,7 +100,7 @@ $(function () {
                 $('.swift_code').html(bank_us.swift_code);
                 $('.account_number').html(bank_us.account_number.replace(/^\d+(\d{4})$/, "****************$1"));
             } else {
-                var ban_non_us = d.order_user_info.ban_non_us;
+                var ban_non_us = d.order_user_info.bank_non_us;
                 $('.bank_name').html(ban_non_us.bank_name);
                 $('.bank_address').html(ban_non_us.bank_address.replace(/\r\n|\r|\n/, ', '));
                 $('.swift_code').html(ban_non_us.swift_code);
