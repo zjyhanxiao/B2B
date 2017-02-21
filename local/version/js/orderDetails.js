@@ -40,7 +40,6 @@ $(function () {
                 getData({
                     url: base_url + '/zion/order/cancel',
                     data: {order_number: order_number},
-                    async: false,
                     headers: {
                         mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
                     },
@@ -88,6 +87,7 @@ $(function () {
                 getData({
                     url: base_url + '/zion/order/failedRemark',
                     data: {order_number: order_number},
+                    async: false,
                     headers: {
                         mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
                     },
