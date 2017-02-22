@@ -151,29 +151,30 @@ $(function () {
                 fa_investment_status = item.fa_investment_status != null ? item.fa_investment_status : '',
                 created_at = item.created_at != null ? item.created_at : '',
                 order_number = item.order_number != null ? item.order_number : '';
+            var invest_status;
             if (fa_investment_status == 'not_commit') {
-                fa_investment_status = '未签署'
+                invest_status = '未签署'
             }
             if (fa_investment_status == 'not_received') {
-                fa_investment_status = '未入金'
+                invest_status = '未入金'
             }
-            if (fa_investment_status == 'start_audit') {
-                fa_investment_status = '审核中'
+            if (fa_investment_status == 'start_audit' || fa_investment_status == 'received') {
+                invest_status = '审核中'
             }
             if (fa_investment_status == 'audit_failed') {
-                fa_investment_status = '审核失败'
+                invest_status = '审核失败'
             }
-            if (fa_investment_status == 'audit_success') {
-                fa_investment_status = '审核通过'
+            if (fa_investment_status == 'audit_success' || fa_investment_status == 'invest_success') {
+                invest_status = '审核成功'
             }
             if (fa_investment_status == 'start_interest') {
-                fa_investment_status = '投资中'
+                invest_status = '投资中'
             }
-            if (fa_investment_status == 'refunded') {
-                fa_investment_status = '投资结束'
+            if (fa_investment_status == 'refunded' || fa_investment_status == 'closed') {
+                invest_status = '投资结束'
             }
             if (fa_investment_status == 'voided') {
-                fa_investment_status = '已取消'
+                invest_status = '已取消'
             }
             html +=
                 '<tr>' +
@@ -185,7 +186,7 @@ $(function () {
                 '<td>' + invest_amount + '</td>' +
                 '<td>' + advisor_name + '</td>' +
                 '<td>' + item.code + '</td>' +
-                '<td>' + fa_investment_status + '</td>' +
+                '<td>' + invest_status + '</td>' +
                 '<td>' + created_at + '</td>' +
                 '</tr>'
         })

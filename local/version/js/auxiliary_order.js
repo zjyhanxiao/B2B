@@ -170,7 +170,7 @@ $(function () {
             url: base_url + '/channel/doc/preview',
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify(pdf),
-            success: function() { populatePDFDocument(res.body); }
+            success: function(res) { populatePDFDocument(res.body); }
         });
         return false;
     });
