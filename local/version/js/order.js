@@ -44,7 +44,7 @@ $(function () {
                 $(item).prop('checked', false)
             }
         });
-        var status = "not_commit, not_received, start_audit, audit_failed, audit_success, start_interest";
+        var status = "not_commit, not_received, received, start_audit, audit_failed, audit_success, invest_success, start_interest";
         var data = {status: status};
         getOrderList(data);
     } else {  // 从其他页面跳转进来的，请求附带参数的订单数据
@@ -61,7 +61,7 @@ $(function () {
         if (is_admin) {
             $('#adviser').val(search_channel_advisor_name);
         }
-        var search_status = "not_commit, not_received, start_audit, audit_failed, audit_success, start_interest";
+        var search_status = "not_commit, not_received, received, start_audit, audit_failed, audit_success, invest_success, start_interest";
         data.status = search_status;
         getOrderList(data);
     }
