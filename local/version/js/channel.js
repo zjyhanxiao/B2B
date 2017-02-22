@@ -804,39 +804,34 @@ $(function () {
         $("#get-invest-document").empty().append(html);
     }
 
-    /* Open document preview */
-    function openDocumentPreview(document_id, populate_data) {
-        $("#document-preview").width("100%");
-
-        $(function () {
-            $('#document-loading').show();
-            $.ajax({
-                type: "post",
-                url: baseUrlChannel + '/channel/doc/preview',
-                contentType: "application/json; charset=utf-8",
-                data: JSON.stringify(populate_data),
-                success: populate
-            });
-
-            function populate(res) {
-                $('#document-loading').hide();
-                $("#document-element-wrapper").html('<iframe id="document-preview-element" src="vendor/pdfjs/web/viewer.html?file=' + res.body + '#page=1"></iframe>');
-                $("#document-preview-element").width($(window).width());
-                $("#document-preview-element").height($(window).height() - 45);
-                $("#document-preview-element").css('margin-top', '40px');
-            }
-        })
-    }
-
     /* Close when someone clicks on the "x" symbol inside the overlay */
     function closeDocumentPreview() {
         $("#document-element-wrapper").html("");
         $("#document-preview").width("0%");
     }
 
+    // Populate PDF Document
+    function populatePDFDocument(url) {
+        $('#document-loading').hide();
+        $("#document-element-wrapper").html('<iframe id="document-preview-element" src="vendor/pdfjs/web/viewer.html?file=' + url + '#page=1"></iframe>');
+        $("#document-preview-element").width($(window).width());
+        $("#document-preview-element").height($(window).height() - 45);
+        $("#document-preview-element").css('margin-top', '40px');
+    }
+
+    // Open overlay, open viewer with document inside
     $("#get-invest-document").on('click', '.documents a', function () {
+        $("#document-preview").width("100%");
+        $('#document-loading').show();
+
         var pdf = null;
-        document_id = $(this).data('id');
+        var document_id = $(this).data('id');
+
+        if (!document_id) {
+            var document_url = $(this).data('url');
+            populatePDFDocument(document_url);
+            return;
+        }
 
         //映射文档
         bank_non_us = {
@@ -907,7 +902,14 @@ $(function () {
             'spouse_signature': ''
         };
 
-        openDocumentPreview(document_id, pdf);
+        $.ajax({
+            type: "post",
+            url: baseUrlChannel + '/channel/doc/preview',
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(pdf),
+            success: function() { populatePDFDocument(res.body); }
+        });
+
         return false;
     });
 
@@ -967,16 +969,16 @@ $(function () {
         //加载第六页信息
         function getProductPayment(res) {
             var d = res.body;
-            if(d.is_ach_enabled){
+            if (d.is_ach_enabled) {
                 $("#nav-golden").append(achLiDom);
                 $("#nav-golden-list").append(achDom);
-                $(".ach-document a").attr('href',d.ach.document);
+                $(".ach-document a").attr('href', d.ach.document);
                 $("#get-ach-user-name").html(first_name + last_name);
                 $("#get-ach-bank-name").html(bank_name);
                 $("#get-ach-aba").html(swift_code);
                 $("#get-ach-account-number").html(account_number);
             }
-            if(d.is_receive_bank_enabled){
+            if (d.is_receive_bank_enabled) {
                 $("#nav-golden").append(wireLiDom);
                 $("#nav-golden-list").append(wireDom);
                 $("#get-wire-user-name").html(d.receive_bank.account_name);
@@ -990,10 +992,10 @@ $(function () {
                 $(".get-bank-name").html(bank_name);
                 $(".get-bank-user-account").html(account_number_secret);
             }
-            if(d.is_middle_bank_enabled){
+            if (d.is_middle_bank_enabled) {
 
             }
-            if(d.is_check_enabled){
+            if (d.is_check_enabled) {
                 $("#nav-golden").append(checkLiDom);
                 $("#nav-golden-list").append(checkDom);
                 $("#get-check-user-name").html(d.check.receiver_name);
@@ -1002,13 +1004,15 @@ $(function () {
                 $(".get-bank-name").html(bank_name);
                 $(".get-bank-user-account").html(account_number_secret);
             }
-            len =  $("#nav-golden").find('li').length;
-            if(len == 1){
-                $("#nav-golden").find('li').css('width','95%');
-            }if(len == 2){
-                $("#nav-golden").find('li').css('width','47%');
-            }if(len == 3){
-                $("#nav-golden").find('li').css('width','30%');
+            len = $("#nav-golden").find('li').length;
+            if (len == 1) {
+                $("#nav-golden").find('li').css('width', '95%');
+            }
+            if (len == 2) {
+                $("#nav-golden").find('li').css('width', '47%');
+            }
+            if (len == 3) {
+                $("#nav-golden").find('li').css('width', '30%');
             }
             $("#nav-golden").find('li:first').addClass('active');
             $("#nav-golden-list").find('div:first').addClass('active');
