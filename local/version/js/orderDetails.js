@@ -149,14 +149,14 @@ $(function () {
                 '<div class="col-md-6">';
             if (is_admin) {
                 dom += '<label>投资顾问</label>' +
-                    '<a href="javascript:;">' + advisor_name + ' [' + advisor_code + '] </a>';
+                    '<a href="/backstageDetails.html?id='+d.advisor_id+'&code='+d.advisor_code+'">' + advisor_name + ' [' + advisor_code + '] </a>';
             }
 
 
             dom += '</div>' +
                 '<div class="col-md-6">' +
                 '<label>投资人</label>' +
-                '<a href="javascript:;">' + first_name + ' ' + last_name + '</a>' +
+                '<a href="/customerDetails.html?phone='+d.phone+'">' + first_name + ' ' + last_name + '</a>' +
                 '</div>' +
                 '<div class="col-md-6">' +
                 '<label>投资金额</label><span>' + invest_amount +

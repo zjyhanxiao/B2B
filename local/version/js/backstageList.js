@@ -45,7 +45,6 @@ $(function () {
 })
 //搜索子渠道功能
 $('.glyphicon-search').click(function () {
-    if ($('.search_input').val()!=''){
 
         $.ajax({
             type: 'get',
@@ -82,10 +81,6 @@ $('.glyphicon-search').click(function () {
             error: function () {
             }
         })
-
-    }else {
-        alert('请输入关键字')
-    }
 })
 
 
