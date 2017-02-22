@@ -5,6 +5,7 @@ $('#product_head ul li[data-name="内部管理"]').addClass('active');
 
 $(function () {
 
+    var inputdata = {}
     $.ajax({
         type: 'get',
         url: base_url + '/zion/channel/amount',
@@ -16,6 +17,8 @@ $(function () {
         },
         success: function (res) {
             console.log( res.body )
+            inputdata = res.body;
+
             if (res.body.amount == null){
                 res.body.amount = 0;
             }
@@ -47,15 +50,25 @@ $(function () {
         error: function () {
         }
     })
+    //修改模态框
+    $('.change').click(function () {
+        $('#alter_phone').val(inputdata.phone)
+        $('#alter_email').val(inputdata.email)
+        $('#name').val(inputdata.name)
+
+        $('.change_info').modal('show')
+
+    })
+
 
 })
 
 
 
-//修改模态框
-$('.change').click(function () {
-    $('.change_info').modal('show')
-})
+// //修改模态框
+// $('.change').click(function () {
+//     $('.change_info').modal('show')
+// })
 //修改模态框blur验证
 $('#name').blur(function () {
     if ( $('#name').val()!='' ){
