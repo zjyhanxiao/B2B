@@ -164,6 +164,14 @@ $('#abolish_info').click(function () {
 
     $('.change_info').modal('hide')
 })
+$('.close_on').click(function () {
+    $('.phone_caution').css('display','none')
+    $('#alter_phone').parent().removeClass('has-error')
+    $('.email_caution').css('display','none')
+    $('#alter_email').parent().removeClass('has-error')
+    $('.name_caution').css('display','none')
+    $('#alter_name').parent().removeClass('has-error')
+})
 
 
 
