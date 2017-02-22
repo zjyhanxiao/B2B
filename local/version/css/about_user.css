@@ -57,6 +57,25 @@ body {
     margin: 10px 0;
 }
 
+#reset_password{
+    position: relative;
+}
+
+.reset_password_phone{
+    width: 200px!important;
+}
+
+#send_verify_code{
+    position: absolute;
+    height: 39.5px;
+    width: 100px;
+    top: 10px;
+    left: 195px;
+    color: #fff;
+    border: none;
+    background-color: #223976;
+}
+
 /*
 input:focus ,button:focus{
     outline: none;
