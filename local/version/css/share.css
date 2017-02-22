@@ -33,6 +33,7 @@
 
 .modal-header {
     background: #223976;
+    border-radius: 5px 5px 0 0;
 }
 
 button.close {
