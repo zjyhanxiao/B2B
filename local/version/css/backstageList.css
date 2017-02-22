@@ -115,7 +115,10 @@ body{
     border: 1px solid #cccccc;
     box-sizing: border-box;
     border-bottom: none;
+    background: #ebf4ff;
 }
+
+
 .chart_head tr th{
     border: 1px solid #cccccc;
     height: 50px;
@@ -150,6 +153,7 @@ table tr td{
 /*模态框公用*/
 .modal-header{
     background: #223976;
+    border-radius: 5px 5px 0 0;
 }
 .modal-header h4{
     text-align: center;
@@ -157,7 +161,29 @@ table tr td{
 }
 .modal-header button span{
     color: #ffffff;
+    display: inline-block;
+    width: 20px;
+    height: 28px;
+    line-height: 30px;
+    font-size: 35px;
+    opacity:1;
 }
+
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1;
+    color: #FFFFFF;
+    text-shadow: none;
+    filter: alpha(opacity=100);
+    opacity: 1
+}
+
+
+
+
+
 label{
     line-height: 30px;
     font-size: 14px;
@@ -177,4 +203,9 @@ label{
     font-size: 12px;
     color: #f0ad4e;
 }
+/*空白底部*/
+.chart_body{
+    margin-bottom: 30px;
+}
+
 

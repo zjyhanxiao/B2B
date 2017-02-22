@@ -19,7 +19,7 @@ $(function () {
             if (res.body.amount == null){
                 res.body.amount = 0;
             }
-            $('.look_indent').attr('href',encodeURI('/order.html?channel='+ res.body.name))
+            $('.look_indent').attr('href',encodeURI('/order.html?channel='+ res.body.code))
 
             $('#counselor').html('投资顾问  '+res.body.name+'   ('+res.body.code+')')
             $('#phone').html(res.body.phone)
@@ -37,9 +37,11 @@ $(function () {
             if (res.body.is_active){
                 $('.show_permission').html('')
                 $('.login_on').html('关闭登录权限')
+                $('.login_on').css('color','red')
             }else {
                 $('.show_permission').html('登录权限已暂停')
                 $('.login_on').html('开启登录权限')
+                $('.login_on').css('color','#337ab7')
             }
         },
         error: function () {
@@ -65,7 +67,7 @@ $('#name').blur(function () {
     }
 })
 $('#alter_phone').blur(function () {
-    if ( $('#alter_phone').val() > 10 ){
+    if ( $('#alter_phone').val().length > 10 ){
         $('#alter_phone').parent().removeClass('has-error')
         $('.phone_caution').css("display", "none")
     }else {
@@ -207,6 +209,7 @@ $('.login_on').click(function () {
                 console.log( '1' )
                 $('.show_permission').html('登录权限已暂停')
                 $('.login_on').html('开启登录权限')
+                $('.login_on').css('color','#337ab7')
             },
             error: function () {
             }
@@ -226,6 +229,7 @@ $('.login_on').click(function () {
                 console.log( '2' )
                 $('.show_permission').html('')
                 $('.login_on').html('关闭登录权限')
+                $('.login_on').css('color','red')
             },
             error: function () {
             }
