@@ -10,7 +10,7 @@ $(function () {
         $('.about_order').html('<span>订单</span>' + order_number);
     }
 
-    $('.prev-three').on('click',function () {
+    $('.prev-three').on('click', function () {
         window.location = '/auxiliary_order/stepThree.html?' +
             'product_id=' + product_id + '&phone=' + user_phone + '&channel_code=' + channel_code + '&order_number=' + order_number;
     });
@@ -47,7 +47,7 @@ $(function () {
     function stepFourSuccess(res) {
         var d = res.body;
         if (d) {
-            window.location = '/auxiliary_order/share.html?product_id=' + product_id + '&channel_code=' + channel_code + '&verify_code=' + d.verify_code + '&order_number=' + order_number
+            window.location = '/auxiliary_order/share.html?product_id=' + product_id + '&channel_code=' + channel_code + '&verify_code=' + d.verify_code + '&order_number=' + order_number + '&phone=' + user_phone;
         }
     }
 
@@ -76,6 +76,10 @@ $(function () {
     function getProductSuc(res) {
         var d = res.body;
         if (d && d != null) {
+            if (d.status !== 'FOR_INVEST') {
+                window.location = '/auxiliary_order/errLink.html';
+                return false;
+            }
             invest_par_value = d.invest_par_value || 0;
             minimum_invest_amount = d.minimum_invest_amount || 0;
             $('.about_product').html('<span>' + res.body.name + '</span>' + res.body.number);
@@ -115,7 +119,7 @@ $(function () {
                 $('#get-aba').html(d.bank_us.routing_number);
                 $('#get-bank-user-name').html(d.first_name + ' ' + d.last_name);
                 $('#get-bank-user-account').html(d.bank_us.account_number.replace(/^\d+(\d{4})$/, "****************$1"));
-                $('#invest-info .checkbox label').html('<input type="checkbox">确认投资后通过ACH自动从'+d.bank_us.bank_name+'（'+d.bank_us.account_number.replace(/^\d+(\d{4})$/, "$1")+'）扣款')
+                $('#invest-info .checkbox label').html('<input type="checkbox">确认投资后通过ACH自动从' + d.bank_us.bank_name + '（' + d.bank_us.account_number.replace(/^\d+(\d{4})$/, "$1") + '）扣款')
             } else {
                 $('#get-bank-aba').hide();
                 $('#get-bank-name').html(d.bank_non_us.bank_name);

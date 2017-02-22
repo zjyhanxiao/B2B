@@ -76,6 +76,7 @@ body{
 }
 .order-list{
     width: 100%;
+    margin-bottom: 40px;
 }
 .order-list th,.order-list td{
     border: 1px solid #ccc;

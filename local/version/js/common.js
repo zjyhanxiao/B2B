@@ -35,7 +35,7 @@ var postData = function (opt) {
                 opt.resetPas && opt.resetPas(res)
             }
             if (res.code == -1 && res.msg == 'auth failed') {
-                // window.location = '/login.html'
+                window.location = '/login.html'
             }
         }
     })

@@ -15,7 +15,12 @@ $(function () {
     }
 
     function getProductSuc(res) {
-        $('.about_product').html('<span>' + res.body.name + '</span>' + res.body.number);
+        if (res.body.status !== 'FOR_INVEST') {
+            window.location = '/auxiliary_order/errLink.html';
+            return false;
+        } else {
+            $('.about_product').html('<span>' + res.body.name + '</span>' + res.body.number);
+        }
     }
 
     function getProductFail(res) {

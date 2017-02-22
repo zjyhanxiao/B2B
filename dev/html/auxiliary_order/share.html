@@ -32,6 +32,7 @@
             <p style="margin-bottom: 5px;">解锁密码<span class="password"></span></p>
             <p style="margin-bottom: 20px;">链接：<span class="href_link"></span>
             </p>
+            <button class="change_order">修改订单</button>
             <button class="share">分享链接</button>
         </div>
     </div>
@@ -62,8 +63,12 @@
         var channel_code = getUrlParam('channel_code') || '';
         var verify_code = getUrlParam('verify_code') || '';
         var order_number = getUrlParam('order_number') || '';
+        var phone = getUrlParam('phone') || '';
         $('.password').html(verify_code);
         $('.href_link').html('http://zion.meixincn.com/auxiliary_order/shareAndSignature.html?product_id=' + product_id + '&channel_code=' + channel_code + '&order_number=' + order_number);
+        $('.change_order').on('click', function () {
+            window.location = '/auxiliary_order/stepOne.html?product_id=' + product_id + '&phone=' + phone + '&channel_code=' + channel_code + '&order_number=' + order_number;
+        });
         $('.share').on('click', function () {
             getData({
                 url: base_url + '/channel/qrcode/create',

@@ -6,15 +6,19 @@
     margin-left: 10px;
 }
 
-.share {
+.share,.change_order {
     border: none;
     color: #fff;
     padding: 5px 20px;
     border-radius: 6px;
     background: #223976;
 }
-
-.share:focus {
+.change_order{
+    background: #ddd;
+    color: #555;
+    margin-right: 40px;
+}
+.share:focus ,.change_order{
     outline: none;
 }
 

@@ -133,10 +133,10 @@ $(function () {
                     '<div class="col-md-12"><p style="color: red; text-align: right"><span style="font-weight: 700;">失败原因：</span>' + failRemark + '</p></div>' +
                     '</div>';
             }
-            if (d.fa_investment_status == 'not_received') {
+            if (d.fa_investment_status == 'not_commit') {
                 dom += '<div class="row">' +
                     '<div class="col-md-12"><p style="text-align: right">' +
-                    '<a href="/auxiliary_order/stepOne.html?product_id="' + d.product_id + '&channel_code=' + d.advisor_code + '&phone=' + phone + '"></a></p></div>' +
+                    '<a href="/auxiliary_order/share.html?product_id=' + d.product_id + '&channel_code=' + d.advisor_code + '&phone=' + phone + '&verify_code=' + d.verify_code + '&order_number=' + order_number + '">查看签署链接</a></p></div>' +
                     '</div>';
             }
             dom += '<div class="row">' +

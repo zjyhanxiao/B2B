@@ -180,6 +180,10 @@ $(function () {
     function getProductSuc(res) {
         var d = res.body;
         if (d) {
+            if (d.status !== 'FOR_INVEST') {
+                window.location = '/auxiliary_order/errLink.html';
+                return false;
+            }
             $('.beforeOpen p').html('请输入密码打开“' + d.name + '”产品投资文件');
         }
     }
