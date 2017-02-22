@@ -184,7 +184,7 @@ $(function () {
                 '<td>' + phone + '</td>' +
                 '<td>' + invest_amount + '</td>' +
                 '<td>' + advisor_name + '</td>' +
-                '<td>' + advisor_name + '</td>' +
+                '<td>' + item.code + '</td>' +
                 '<td>' + fa_investment_status + '</td>' +
                 '<td>' + created_at + '</td>' +
                 '</tr>'
