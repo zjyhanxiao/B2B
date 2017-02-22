@@ -44,12 +44,16 @@ $(function () {
             $('#name_number').html(res.body.name+' '+res.body.number)
             if (res.body.status == 'FOR_APPOINTMENT'){
                 $('#state').html('预售').addClass('bg_yu')
+
+                $('.notsell').html('<p> 此产品还没有发售 </p>')
             }
             if (res.body.status == 'FOR_INVEST'){
                 $('#state').html('在售').addClass('bg_zai')
             }
             if (res.body.status == 'SOLD_OUT'||res.body.status == 'OFFLINE'){
                 $('#state').html('售罄').addClass('bg_qing')
+
+                $('.notsell').html('<p> 此产品已经售罄 </p>')
             }
 
 
@@ -189,6 +193,9 @@ $(function () {
     })
 
     //投资顾问分享接口    // 二维码生成
+
+
+
     console.log( is_admin )
     if (is_admin){
 
@@ -215,18 +222,13 @@ $(function () {
                     if (!window.location.origin) {
                         window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
                     }
-                    window["context"] = location.origin+"/V6.0";
+                    window["context"] = location.origin;
                 }
-
-
-
 
                 $('.sharelink').attr("value",window.location.origin+"/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code)
                 $('.order_btn').data('shuju',window.location.origin+"/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&channel_code="+res.body[0].code)
 
                 $('.order_btn').data('code',res.body[0].code)
-
-//                $('.assist').attr("href","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code)
 
                 $.ajax({
                     type: 'get',
@@ -266,7 +268,7 @@ $(function () {
                     if (!window.location.origin) {
                         window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
                     }
-                    window["context"] = location.origin+"/V6.0";
+                    window["context"] = location.origin;
                 }
 
                 $('.sharelink').attr("value",window.location.origin+"/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body.code)
@@ -296,11 +298,6 @@ $(function () {
             error: function () {
             }
         })
-
-
-
-
-
     }
 
 
@@ -436,7 +433,7 @@ window.onload = function () {
             if (!window.location.origin) {
                 window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
             }
-            window["context"] = location.origin+"/V6.0";
+            window["context"] = location.origin;
         }
 
 

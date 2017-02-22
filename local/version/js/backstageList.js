@@ -23,8 +23,7 @@ $(function () {
                 $('.chart_head').css('border-bottom','none')
                 var userhtml = ''
                 $.each(res.body,function (i,item) {
-                    var hrefUrl='order.html?channel='+item.name;
-                    hrefUrl=encodeURI(hrefUrl);
+
                     //null转化为0
                     if (item.amount==null){
                         item.amount=0;
@@ -33,7 +32,7 @@ $(function () {
                         '<td class="w_160">'+item.name+'</td> ' +
                         '<td class="w_190">'+item.phone+'</td> ' +
                         '<td class="w_285">'+item.email+'</td> ' +
-                        '<td class="w_160"><a href="'+hrefUrl+'">'+item.count+'</a></td> ' +
+                        '<td class="w_160">'+item.count+'</td> ' +
                         '<td class="w_200">'+item.amount+'</td> </tr>'
                 })
                 $('.chart_body').html(userhtml)
@@ -66,8 +65,6 @@ $('.glyphicon-search').click(function () {
                     $('.chart_head').css('border-bottom','none')
                     var userhtml = ''
                     $.each(res.body,function (i,item) {
-                        var hrefUrl='order.html?channel='+item.name;
-                        hrefUrl=encodeURI(hrefUrl);
                         //null转化为0
                         if (item.amount==null){
                             item.amount=0;
@@ -76,7 +73,7 @@ $('.glyphicon-search').click(function () {
                             ' <td class="w_160">'+item.name+'</td>' +
                             ' <td class="w_190">'+item.phone+'</td>' +
                             ' <td class="w_285">'+item.code+'</td>' +
-                            ' <td class="w_160"><a href="'+hrefUrl+'">'+item.count+'</a></td> ' +
+                            ' <td class="w_160">'+item.count+'</td> ' +
                             '<td class="w_200">'+item.code+'</td> </tr>'
                     })
                     $('.chart_body').html(userhtml)
