@@ -7,6 +7,10 @@ $(function () {
     var product_id = getUrlParam('product_id') || ''; //获取产品id
     var order_number = getUrlParam('order_number') || ''; // 获取订单编号
 
+    $('.prev-two').on('click',function () {
+        window.location = '/auxiliary_order/stepTwo.html?' +
+            'product_id=' + product_id + '&phone=' + user_phone + '&channel_code=' + channel_code + '&order_number=' + order_number;
+    });
     // 第三步提交信息
     $(".step-three").on('click', function () {
         $(this).prop('disabled', true);

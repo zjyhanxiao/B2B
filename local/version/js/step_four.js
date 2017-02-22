@@ -10,6 +10,10 @@ $(function () {
         $('.about_order').html('<span>订单</span>' + order_number);
     }
 
+    $('.prev-three').on('click',function () {
+        window.location = '/auxiliary_order/stepThree.html?' +
+            'product_id=' + product_id + '&phone=' + user_phone + '&channel_code=' + channel_code + '&order_number=' + order_number;
+    });
     $('.step-four').on('click', function () {
         $(this).prop('disabled', true);
         var invest_value = parseInt($('.invest-amounts').val());

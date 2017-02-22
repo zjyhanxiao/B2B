@@ -7,6 +7,10 @@ $(function () {
     var product_id = getUrlParam('product_id') || ''; //获取产品id
     var order_number = getUrlParam('order_number') || ''; // 获取订单编号
     var idCard_default = $('.fa-upload-pic img').attr('src');
+    $('.prev-one').on('click',function () {
+        window.location = '/auxiliary_order/stepOne.html?' +
+            'product_id=' + product_id + '&phone=' + user_phone + '&channel_code=' + channel_code + '&order_number=' + order_number;
+    });
     $('.step-two').on('click', function () {
         var id_card_url = $('.fa-upload-pic img').attr('src');
         if (id_card_url == idCard_default) {
