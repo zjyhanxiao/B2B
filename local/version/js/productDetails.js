@@ -175,12 +175,12 @@ $(function () {
                 p.append('ACH（仅支持美国银行账户） ；')
             }
             if (res.body.is_receive_bank_enabled){
-                p.append('银行电汇/Wrie 【<span class="payway">入金指南</span>】 ')
+                p.append('银行电汇/Wire 【<span class="payway">入金指南</span>】 ')
                 $('#account_name').html(res.body.receive_bank.account_name)
                 $('#account_address').html(res.body.receive_bank.account_address)
                 $('#bank_name').html(res.body.receive_bank.bank_name)
                 $('#bank_address').html(res.body.receive_bank.bank_address)
-                $('#routing_number').html(res.body.receive_bank.routing_number)
+                $('#routing_number').html(res.body.receive_bank.riouting_number)
                 $('#swift_code').html(res.body.receive_bank.swift_code)
                 $('#account_number').html(res.body.receive_bank.account_number)
             }
