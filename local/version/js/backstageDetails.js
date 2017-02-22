@@ -87,7 +87,7 @@ $('#alter_email').blur(function () {
 })
 
 
-//修改模态框确定按钮
+//修改信息模态框确定按钮
 $('#confirm_info').click(function () {
     var data = {};
     data.id = getUrlParam('id');
