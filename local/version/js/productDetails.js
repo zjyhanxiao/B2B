@@ -130,13 +130,13 @@ $(function () {
             //法律文件
             var legalhtml = '';
             $.each(res.body.legal_document,function ( i , item ) {
-                legalhtml += '<p><a target="_blank" href="'+item.document_url+'">'+item.document_name+'</a></p>'
+                legalhtml += '<p><a target="_blank" style="color: #159bd6" href="'+item.document_url+'">'+item.document_name+'</a></p>'
             })
             $('#legal_document').html(legalhtml )
             //销售文件
             var saleshtml = '';
             $.each(res.body.sales_document,function ( i , item ) {
-                saleshtml += '<p><a target="_blank" href="'+item.document_url+'">'+item.document_name+'</a></p>'
+                saleshtml += '<p><a target="_blank"  style="color: #159bd6" href="'+item.document_url+'">'+item.document_name+'</a></p>'
             })
             $('#sales_document').html(saleshtml )
             //产品介绍文件
