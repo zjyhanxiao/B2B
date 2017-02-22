@@ -831,14 +831,16 @@ div#document-loading p, div#document-error p {
 }
 
 .order-img{
-    margin-top: 150px;
+    margin-top: 5em;
 }
 
 .order-img img{
     margin-left: calc(50% - 75px);
 }
 
-
+#nav-golden-list p{
+    height: inherit!important;
+}
 @media (max-width: 735px) {
     .form-inline .form-control{
         width: 100%;
@@ -973,6 +975,8 @@ div#document-loading p, div#document-error p {
     margin: 30px auto 0;
     color: #555;
     font-size: 14px;
+    height: 20px;
+    line-height: 20px;
 }
 .about_product,.about_order{
     width: 50%;

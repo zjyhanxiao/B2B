@@ -51,10 +51,10 @@ $(function () {
 
         // 所有校验通过，发送ajax请求
         postData({
-            url: base_url + '/zion/channel_advisor/reset_password',
+            url: base_url + '/zion/channel_advisor/login_reset_password',
             data: {
-                user_name: phone,
-                password: password,
+                phone: phone,
+                old_password: password,
                 new_password: new_password,
                 confirm_password: confirm_password
             },

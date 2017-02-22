@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>客户详情</title>
 </head>
 <link href="http://zion.meixincn.com/vendor/css/bootstrap.min.css" rel="stylesheet">
 <link href="http://zion.meixincn.com/version/dist/css/backstageDetails.min.css" rel="stylesheet">
@@ -66,35 +66,6 @@
 <script src="http://zion.meixincn.com/vendor/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="http://zion.meixincn.com/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
 <script src="http://zion.meixincn.com/version/dist/js/common.min.js" type="text/javascript"></script>
-<script>
-    $(function () {
-        $('.check_indent').attr('href','order.html?user='+getUrlParam('phone'))
-        $.ajax({
-            type: 'get',
-            url: base_url + '/channel/customer/detail',
-            data:{'phone':getUrlParam('phone')},
-            contentType: "application/json; charset=utf-8",
-            headers: {
-                "mx_token": $.cookie('mx_token'),
-                "mx_secret": $.cookie('mx_secret')
-            },
-            success: function (res) {
-                console.log(res.body)
-                $('#name').html( res.body.first_name+' '+res.body.last_name )
-                $('#phone').html( res.body.phone )
-                $('#email').html( res.body.email )
-                $('#order_count').html( '<a href="order.html?user='+res.body.phone+'">'+res.body.order_count+'</a>' )
-                $('#invest_amount').html( '$ '+res.body.invest_amount )
-
-            },
-            error: function () {
-            }
-        })
-
-
-    })
-
-    $('#product_head ul li[data-name="客户"]').addClass('active');
-</script>
+<script src="http://zion.meixincn.com/version/dist/js/customerDetails.min.js" type="text/javascript"></script>
 
 </html>

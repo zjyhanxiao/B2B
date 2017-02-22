@@ -1,13 +1,14 @@
 $(function () {
     $('#product_head ul li[data-name="订单"]').addClass('active');
-    var order_id = getUrlParam('order_id');
-    var product_id = '', order_number;
+    var order_number = getUrlParam('order_number')||'';
+    var product_id = '';
+    var failRemark = ''; // 审核失败原因
     // 取订单信息
     getData({
         url: base_url + '/zion/order/amount',
-        data: {order_id: order_id},
+        data: {order_number: order_number},
         headers: {
-            mx_secret: mx_secret, mx_token: mx_token
+            mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
         },
         async: false,
         sucFn: getOrderSuc,
@@ -16,9 +17,9 @@ $(function () {
     // 取订单文档信息
     getData({
         url: base_url + '/zion/order/document',
-        data: {order_id: order_id, product_id: product_id},
+        data: {order_number: order_number, product_id: product_id},
         headers: {
-            mx_secret: mx_secret, mx_token: mx_token
+            mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
         },
         sucFn: getDocumentSuc,
         failFn: failFn
@@ -40,7 +41,7 @@ $(function () {
                     url: base_url + '/zion/order/cancel',
                     data: {order_number: order_number},
                     headers: {
-                        mx_secret: mx_secret, mx_token: mx_token
+                        mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
                     },
                     sucFn: cancelSuc,
                     failFn: cancelFail
@@ -79,9 +80,22 @@ $(function () {
                 last_name = d.last_name != null ? d.last_name : '',
                 invest_amount = d.invest_amount != null ? '$' + d.invest_amount : 0,
                 advisor_name = d.advisor_name != null ? d.advisor_name : '',
+                phone = d.phone != null ? d.phone : '',
                 advisor_code = d.advisor_code != null ? d.advisor_code : '',
                 remain_amount = d.remain_amount != null ? '$' + d.remain_amount : 0,
                 close_fund_start_interest_day = d.close_fund_start_interest_day != null ? d.close_fund_start_interest_day : '';
+            if (fa_investment_status == 'audit_failed') {
+                getData({
+                    url: base_url + '/zion/order/failedRemark',
+                    data: {order_number: order_number},
+                    async: false,
+                    headers: {
+                        mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
+                    },
+                    sucFn: failedRemark,
+                    failFn: failFn
+                });
+            }
             var dom = '<div class="row">' +
                 '<div class="col-md-6 about_product_left">' +
                 '<span class="line"></span><span>订单 ' + order_number + '</span>' +
@@ -113,18 +127,33 @@ $(function () {
             }
             dom += fa_investment_status + '<a href="javascript:;" class="status_notes"></a>' +
                 '</div>' +
-                '</div>' +
-                '<div class="row">' +
+                '</div>';
+            if (d.fa_investment_status == 'audit_failed') {
+                dom += '<div class="row">' +
+                    '<div class="col-md-12"><p style="color: red; text-align: right"><span style="font-weight: 700;">失败原因：</span>' + failRemark + '</p></div>' +
+                    '</div>';
+            }
+            if (d.fa_investment_status == 'not_commit') {
+                dom += '<div class="row">' +
+                    '<div class="col-md-12"><p style="text-align: right">' +
+                    '<a href="/auxiliary_order/share.html?product_id=' + d.product_id + '&channel_code=' + d.advisor_code + '&phone=' + phone + '&verify_code=' + d.verify_code + '&order_number=' + order_number + '">查看签署链接</a></p></div>' +
+                    '</div>';
+            }
+            dom += '<div class="row">' +
                 '<div class="col-md-12">' +
                 '<div class="order-product-detail">' +
                 '<div class="col-md-6">' +
                 '<label>产品</label>' +
                 '<a href="/productDetails.html?product_id=' + product_id + '">' + product_name + ' ' + product_number + '</a>' +
                 '</div>' +
-                '<div class="col-md-6">' +
-                '<label>投资顾问</label>' +
-                '<a href="javascript:;">' + advisor_name + ' [' + advisor_code + '] </a>' +
-                '</div>' +
+                '<div class="col-md-6">';
+            if (is_admin) {
+                dom += '<label>投资顾问</label>' +
+                    '<a href="javascript:;">' + advisor_name + ' [' + advisor_code + '] </a>';
+            }
+
+
+            dom += '</div>' +
                 '<div class="col-md-6">' +
                 '<label>投资人</label>' +
                 '<a href="javascript:;">' + first_name + ' ' + last_name + '</a>' +
@@ -195,6 +224,11 @@ $(function () {
             $('.about_file').html(dom);
             return false;
         }
+    }
+
+    // 获取审核失败原因
+    function failedRemark(res) {
+        failRemark = res.body;
     }
 
     // 请求失败执行

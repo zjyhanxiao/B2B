@@ -1,17 +1,18 @@
- var base_url = 'https://zion-api.meixincn.com';
- // var base_url = 'http://192.168.1.104:8001'
+var base_url = 'https://zion-api.meixincn.com';
+// var base_url = 'http://192.168.1.102:8001'
 // 定义用户权限
 var is_admin;
 //获取url中的参数
 function getUrlParam(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
-    var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+    var s = window.location.search;
+    if (/[\u4e00-\u9fa5]/.test(s)) {
+        s=decodeURI(s);
+    }
+    var r = s.substr(1).match(reg);  //匹配目标参数
     if (r != null) return unescape(r[2]);
     return null; //返回参数值
 }
-// 获取cookie
-var mx_secret = $.cookie('mx_secret') || '',
-    mx_token = $.cookie('mx_token') || '';
 //公用post请求
 var postData = function (opt) {
     $.ajax({
@@ -70,15 +71,20 @@ var getData = function (opt) {
 
 // 验证登录和登出操作
 $(function () {
+// 获取cookie
+    var mx_secret = $.cookie('mx_secret') || '',
+        mx_token = $.cookie('mx_token') || '';
     // 验证登录（登录页，首次登录修改密码页，找回密码页，手机找回密码修改页）
     if (window.location.pathname !== '/login.html' &&
         window.location.pathname !== '/firstLogin_reset.html' &&
         window.location.pathname !== '/find_password.html' &&
-        window.location.pathname !== '/find_password_by_phone.html'
+        window.location.pathname !== '/find_password_by_phone.html' &&
+        window.location.pathname !== '/auxiliary_order/invest_success.html' &&
+        window.location.pathname !== '/auxiliary_order/shareAndSignature.html'
     ) {
         getData({
             url: base_url + '/zion/channel_advisor/authentication',
-            data: {mx_secret: $.cookie('mx_secret') || '', mx_token: $.cookie('mx_token') || ''},
+            data: {mx_secret: mx_secret, mx_token: mx_token},
             async: false,
             sucFn: is_login,
             failFn: no_login
@@ -100,7 +106,7 @@ $(function () {
     $('#logout').on('click', function () {
         getData({
             url: base_url + '/zion/channel_advisor/logout',
-            data: {mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')},
+            data: {mx_secret: mx_secret, mx_token: mx_token},
             sucFn: logout_success
             // failFn: ''
         })
@@ -109,5 +115,6 @@ $(function () {
     function logout_success() {
         $.cookie('mx_token', null);
         $.cookie('mx_secret', null);
+        window.location = '/login.html'
     }
 });

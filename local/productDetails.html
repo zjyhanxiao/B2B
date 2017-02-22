@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>产品详情</title>
 </head>
 <link href="http://localhost:8080/vendor/css/bootstrap.min.css" rel="stylesheet">
 <link href="http://localhost:8080//version/dist/css/productDetails.min.css" rel="stylesheet">
@@ -56,12 +56,12 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <p class="text-center" style="margin: 10px 0 20px;"> <a href="" type="button" class="btn btn-primary">选择此投资人</a> </p>
+                                        <p class="text-center" style="margin: 10px 0 20px;"> <button type="button" class="btn btn-primary choose_user" disabled="disabled">选择此投资人</button> </p>
                                     </div>
                                     <div class="modal-right">
                                         <div class="new_user" style="margin-top: 60px">
                                             <p class="text-center"><img src="http://localhost:8080/version/dist/img/new_order.png" alt=""></p>
-                                            <p class="text-center" style="margin: 20px 0 20px;"> <a href="" type="button" class="btn btn-primary"> <i class="glyphicon glyphicon-plus"></i> 新建投资人</a> </p>
+                                            <p class="text-center" style="margin: 20px 0 20px;"> <button type="button" class="btn btn-primary new_user"> <i class="glyphicon glyphicon-plus"></i> 新建投资人</button> </p>
                                         </div>
                                     </div>
                                 </div>
@@ -80,48 +80,50 @@
                             <td class="color_223976" id="minimumInvestAmount">$10000</td>
                         </tr>
                         <tr class="table_th">
-                            <td>预计年化</td>
+                            <td class="yang">预计年化</td>
                             <td>投资期限</td>
                             <td>起投金额</td>
                         </tr>
                     </table>
-                    <table class="table2">
-                        <tr>
-                            <td>项目类型</td>
-                            <td><p></p></td>
-                        </tr>
-                        <tr>
-                            <td>项目周期</td>
-                            <td><p></p></td>
-                        </tr>
-                        <tr>
-                            <td>投资期限</td>
-                            <td><p></p></td>
-                        </tr>
-                        <tr>
-                            <td>预计收益</td>
-                            <td><p></p></td>
-                        </tr>
-                        <tr>
-                            <td>风控措施</td>
-                            <td>
-                                <p></p>
-                                <p></p>
-                                <p></p>
-                                <p></p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>投资亮点</td>
-                            <td><p></p></td>
-                        </tr>
-                        <tr>
-                            <td>产品介绍文件</td>
-                            <td id="introduce_document">
+                    <div class="product_html"></div>
 
-                            </td>
-                        </tr>
-                    </table>
+                    <!--<table class="table2">-->
+                        <!--<tr>-->
+                            <!--<td>项目类型</td>-->
+                            <!--<td><p></p></td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td>项目周期</td>-->
+                            <!--<td><p></p></td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td>投资期限</td>-->
+                            <!--<td><p></p></td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td>预计收益</td>-->
+                            <!--<td><p></p></td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td>风控措施</td>-->
+                            <!--<td>-->
+                                <!--<p></p>-->
+                                <!--<p></p>-->
+                                <!--<p></p>-->
+                                <!--<p></p>-->
+                            <!--</td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td>投资亮点</td>-->
+                            <!--<td><p></p></td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td>产品介绍文件</td>-->
+                            <!--<td id="introduce_document">-->
+
+                            <!--</td>-->
+                        <!--</tr>-->
+                    <!--</table>-->
                 </div>
                 <p style="margin: 40px 0 15px;font-size: 18px">本期产品销售信息</p>
                 <div class="sell_info">
@@ -148,14 +150,15 @@
 
                             </td>
                         </tr>
-                        <tr>
+                        <tr class="">
                             <td>自助下单</td>
-                            <td>
+                            <td class="notsell">
                                 <p class="backstage1">投资顾问&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <select style="height: 28px;margin-top: 5px"  id="select1">
                                         <option value="1"></option>
                                     </select>
                                 </p>
+                                <p style="height: 14px"></p>
                                 <p>
                                     <input class="sharelink" style="height: 28px;width: 440px;margin-bottom: 5px" type="text" value="">&nbsp;&nbsp;&nbsp;&nbsp;
                                     <button type="button" class="share btn btn-primary" style="outline:none;">分享链接</button>
@@ -164,7 +167,7 @@
                         </tr>
                         <tr>
                             <td>辅助下单</td>
-                            <td>
+                            <td class="notsell">
                                 <p>
                                     <span class="backstage2">
                                         投资顾问&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -222,10 +225,10 @@
                     </div>
 
                 </div>
-                <p style="margin: 40px 0 15px;font-size: 18px">本期产品视频介绍</p>
-                <div class="product_videos">
-                    <div class="youku">
-                        <embed src='http://player.youku.com/player.php/Type/Folder/Fid//Ob//sid/XMjUwMzM5NjExMg==/v.swf' quality='high' width='480' height='400' align='middle' allowScriptAccess='always' allowFullScreen='true' mode='transparent' type='application/x-shockwave-flash'></embed>
+                <p class="none" style="margin: 40px 0 15px;font-size: 18px">本期产品视频介绍</p>
+                <div class="product_videos none">
+                    <div class="videos">
+
                     </div>
                 </div>
                 <p style="margin: 40px 0 15px;font-size: 18px">本期产品系列</p>
@@ -265,306 +268,6 @@
 <script src="http://localhost:8080/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
 <script src="http://localhost:8080/version/dist/js/common.min.js" type="text/javascript"></script>
 <script src="http://localhost:8080/vendor/js/clipboard.min.js" type="text/javascript"></script>
-<script>
-
-//    var base_url = 'http://192.168.1.102:8001';
-//    var base_url = 'https://zion-api.meixincn.com';
-    $(function () {
-
-        //产品信息接口    //系列产品接口
-        $.ajax({
-            type: 'get',
-            url: base_url + '/channel/product/info',
-            data: {'product_id':getUrlParam('product_id')},
-            contentType: "application/json; charset=utf-8",
-            headers: {
-                "mx_token": $.cookie('mx_token'),
-                "mx_secret": $.cookie('mx_secret')
-            },
-            success: function (res) {
-                console.log(res.body)
-                //头部信息
-                var product_name = res.body.name;
-                $('.vieworder').attr('href','/order.html?product='+res.body.number)
-                $('#name_number').html(res.body.name+' '+res.body.number)
-                if (res.body.status == 'FOR_APPOINTMENT'){
-                    $('#state').html('预售').addClass('bg_yu')
-                }
-                if (res.body.status == 'FOR_INVEST'){
-                    $('#state').html('在售').addClass('bg_zai')
-                }
-                if (res.body.status == 'SOLD_OUT'||res.body.status == 'OFFLINE'){
-                    $('#state').html('售罄').addClass('bg_qing')
-                }
-                //表格信息
-                $('#returnRate').html(res.body.returnRate+'%')
-                $('#investTerm').html(res.body.investTerm+'个月')
-                $('#minimumInvestAmount').html('$'+res.body.minimumInvestAmount)
-                $('#SaleDay').html('<p>'+res.body.startSaleDay+' —— '+res.body.endSaleDay+'</p>')
-                $('#closeFundStartInterestDay').html('<p>'+res.body.closeFundStartInterestDay+'</p>')
-
-                //系列产品
-                $('#name').html(res.body.name);
-
-                //系列产品接口
-                $.ajax({
-                    type: 'get',
-                    url: base_url + '/channel/product/list_by_name',
-                    data: {'product_name': product_name},
-                    contentType: "application/json; charset=utf-8",
-                    headers: {
-                        "mx_token": $.cookie('mx_token'),
-                        "mx_secret": $.cookie('mx_secret')
-                    },
-                    success: function (res) {
-                        console.log(res.body)
-                        var tabhtml = '';
-                        $.each(res.body,function (j,jtem) {
-
-                            var statu = '';
-                            if (jtem.status == 'OFFLINE'){
-                                statu = '<a href="productDetails.html?product_id='+jtem.id+'" class="state bg_qing">售罄</a>'
-                            }
-                            if (jtem.status == 'SOLD_OUT'){
-                                statu = '<a href="productDetails.html?product_id='+jtem.id+'" class="state bg_qing">售罄</a>'
-                            }
-                            if (jtem.status == 'FOR_INVEST'){
-                                statu = '<a href="productDetails.html?product_id='+jtem.id+'" class="state bg_zai">在售</a>'
-                            }
-                            if (jtem.status == 'FOR_APPOINTMENT'){
-                                statu = '<a href="productDetails.html?product_id='+jtem.id+'" class="state bg_yu">预售</a>'
-                            }
-                            tabhtml +='<tr><td><a href="productDetails.html?product_id='+jtem.id+'" class="color_223976">'+jtem.number+'</a></td>' +
-                                '<td>'+jtem.return_rate+'%</td>' +
-                                '<td>'+jtem.invest_term+'个月</td>' +
-                                '<td>'+jtem.close_fund_start_interest_day+'</td>' +
-                                '<td>'+jtem.start_sale_day+'</td>' +
-                                '<td>'+jtem.end_sale_day+'</td>' +
-                                '<td class="">'+statu+'</td></tr>'
-                        })
-                        $('#series').html(tabhtml)
-
-                    },
-                    error: function () {
-                    }
-                })
-
-            },
-            error: function () {
-            }
-        })
-
-        //文件文档接口
-        $.ajax({
-            type: 'get',
-            url: base_url + '/channel/product/document',
-            data: {'product_id':getUrlParam('product_id')},
-            contentType: "application/json; charset=utf-8",
-            headers: {
-                "mx_token": $.cookie('mx_token'),
-                "mx_secret": $.cookie('mx_secret')
-            },
-            success: function (res) {
-                console.log(res.body)
-                //法律文件
-                var legalhtml = '';
-                $.each(res.body.legal_document,function ( i , item ) {
-                    legalhtml += '<p><a target="_blank" href="'+item.document_url+'">'+item.document_name+'</a></p>'
-                })
-                $('#legal_document').html(legalhtml )
-                //销售文件
-                var saleshtml = '';
-                $.each(res.body.sales_document,function ( i , item ) {
-                    saleshtml += '<p><a target="_blank" href="'+item.document_url+'">'+item.document_name+'</a></p>'
-                })
-                $('#sales_document').html(saleshtml )
-                //产品介绍文件
-                var introducehtml = '';
-                $.each(res.body.introduce_document,function ( i , item ) {
-                    introducehtml += '<p><a target="_blank" href="'+item.document_url+'">'+item.document_name+'</a></p>'
-                })
-                $('#introduce_document').html(introducehtml )
-            },
-            error: function () {
-            }
-        })
-
-        //入金接口
-        $.ajax({
-            type: 'get',
-            url: base_url + '/channel/product/payment',
-            data: {'product_id':getUrlParam('product_id')},
-            contentType: "application/json; charset=utf-8",
-            headers: {
-                "mx_token": $.cookie('mx_token'),
-                "mx_secret": $.cookie('mx_secret')
-            },
-            success: function (res) {
-                console.log(res.body)
-                var p = $('<p></p>')
-                if (res.body.is_ach_enabled){
-                    p.append('ACH（仅支持美国银行账户） ；')
-                }
-                if (res.body.is_receive_bank_enabled){
-                    p.append('银行电汇/Wrie 【<span class="payway">入金指南</span>】 ；')
-                    $('#account_name').html(res.body.receive_bank.account_name)
-                    $('#account_address').html(res.body.receive_bank.account_address)
-                    $('#bank_name').html(res.body.receive_bank.bank_name)
-                    $('#bank_address').html(res.body.receive_bank.bank_address)
-                    $('#routing_number').html(res.body.receive_bank.routing_number)
-                    $('#swift_code').html(res.body.receive_bank.swift_code)
-                    $('#account_number').html(res.body.receive_bank.account_number)
-                }
-                $('#payment_way').html( p)
-
-
-            },
-            error: function () {
-            }
-        })
-
-        //投资顾问分享接口    // 二维码生成
-        console.log( is_admin )
-        if (is_admin){
-
-            $.ajax({
-                type: 'get',
-                url: base_url + '/zion/channel_advisor/list',
-                contentType: "application/json; charset=utf-8",
-                headers: {
-                    "mx_token": $.cookie('mx_token'),
-                    "mx_secret": $.cookie('mx_secret')
-                },
-                success: function (res) {
-                    console.log(res.body)
-                    var selecthtml1 = '';
-                    $.each(res.body,function (i,item) {
-                        selecthtml1 += '<option value="'+item.code+'">'+item.code+' - '+item.name+'</option>'
-                    })
-                    $('#select1').html(selecthtml1)
-                    $('#select2').html(selecthtml1)
-                    $('.sharelink').attr("value","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code)
-//                $('.assist').attr("href","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code)
-
-                    $.ajax({
-                        type: 'get',
-                        url: base_url + '/channel/qrcode/create',
-                        data: {"content":"https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code},
-                        contentType: "application/json; charset=utf-8",
-                        headers: {
-                            "mx_token": $.cookie('mx_token'),
-                            "mx_secret": $.cookie('mx_secret')
-                        },
-                        success: function (res) {
-                            console.log(res.body)
-                            $('#QRcode').attr( 'src',res.body )
-                        },
-                        error: function () {
-                        }
-                    })
-                },
-                error: function () {
-                }
-            })
-        }else {
-            $('.sharelink').attr("value","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id=")
-            $.ajax({
-                type: 'get',
-                url: base_url + '/channel/qrcode/create',
-                data: {"content":"https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="},
-                contentType: "application/json; charset=utf-8",
-                headers: {
-                    "mx_token": $.cookie('mx_token'),
-                    "mx_secret": $.cookie('mx_secret')
-                },
-                success: function (res) {
-                    console.log(res.body)
-                    $('#QRcode').attr( 'src',res.body )
-                },
-                error: function () {
-                }
-            })
-        }
-
-
-    })
-
-
-    window.onload = function () {
-
-        $('#product_head ul li[data-name="产品"]').addClass('active');
-
-        if (!is_admin){
-            $('.backstage').hide();
-            $('.backstage1').hide();
-            $('.backstage2').hide();
-        }else {
-            $('.backstage').show();
-            $('.backstage1').show();
-            $('.backstage2').show();
-        }
-
-        //辅助下单模态框
-        $('.order_btn').click(function () {
-            $('#placeanorder').modal('show')
-        })
-
-        //分享模态框
-        $('.share').click(function () {
-            $('#share').modal('show')
-        })
-        //入金模态框
-        $('body').on('click','.payway', function (){
-            $('.bs-example-modal-lg').modal('show')
-        })
-        //分享了链接改变 二维码
-        $('#select1').change(function () {
-            $('.sharelink').attr("value","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select1').val())
-
-            $.ajax({
-                type: 'get',
-                url: base_url + '/channel/qrcode/create',
-                data: {"content":"https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select1').val()},
-                contentType: "application/json; charset=utf-8",
-                headers: {
-                    "mx_token": $.cookie('mx_token'),
-                    "mx_secret": $.cookie('mx_secret')
-                },
-                success: function (res) {
-                    console.log(res.body)
-                    $('#QRcode').attr( 'src',res.body )
-                },
-                error: function () {
-                }
-            })
-
-        })
-
-        $('#select2').change(function () {
-//            $('.assist').attr("href","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select2').val())
-        })
-        //复制分享链接
-//        $('#copy').click(function () {
-//            alert("您的浏览器不支持点击复制，请使用 Ctrl + C 手动复制！")
-//        })
-
-        var clipboard = new Clipboard('#copy');
-        clipboard.on('success', function(e) {
-            console.info('Action:', e.action);
-            console.info('Text:', e.text);
-            console.info('Trigger:', e.trigger);
-            alert("复制成功");
-            e.clearSelection();
-        });
-
-        clipboard.on('error', function(e) {
-            console.error('Action:', e.action);
-            console.error('Trigger:', e.trigger);
-        });
-
-
-
-    }
-</script>
+<script src="http://localhost:8080/version/dist/js/productDetails.min.js" type="text/javascript"></script>
 
 </html>

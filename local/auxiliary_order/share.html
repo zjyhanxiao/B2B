@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>辅助下单 分享页</title>
+    <script src="http://localhost:8080/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <link href="http://localhost:8080/vendor/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://localhost:8080/version/dist/css/share.min.css" rel="stylesheet">
+</head>
+<body>
+@@include('../includes/header.html')
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p style="font-size: 16px; color: #223976;">请把以下链接发给投资人，让投资人查看投资文件并签字确认。</p>
+            <p style="color: red; margin-bottom: 20px;">注：投资人需要输入密码才可以打开此页面</p>
+            <p style="margin-bottom: 5px;">解锁密码<span class="password"></span></p>
+            <p style="margin-bottom: 20px;">链接：<span class="href_link"></span>
+            </p>
+            <button class="change_order">修改订单</button>
+            <button class="share">分享链接</button>
+        </div>
+    </div>
+</div>
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog"
+     aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">分享</h4>
+            </div>
+            <div class="modal-body text-center">
+                <p>请使用手机扫码分享链接至客户</p>
+                <img width="204" height="188">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="http://localhost:8080/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
+<script src="http://localhost:8080/vendor/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="http://localhost:8080/version/dist/js/common.min.js" type="text/javascript"></script>
+<script>
+    $(function () {
+        $('#product_head ul li[data-name="产品"]').addClass('active');
+        var product_id = getUrlParam('product_id') || '';
+        var channel_code = getUrlParam('channel_code') || '';
+        var verify_code = getUrlParam('verify_code') || '';
+        var order_number = getUrlParam('order_number') || '';
+        var phone = getUrlParam('phone') || '';
+        $('.password').html(verify_code);
+        $('.href_link').html('http://localhost:8080/auxiliary_order/shareAndSignature.html?product_id=' + product_id + '&channel_code=' + channel_code + '&order_number=' + order_number);
+        $('.change_order').on('click', function () {
+            window.location = '/auxiliary_order/stepOne.html?product_id=' + product_id + '&phone=' + phone + '&channel_code=' + channel_code + '&order_number=' + order_number;
+        });
+        $('.share').on('click', function () {
+            getData({
+                url: base_url + '/channel/qrcode/create',
+                data: {content: $('.href_link').text()},
+                headers: {mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')},
+                sucFn: sucFn
+            })
+        });
+        function sucFn(res) {
+            var d = res.body;
+            if (d) {
+                $('.modal-body img').attr('src', d);
+                $('.modal').modal('show');
+            }
+        }
+    })
+</script>
+</body>
+</html>

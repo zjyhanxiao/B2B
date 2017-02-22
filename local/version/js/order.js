@@ -9,15 +9,16 @@ $(function () {
     // 如果是主渠道 ，筛选条件显示投资顾问，订单列表显示投资顾问，否则不显示
     if (is_admin) {
         $('.adviser').html('<label for="adviser">投资顾问</label>' +
-            '<input type="text" class="form-control" id="adviser" placeholder="投资顾问">');
+            '<input type="text" class="form-control" id="adviser" placeholder="名称／编号">');
         $('.order-list thead').html(
             '<th>订单号</th>' +
             '<th style="width: 130px;">产品名称</th>' +
             '<th>产品编号</th>' +
-            '<th>投资人姓名</th>' +
-            '<th style="width: 132px;">投资人电话</th>' +
+            '<th>客户姓名</th>' +
+            '<th style="width: 132px;">客户电话</th>' +
             '<th style="width: 4em;">金额</th>' +
             '<th style="width: 5em;">投资顾问</th>' +
+            '<th style="width: 5em;">顾问编号</th>' +
             '<th style="width: 100px;">状态</th>' +
             '<th style="width: 100px;">投资日期</th>'
         )
@@ -27,8 +28,8 @@ $(function () {
             '<th>订单号</th>' +
             '<th>产品名称</th>' +
             '<th>产品编号</th>' +
-            '<th>投资人姓名</th>' +
-            '<th style="width: 132px;">投资人电话</th>' +
+            '<th>客户姓名</th>' +
+            '<th style="width: 132px;">客户电话</th>' +
             '<th style="width: 5em;">金额</th>' +
             '<th style="width: 100px;">状态</th>' +
             '<th style="width: 100px;">投资日期</th>'
@@ -50,10 +51,11 @@ $(function () {
         var data = {};
         var search_user = getUrlParam('user') || '';
         var search_product = getUrlParam('product') || '';
-        var search_channel_advisor_name = getUrlParam('channel_advisor_name') || '';
+        var search_channel_advisor_name = getUrlParam('channel') || '';
         data.user = search_user;
         data.product = search_product;
         data.channel_advisor_name = search_channel_advisor_name;
+
         $('#product').val(search_product);
         $('#user').val(search_user);
         if (is_admin) {
@@ -108,7 +110,7 @@ $(function () {
             url: base_url + '/zion/order/list',
             data: data,
             headers: {
-                mx_secret: mx_secret, mx_token: mx_token
+                mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
             },
             contentType: "application/json; charset=utf-8",
             sucFn: order_list,
@@ -119,9 +121,10 @@ $(function () {
     // 获取订单列表成功回调
     function order_list(data) {
         if (data.body && data.body.length > 0) {
-            var jsonData = $.grep(data.body, function (n, i) {
-                return i > 20;
-            }, true);
+            /*var jsonData = $.grep(data.body, function (n, i) {
+             return i > 2000;
+             }, true);*/
+            var jsonData = data.body;
             if (is_admin) {// 管理员和客户分别渲染不同数据
                 admin_order_list(jsonData)
             } else {
@@ -174,12 +177,13 @@ $(function () {
             }
             html +=
                 '<tr>' +
-                '<td><a href="/orderDetails.html?order_id=' + item.id + '">' + order_number + '</a></td>' +
+                '<td><a href="/orderDetails.html?order_number=' + order_number + '">' + order_number + '</a></td>' +
                 '<td><a href="/productDetails.html?product_id=' + item.product_id + '">' + product_name + '</a></td>' +
                 '<td>' + product_number + '</td>' +
-                '<td>' + first_name + ' ' + last_name + '</td>' +
+                '<td><a href="/customerDetails.html?phone=' + phone + '">' + first_name + ' ' + last_name + '</a>' +
                 '<td>' + phone + '</td>' +
                 '<td>' + invest_amount + '</td>' +
+                '<td>' + advisor_name + '</td>' +
                 '<td>' + advisor_name + '</td>' +
                 '<td>' + fa_investment_status + '</td>' +
                 '<td>' + created_at + '</td>' +
@@ -229,7 +233,7 @@ $(function () {
             }
             html +=
                 '<tr>' +
-                '<td><a href="/orderDetails.html?order_id=' + item.id + '">' + order_number + '</a></td>' +
+                '<td><a href="/orderDetails.html?order_number=' + order_number + '">' + order_number + '</a></td>' +
                 '<td><a href="/productDetails.html?product_id=' + item.product_id + '">' + product_name + '</a></td>' +
                 '<td>' + product_number + '</td>' +
                 '<td>' + first_name + ' ' + last_name + '</td>' +

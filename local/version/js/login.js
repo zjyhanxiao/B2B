@@ -53,7 +53,6 @@ $(function () {
     function login_success(res) {
         $.cookie('mx_token', res.body.mx_token);
         $.cookie('mx_secret', res.body.mx_secret);
-        $.cookie('is_admin', res.body.is_admin);
         $('.user_button button').prop('disabled', false);
         window.location = '/productList.html'
     }
@@ -66,7 +65,7 @@ $(function () {
 
     // 首次登录，跳转至首次登录重置密码页面
     function resetPassword() {
-        window.location = '/firstLogin_reset.html?phone=' + $('#user_name').val();
+        window.location = '/firstLogin_reset.html?phone=+86 ' + $('#user_name').val();
 
     }
 });

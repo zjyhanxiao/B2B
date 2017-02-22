@@ -10,7 +10,6 @@ a:hover{
 }
 body{
     font-size: 14px;
-    font-family: "微软雅黑";
 }
 #main{
     width: 1200px;
@@ -110,6 +109,32 @@ label{
     text-align: center;
     color: #ffffff;
 }
+.modal-header button span{
+    color: #ffffff;
+    display: inline-block;
+    width: 20px;
+    height: 28px;
+    line-height: 30px;
+    font-size: 35px;
+    opacity:1;
+}
+
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1;
+    color: #FFFFFF;
+    text-shadow: none;
+    filter: alpha(opacity=100);
+    opacity: 1
+}
+
+
+
+
+
+
 .relative{
     position: relative;
 }

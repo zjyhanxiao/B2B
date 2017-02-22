@@ -10,7 +10,6 @@ a:hover{
 }
 body{
     font-size: 14px;
-    font-family: "微软雅黑";
 }
 #main{
     width: 1200px;
@@ -150,16 +149,14 @@ a.state:hover{
     border: 1px solid #dddddd;
     height: 40px;
     width: 820px;
+    text-align: left;
+    padding: 14px 20px;
 }
 .table3 tr td:first-child{
-    font-weight: 600;
     width: 180px;
     text-align: center;
 }
-.table3 tr td p{
-    line-height: 36px;
-    margin-left: 55px;
-}
+
 .table3 tr td p button{
     width: 100px;
     height: 28px;
@@ -178,9 +175,30 @@ a.state:hover{
     text-align: center;
     border-radius: 5px 5px 0 0;
 }
-.modal-header span{
+.modal-header button span{
     color: #ffffff;
+    display: inline-block;
+    width: 20px;
+    height: 28px;
+    line-height: 30px;
+    font-size: 35px;
+    opacity:1;
 }
+
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1;
+    color: #FFFFFF;
+    text-shadow: none;
+    filter: alpha(opacity=100);
+    opacity: 1
+}
+
+
+
+
 .QRcode{
     width: 155px;
     height: 155px;
@@ -220,9 +238,8 @@ a.state:hover{
     color: #999999;
     width: 75%;
 }
-.youku{
-    width: 480px;
-    height: 400px;
+.videos{
+    width: 720px;
     margin:  30px auto;
 }
 .w_270{
@@ -235,6 +252,7 @@ table tr td:first-child{
     font-size: 16px;
     color: #223976;
 }
+
 table{
     border: 1px solid #dddddd;
     box-sizing: border-box;
@@ -269,14 +287,14 @@ table tr td{
     cursor: pointer;
 }
 .haveuser thead tr td{
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 500;
     color: #223976;
     border: 1px solid #dddddd;
     box-sizing: border-box;
 }
 .haveuser tbody tr td{
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 500;
     color: #727272;
     border: 1px solid #dddddd;
@@ -284,12 +302,15 @@ table tr td{
 }
 .w_110{
     width: 110px;
+    overflow: hidden;
 }
 .w_178{
     width: 178px;
 }
 
-
+.user_table .haveuser .order_info tr.user_active td{
+    color: #223976;
+}
 
 a.state:hover{
     color: #ffffff;
@@ -307,3 +328,24 @@ a.state:hover{
 .bg_qing{
     background: #cccccc;
 }
+
+table tr td.yang{
+    font-size: 14px;
+    color: #333333;
+}
+
+#product_description table tbody tr td{
+    padding: 14px 20px;
+    border: 1px solid #dddddd;
+    height: 40px;
+    width: 820px;
+    text-align: left;
+}
+#product_description table tbody tr td:first-child {
+    width: 180px;
+    text-align: center;
+}
+.order_info tr.choose td {
+    color: #999999;
+}
+
