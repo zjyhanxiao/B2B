@@ -57,7 +57,7 @@
         $('.share').on('click', function () {
             getData({
                 url: base_url + '/channel/qrcode/create',
-                data: {content: encodeURI($('.href_link').html())},
+                data: {content: $('.href_link').text()},
                 headers: {mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')},
                 sucFn: sucFn
             })
