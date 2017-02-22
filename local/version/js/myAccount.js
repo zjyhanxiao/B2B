@@ -101,7 +101,8 @@ window.onload = function () {
                     }
                     if (res.code==1){
                         $('#password_hint').modal('show')
-                        window.location.href = '/login.html';
+                        $('#password_hint').modal({backdrop: 'static', keyboard: false});
+                        // window.location.href = '/login.html';
                     }
                 },
                 error: function () {
@@ -111,4 +112,9 @@ window.onload = function () {
         }
 
     })
+
+    $('.close_hint').click(function () {
+        window.location.href = '/login.html';
+    })
+
 }
