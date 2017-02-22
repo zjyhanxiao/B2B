@@ -76,8 +76,7 @@ $('#alter_phone').blur(function () {
     }
 })
 $('#alter_email').blur(function () {
-    var reg = /^(\.[a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/
-    if ( reg.test($('#alter_email').val()) ){
+    if ( $('#alter_email').val()!='' ){
         $('#alter_email').parent().removeClass('has-error')
         $('.email_caution').css("display", "none")
     }else {
