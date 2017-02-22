@@ -208,8 +208,21 @@ $(function () {
                 })
                 $('#select1').html(selecthtml1)
                 $('#select2').html(selecthtml1)
-                $('.sharelink').attr("value","http://localhost:8080/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code)
-                $('.order_btn').data('shuju',"http://localhost:8080/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&channel_code="+res.body[0].code)
+
+
+                // 兼容ie
+                if (window["context"] == undefined) {
+                    if (!window.location.origin) {
+                        window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+                    }
+                    window["context"] = location.origin+"/V6.0";
+                }
+
+
+
+
+                $('.sharelink').attr("value",window.location.origin+"/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code)
+                $('.order_btn').data('shuju',window.location.origin+"/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&channel_code="+res.body[0].code)
 
                 $('.order_btn').data('code',res.body[0].code)
 
@@ -218,7 +231,7 @@ $(function () {
                 $.ajax({
                     type: 'get',
                     url: base_url + '/channel/qrcode/create',
-                    data: {"content":"http://localhost:8080/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code},
+                    data: {"content":window.location.origin+"/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code},
                     contentType: "application/json; charset=utf-8",
                     headers: {
                         "mx_token": $.cookie('mx_token'),
@@ -247,15 +260,24 @@ $(function () {
             },
             success: function (res) {
                 console.log(res.body)
-                $('.sharelink').attr("value","http://localhost:8080/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body.code)
-                $('.order_btn').data('shuju',"http://localhost:8080/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&channel_code="+res.body.code)
+
+                // 兼容ie
+                if (window["context"] == undefined) {
+                    if (!window.location.origin) {
+                        window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+                    }
+                    window["context"] = location.origin+"/V6.0";
+                }
+
+                $('.sharelink').attr("value",window.location.origin+"/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body.code)
+                $('.order_btn').data('shuju',window.location.origin+"/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&channel_code="+res.body.code)
 
                 $('.order_btn').data('code',res.body.code)
 
                 $.ajax({
                     type: 'get',
                     url: base_url + '/channel/qrcode/create',
-                    data: {"content":"http://localhost:8080/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body.code},
+                    data: {"content":window.location.origin+"/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body.code},
                     contentType: "application/json; charset=utf-8",
                     headers: {
                         "mx_token": $.cookie('mx_token'),
@@ -368,12 +390,26 @@ window.onload = function () {
     })
     //分享了链接改变 二维码
     $('#select1').change(function () {
-        $('.sharelink').attr("value","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select1').val())
+
+
+
+        // 兼容ie
+        if (window["context"] == undefined) {
+            if (!window.location.origin) {
+                window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+            }
+            window["context"] = location.origin+"/V6.0";
+        }
+
+
+
+
+        $('.sharelink').attr("value",window.location.origin+"/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select1').val())
 
         $.ajax({
             type: 'get',
             url: base_url + '/channel/qrcode/create',
-            data: {"content":"https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select1').val()},
+            data: {"content":window.location.origin+"/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select1').val()},
             contentType: "application/json; charset=utf-8",
             headers: {
                 "mx_token": $.cookie('mx_token'),
@@ -391,7 +427,19 @@ window.onload = function () {
     //辅助下单改变
     $('#select2').change(function () {
 //            $('.assist').attr("href","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select2').val())
-        $('.order_btn').data('shuju',"http://localhost:8080/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select2').val())
+
+
+        // 兼容ie
+        if (window["context"] == undefined) {
+            if (!window.location.origin) {
+                window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+            }
+            window["context"] = location.origin+"/V6.0";
+        }
+
+
+
+        $('.order_btn').data('shuju',window.location.origin+"/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select2').val())
         $('.order_btn').data('code',$('#select2').val())
     })
 
