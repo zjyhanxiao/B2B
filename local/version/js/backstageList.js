@@ -215,3 +215,21 @@ $('.invest_abolish').click(function () {
 
     $('.add_counselor').modal('hide')
 })
+
+$('.close_on').click(function () {
+    $('#name').val('')
+    $('.name_caution').css('display','none')
+    $('#name').parent().removeClass('has-error')
+
+    $('#phone').val('')
+    $('.phone_caution').css('display','none')
+    $('#phone').parent().removeClass('has-error')
+
+    $('#email').val('')
+    $('.email_caution').css('display','none')
+    $('#email').parent().removeClass('has-error')
+})
+
+
+
+

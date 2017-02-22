@@ -175,7 +175,7 @@ $(function () {
                 p.append('ACH（仅支持美国银行账户） ；')
             }
             if (res.body.is_receive_bank_enabled){
-                p.append('银行电汇/Wre 【<span class="payway">入金指南</span>】 ')
+                p.append('银行电汇/Wire 【<span class="payway">入金指南</span>】 ')
                 $('#account_name').html(res.body.receive_bank.account_name)
                 $('#account_address').html(res.body.receive_bank.account_address)
                 $('#bank_name').html(res.body.receive_bank.bank_name)
