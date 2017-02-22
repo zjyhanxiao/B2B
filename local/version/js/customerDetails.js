@@ -19,7 +19,7 @@ $(function () {
             $('#name').html( res.body.first_name+' '+res.body.last_name )
             $('#phone').html( res.body.phone )
             $('#email').html( res.body.email )
-            $('#order_count').html( '<a href="order.html?user='+res.body.phone+'">'+res.body.order_count+'</a>' )
+            $('#order_count').html(  res.body.order_count )
             $('#invest_amount').html( '$ '+res.body.invest_amount )
 
         },
