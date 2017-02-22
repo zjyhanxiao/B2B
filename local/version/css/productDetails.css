@@ -10,7 +10,6 @@ a:hover{
 }
 body{
     font-size: 14px;
-    font-family: "微软雅黑";
 }
 #main{
     width: 1200px;
@@ -150,16 +149,14 @@ a.state:hover{
     border: 1px solid #dddddd;
     height: 40px;
     width: 820px;
+    text-align: left;
+    padding: 20px;
 }
 .table3 tr td:first-child{
-    font-weight: 600;
     width: 180px;
     text-align: center;
 }
-.table3 tr td p{
-    line-height: 36px;
-    margin-left: 55px;
-}
+
 .table3 tr td p button{
     width: 100px;
     height: 28px;
@@ -234,6 +231,7 @@ table tr td:first-child{
     font-size: 16px;
     color: #223976;
 }
+
 table{
     border: 1px solid #dddddd;
     box-sizing: border-box;
@@ -308,4 +306,21 @@ a.state:hover{
 }
 .bg_qing{
     background: #cccccc;
+}
+
+table tr td.yang{
+    font-size: 14px;
+    color: #333333;
+}
+
+#product_description table tbody tr td{
+    padding: 20px 20px;
+    border: 1px solid #dddddd;
+    height: 40px;
+    width: 820px;
+    text-align: left;
+}
+#product_description table tbody tr td:first-child {
+    width: 180px;
+    text-align: center;
 }
