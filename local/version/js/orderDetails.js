@@ -1,6 +1,6 @@
 $(function () {
     $('#product_head ul li[data-name="订单"]').addClass('active');
-    var order_number = getUrlParam('order_number')||'';
+    var order_number = getUrlParam('order_number') || '';
     var product_id = '';
     var failRemark = ''; // 审核失败原因
     // 取订单信息
@@ -84,7 +84,21 @@ $(function () {
                 advisor_code = d.advisor_code != null ? d.advisor_code : '',
                 remain_amount = d.remain_amount != null ? '$' + d.remain_amount : 0,
                 close_fund_start_interest_day = d.close_fund_start_interest_day != null ? d.close_fund_start_interest_day : '';
+            var invest_status, find_link;
+            if (fa_investment_status == 'not_commit') {
+                invest_status = '<span style="color: #ff6600">未签署</span>';
+                find_link = '<div class="row">' +
+                    '<div class="col-md-12"><p style="color: red; text-align: right"><span style="font-weight: 700;">失败原因：</span>' + failRemark + '</p></div>' +
+                    '</div>';
+            }
+            if (fa_investment_status == 'not_received') {
+                invest_status = '<span style="color: #ff6600">未入金</span>'
+            }
+            if (fa_investment_status == 'start_audit' || fa_investment_status == 'received') {
+                invest_status = '<span style="color: #ff9933">审核中</span>'
+            }
             if (fa_investment_status == 'audit_failed') {
+                invest_status = '<span style="color: #fa2a2a">审核失败</span>';
                 getData({
                     url: base_url + '/zion/order/failedRemark',
                     data: {order_number: order_number},
@@ -96,44 +110,33 @@ $(function () {
                     failFn: failFn
                 });
             }
+            if (fa_investment_status == 'audit_success' || fa_investment_status == 'invest_success') {
+                invest_status = '<span style="color: #33cc33">审核成功</span>'
+            }
+            if (fa_investment_status == 'start_interest') {
+                invest_status = '<span style="color: #4faeff">投资中</span>'
+            }
+            if (fa_investment_status == 'refunded' || fa_investment_status == 'closed') {
+                invest_status = '<span style="color: #555">投资结束</span>'
+            }
+            if (fa_investment_status == 'voided') {
+                invest_status = '<span style="color: #fa2a2a">已取消</span>'
+            }
             var dom = '<div class="row">' +
                 '<div class="col-md-6 about_product_left">' +
                 '<span class="line"></span><span>订单 ' + order_number + '</span>' +
                 '<p>投资日期：' + created_at + '</p></div>' +
                 '<div class="col-md-6 about_product_right text-right">';
-            if (fa_investment_status == 'not_commit') {
-                fa_investment_status = '<span style="color: #ff6600">未签署</span>'
-            }
-            if (fa_investment_status == 'not_received') {
-                fa_investment_status = '<span style="color: #ff6600">未入金</span>'
-            }
-            if (fa_investment_status == 'start_audit') {
-                fa_investment_status = '<span style="color: #ff9933">审核中</span>'
-            }
-            if (fa_investment_status == 'audit_failed') {
-                fa_investment_status = '<span style="color: #fa2a2a">审核失败</span>'
-            }
-            if (fa_investment_status == 'audit_success') {
-                fa_investment_status = '<span style="color: #33cc33">审核通过</span>'
-            }
-            if (fa_investment_status == 'start_interest') {
-                fa_investment_status = '<span style="color: #4faeff">投资中</span>'
-            }
-            if (fa_investment_status == 'refunded') {
-                fa_investment_status = '<span style="color: #555">投资结束</span>'
-            }
-            if (fa_investment_status == 'voided') {
-                fa_investment_status = '<span style="color: #fa2a2a">已取消</span>'
-            }
-            dom += fa_investment_status + '<a href="javascript:;" class="status_notes"></a>' +
+
+            dom += invest_status + '<a href="javascript:;" class="status_notes"></a>' +
                 '</div>' +
                 '</div>';
-            if (d.fa_investment_status == 'audit_failed') {
-                dom += '<div class="row">' +
-                    '<div class="col-md-12"><p style="color: red; text-align: right"><span style="font-weight: 700;">失败原因：</span>' + failRemark + '</p></div>' +
-                    '</div>';
+
+
+            if (fa_investment_status == 'audit_failed') {
+                dom += find_link;
             }
-            if (d.fa_investment_status == 'not_commit') {
+            if (fa_investment_status == 'not_commit') {
                 dom += '<div class="row">' +
                     '<div class="col-md-12"><p style="text-align: right">' +
                     '<a href="/auxiliary_order/share.html?product_id=' + d.product_id + '&channel_code=' + d.advisor_code + '&phone=' + phone + '&verify_code=' + d.verify_code + '&order_number=' + order_number + '">查看签署链接</a></p></div>' +
@@ -149,14 +152,14 @@ $(function () {
                 '<div class="col-md-6">';
             if (is_admin) {
                 dom += '<label>投资顾问</label>' +
-                    '<a href="/backstageDetails.html?id='+d.advisor_id+'&code='+d.advisor_code+'">' + advisor_name + ' [' + advisor_code + '] </a>';
+                    '<a href="/backstageDetails.html?id=' + d.advisor_id + '&code=' + d.advisor_code + '">' + advisor_name + ' [' + advisor_code + '] </a>';
             }
 
 
             dom += '</div>' +
                 '<div class="col-md-6">' +
                 '<label>投资人</label>' +
-                '<a href="/customerDetails.html?phone='+d.phone+'">' + first_name + ' ' + last_name + '</a>' +
+                '<a href="/customerDetails.html?phone=' + d.phone + '">' + first_name + ' ' + last_name + '</a>' +
                 '</div>' +
                 '<div class="col-md-6">' +
                 '<label>投资金额</label><span>' + invest_amount +
