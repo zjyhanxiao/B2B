@@ -17,7 +17,7 @@ $(function () {
         success: function (res) {
             console.log( res.body )
             if (res.body.length<1){
-                $('.chart_body').html('无数据')
+                $('.chart_body').html('<div style="width: 1170px;margin: 0 auto"><img style="width: 69px;height: 69px;display: block;margin: 20px auto" src="http://localhost:8080/version/dist/img/wu.png" alt=""><p class="text-center" style="margin: 0 auto;width: 100%;"> 暂无数据！ </p></div>')
                 $('.chart_head').css('border-bottom','1px solid #cccccc')
             }else {
                 $('.chart_head').css('border-bottom','none')
@@ -58,7 +58,7 @@ $('.glyphicon-search').click(function () {
             success: function (res) {
                 console.log( res.body )
                 if (res.body.length<1){
-                    $('.chart_body').html('无数据')
+                    $('.chart_body').html('<div style="width: 1170px;margin: 0 auto"><img style="width: 69px;height: 69px;display: block;margin: 20px auto" src="http://localhost:8080/version/dist/img/wu.png" alt=""><p class="text-center" style="margin: 0 auto;width: 100%;"> 暂无数据！ </p></div>')
                     $('.chart_head').css('border-bottom','1px solid #cccccc')
                 }else {
                     $('.chart_head').css('border-bottom','none')
