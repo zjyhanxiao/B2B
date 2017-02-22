@@ -76,7 +76,7 @@ $('#alter_phone').blur(function () {
     }
 })
 $('#alter_email').blur(function () {
-    var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/
+    var reg = /^(\.[a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/
     if ( reg.test($('#alter_email').val()) ){
         $('#alter_email').parent().removeClass('has-error')
         $('.email_caution').css("display", "none")
@@ -141,8 +141,14 @@ $('#confirm_info').click(function () {
 //修改模态框取消按钮
 $('#abolish_info').click(function () {
     $('.phone_caution').css('display','none')
+    $('#alter_phone').parent().removeClass('has-error')
     $('.email_caution').css('display','none')
+    $('#alter_email').parent().removeClass('has-error')
     $('.name_caution').css('display','none')
+    $('#alter_name').parent().removeClass('has-error')
+
+    console.log('1')
+
     $('.change_info').modal('hide')
 })
 
