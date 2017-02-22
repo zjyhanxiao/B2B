@@ -439,7 +439,7 @@ window.onload = function () {
 
 
 
-        $('.order_btn').data('shuju',window.location.origin+"/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select2').val())
+        $('.order_btn').data('shuju',window.location.origin+"/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&channel_code="+$('#select2').val())
         $('.order_btn').data('code',$('#select2').val())
     })
 
