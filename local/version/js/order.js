@@ -85,6 +85,7 @@ $(function () {
                 $(item).prop('checked', false)
             }
         });
+        $('.search').click();
         return false;
     });
     $('.search').on('click', function () {
