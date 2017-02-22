@@ -139,7 +139,7 @@ $(function () {
     // Populate PDF Document
     function populatePDFDocument(url) {
         $('#document-loading').hide();
-        $("#document-element-wrapper").html('<iframe id="document-preview-element" src="vendor/pdfjs/web/viewer.html?file=' + url + '#page=1"></iframe>');
+        $("#document-element-wrapper").html('<iframe id="document-preview-element" src="/vendor/pdfjs/web/viewer.html?file=' + url + '#page=1"></iframe>');
         $("#document-preview-element").width($(window).width());
         $("#document-preview-element").height($(window).height() - 45);
         $("#document-preview-element").css('margin-top', '40px');
@@ -170,7 +170,7 @@ $(function () {
             url: base_url + '/channel/doc/preview',
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify(pdf),
-            success: function() { populatePDFDocument(res.body); }
+            success: function(res) { populatePDFDocument(res.body); }
         });
         return false;
     });
