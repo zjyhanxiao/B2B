@@ -67,7 +67,7 @@ $(function () {
     }
     // 选择日期范围
     $('#invest-date').dateRangePicker({
-        batchMode: 'week-range',
+        language:'cn',
         showShortcuts: false,
         separator: ' 至 '
     });
