@@ -7,7 +7,7 @@ function getUrlParam(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
     var s = window.location.search;
     if (/[\u4e00-\u9fa5]/.test(s)) {
-        s=decodeURI(s);
+        s = decodeURI(s);
     }
     var r = s.substr(1).match(reg);  //匹配目标参数
     if (r != null) return unescape(r[2]);
@@ -92,8 +92,8 @@ $(function () {
             failFn: no_login
         });
     }
-    if (!is_admin) {
-        $('#product_head .backstage').remove();
+    if (is_admin) {
+        $('.backstage').css('visibility', 'inherit');
     }
     function is_login(res) {
         is_admin = res.body;
