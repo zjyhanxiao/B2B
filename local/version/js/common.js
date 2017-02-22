@@ -79,6 +79,8 @@ $(function () {
         window.location.pathname !== '/firstLogin_reset.html' &&
         window.location.pathname !== '/find_password.html' &&
         window.location.pathname !== '/find_password_by_phone.html' &&
+        window.location.pathname !== '/find_password_step_one.html' &&
+        window.location.pathname !== '/find_password_step_two.html' &&
         window.location.pathname !== '/auxiliary_order/invest_success.html' &&
         window.location.pathname !== '/auxiliary_order/shareAndSignature.html'
     ) {
