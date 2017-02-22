@@ -27,8 +27,9 @@ $(function () {
             $(this).prop('disabled', false);
             return false;
         }
+        user_data.payment_method='wire';
         if(user_data.bank_type=='US'&&$('#invest-info .checkbox input[type="checkbox"]:checked')){
-            user_data
+            user_data.payment_method='ach';
         }
         user_data.channel_code = channel_code;
         user_data.product_id = product_id;
