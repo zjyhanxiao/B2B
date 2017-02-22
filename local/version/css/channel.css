@@ -838,7 +838,9 @@ div#document-loading p, div#document-error p {
     margin-left: calc(50% - 75px);
 }
 
-
+#nav-golden-list p{
+    height: inherit!important;
+}
 @media (max-width: 735px) {
     .form-inline .form-control{
         width: 100%;

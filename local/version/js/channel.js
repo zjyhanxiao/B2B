@@ -926,9 +926,9 @@ $(function () {
     var achLiDom = '<li role="presentation" class="nav-1"><a href="#ach" role="tab" data-toggle="tab">自动扣款 / ACH</a></li>';
     var wireLiDom = '<li role="presentation" class="nav-2"><a href="#wire" role="tab" data-toggle="tab">银行电汇 / Wire</a></li>';
     var checkLiDom = '<li role="presentation" class="nav-3"><a href="#check" role="tab" data-toggle="tab">支票 / Check</a></li>';
-    var achDom = '<div role="tabpanel" class="tab-pane active" id="ach"> <div> <p class="light-blue golden-announce">确认入金后，美信金融将在三个工作日内完成扣款操作。您可以在 “我的投资” 中查看订单状态。</p> <div class="row"> <div class="col-md-3"> <div class="form-inline"> <label for="get-ach-user-name">账户名</label> </div> </div> <div class="col-md-9"> <div class="form-inline"> <p class="form-control input-sm" id="get-ach-user-name"></p> </div> </div> </div> <div class="row"> <div class="col-md-3"> <div class="form-inline"> <label for="get-ach-bank-name">银行名称</label> </div> </div> <div class="col-md-9"> <div class="form-inline"> <p class="form-control input-sm" id="get-ach-bank-name"></p> </div> </div> </div> <div class="row"> <div class="col-md-3"> <div class="form-inline"> <label for="get-ach-aba">ABA / routing #</label> </div> </div> <div class="col-md-9"> <div class="form-inline"> <p class="form-control input-sm" id="get-ach-aba"></p> </div> </div> </div> <div class="row"> <div class="col-md-3"> <div class="form-inline"> <label for="get-ach-account-number">账户号</label> </div> </div> <div class="col-md-9"> <div class="form-inline"> <p class="form-control input-sm" id="get-ach-account-number"></p> </div> </div> </div> <div class="font-14 ach-document"> <input style="width: 15px; height: 15px;" name="pay" type="checkbox" id="ach-document-checkbox"/> <label for="ach-document-checkbox"><span class="font-14">我已认真阅读并接受</span> <a class="font-14" href="javascript:;" target="_blank;">自动扣款协议 / ACH Agreement</a></label> <p class="red-shadow" style="display:none;">请认真阅读并接受自动扣款协议 / ACH Agreement</p> </div> </div> </div>'
-    var wireDom = '<div role="tabpanel" class="tab-pane" id="wire"> <div class="golden-announce"> <p class="light-blue">请注意：请使用您之前选择的银行账户 (<span class="get-bank-name">Bank of America</span>, <span class="get-bank-user-account"> **** **** **** ****</span>) 完成入金。</p> <p style="color: #555;">我们将把以下支付信息发到您的邮箱。请您在三个工作日内完成打款操作。</p> </div> <div> <div class="row"> <div class="col-md-3"> <div class="form-inline"> <label for="get-wire-user-name">收款人名字</label> </div> </div> <div class="col-md-9"> <div class="form-inline"> <p class="form-control input-sm" id="get-wire-user-name"></p> </div> </div> </div> <div class="row"> <div class="col-md-3"> <div class="form-inline"> <label for="get-wire-user-address">收款人地址</label> </div> </div> <div class="col-md-9"> <div class="form-inline"> <p class="form-control input-sm" id="get-wire-user-address"></p> </div> </div> </div> <div class="row"> <div class="col-md-3"> <div class="form-inline"> <label for="get-wire-bank-name">收款银行</label> </div> </div> <div class="col-md-9"> <div class="form-inline"> <p Class="form-control input-sm" id="get-wire-bank-name"></p> </div> </div> </div> <div class="row"> <div class="col-md-3"> <div class="form-inline"> <label for="get-wire-bank-address">收款银行地址</label> </div> </div> <div class="col-md-9"> <div class="form-inline"> <p class="form-control input-sm" id="get-wire-bank-address"></p> </div> </div> </div> <div class="row"> <div class="col-md-3"> <div class="form-inline"> <label for="get-wire-bank-aba" style="width: 110px;">ABA / Routing #</label> </div> </div> <div class="col-md-9"> <div class="form-inline"> <p class="form-control input-sm" id="get-wire-bank-aba"></p> </div> </div> </div> <div class="row"> <div class="col-md-3"> <div class="form-inline"> <label for="get-wire-swift-code">Swift Code</label> </div> </div> <div class="col-md-9"> <div class="form-inline"> <p class="form-control input-sm" id="get-wire-swift-code"></p> </div> </div> </div> <div class="row"> <div class="col-md-3"> <div class="form-inline"> <label for="get-wire-account">账户号</label> </div> </div> <div class="col-md-9"> <div class="form-inline"> <p class="form-control input-sm" id="get-wire-account"></p> </div> </div> </div> <div class="row"> <div class="col-md-3"> <div class="form-inline"> <label for="get-wire-remark">备注栏请填写</label> </div> </div> <div class="col-md-9"> <div class="form-inline"> <p class="form-control input-sm" id="get-wire-remark"></p> </div> </div> </div> </div> </div>'
-    var checkDom = '<div role="tabpanel" class="tab-pane" id="check"> <div class="golden-announce"> <p class="light-blue">请注意：请使用您之前选择的银行账户 (<span class="get-bank-name">Bank of America</span>, <span class="get-bank-user-account"> **** **** **** ****</span>) 完成入金。</p> <p style="color: #555;">我们将把以下支付信息发到您的邮箱。请您在三个工作日内寄出支票。</p> </div> <div> <div class="row"> <div class="col-md-3"> <div class="form-inline"> <label for="get-check-user-name">收款人</label> </div> </div> <div class="col-md-9"> <div class="form-inline"> <p class="form-control input-sm" id="get-check-user-name"></p> </div> </div> </div> <div class="row"> <div class="col-md-3"> <div class="form-inline"> <label for="get-check-bank-name">银行账户名称</label> </div> </div> <div class="col-md-9"> <div class="form-inline"> <p class="form-control input-sm" id="get-check-bank-name"></p> </div> </div> </div> <div class="row"> <div class="col-md-3"> <div class="form-inline"> <label for="get-check-post-address" style="width: 140px;">请将支票寄至以下地址</label> </div> </div> <div class="col-md-9"> <div class="form-inline"> <p class="form-control input-sm" id="get-check-post-address"></p> </div> </div> </div> </div> </div>'
+    var achDom = '<div role="tabpanel" class="tab-pane" id="ach"><div><p class="light-blue font-12">确认入金后，美信金融将在三个工作日内完成扣款操作。您可以在 “我的投资” 中查看订单状态。</p><div class="row"><div class="col-md-2"><div class="form-inline"><label for="get-ach-user-name">账户名</label></div></div><div class="col-md-10"><div class="form-inline"><p class="form-control input-sm" id="get-ach-user-name"></p></div></div></div><div class="row"><div class="col-md-2"><div class="form-inline"><label for="get-ach-bank-name">银行名称</label></div></div><div class="col-md-10"><div class="form-inline"><p class="form-control input-sm" id="get-ach-bank-name"></p></div></div></div><div class="row"><div class="col-md-2"><div class="form-inline"><label for="get-ach-aba">ABA / Routing</label></div></div><div class="col-md-10"><div class="form-inline"><p class="form-control input-sm" id="get-ach-aba"></p></div></div></div><div class="row"><div class="col-md-2"><div class="form-inline"><label for="get-ach-account-number">账户号</label></div></div><div class="col-md-10"><div class="form-inline"><p class="form-control input-sm" id="get-ach-account-number"></p></div></div></div><div class="font-14 ach-document"><input style="width: 15px; height: 15px;" type="checkbox" name="pay"/><span class="font-14">我已认真阅读并接受</span><a class="font-14" href="javascript:;" target="_blank;">自动扣款协议 / ACH Agreement</a><p class="ach-warning" style="display: none; color: red;">请认真阅读并接受自动扣款协议 / ACH Agreement</p>  </div></div></div>';
+    var wireDom = '<div role="tabpanel" class="tab-pane" id="wire"><div><p class="light-blue">请注意：请使用您之前选择的银行账户 (<span class="get-bank-name">Bank of America</span>,<span class="get-bank-user-account"> **** **** **** ****)</span>完成入金。</p><p>我们将把以下支付信息发到您的邮箱。请您在三个工作日内完成打款操作。</p></div><div><div class="row"><div class="col-md-2"><div class="form-inline"><label for="get-wire-user-name">收款人名字</label></div></div><div class="col-md-10"><div class="form-inline"><p class="form-control input-sm" id="get-wire-user-name"></p></div></div></div><div class="row"><div class="col-md-2"><div class="form-inline"><label for="get-wire-user-address">收款人地址</label></div></div><div class="col-md-10"><div class="form-inline"><p class="form-control input-sm" id="get-wire-user-address"></p></div></div></div><div class="row"><div class="col-md-2"><div class="form-inline"><label for="get-wire-bank-name">收款银行</label></div></div><div class="col-md-10"><div class="form-inline"><p Class="form-control input-sm" id="get-wire-bank-name"></p></div></div></div><div class="row"><div class="col-md-2"><div class="form-inline"><label for="get-wire-bank-address">收款银行地址</label></div></div><div class="col-md-10"><div class="form-inline"><p class="form-control input-sm" id="get-wire-bank-address"></p></div></div></div><div class="row"><div class="col-md-2"><div class="form-inline"><label for="get-wire-bank-aba" style="width: 110px;">ABA / Routing #</label></div></div><div class="col-md-10"><div class="form-inline"><p class="form-control input-sm" id="get-wire-bank-aba"></p></div></div></div><div class="row"><div class="col-md-2"><div class="form-inline"><label for="get-wire-swift-code">Swift Code</label></div></div><div class="col-md-10"><div class="form-inline"><p class="form-control input-sm" id="get-wire-swift-code"></p></div></div></div><div class="row"><div class="col-md-2"><div class="form-inline"><label for="get-wire-account">账户号</label></div></div><div class="col-md-10"><div class="form-inline"><p class="form-control input-sm" id="get-wire-account"></p></div></div></div><div class="row"><div class="col-md-2"><div class="form-inline"><label for="get-wire-remark">备注栏请填写</label></div></div><div class="col-md-10"><div class="form-inline"><p class="form-control input-sm" id="get-wire-remark"></p></div></div></div></div></div>';
+    var checkDom = '<div role="tabpanel" class="tab-pane" id="check"><div><p class="light-blue">请注意：请使用您之前选择的银行账户(<span class="get-bank-name">Bank of America</span>,<span class="get-bank-user-account"> **** **** **** ****)</span>完成入金。</p><p>我们将把以下支付信息发到您的邮箱。请您在三个工作日内寄出支票。</p></div><div><div class="row"><div class="col-md-2"><div class="form-inline"><label for="get-check-user-name">收款人</label></div></div><div class="col-md-10"><div class="form-inline"><p class="form-control input-sm" id="get-check-user-name"></p></div></div></div><div class="row"><div class="col-md-2"><div class="form-inline"><label for="get-check-bank-name">备注栏请填写</label></div></div><div class="col-md-10"><div class="form-inline"><p class="form-control input-sm" id="get-check-bank-name"></p></div></div></div><div class="row"><div class="col-md-2"><div class="form-inline"><label for="get-check-post-address" style="width: 140px;">请将支票寄至以下地址</label></div></div><div class="col-md-10"><div class="form-inline"><p class="form-control input-sm" id="get-check-post-address"></p></div></div></div></div></div>';
 
     $(".step-five").on('click', function (e) {
         next_step = false;
@@ -967,20 +967,16 @@ $(function () {
         //加载第六页信息
         function getProductPayment(res) {
             var d = res.body;
-            if (d.is_ach_enabled) {
+            if(d.is_ach_enabled){
                 $("#nav-golden").append(achLiDom);
                 $("#nav-golden-list").append(achDom);
-                $(".ach-document a").attr('href', d.ach.document);
-                $("#get-ach-user-name").html(first_name + " " + last_name);
+                $(".ach-document a").attr('href',d.ach.document);
+                $("#get-ach-user-name").html(first_name + last_name);
                 $("#get-ach-bank-name").html(bank_name);
-                if (routing_number == '') {
-                    $("#get-ach-aba").closest('label').hide();
-                } else {
-                    $("#get-ach-aba").html(routing_number);
-                }
+                $("#get-ach-aba").html(swift_code);
                 $("#get-ach-account-number").html(account_number);
             }
-            if (d.is_receive_bank_enabled) {
+            if(d.is_receive_bank_enabled){
                 $("#nav-golden").append(wireLiDom);
                 $("#nav-golden-list").append(wireDom);
                 $("#get-wire-user-name").html(d.receive_bank.account_name);
@@ -994,29 +990,25 @@ $(function () {
                 $(".get-bank-name").html(bank_name);
                 $(".get-bank-user-account").html(account_number_secret);
             }
-            if (d.is_check_enabled) {
+            if(d.is_middle_bank_enabled){
+
+            }
+            if(d.is_check_enabled){
                 $("#nav-golden").append(checkLiDom);
                 $("#nav-golden-list").append(checkDom);
                 $("#get-check-user-name").html(d.check.receiver_name);
-                $("#get-check-bank-name").html(d.check.remark);
+                $("#get-check-bank-name").val(d.check.remark);
                 $("#get-check-post-address").html(d.check.mailing_address);
                 $(".get-bank-name").html(bank_name);
                 $(".get-bank-user-account").html(account_number_secret);
             }
-            len = $("#nav-golden").find('li').length;
-            if (len == 1) {
-                $("#nav-golden").find('li').css('width', '100%');
-            }
-            if (len == 2) {
-                $("#nav-golden").find('li').css('width', '50%');
-            }
-            if (len == 3) {
-                $("#nav-golden").find('li').css('width', '33.3%');
-            }
-            if (len == 1) {
-                $("#golden-page-title").html("入金方式");
-            } else {
-                $("#golden-page-title").html("选择入金方式");
+            len =  $("#nav-golden").find('li').length;
+            if(len == 1){
+                $("#nav-golden").find('li').css('width','95%');
+            }if(len == 2){
+                $("#nav-golden").find('li').css('width','47%');
+            }if(len == 3){
+                $("#nav-golden").find('li').css('width','30%');
             }
             $("#nav-golden").find('li:first').addClass('active');
             $("#nav-golden-list").find('div:first').addClass('active');
@@ -1068,7 +1060,7 @@ $(function () {
             'swift_code': swift_code
         };
         bank_us = {
-            'account_number': account_number, 'account_type': account_type, 'swift_code': 'swift_code',
+            'account_number': account_number, 'account_type': account_type, 'swift_code': swift_code,
             'bank_address': bank_address, 'bank_name': bank_name, 'routing_number': routing_number
         };
         base_info = {
@@ -1131,7 +1123,7 @@ $(function () {
                 dataType: 'json',
                 contentType: 'application/json',
                 data: orderForm,
-                url: baseUrlChannel + '/channel/order/create_order',
+                url: baseUrlChannel + '/white_label/order/create_order',
                 success: createOrder
             });
         } else {

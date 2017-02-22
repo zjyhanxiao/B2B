@@ -80,6 +80,7 @@ $(function () {
                 last_name = d.last_name != null ? d.last_name : '',
                 invest_amount = d.invest_amount != null ? '$' + d.invest_amount : 0,
                 advisor_name = d.advisor_name != null ? d.advisor_name : '',
+                phone = d.phone != null ? d.phone : '',
                 advisor_code = d.advisor_code != null ? d.advisor_code : '',
                 remain_amount = d.remain_amount != null ? '$' + d.remain_amount : 0,
                 close_fund_start_interest_day = d.close_fund_start_interest_day != null ? d.close_fund_start_interest_day : '';
@@ -130,6 +131,12 @@ $(function () {
             if (d.fa_investment_status == 'audit_failed') {
                 dom += '<div class="row">' +
                     '<div class="col-md-12"><p style="color: red; text-align: right"><span style="font-weight: 700;">失败原因：</span>' + failRemark + '</p></div>' +
+                    '</div>';
+            }
+            if (d.fa_investment_status == 'not_received') {
+                dom += '<div class="row">' +
+                    '<div class="col-md-12"><p style="text-align: right">' +
+                    '<a href="/auxiliary_order/stepOne.html?product_id="' + d.product_id + '&channel_code=' + d.advisor_code + '&phone=' + phone + '"></a></p></div>' +
                     '</div>';
             }
             dom += '<div class="row">' +
