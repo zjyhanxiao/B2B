@@ -358,6 +358,7 @@ window.onload = function () {
 
     //选择投资人按钮
     $('body').on('click','.choose',function () {
+        $('.choose_user').removeAttr("disabled");
         $(this).addClass('user_active').siblings().removeClass('user_active')
         choose_user = $(this).index()
     })
@@ -367,6 +368,7 @@ window.onload = function () {
 
     //选择投资人按钮
     $('.choose_user').click(function () {
+
         if (userData[choose_user]){
             window.location.href = $('.order_btn').data('shuju')+'&phone='+userData[choose_user].phone;
         }else{
