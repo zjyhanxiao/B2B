@@ -27,6 +27,9 @@ $(function () {
             $(this).prop('disabled', false);
             return false;
         }
+        if(user_data.bank_type=='US'&&$('#invest-info .checkbox input[type="checkbox"]:checked')){
+            user_data
+        }
         user_data.channel_code = channel_code;
         user_data.product_id = product_id;
         user_data.phone = user_phone;
