@@ -73,6 +73,7 @@ $(function () {
         var d = res.body;
         if (d && d != null) {
             $('.beforeOpen').hide();
+            $('#signaturePage').show();
             $('.product_name').html(d.product_name);
             $('.return_rate').html('预计年化收益：' + d.return_rate + '%');
             $('.invest_term').html('投资期限：' + d.invest_term + '个月');
@@ -111,7 +112,6 @@ $(function () {
                     $('.middle_bank_address').html(ban_non_us.middle_bank_address);
                     $('.middle_bank_swift_code').html(ban_non_us.middle_bank_swift_code);
                 }
-                $('#signaturePage').show();
             }
             var document_list = '';
             pdf = d.order_user_info;
