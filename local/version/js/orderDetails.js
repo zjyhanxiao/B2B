@@ -36,16 +36,24 @@ $(function () {
             );
             $('#myModal').modal('show');
             $('#cancel_order').on('click', function () {
+                $('#cancel-order-number').css('border', '1px solid #ccc');
                 $(this).prop('disabled', true);
-                getData({
-                    url: base_url + '/zion/order/cancel',
-                    data: {order_number: order_number},
-                    headers: {
-                        mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
-                    },
-                    sucFn: cancelSuc,
-                    failFn: cancelFail
-                });
+                if ($('#cancel-order-number').val() == '') {
+                    $('#cancel-order-number').css('border', '1px solid red');
+                    $(this).prop('disabled', false);
+                    return false;
+                } else {
+                    getData({
+                        url: base_url + '/zion/order/cancel',
+                        data: {order_number: $('#cancel-order-number').val()},
+                        headers: {
+                            mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
+                        },
+                        sucFn: cancelSuc,
+                        failFn: cancelFail
+                    });
+                }
+                return false;
             });
             function cancelSuc() {
                 window.location.reload();
