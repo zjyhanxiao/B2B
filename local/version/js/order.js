@@ -177,7 +177,7 @@ $(function () {
             }
             html +=
                 '<tr>' +
-                '<td><a href="/orderDetails.html?order_id=' + item.id + '">' + order_number + '</a></td>' +
+                '<td><a href="/orderDetails.html?order_number=' + order_number + '">' + order_number + '</a></td>' +
                 '<td><a href="/productDetails.html?product_id=' + item.product_id + '">' + product_name + '</a></td>' +
                 '<td>' + product_number + '</td>' +
                 '<td><a href="/customerDetails.html?phone=' + phone + '">' + first_name + ' ' + last_name + '</a>' +
@@ -233,7 +233,7 @@ $(function () {
             }
             html +=
                 '<tr>' +
-                '<td><a href="/orderDetails.html?order_id=' + item.id + '">' + order_number + '</a></td>' +
+                '<td><a href="/orderDetails.html?order_number=' + order_number + '">' + order_number + '</a></td>' +
                 '<td><a href="/productDetails.html?product_id=' + item.product_id + '">' + product_name + '</a></td>' +
                 '<td>' + product_number + '</td>' +
                 '<td>' + first_name + ' ' + last_name + '</td>' +

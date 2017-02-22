@@ -1,12 +1,12 @@
 $(function () {
     $('#product_head ul li[data-name="订单"]').addClass('active');
-    var order_id = getUrlParam('order_id');
-    var product_id = '', order_number;
+    var order_number = getUrlParam('order_number')||'';
+    var product_id = '';
     var failRemark = ''; // 审核失败原因
     // 取订单信息
     getData({
         url: base_url + '/zion/order/amount',
-        data: {order_id: order_id},
+        data: {order_number: order_number},
         headers: {
             mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
         },
@@ -17,7 +17,7 @@ $(function () {
     // 取订单文档信息
     getData({
         url: base_url + '/zion/order/document',
-        data: {order_id: order_id, product_id: product_id},
+        data: {order_number: order_number, product_id: product_id},
         headers: {
             mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
         },
