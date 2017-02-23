@@ -164,7 +164,7 @@ $(function () {
                 first_name = item.first_name != null ? item.first_name : '',
                 last_name = item.last_name != null ? item.last_name : '',
                 fa_investment_status = item.fa_investment_status != null ? item.fa_investment_status : '',
-                created_at = item.created_at != null ? getLocalTime(item.created_at) : '',
+                created_at = item.created_at != null ? formatDate(item.created_at) : '',
                 order_number = item.order_number != null ? item.order_number : '';
             var invest_status;
             if (fa_investment_status == 'not_commit') {
@@ -221,7 +221,7 @@ $(function () {
                 first_name = item.first_name != null ? item.first_name : '',
                 last_name = item.last_name != null ? item.last_name : '',
                 fa_investment_status = item.fa_investment_status != null ? item.fa_investment_status : '',
-                created_at = item.created_at != null ? item.created_at : '',
+                created_at = item.created_at != null ? formatDate(item.created_at) : '',
                 order_number = item.order_number != null ? item.order_number : '';
             if (fa_investment_status == 'not_commit') {
                 fa_investment_status = '未签署'
@@ -268,8 +268,18 @@ $(function () {
         alert(res.msg)
     }
 
-/************************* 时间戳转换时间 *************************/
-    function getLocalTime(nS) {
-        return new Date(parseInt(nS) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日/g, " ");
+    /************************* 时间戳转换时间 *************************/
+    function formatDate(now) {
+        var newDate = new Date(now);
+        var year = newDate.getFullYear();
+        var month = newDate.getMonth() + 1;
+        var date = newDate.getDate();
+        if (month < 10) {
+            month = '0' + month;
+        }
+        if (date < 10) {
+            date = '0' + date;
+        }
+        return year + "-" + month + "-" + date;
     }
 });
