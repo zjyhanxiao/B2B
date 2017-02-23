@@ -134,7 +134,7 @@ $(function () {
     // 获取订单列表成功回调
     function order_list(data) {
         if (data.body && data.body.length > 0) {
-            $('.error').html();
+            $('.error').html('');
             /*var jsonData = $.grep(data.body, function (n, i) {
              return i > 2000;
              }, true);*/
