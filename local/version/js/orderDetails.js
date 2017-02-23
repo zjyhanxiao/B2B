@@ -65,14 +65,6 @@ $(function () {
             }
         }
     });
-    $('.about_order').on('click', function () {
-        if (is_admin) {
-
-        } else {
-            alert('您没有该权限')
-        }
-        return false;
-    });
 
     // 获取订单信息
     function getOrderSuc(res) {

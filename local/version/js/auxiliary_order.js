@@ -47,10 +47,12 @@ $(function () {
         var checkedLen = $('.document-item input:checked').length;
         var checkBoxLen = $('.document-item input[type="checkbox"]').length;
         if (checkBoxLen != checkedLen) {
+            $(this).prop('disabled', false);
             $('.document-item').append('<div style="color:red" class="document-unCheck">请认真阅读并勾选以上所有文件</div>');
             return false;
         }
         if (signature == jSignatureData) {
+            $(this).prop('disabled', false);
             $('#signature-box').css('border', '1px solid red');
             $('body').scrollTop($('#signature-box').offset().top);
             return false;
