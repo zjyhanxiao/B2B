@@ -200,10 +200,10 @@ $(function () {
                 if (fa_investment_status == 'not_commit') {
                     order_control += '<a style="display: block; margin-left: 13px; margin-bottom: 10px;" href="/auxiliary_order/stepOne.html?product_id=' + product_id + '&phone=' + phone + '&order_number=' + order_number + '&channel_code=' + advisor_code + '">修改订单</a>';
                 }
-                if (is_admin) {
-                    order_control += '<button' +
-                        'data-order="' + order_number + '" data-toggle="modal" data-target="#myModal" class="cancel_order">取消订单</button>';
-                }
+
+                order_control += '<button' +
+                    'data-order="' + order_number + '" data-toggle="modal" data-target="#myModal" class="cancel_order">取消订单</button>';
+
                 order_control += '</div>' +
                     '</div>';
                 $('.about_order').html(order_control);
