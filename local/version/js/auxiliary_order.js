@@ -138,7 +138,12 @@ $(function () {
                 if (d.payment_method == 'ach') {
                     $('.payment').html('确认投资后将通过ACH自动从' + bank_us.bank_name + '（' + bank_us.account_number.replace(/^\d+(\d{4})$/, "$1") + '）扣款');
                     if ($('.document-item .checkbox').length > 0) {
-
+                        $('.document-item').prepend('<div class="checkbox">' +
+                            '<label>' +
+                            '<input type="checkbox">我已阅读并接受' +
+                            '</label>' +
+                            '<a data-url="/vendor/doc/ACH.pdf" class="getPdf">ACH扣款协议</a>' +
+                            '</div>');
                     } else {
                         $('.document-item').append('<div class="checkbox">' +
                             '<label>' +
