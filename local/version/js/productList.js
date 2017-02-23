@@ -126,7 +126,7 @@ window.onload = function () {
     }) ;
     $('body').on('click','.fold', function () {
         $(this).closest('table').find('tr.big').hide();
-        $(this).html('隐藏其他售罄产品 <i class="glyphicon glyphicon-menu-down"></i>');
+        $(this).html('显示其他售罄产品 <i class="glyphicon glyphicon-menu-down"></i>');
         $(this).removeClass('fold').addClass('unfold');
     })
 
