@@ -24,7 +24,7 @@ gulp.task('img_compress', function() {
 
 /* Watch JS For Changes */
 gulp.task('js', function() {
-    return gulp.src(['../local/version/js/**/*.js'])
+    return gulp.src(['../local/version/js/**/*.js',!'../local/version/js/common.js'])
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
         .pipe(gulp.dest('../publish/zion/version_'+version+'/dist/js'))
@@ -59,7 +59,7 @@ gulp.task('first_include', function() {
 // second_include
 gulp.task('second_include', function() {
     gulp.src(['../publish/html/**'])
-        .pipe(replaceSrc('http://localhost:8080', 'https://test.meixincn.com'))
+        .pipe(replaceSrc('http://localhost:8080', 'https://www.meixinglobal.com'))
         .pipe(replaceSrc('/version/dist/', '/zion/version_'+ version+'/dist/'))
         .pipe(gulp.dest('../publish/html'));
 });

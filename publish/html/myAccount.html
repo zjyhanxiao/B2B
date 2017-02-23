@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的账户</title>
+</head>
+<link href="https://www.meixinglobal.com/vendor/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://www.meixinglobal.com//zion/version_1.0/dist/css/myAccount.min.css" rel="stylesheet">
+<body>
+<link href="https://www.meixinglobal.com/zion/version_1.0/dist/css/header.min.css" rel="stylesheet">
+<div id="product_head">
+    <div class="header">
+        <div class="product_logo">
+            <img src="https://www.meixinglobal.com/zion/version_1.0/dist/img/logo.png" alt="">
+        </div>
+        <ul>
+            <li data-name="产品"><a href="/productList.html">产品</a></li>
+            <li data-name="订单"><a href="/order.html">订单</a></li>
+            <li data-name="客户"><a href="/customerList.html">客户</a></li>
+            <li class="backstage" data-name="内部管理"><a href="/backstageList.html">内部管理</a></li>
+            <li class="user_img myAccount"><a href="/myAccount.html"></a></li>
+            <li class="user_img" id="logout"><a href="javascript:;"><img src="https://www.meixinglobal.com/zion/version_1.0/dist/img/exit.png" alt=""></a></li>
+        </ul>
+    </div>
+</div>
+<div id="main">
+    <div id="product_content">
+        <div class="product_main">
+            <div class="head">
+                <p class="head_left"><span style="font-size: 20px;color: #223976" id="name_number"> 我的账户 </span></p>
+                <div class="modal fade" id="password_hint" aria-hidden="true" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myModalLabel">修改密码</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p style="line-height: 60px;text-align: center;font-size: 16px">您的密码修改成功,请重新登录</p>
+                                <p style="text-align: center"> <button type="button" class="btn btn-primary close_hint" style="width: 80px">确定</button> </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contactway">
+                <div class="contactway_main">
+                    <p class="row">
+                    <div class="row" style="margin: 15px">
+                        <div class="col-sm-6">
+                            <span class="col-sm-12" style="color: #49a9db">联系方式</span>
+                        </div>
+                    </div>
+                    </p>
+                    <p>
+                        <div class="row" style="margin: 15px">
+                            <div class="col-sm-6">
+                                <label for="email" class="col-sm-2 control-label text-left">邮箱</label>
+                                <div class="col-sm-9 relative">
+                                    <span style="display: block;height: 30px;line-height: 30px" id="email"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="col-sm-1"></div>
+                                <label for="phone" class="col-sm-2 control-label text-left">电话</label>
+                                <div class="col-sm-9 relative">
+                                    <span style="display: block;height: 30px;line-height: 30px" id="phone"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </p>
+                </div>
+            </div>
+            <div class="changepassword">
+                <div class="changepassword_main">
+                    <p>
+                    <div class="row" style="margin: 15px">
+                        <div class="col-sm-6">
+                            <span class="col-sm-12" style="color: #49a9db">修改密码</span>
+                        </div>
+                    </div>
+                    </p>
+                    <p>
+                        <div class="row" style="margin: 15px">
+                            <div class="col-sm-6">
+                                <label for="old_password" class="col-sm-4 control-label text-left">当前账户密码</label>
+                                <div class="col-sm-7 relative">
+                                    <input type="password" style="height: 30px" class="form-control" id="old_password">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="caution old_password_caution" style="display: none">原密码有误，请重新输入。</p>
+                            </div>
+                        </div>
+                    </p>
+                    <p>
+                        <div class="row" style="margin: 15px">
+                            <div class="col-sm-6">
+                                <label for="new_password" class="col-sm-4 control-label text-left">新的账户密码</label>
+                                <div class="col-sm-7 relative">
+                                    <input type="password" style="height: 30px" class="form-control" id="new_password">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="caution new_password_caution" style="display: none">与原密码重复或为空，请重新设置密码。</p>
+                                <p class="caution new_password_caution_kong" style="display: none">新密码不能为空。</p>
+                            </div>
+                        </div>
+                    </p>
+                    <p>
+                        <div class="row" style="margin: 15px">
+                            <div class="col-sm-6">
+                                <label for="new_password1" class="col-sm-4 control-label text-left">新账户密码确认</label>
+                                <div class="col-sm-7 relative">
+                                    <input type="password" style="height: 30px" class="form-control" id="new_password1">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="caution new_password1_caution" style="display: none">两次密码输入不一致，请重新输入。</p>
+                            </div>
+                        </div>
+                    </p>
+                    <p>
+                        <div class="row" style="margin: 15px">
+                            <div class="col-sm-6">
+                                <button type="button" class="col-sm-12 btn btn-primary recompose" style="width: 120px;height: 30px;outline: none;margin-left: 15px">修改密码</button>
+                            </div>
+                        </div>
+                    </p>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="https://www.meixinglobal.com/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="https://www.meixinglobal.com/vendor/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="https://www.meixinglobal.com/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
+<script src="https://www.meixinglobal.com/zion/version_1.0/dist/js/common.min.js" type="text/javascript"></script>
+<script src="https://www.meixinglobal.com/zion/version_1.0/dist/js/myAccount.min.js" type="text/javascript"></script>
+
+</html>
