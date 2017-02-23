@@ -210,7 +210,7 @@ $(function () {
 
     // 写入非管理员的订单列表信息
     function non_admin_order_list(data) {
-        $('.order-list tbody').html('')
+        $('.order-list tbody').html('');
         var html = '';
         $.each(data, function (i, item) {
             var
@@ -258,7 +258,7 @@ $(function () {
                 '<td>' + fa_investment_status + '</td>' +
                 '<td>' + created_at + '</td>' +
                 '</tr>'
-        })
+        });
         $('.order-list tbody').html(html);
     }
 
