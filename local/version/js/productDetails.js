@@ -440,7 +440,6 @@ window.onload = function () {
     $('#select2').change(function () {
 //            $('.assist').attr("href","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select2').val())
 
-
         // 兼容ie
         if (window["context"] == undefined) {
             if (!window.location.origin) {
@@ -449,10 +448,13 @@ window.onload = function () {
             window["context"] = location.origin;
         }
 
-
-
         $('.order_btn').data('shuju',window.location.origin+"/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&channel_code="+$('#select2').val())
         $('.order_btn').data('code',$('#select2').val())
+    })
+
+    //关闭按钮至disabled
+    $('.close_on').click(function () {
+        $('.choose_user').attr('disabled',"disabled");
     })
 
     //复制分享链接
