@@ -52,9 +52,9 @@ $(function () {
     })
     //修改模态框
     $('.change').click(function () {
-        $('#alter_phone').val(res.body.phone)
-        $('#alter_email').val(res.body.email)
-        $('#name').val(res.body.name)
+        $('#alter_phone').val(inputdata.phone)
+        $('#alter_email').val(inputdata.email)
+        $('#name').val(inputdata.name)
 
         $('.change_info').modal('show')
 
@@ -164,7 +164,14 @@ $('#abolish_info').click(function () {
 
     $('.change_info').modal('hide')
 })
-
+$('.close_on').click(function () {
+    $('.phone_caution').css('display','none')
+    $('#alter_phone').parent().removeClass('has-error')
+    $('.email_caution').css('display','none')
+    $('#alter_email').parent().removeClass('has-error')
+    $('.name_caution').css('display','none')
+    $('#alter_name').parent().removeClass('has-error')
+})
 
 
 
