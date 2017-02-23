@@ -67,7 +67,7 @@ $(function () {
     }
     // 选择日期范围
     $('#invest-date').dateRangePicker({
-        language:'cn',
+        language: 'cn',
         showShortcuts: false,
         separator: ' 至 '
     });
@@ -88,6 +88,10 @@ $(function () {
         $('.search').click();
         return false;
     });
+
+    $('#invest-date').focus(function () {
+        $(this).css('border', '1px solid #ccc');
+    });
     $('.search').on('click', function () {
         $(this).prop('disabled', true);
         var data = {}, arr = [];
@@ -95,7 +99,15 @@ $(function () {
         $.each(checkedBox, function () {
             arr.push($(this).data('status'))
         });
-
+        if ($('#invest-date').val() != '') {
+            var s = $('#invest-date').val();
+            var t = /\d{4}-\d{2}-\d{2}( 至 )\d{4}-\d{2}-\d{2}/;
+            if (!t.test(s)) {
+                $('#invest-date').css('border', '1px solid red');
+                $(this).prop('disabled', false);
+                return false;
+            }
+        }
         data.number = $('#order-number').val() || '';
         data.product = $('#product').val() || '';
         data.channel_advisor_name = $('#adviser').val() || '';

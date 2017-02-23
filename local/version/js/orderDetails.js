@@ -175,11 +175,15 @@ $(function () {
                 '<div class="col-md-6">' +
                 '<label>起息日期</label>' +
                 '<span>' + close_fund_start_interest_day + '</span></div>';
-            if (d.fa_investment_status == 'start_audit' ||
-                d.fa_investment_status == 'audit_failed' ||
-                d.fa_investment_status == 'audit_success' ||
-                d.fa_investment_status == 'start_interest' ||
-                d.fa_investment_status == 'refunded'
+            if (fa_investment_status == 'start_audit' ||
+                fa_investment_status == 'audit_failed' ||
+                fa_investment_status == 'audit_success' ||
+                fa_investment_status == 'invest_success' ||
+                fa_investment_status == 'start_interest' ||
+                fa_investment_status == 'received' ||
+                fa_investment_status == 'start_interest' ||
+                fa_investment_status == 'closed' ||
+                fa_investment_status == 'refunded'
             ) {
                 dom += '<div class="col-md-6">' +
                     '<label>入金余额<a href="javascript:;" style="margin-left: 10px;" class="status_notes" title="入金余额为收到的多余资金。此金额不算在投资之内并在投资结束时与本金一并返回投资人的银行账户。"></a></label>' +
@@ -187,9 +191,9 @@ $(function () {
             }
             dom += '</div></div></div>';
             $('.about_product').html(dom);
-            if (d.fa_investment_status &&
-                (d.fa_investment_status == 'not_commit' ||
-                d.fa_investment_status == 'not_received')) {
+            if (fa_investment_status &&
+                (fa_investment_status == 'not_commit' ||
+                fa_investment_status == 'not_received')) {
                 var order_control = '<div class="row">' +
                     '<div class="col-md-6 about_product_left">' +
                     '<span class="line"></span><span>订单处理</span>' +
@@ -197,6 +201,9 @@ $(function () {
                     '</div>' +
                     '<div class="row">' +
                     '<div class="col-md-12">';
+                if(fa_investment_status == 'not_commit'){
+                    order_control+='';
+                }
                 if (is_admin) {
                     order_control += '<button' +
                         'data-order="' + order_number + '" data-toggle="modal" data-target="#myModal" class="cancel_order">取消订单</button>';
