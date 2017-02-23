@@ -92,11 +92,12 @@ $(function () {
                 advisor_code = d.advisor_code != null ? d.advisor_code : '',
                 remain_amount = d.remain_amount != null ? '$' + d.remain_amount : 0,
                 close_fund_start_interest_day = d.close_fund_start_interest_day != null ? d.close_fund_start_interest_day : '';
-            var invest_status, find_link;
+            var invest_status, find_link,audit_failed;
             if (fa_investment_status == 'not_commit') {
                 invest_status = '<span style="color: #ff6600">未签署</span>';
-                find_link = '<div class="row">' +
-                    '<div class="col-md-12"><p style="color: red; text-align: right"><span style="font-weight: 700;">失败原因：</span>' + failRemark + '</p></div>' +
+                find_link='<div class="row">' +
+                    '<div class="col-md-12"><p style="text-align: right">' +
+                    '<a href="/auxiliary_order/share.html?product_id=' + d.product_id + '&channel_code=' + d.advisor_code + '&phone=' + phone + '&verify_code=' + d.verify_code + '&order_number=' + order_number + '">查看签署链接</a></p></div>' +
                     '</div>';
             }
             if (fa_investment_status == 'not_received') {
@@ -117,6 +118,9 @@ $(function () {
                     sucFn: failedRemark,
                     failFn: failFn
                 });
+                audit_failed = '<div class="row">' +
+                    '<div class="col-md-12"><p style="color: red; text-align: right"><span style="font-weight: 700;">失败原因：</span>' + failRemark + '</p></div>' +
+                    '</div>';
             }
             if (fa_investment_status == 'audit_success' || fa_investment_status == 'invest_success') {
                 invest_status = '<span style="color: #33cc33">审核成功</span>'
@@ -142,13 +146,12 @@ $(function () {
 
 
             if (fa_investment_status == 'audit_failed') {
-                dom += find_link;
+                if(failRemark!=''){
+                    dom += audit_failed;
+                }
             }
             if (fa_investment_status == 'not_commit') {
-                dom += '<div class="row">' +
-                    '<div class="col-md-12"><p style="text-align: right">' +
-                    '<a href="/auxiliary_order/share.html?product_id=' + d.product_id + '&channel_code=' + d.advisor_code + '&phone=' + phone + '&verify_code=' + d.verify_code + '&order_number=' + order_number + '">查看签署链接</a></p></div>' +
-                    '</div>';
+                dom += find_link;
             }
             dom += '<div class="row">' +
                 '<div class="col-md-12">' +
