@@ -117,11 +117,6 @@ window.onload = function () {
 
     $('#product_head ul li[data-name="产品"]').addClass('active');
 
-    if (!is_admin){
-        $('.backstage').hide();
-    }else {
-        $('.backstage').show();
-    }
 
     //列表显示隐藏函数
     $('body').on('click','.unfold', function () {
