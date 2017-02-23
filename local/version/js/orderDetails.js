@@ -85,10 +85,10 @@ $(function () {
                 advisor_code = d.advisor_code != null ? d.advisor_code : '',
                 remain_amount = d.remain_amount != null ? '$' + d.remain_amount : 0,
                 close_fund_start_interest_day = d.close_fund_start_interest_day != null ? d.close_fund_start_interest_day : '';
-            var invest_status, find_link,audit_failed;
+            var invest_status, find_link, audit_failed;
             if (fa_investment_status == 'not_commit') {
                 invest_status = '<span style="color: #ff6600">未签署</span>';
-                find_link='<div class="row">' +
+                find_link = '<div class="row">' +
                     '<div class="col-md-12"><p style="text-align: right">' +
                     '<a href="/auxiliary_order/share.html?product_id=' + d.product_id + '&channel_code=' + d.advisor_code + '&phone=' + phone + '&verify_code=' + d.verify_code + '&order_number=' + order_number + '">查看签署链接</a></p></div>' +
                     '</div>';
@@ -139,7 +139,7 @@ $(function () {
 
 
             if (fa_investment_status == 'audit_failed') {
-                if(failRemark!=''){
+                if (failRemark != '') {
                     dom += audit_failed;
                 }
             }
@@ -197,8 +197,8 @@ $(function () {
                     '</div>' +
                     '<div class="row">' +
                     '<div class="col-md-12">';
-                if(fa_investment_status == 'not_commit'){
-                    order_control+='';
+                if (fa_investment_status == 'not_commit') {
+                    order_control += '<a href="/auxiliary_order/stepOne.html?product_id=' + product_id + '&phone=' + phone + '&order_number=' + order_number + '&channel_code=' + advisor_code + '">修改订单</a>';
                 }
                 if (is_admin) {
                     order_control += '<button' +
