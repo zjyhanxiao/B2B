@@ -40,7 +40,11 @@ $(function () {
 
             $('.name_title').html(res.body.name+'   ('+res.body.code+')')
 
-
+            if (res.body.is_admin){
+                $('.no_admin').css('display','none')
+            }else {
+                $('.no_admin').css('display','block')
+            }
 
             if (res.body.is_active){
                 $('.show_permission').html('')
