@@ -189,7 +189,7 @@ $('.invest_create').click(function () {
                 window.location.reload()
             },
             error: function () {
-                alert('创建失败')
+                alert('创建失败,电话号码已被使用！')
             }
         })
 
