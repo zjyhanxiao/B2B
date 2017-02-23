@@ -144,7 +144,8 @@ $(function () {
                 non_admin_order_list(jsonData)
             }
         } else {
-            $('.order-list tbody').html('无数据！')
+            $('.order-list tbody').html('');
+            $('.error').html('<div class="text-center"><img src="/vendor/img/wu.png"><p style="margin-top: 10px;">暂无数据</p></div>')
         }
         $('.search').prop('disabled', false);
     }
