@@ -1,7 +1,8 @@
 /**
  * Created by zhiqiang.li on 2017/1/17.
  */
-var baseUrlChannel = 'https://zion-api.meixincn.com';
+var baseUrlChannel = 'https://zion-api.meixinglobal.com';
+// var baseUrlChannel = 'https://zion-api.meixincn.com';
 var invest_success = false;
 $(function () {
     // 让用户知道，如果要关掉此页面则会丢去所有工作
