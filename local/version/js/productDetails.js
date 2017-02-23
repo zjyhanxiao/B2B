@@ -341,7 +341,7 @@ window.onload = function () {
                 userData = res.body;
                 var userhtml = '';
                 $.each(res.body,function (i,item) {
-                    userhtml += '<tr class="choose"> <td class="w_110">'+item.first_name+''+item.last_name+'</td>' +
+                    userhtml += '<tr class="choose"> <td class="w_110">'+item.first_name+'   '+item.last_name+'</td>' +
                         ' <td class="w_178">'+item.phone+'</td> </tr>'
                 })
                 $('.order_info').html(userhtml)

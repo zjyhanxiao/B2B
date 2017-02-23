@@ -53,7 +53,7 @@ body {
     font-size: 14px;
     padding: 9px;
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 4px;
     margin: 10px 0;
 }
 
@@ -68,9 +68,9 @@ body {
 #send_verify_code{
     position: absolute;
     height: 39.5px;
-    width: 100px;
+    width: 110px;
     top: 10px;
-    left: 195px;
+    left: 190px;
     color: #fff;
     border: none;
     background-color: #223976;

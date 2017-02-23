@@ -178,7 +178,6 @@ $('.close_on').click(function () {
 
 
 
-
 //重置密码模态框
 $('.reset').click(function () {
     $('.reset_password').modal('show')
@@ -261,6 +260,5 @@ $('.login_on').click(function () {
             error: function () {
             }
         })
-
     }
 })
