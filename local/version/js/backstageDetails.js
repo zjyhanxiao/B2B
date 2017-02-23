@@ -37,6 +37,11 @@ $(function () {
             $('#name').val(res.body.name)
             $('.change_info').modal('hide')
 
+
+            $('.name_title').html(res.body.name+'   ('+res.body.code+')')
+
+
+
             if (res.body.is_active){
                 $('.show_permission').html('')
                 $('.login_on').html('关闭登录权限')
@@ -221,6 +226,23 @@ $('#abolish_password').click(function () {
 $('.login_on').click(function () {
 
     if ($('.login_on').html() == '关闭登录权限'){
+        $('.message').html('关闭登录权限后，该用户将无法登陆查看用户信息或跟进订单情况。')
+        $('#confirm_permission').css({'background':'#ff9933','border-color':'#ff9933'})
+
+        $('.permission').modal('show')
+    }else {
+        $('.message').html('开启登录权限后，该用户将可以登陆查看用户信息或跟进订单情况。')
+        $('#confirm_permission').css({'background':'#337ab7','border-color':'#337ab7'})
+
+        $('.permission').modal('show')
+    }
+
+})
+
+//登录权限模态框确定
+$('#confirm_permission').click(function () {
+
+    if ($('.login_on').html() == '关闭登录权限'){
         var data = {'code':getUrlParam('code'),'is_active':false}
         $.ajax({
             type: 'get',
@@ -236,6 +258,7 @@ $('.login_on').click(function () {
                 $('.show_permission').html('登录权限已暂停')
                 $('.login_on').html('开启登录权限')
                 $('.login_on').css('color','#337ab7')
+                $('.permission').modal('hide')
             },
             error: function () {
             }
@@ -256,9 +279,16 @@ $('.login_on').click(function () {
                 $('.show_permission').html('')
                 $('.login_on').html('关闭登录权限')
                 $('.login_on').css('color','red')
+                $('.permission').modal('hide')
             },
             error: function () {
             }
         })
     }
+
+})
+
+
+$('#abolish_permission').click(function () {
+    $('.permission').modal('hide')
 })

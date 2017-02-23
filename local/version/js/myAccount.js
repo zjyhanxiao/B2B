@@ -28,13 +28,6 @@ window.onload = function () {
 
     $('.myAccount').find('a').addClass('active_bg');
 
-    if (!is_admin) {
-        $('.backstage').hide();
-    } else {
-        $('.backstage').show();
-//            $('#password_hint').modal('show')
-    }
-
     //关闭密码提示框
     $('.close_hint').click(function () {
         $('#password_hint').modal('hide')

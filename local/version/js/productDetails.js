@@ -183,13 +183,13 @@ $(function () {
                 $('#swift_code').html(res.body.receive_bank.swift_code)
                 $('#account_number').html(res.body.receive_bank.account_number)
 
-                $('#middle_bank_name').html(res.body.middle_bank.bank_name)
-                $('#middle_bank_address').html(res.body.middle_bank.bank_address)
-                $('#middle_swift_code').html(res.body.middle_bank.swift_code)
             }
 
             if (res.body.is_middle_bank_enabled){
                 $('.middle_bank').css('display','block');
+                $('#middle_bank_name').html(res.body.middle_bank.bank_name)
+                $('#middle_bank_address').html(res.body.middle_bank.bank_address)
+                $('#middle_swift_code').html(res.body.middle_bank.swift_code)
             }else {
                 $('.middle_bank').css('display','none');
             }
