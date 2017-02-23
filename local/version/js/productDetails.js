@@ -37,7 +37,6 @@ $(function () {
             "mx_secret": $.cookie('mx_secret')
         },
         success: function (res) {
-            console.log(res.body)
             //头部信息
             var product_name = res.body.name;
             $('.vieworder').attr('href','/order.html?product='+res.body.number)
@@ -61,7 +60,7 @@ $(function () {
             $('#returnRate').html(res.body.return_rate+'%')
             $('#investTerm').html(res.body.invest_term+'个月')
             $('#minimumInvestAmount').html('$'+res.body.minimum_invest_amount)
-            $('#SaleDay').html('<p>'+res.body.start_sale_day+' —— '+res.body.end_sale_day+'</p>')
+            $('#SaleDay').html('<p>'+res.body.start_sale_day+'  至  '+res.body.end_sale_day+'</p>')
             $('#closeFundStartInterestDay').html('<p>'+res.body.close_fund_start_interest_day+'</p>')
 
             //系列产品
@@ -169,7 +168,7 @@ $(function () {
             "mx_secret": $.cookie('mx_secret')
         },
         success: function (res) {
-//                console.log(res.body)
+                console.log(res.body)
             var p = $('<p></p>')
             if (res.body.is_ach_enabled){
                 p.append('ACH（仅支持美国银行账户） ；')
@@ -183,6 +182,16 @@ $(function () {
                 $('#routing_number').html(res.body.receive_bank.riouting_number)
                 $('#swift_code').html(res.body.receive_bank.swift_code)
                 $('#account_number').html(res.body.receive_bank.account_number)
+
+                $('#middle_bank_name').html(res.body.middle_bank.bank_name)
+                $('#middle_bank_address').html(res.body.middle_bank.bank_address)
+                $('#middle_swift_code').html(res.body.middle_bank.swift_code)
+            }
+
+            if (res.body.is_middle_bank_enabled){
+                $('.middle_bank').css('display','block');
+            }else {
+                $('.middle_bank').css('display','none');
             }
             $('#payment_way').html( p)
 
@@ -194,9 +203,6 @@ $(function () {
 
     //投资顾问分享接口    // 二维码生成
 
-
-
-    console.log( is_admin )
     if (is_admin){
 
         $.ajax({
@@ -309,11 +315,9 @@ window.onload = function () {
     $('#product_head ul li[data-name="产品"]').addClass('active');
 
     if (!is_admin){
-        $('.backstage').hide();
         $('.backstage1').hide();
         $('.backstage2').hide();
     }else {
-        $('.backstage').show();
         $('.backstage1').show();
         $('.backstage2').show();
     }
@@ -340,6 +344,15 @@ window.onload = function () {
                 console.log(res.body)
                 userData = res.body;
                 var userhtml = '';
+                // 之前投资人隐藏
+                if (userData.length<1){
+                    $('.modal-left').css('display','none')
+                    $('.modal-right').css({'float':'none','margin':'0 auto'})
+                }else {
+                    $('.modal-left').css('display','block')
+                }
+
+
                 $.each(res.body,function (i,item) {
                     userhtml += '<tr class="choose"> <td class="w_110">'+item.first_name+'   '+item.last_name+'</td>' +
                         ' <td class="w_178">'+item.phone+'</td> </tr>'

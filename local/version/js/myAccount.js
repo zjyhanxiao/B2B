@@ -51,6 +51,7 @@ window.onload = function () {
         }
     })
     $('#new_password').blur(function () {
+
         if ( $('#new_password').val()==$('#old_password').val() ){
             $('#new_password').parent().addClass('has-error')
             $('.new_password_caution').css("display", "block")
@@ -60,7 +61,9 @@ window.onload = function () {
             $('.new_password_caution').css("display", "none")
         }
     })
+
     $('#new_password1').blur(function () {
+
         if ( $('#new_password1').val()==$('#new_password').val() ){
             $('#new_password1').parent().removeClass('has-error')
             $('.new_password1_caution').css("display", "none")
@@ -70,13 +73,36 @@ window.onload = function () {
         }
     })
 
+
+
     $('.recompose').click(function () {
-        if ($('#email').val() == ''){
-            $('#email').parent().addClass('has-error')
-            $('.email_caution').css("display", "block")
+
+        if ( $('#old_password').val()!='' ){
+            $('#old_password').parent().removeClass('has-error')
+            $('.old_password_caution').css("display", "none")
         }else {
-            data.name = $('#email').val();
+            $('#old_password').parent().addClass('has-error')
+            $('.old_password_caution').css("display", "block")
         }
+        if ( $('#new_password').val()=='' ){
+            $('#new_password').parent().addClass('has-error')
+            $('.new_password_caution').css("display", "block")
+        }else {
+            $('#new_password').parent().removeClass('has-error')
+            $('.new_password_caution').css("display", "none")
+        }
+        if ( $('#new_password1').val()==$('#new_password').val() ){
+            $('#new_password1').parent().removeClass('has-error')
+            $('.new_password1_caution').css("display", "none")
+        }else {
+            $('#new_password1').parent().addClass('has-error')
+            $('.new_password1_caution').css("display", "block")
+        }
+
+
+
+
+
 
 
 
