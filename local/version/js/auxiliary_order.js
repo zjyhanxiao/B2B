@@ -100,6 +100,7 @@ $(function () {
                 $('.routing_number').show().html(bank_us.routing_number);
                 $('.swift_code').html(bank_us.swift_code);
                 $('.account_number').html(bank_us.account_number.replace(/^\d+(\d{4})$/, "****************$1"));
+
             } else {
                 var ban_non_us = d.order_user_info.bank_non_us;
                 $('.bank_name').html(ban_non_us.bank_name);
@@ -131,8 +132,26 @@ $(function () {
                         '<a data-url="' + item.document_url + '" class="getPdf">' + item.document_name + '</a>' +
                         '</div>'
                 }
-            })
+            });
             $('.document-item').html(document_list);
+            if (d.payment_method) {
+                if (d.payment_method == 'ach') {
+                    $('.payment').html('确认投资后将通过ACH自动从' + bank_us.bank_name + '（' + bank_us.account_number.replace(/^\d+(\d{4})$/, "$1") + '）扣款');
+                    if ($('.document-item .checkbox').length > 0) {
+
+                    } else {
+                        $('.document-item').append('<div class="checkbox">' +
+                            '<label>' +
+                            '<input type="checkbox">我已阅读并接受' +
+                            '</label>' +
+                            '<a data-url="/vendor/doc/ACH.pdf" class="getPdf">ACH扣款协议</a>' +
+                            '</div>');
+                    }
+
+                } else {
+                    $('.payment').html('确认投资后将通过银行电汇线下打款');
+                }
+            }
         }
     }
 
@@ -170,7 +189,9 @@ $(function () {
             url: base_url + '/channel/doc/preview',
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify(pdf),
-            success: function(res) { populatePDFDocument(res.body); }
+            success: function (res) {
+                populatePDFDocument(res.body);
+            }
         });
         return false;
     });

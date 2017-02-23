@@ -11,19 +11,29 @@ body {
     color: #223976;
 }
 
-.invest_value {
-    font-size: 24px;
-    max-width: 400px;
-    line-height: 5;
-    height: 5em;
+#invest_value {
+    max-width: 500px;
     margin: auto;
-    color: #335095;
     border: 1px solid #ccc;
     border-top: 4px solid #223976;
     border-radius: 6px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+.payment{
+    width: 90%;
+    margin: auto;
+    border-top:1px solid #ccc;
+    padding: 10px 0;
+    color: #666;
+}
+.invest_value {
+    font-size: 24px;
+    line-height: 5;
+    height: 5em;
+    color: #335095;
+
 }
 
 .invest_value span {
@@ -82,7 +92,8 @@ body {
     display: block;
     margin-top: 6px;
 }
-.document-item .checkbox a{
+
+.document-item .checkbox a {
     cursor: pointer;
 }
 
@@ -163,7 +174,7 @@ div#document-loading, div#document-error {
     height: 180px;
 
     position: absolute;
-    top:0;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
@@ -214,13 +225,14 @@ div#document-loading p, div#document-error p {
 .overlay-left-top:hover {
     cursor: pointer;
 }
+
 #document-preview-element {
     height: 100%;
     width: 90%;
 }
 
 @media (max-width: 767px) {
-    .invest_value, .user-info, .document-info, .signature {
+    #invest_value, .user-info, .document-info, .signature {
         width: 100%;
     }
 
