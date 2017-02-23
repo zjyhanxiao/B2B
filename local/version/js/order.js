@@ -196,7 +196,7 @@ $(function () {
                 '<td><a href="/orderDetails.html?order_number=' + order_number + '">' + order_number + '</a></td>' +
                 '<td><a href="/productDetails.html?product_id=' + item.product_id + '">' + product_name + '</a></td>' +
                 '<td>' + product_number + '</td>' +
-                '<td><a href="/customerDetails.html?phone=' + phone + '">' + first_name + ' ' + last_name + '</a>' +
+                '<td><a href="/customerDetails.html?phone=' + phone + '">' + first_name + ' ' + last_name + '</a></td>' +
                 '<td>' + phone + '</td>' +
                 '<td>' + invest_amount + '</td>' +
                 '<td>' + advisor_name + '</td>' +
@@ -252,7 +252,7 @@ $(function () {
                 '<td><a href="/orderDetails.html?order_number=' + order_number + '">' + order_number + '</a></td>' +
                 '<td><a href="/productDetails.html?product_id=' + item.product_id + '">' + product_name + '</a></td>' +
                 '<td>' + product_number + '</td>' +
-                '<td>' + first_name + ' ' + last_name + '</td>' +
+                '<td><a href="/customerDetails.html?phone=' + phone + '">' + first_name + ' ' + last_name + '</a></td>' +
                 '<td>' + phone + '</td>' +
                 '<td>' + invest_amount + '</td>' +
                 '<td>' + fa_investment_status + '</td>' +
