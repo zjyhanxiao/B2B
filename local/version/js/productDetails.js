@@ -179,10 +179,10 @@ $(function () {
                 $('#account_address').html(res.body.receive_bank.account_address)
                 $('#bank_name').html(res.body.receive_bank.bank_name)
                 $('#bank_address').html(res.body.receive_bank.bank_address)
-                $('#routing_number').html(res.body.receive_bank.riouting_number)
+                $('#routing_number').html(res.body.receive_bank.routing_number)
                 $('#swift_code').html(res.body.receive_bank.swift_code)
                 $('#account_number').html(res.body.receive_bank.account_number)
-
+                $('#remark').html(res.body.receive_bank.remark)
             }
 
             if (res.body.is_middle_bank_enabled){
