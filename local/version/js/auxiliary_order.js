@@ -1,19 +1,22 @@
 $(function () {
-    $("#signature-line").jSignature({width: 800, height: 200});
-    var jSignatureData = $('#signature-line').jSignature('getData');
-    var order_number = getUrlParam('order_number') || '';
-    var product_id = getUrlParam('product_id') || '';
-    var pdf = null;
+    $("#signature-line").jSignature({width: 800, height: 200});       // 初始化签名框
+    var jSignatureData = $('#signature-line').jSignature('getData');  // 获取签名默认base64数据
+    var order_number = getUrlParam('order_number') || '';             // 获取订单号
+    var product_id = getUrlParam('product_id') || '';                 // 获取产品id
+    var pdf = null;   // 定义获取pdf所需上传的数据
+
+    /**************************** 获取产品信息 ****************************/
     getData({
         url: base_url + '/white_label/product_info',
         data: {product_id: product_id},
         sucFn: getProductSuc,
         failFn: failFn
     });
-
+    /******************* 点击按钮，不输入密码提示红框，获取焦点时重置输入框边框颜色 *******************/
     $('.beforeOpen input').focus(function () {
         $(this).css('border', '1px solid #ccc');
     });
+    /**************************** 点击按钮跳到签名展示页 ****************************/
     $('.beforeOpen button').on('click', function () {
         var verifyCode = $('.beforeOpen input').val();
         if (verifyCode != '') {
@@ -33,12 +36,13 @@ $(function () {
         $(this).hide();
         $('.user-info').show();
     });
+    // 点击'收起'隐藏投资信息
     $('.hide-info').on('click', function () {
         $('.user-info').hide();
         $('.show-user-info a').show();
     });
 
-    // 提交签名信息
+    /**************************** 提交签名信息 ****************************/
     $('#update_order').on('click', function () {
         $('#signature-box').css('border', '1px solid #ccc');
         $('.document-unCheck').remove();
@@ -70,7 +74,7 @@ $(function () {
         window.location = '/auxiliary_order/invest_success.html?order_number=' + order_number
     }
 
-    // 输入解锁密码打开签名页面
+    /**************************** 密码认证成功回调，渲染签名页面数据 ****************************/
     function getUserData(res) {
         var d = res.body;
         if (d && d != null) {
@@ -171,12 +175,13 @@ $(function () {
         $("#document-preview-element").css('margin-top', '40px');
     }
 
-    /* Close when someone clicks on the "x" symbol inside the overlay */
+    /** Close when someone clicks on the "x" symbol inside the overlay **/
     function closeDocumentPreview() {
         $("#document-element-wrapper").html("");
         $("#document-preview").width("0%");
     }
 
+    /**************************** 预览pdf文件 ****************************/
     $(".document-item").on('click', '.getPdf', function () {
         $("#document-preview").width("100%");
         $('#document-loading').show();

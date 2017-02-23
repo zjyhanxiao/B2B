@@ -1,8 +1,7 @@
-var base_url = 'https://zion-api.meixinglobal.com';
-// var base_url = 'https://zion-api.meixincn.com';
+var base_url = 'https://zion-api.meixinglobal.com';  // 线上接口地址
+// var base_url = 'https://zion-api.meixincn.com';   // 测试环境接口地址
 // var base_url = 'http://192.168.1.102:8001'
-// 定义用户权限
-var is_admin;
+var is_admin;    // 定义用户权限
 //获取url中的参数
 function getUrlParam(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
