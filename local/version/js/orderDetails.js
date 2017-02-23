@@ -198,7 +198,7 @@ $(function () {
                     '<div class="row">' +
                     '<div class="col-md-12">';
                 if (fa_investment_status == 'not_commit') {
-                    order_control += '<a style="display: block; margin-left: 13px;" href="/auxiliary_order/stepOne.html?product_id=' + product_id + '&phone=' + phone + '&order_number=' + order_number + '&channel_code=' + advisor_code + '">修改订单</a>';
+                    order_control += '<a style="display: block; margin-left: 13px; margin-bottom: 10px;" href="/auxiliary_order/stepOne.html?product_id=' + product_id + '&phone=' + phone + '&order_number=' + order_number + '&channel_code=' + advisor_code + '">修改订单</a>';
                 }
                 if (is_admin) {
                     order_control += '<button' +
