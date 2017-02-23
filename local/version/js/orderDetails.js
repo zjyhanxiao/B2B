@@ -66,6 +66,7 @@ $(function () {
         }
     });
 
+
     // 获取订单信息
     function getOrderSuc(res) {
         var d = res.body;
