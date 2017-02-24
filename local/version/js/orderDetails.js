@@ -26,44 +26,41 @@ $(function () {
     });
     // 订单状态未签署和未入金，管理员可以取消订单
     $('.cancel_order').on('click', function () {
-        if (!is_admin) {
-            return false;
-        } else {
-            $('#myModal .modal-body').html(
-                '<p style="color: #223976; font-size: 16px;">订单' + order_number + '</p>' +
-                '<p style="color: #ff3300; font-size: 16px;">请输入' + order_number + '确定您要取消的订单。订单一旦取消不可复原！</p>' +
-                '<input type="text" id="cancel-order-number" class="form-control">'
-            );
-            $('#myModal').modal('show');
-            $('#cancel_order').on('click', function () {
-                $('#cancel-order-number').css('border', '1px solid #ccc');
-                $(this).prop('disabled', true);
-                if ($('#cancel-order-number').val() == '') {
-                    $('#cancel-order-number').css('border', '1px solid red');
-                    $(this).prop('disabled', false);
-                    return false;
-                } else {
-                    getData({
-                        url: base_url + '/zion/order/cancel',
-                        data: {order_number: $('#cancel-order-number').val()},
-                        headers: {
-                            mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
-                        },
-                        sucFn: cancelSuc,
-                        failFn: cancelFail
-                    });
-                }
+        $('#myModal .modal-body').html(
+            '<p style="color: #223976; font-size: 16px;">订单' + order_number + '</p>' +
+            '<p style="color: #ff3300; font-size: 16px;">请输入' + order_number + '确定您要取消的订单。订单一旦取消不可复原！</p>' +
+            '<input type="text" id="cancel-order-number" class="form-control">'
+        );
+        $('#myModal').modal('show');
+        $('#cancel_order').on('click', function () {
+            $('#cancel-order-number').css('border', '1px solid #ccc');
+            $(this).prop('disabled', true);
+            if ($('#cancel-order-number').val() == '') {
+                $('#cancel-order-number').css('border', '1px solid red');
+                $(this).prop('disabled', false);
                 return false;
-            });
-            function cancelSuc() {
-                window.location.reload();
+            } else {
+                getData({
+                    url: base_url + '/zion/order/cancel',
+                    data: {order_number: $('#cancel-order-number').val()},
+                    headers: {
+                        mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
+                    },
+                    sucFn: cancelSuc,
+                    failFn: cancelFail
+                });
             }
-
-            function cancelFail(res) {
-                $('#cancel_order').prop('disabled', false);
-                alert(res.msg);
-            }
+            return false;
+        });
+        function cancelSuc() {
+            window.location.reload();
         }
+
+        function cancelFail(res) {
+            $('#cancel_order').prop('disabled', false);
+            alert(res.msg);
+        }
+
         return false;
     });
 

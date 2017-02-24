@@ -1029,3 +1029,6 @@ div#document-loading p, div#document-error p {
 .checkbox, .radio{
     margin: 5px 0;
 }
+#signature-box{
+    overflow: hidden;
+}
