@@ -26,53 +26,44 @@ $(function () {
     });
     // 订单状态未签署和未入金，管理员可以取消订单
     $('.cancel_order').on('click', function () {
-        if (!is_admin) {
-            return false;
-        } else {
-            $('#myModal .modal-body').html(
-                '<p style="color: #223976; font-size: 16px;">订单' + order_number + '</p>' +
-                '<p style="color: #ff3300; font-size: 16px;">请输入' + order_number + '确定您要取消的订单。订单一旦取消不可复原！</p>' +
-                '<input type="text" id="cancel-order-number" class="form-control">'
-            );
-            $('#myModal').modal('show');
-            $('#cancel_order').on('click', function () {
-                $('#cancel-order-number').css('border', '1px solid #ccc');
-                $(this).prop('disabled', true);
-                if ($('#cancel-order-number').val() == '') {
-                    $('#cancel-order-number').css('border', '1px solid red');
-                    $(this).prop('disabled', false);
-                    return false;
-                } else {
-                    getData({
-                        url: base_url + '/zion/order/cancel',
-                        data: {order_number: $('#cancel-order-number').val()},
-                        headers: {
-                            mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
-                        },
-                        sucFn: cancelSuc,
-                        failFn: cancelFail
-                    });
-                }
+        $('#myModal .modal-body').html(
+            '<p style="color: #223976; font-size: 16px;">订单' + order_number + '</p>' +
+            '<p style="color: #ff3300; font-size: 16px;">请输入' + order_number + '确定您要取消的订单。订单一旦取消不可复原！</p>' +
+            '<input type="text" id="cancel-order-number" class="form-control">'
+        );
+        $('#myModal').modal('show');
+        $('#cancel_order').on('click', function () {
+            $('#cancel-order-number').css('border', '1px solid #ccc');
+            $(this).prop('disabled', true);
+            if ($('#cancel-order-number').val() == '') {
+                $('#cancel-order-number').css('border', '1px solid red');
+                $(this).prop('disabled', false);
                 return false;
-            });
-            function cancelSuc() {
-                window.location.reload();
+            } else {
+                getData({
+                    url: base_url + '/zion/order/cancel',
+                    data: {order_number: $('#cancel-order-number').val()},
+                    headers: {
+                        mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
+                    },
+                    sucFn: cancelSuc,
+                    failFn: cancelFail
+                });
             }
-
-            function cancelFail(res) {
-                $('#cancel_order').prop('disabled', false);
-                alert(res.msg);
-            }
+            return false;
+        });
+        function cancelSuc() {
+            window.location.reload();
         }
-    });
-    $('.about_order').on('click', function () {
-        if (is_admin) {
 
-        } else {
-            alert('您没有该权限')
+        function cancelFail(res) {
+            $('#cancel_order').prop('disabled', false);
+            alert(res.msg);
         }
+
         return false;
     });
+
 
     // 获取订单信息
     function getOrderSuc(res) {
@@ -92,10 +83,10 @@ $(function () {
                 advisor_code = d.advisor_code != null ? d.advisor_code : '',
                 remain_amount = d.remain_amount != null ? '$' + d.remain_amount : 0,
                 close_fund_start_interest_day = d.close_fund_start_interest_day != null ? d.close_fund_start_interest_day : '';
-            var invest_status, find_link,audit_failed;
+            var invest_status, find_link, audit_failed;
             if (fa_investment_status == 'not_commit') {
                 invest_status = '<span style="color: #ff6600">未签署</span>';
-                find_link='<div class="row">' +
+                find_link = '<div class="row">' +
                     '<div class="col-md-12"><p style="text-align: right">' +
                     '<a href="/auxiliary_order/share.html?product_id=' + d.product_id + '&channel_code=' + d.advisor_code + '&phone=' + phone + '&verify_code=' + d.verify_code + '&order_number=' + order_number + '">查看签署链接</a></p></div>' +
                     '</div>';
@@ -146,7 +137,7 @@ $(function () {
 
 
             if (fa_investment_status == 'audit_failed') {
-                if(failRemark!=''){
+                if (failRemark != '') {
                     dom += audit_failed;
                 }
             }
@@ -204,13 +195,13 @@ $(function () {
                     '</div>' +
                     '<div class="row">' +
                     '<div class="col-md-12">';
-                if(fa_investment_status == 'not_commit'){
-                    order_control+='';
+                if (fa_investment_status == 'not_commit') {
+                    order_control += '<a style="display: block; margin-left: 13px; margin-bottom: 10px;" href="/auxiliary_order/stepOne.html?product_id=' + product_id + '&phone=' + phone + '&order_number=' + order_number + '&channel_code=' + advisor_code + '">修改订单</a>';
                 }
-                if (is_admin) {
-                    order_control += '<button' +
-                        'data-order="' + order_number + '" data-toggle="modal" data-target="#myModal" class="cancel_order">取消订单</button>';
-                }
+
+                order_control += '<button' +
+                    'data-order="' + order_number + '" data-toggle="modal" data-target="#myModal" class="cancel_order">取消订单</button>';
+
                 order_control += '</div>' +
                     '</div>';
                 $('.about_order').html(order_control);

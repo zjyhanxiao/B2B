@@ -1,45 +1,45 @@
 /*
 * base style
 */
-body{
+body {
     font-size: 12px;
     background-color: #fff;
 }
 
-.font-18{
+.font-18 {
     font-size: 18px;
 }
 
-.font-16{
+.font-16 {
     font-size: 16px;
     font-weight: 500;
 }
 
-.font-14{
+.font-14 {
     font-size: 14px;
     font-weight: 400;
 }
 
-.font-12{
+.font-12 {
     font-size: 12px;
     font-weight: 300;
 }
 
-.light-blue{
+.light-blue {
     color: #159bd6;
     font-weight: 400;
     margin-right: 10px;
 }
 
-.dark-blue{
+.dark-blue {
     color: #223976;
 }
 
-.light-silver{
-    color: #555;    
+.light-silver {
+    color: #555;
 }
 
-.orange{
+.orange {
     color: #ff6600;
 }
 
@@ -47,39 +47,38 @@ body{
     color: #FF3333 !important;
 }
 
-.red-shadow{
+.red-shadow {
     border: 1px solid #FF3333;
 }
 
-
-.form-inline{
+.form-inline {
     margin: 10px 0;
 }
 
-.form-inline label{
+.form-inline label {
     width: 30%;
 }
 
-.form-inline .form-control{
+.form-inline .form-control {
     width: 68%;
 }
 
-.text-center{
+.text-center {
     text-align: center;
 }
 
-.ajax_wait{
+.ajax_wait {
     /*position: relative;*/
 }
 
-.ajax_wait_gif img{
+.ajax_wait_gif img {
     position: fixed;
     left: calc(50% - 100px);
     top: 300px;
     z-index: 1000;
 }
 
-.input-sm{
+.input-sm {
     border-radius: 0;
 }
 
@@ -91,37 +90,37 @@ input[type="checkbox"] {
 * confirm
 */
 
-#confirm-identity, #base-info, #address-prove, #bank-info, #invest-info, #invest-signature, #invest-golden, #order-id{
+#confirm-identity, #base-info, #address-prove, #bank-info, #invest-info, #invest-signature, #invest-golden, #order-id {
     width: 75%;
     margin-left: 12.5%;
 }
 
-.base-info-wrapper, .address-prove-wrapper, .bank-wrapper, .invest-wrapper, .invest-wrapper, .golden-wrapper, .order-wrapper{
+.base-info-wrapper, .address-prove-wrapper, .bank-wrapper, .invest-wrapper, .invest-wrapper, .golden-wrapper, .order-wrapper {
     margin: 30px 7%;
 }
 
-.base-info-title{
+.base-info-title {
     text-align: center;
     margin-top: 50px;
     border-bottom: 2px solid #dbdada;
 }
 
-.base-info-title p{
+.base-info-title p {
     margin: 0;
 }
 
-.base-info-title hr{
+.base-info-title hr {
     float: left;
     margin-bottom: -2px;
     border-top: 2px solid #223976;
 }
 
-.base-info-title .product_name{
+.base-info-title .product_name {
     font-size: 16px;
     color: #999;
 }
 
-.base-info-title span{
+.base-info-title span {
     color: #223976;
     font-size: 18px;
     display: inline-block;
@@ -129,7 +128,7 @@ input[type="checkbox"] {
     font-weight: 500;
 }
 
-.border-blue{
+.border-blue {
     margin: 10px 0;
     padding: 20px;
     height: 110px;
@@ -137,7 +136,7 @@ input[type="checkbox"] {
     border: 2px solid #223976;
 }
 
-.border-silver{
+.border-silver {
     margin: 10px 0;
     padding: 20px;
     height: 110px;
@@ -145,15 +144,15 @@ input[type="checkbox"] {
     border: 2px solid silver;
 }
 
-.confirm{
+.confirm {
     position: relative;
 }
 
-.next-step-wrapper{
+.next-step-wrapper {
     margin-top: 30px;
 }
 
-.step-one{
+.step-one {
     width: 120px;
     height: 40px;
     border: none;
@@ -163,7 +162,7 @@ input[type="checkbox"] {
     border-radius: 30px;
 }
 
-.prev-step{
+.prev-step {
     width: 120px;
     height: 40px;
     color: #223976;
@@ -175,7 +174,7 @@ input[type="checkbox"] {
     margin-bottom: 20px;
 }
 
-.next-step{
+.next-step {
     width: 120px;
     height: 40px;
     border: none;
@@ -187,7 +186,7 @@ input[type="checkbox"] {
     margin-bottom: 50px;
 }
 
-.success{
+.success {
     background-color: #223976;
 }
 
@@ -199,87 +198,85 @@ input[type="checkbox"] {
     display: none;
 }
 
-#invest-error img{
+#invest-error img {
     width: 100%;
 }
 
-#base-info .col-md-5{
+#base-info .col-md-5 {
     height: 50px;
 }
 
-#base-info hr{
+#base-info hr {
     width: 20%;
 }
 
-.col-md-5 input, .col-md-5 select{
+.col-md-5 input, .col-md-5 select {
     height: 35px;
 }
 
-.personal-info, .passport-info{
+.personal-info, .passport-info {
     margin-top: 40px;
     margin-left: -5px;
     margin-bottom: 10px;
 }
 
 .personal-info .light-blue,
-.passport-info .light-blue{
+.passport-info .light-blue {
     display: inline-block;
     font-size: 16px;
     font-weight: 500;
 }
 
-.passport-info span{
+.passport-info span {
     display: inline-block;
 }
 
-.step-section{
+.step-section {
     margin: 35px 0 0;
 }
 
-.step-section a{
+.step-section a {
     margin: 0;
 }
 
-.upload-passport-info{
+.upload-passport-info {
     overflow: hidden;
     margin-bottom: 30px;
 }
 
-.upload-passport-info .col-md-6{
+.upload-passport-info .col-md-6 {
     padding: 0;
 }
-
 
 /*
 *  address
 */
 
-
-#address-prove hr{
+#address-prove hr {
     width: 32%;
 }
 
-.col-md-12 label{
+.col-md-12 label {
     width: 20%;
 }
 
-.col-md-12 .form-control{
+.col-md-12 .form-control {
     width: 79%;
 }
 
-#address-effective{
+#address-effective {
     width: 65%;
 }
 
-.upload-address-info{
+.upload-address-info {
     overflow: hidden;
 }
 
-.upload-address-info .col-md-6{
+.upload-address-info .col-md-6 {
     padding: 0;
 }
 
-#address-prove .form-inline{
+#address-prove .form-inline {
     margin: 15px 0;
 }
 
@@ -287,24 +284,23 @@ input[type="checkbox"] {
 * bank info
 */
 
-
-#bank-info hr{
+#bank-info hr {
     width: 40%;
 }
 
-.bank-wrapper-background{
+.bank-wrapper-background {
     background-color: #fafbfe;
     border-top: 1px solid #223976;
     padding: 20px;
     margin-top: 20px;
 }
 
-.us-bank-choose .col-md-5 span{
+.us-bank-choose .col-md-5 span {
     height: 35px;
     line-height: 35px;
 }
 
-.us-bank-choose .col-md-2 span{
+.us-bank-choose .col-md-2 span {
     height: 35px;
     line-height: 35px;
 }
@@ -313,7 +309,7 @@ input[type="checkbox"] {
     padding-top: 5px;
 }
 
-.button{
+.button {
     width: 14%;
     color: #fff;
     height: 30px;
@@ -325,11 +321,11 @@ input[type="checkbox"] {
     background-color: #223976;
 }
 
-.button:hover, .button:focus, button:visited{
+.button:hover, .button:focus, button:visited {
     color: #fff;
 }
 
-.button-blue{
+.button-blue {
     color: #223976;
     border: 1px solid #223976;
     font-size: 14px;
@@ -339,7 +335,7 @@ input[type="checkbox"] {
     display: inline-block;
 }
 
-.button-white{
+.button-white {
     color: #ccc;
     font-size: 14px;
     line-height: 35px;
@@ -349,11 +345,11 @@ input[type="checkbox"] {
     border: 1px solid #ccc;
 }
 
-.non-us-bank, .us-bank{
+.non-us-bank, .us-bank {
     width: 75%;
 }
 
-#checking, #saving{
+#checking, #saving {
     color: #555;
     height: 35px;
     width: 200px;
@@ -362,13 +358,13 @@ input[type="checkbox"] {
     margin-right: 100px;
 }
 
-#bank-info .checked{
+#bank-info .checked {
     background-color: #fff;
     border: 1px solid #223976;
     color: #223976;
 }
 
-.checking-saving{
+.checking-saving {
     display: none;
 }
 
@@ -376,50 +372,49 @@ input[type="checkbox"] {
     margin-top: 20px;
 }
 
-.middle-bank .col-md-12 label{
+.middle-bank .col-md-12 label {
     width: 100%;
 }
 
-.middle-bank .col-md-12 .form-control{
+.middle-bank .col-md-12 .form-control {
     width: 100%;
 }
-
 
 /*
 * invest
 */
 
-#invest-info{
+#invest-info {
     /*height: 1124px;*/
 }
 
-#invest-info hr{
+#invest-info hr {
     width: 60%;
 }
 
-.product-name{
+.product-name {
     font-size: 32px;
     font-weight: 500;
 }
 
-.invest-money{
+.invest-money {
     position: relative;
 }
 
-.money{
+.money {
     position: absolute;
     font-size: 32px;
     left: 20px;
 }
 
-#invest-amount-title{
+#invest-amount-title {
     text-align: center;
     font-size: 18px;
     margin-top: 10px;
     margin-right: 5px;
 }
 
-.invest-amounts{
+.invest-amounts {
     width: 260px;
     height: 50px;
     font-size: 32px;
@@ -429,73 +424,77 @@ input[type="checkbox"] {
     padding-left: 22px;
 }
 
-.sub{
+.sub {
     margin-bottom: 10px;
 }
 
-.add{
+.add {
     margin-bottom: 10px;
 }
 
-#invest-entrance{
-    background: url(../img/channel/invest_card.png) no-repeat;
+#invest-entrance {
+    /*background: url(../img/channel/invest_card.png) no-repeat;*/
     background-size: cover;
     width: 500px;
-    height: 170px;
+    /*height: 170px;*/
     margin-left: calc(50% - 250px);
     padding-top: 15px;
+    padding-bottom: 15px;
     margin-top: 20px;
+    border: 1px solid #ccc;
+    border-top: 4px solid #223976;
+    border-radius: 6px;
 }
 
-.get-bank-info .col-md-10 .form-control{
+.get-bank-info .col-md-10 .form-control {
     width: 600px;
 }
 
-#invest-info .form-control{
+#invest-info .form-control {
     border: none;
     box-shadow: 0 0 0 0;
 }
 
-.product-info .product-name{
+.product-info .product-name {
     font-size: 28px;
 }
-.product-info p{
+
+.product-info p {
     font-size: 12px;
     margin-bottom: 0;
 }
 
-#invest-info .base-info-title{
+#invest-info .base-info-title {
     margin-top: 20px;
 }
 
-.get-base-info label{
+.get-base-info label {
     font-size: 12px;
 }
 
-.get-base-info span{
+.get-base-info span {
     font-size: 12px;
 }
 
-.get-address-info p{
+.get-address-info p {
     font-size: 12px;
     line-height: 1;
 }
 
-.get-bank-info label{
+.get-bank-info label {
     font-size: 12px;
     width: 100%;
 }
-
 
 /*
 * signature
 */
 
-#invest-signature hr{
+#invest-signature hr {
     width: 80%;
 }
 
-#invest-info .form-inline{
+#invest-info .form-inline {
     margin: 0;
 }
 
@@ -503,7 +502,7 @@ input[type="checkbox"] {
     font-weight: 500;
 }
 
-.bottom-line{
+.bottom-line {
     margin: 40px 0 10px;
     border-bottom: 1px solid silver;
 }
@@ -533,7 +532,7 @@ input[type="checkbox"] {
     margin-bottom: 10px;
 }
 
-.signature-default{
+.signature-default {
     position: absolute;
     top: 280px;
     left: 5px;
@@ -541,9 +540,9 @@ input[type="checkbox"] {
     display: none;
 }
 
-.reset-signature{
+.reset-signature {
     margin-right: 4px;
-    background-color:#223976;
+    background-color: #223976;
     color: #fff;
     border-radius: 4px;
     border: none;
@@ -552,7 +551,7 @@ input[type="checkbox"] {
     float: right;
 }
 
-#get-invest-entrance{
+#get-invest-entrance {
     background: url(../img/channel/invest_card.png) no-repeat;
     background-size: cover;
     width: 500px;
@@ -561,7 +560,7 @@ input[type="checkbox"] {
     padding-top: 15px;
 }
 
-.get-invest-amount{
+.get-invest-amount {
     font-size: 24px;
     line-height: 150px;
     font-weight: 500;
@@ -576,7 +575,7 @@ input[type="checkbox"] {
 }
 
 #invest-signature .product-rate,
-#invest-signature .product-deadline{
+#invest-signature .product-deadline {
     font-size: 12px;
     margin-bottom: 0;
 }
@@ -588,7 +587,7 @@ div#document-loading, div#document-error {
     height: 180px;
 
     position: absolute;
-    top:0;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
@@ -612,7 +611,7 @@ div#document-loading p, div#document-error p {
 
 /* The Overlay (background) */
 .overlay {
-    /* Height & width depends on how you want to reveal the overlay (see JS below) */    
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
     height: 100%;
     width: 0;
     position: fixed; /* Stay in place */
@@ -649,11 +648,11 @@ div#document-loading p, div#document-error p {
 * golden
 */
 
-#invest-golden hr{
+#invest-golden hr {
     width: 100%;
 }
 
-.nav-golden{
+.nav-golden {
     border: 1px solid #f0f0f0;
     border-bottom: 0px;
 }
@@ -662,11 +661,11 @@ div#document-loading p, div#document-error p {
     border-radius: 0 !important;
 }
 
-#nav-golden>li>a:hover {
+#nav-golden > li > a:hover {
     border-bottom-color: transparent;
 }
 
-#nav-golden-list{
+#nav-golden-list {
     padding: 0 10%;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -692,7 +691,7 @@ div#document-loading p, div#document-error p {
     font-size: 13px;
 }
 
-#nav-golden-list .form-inline label{
+#nav-golden-list .form-inline label {
     width: 100%;
     font-weight: 500;
     color: #555;
@@ -714,55 +713,55 @@ div#document-loading p, div#document-error p {
     margin-bottom: 15px;
 }
 
-.nav-1{
+.nav-1 {
     text-align: center;
     padding-right: 0px;
     /*margin-left: 5%;*/
     /*width: 30%;*/
 }
 
-#nav-golden .nav-1 a{
+#nav-golden .nav-1 a {
     border-left: none;
     border-right: none;
     font-size: 14px;
 }
 
-.nav-2{
+.nav-2 {
     text-align: center;
     padding-right: 0px;
     display: inline-block;
     /*background-color: #eee;*/
 }
 
-#nav-golden .nav-2 a{
+#nav-golden .nav-2 a {
     border-left: none;
     border-right: none;
     font-size: 14px;
 }
 
-.nav-3{
+.nav-3 {
     text-align: center;
     /*margin-left: 5px;*/
     /*width: 30%;*/
 }
 
-#nav-golden .nav-3 a{
+#nav-golden .nav-3 a {
     border-left: none;
     border-right: none;
     font-size: 14px;
 }
 
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
     border-top: 3px solid #223976;
     border-radius: 0;
 }
 
-.bank-list .form-line:hover{
+.bank-list .form-line:hover {
     border-color: #66afe9;
-    box-shadow:  inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #f4f5f9;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px #f4f5f9;
 }
 
-.choose-bank{
+.choose-bank {
     overflow: hidden;
     /*height: 80px;*/
     border: 1px solid #ccc;
@@ -771,7 +770,7 @@ div#document-loading p, div#document-error p {
     padding: 10px 5px;
 }
 
-.choose-bank p{
+.choose-bank p {
     color: #555;
     font-size: 11px;
     font-weight: 500;
@@ -792,185 +791,216 @@ div#document-loading p, div#document-error p {
     opacity: 1;
 }
 
-.has_checked{
+.has_checked {
     border-color: #223976;
 }
 
-.has_checked p{
+.has_checked p {
     color: #223976;
 }
 
-.modal-lg{
+.modal-lg {
     width: 70%;
 }
 
-#ach .form-control{
+#ach .form-control {
     border: none;
     box-shadow: 0 0 0 0;
 }
 
-#wire .form-control{
+#wire .form-control {
     border: none;
     box-shadow: 0 0 0 0;
 }
 
-#check .form-control{
+#check .form-control {
     border: none;
     box-shadow: 0 0 0 0;
 }
-
-
-
 
 /*
 *  order-id
 */
 
-#order-id{
+#order-id {
     /*height: 800px;*/
 }
 
-.order-img{
+.order-img {
     margin-top: 5em;
 }
 
-.order-img img{
+.order-img img {
     margin-left: calc(50% - 75px);
 }
 
-#nav-golden-list p{
-    height: inherit!important;
+#nav-golden-list p {
+    height: inherit !important;
 }
+
 @media (max-width: 735px) {
-    .form-inline .form-control{
+    .form-inline .form-control {
         width: 100%;
     }
-    #base-info .col-md-5{
+
+    #base-info .col-md-5 {
         height: 70px;
     }
-    #phone-label{
-        width: 100%!important;
+
+    #phone-label {
+        width: 100% !important;
     }
-    #phone-code{
-        width: 30%!important;
+
+    #phone-code {
+        width: 30% !important;
     }
-    #phone{
+
+    #phone {
         float: right;
-        width: 69%!important;
+        width: 69% !important;
     }
-    #address-effective{
-        width: 100%!important;
+
+    #address-effective {
+        width: 100% !important;
     }
+
     #address-effective-wrapper {
         padding: 0px 30px !important;
     }
-    #address-detail-wrapper{
-        height: 135px!important;
+
+    #address-detail-wrapper {
+        height: 135px !important;
     }
-    #address-detail{
-        width: 92%!important;
+
+    #address-detail {
+        width: 92% !important;
     }
-    .non-us-bank{
-        width: 35%!important;
+
+    .non-us-bank {
+        width: 35% !important;
         float: left;
         font-size: 12px;
     }
-    #us-or-not{
+
+    #us-or-not {
         float: left;
         margin-top: -10px;
         width: 26%;
     }
+
     #us-or-not span {
         margin-right: 0px !important;
     }
-    .us-bank{
-        width: 35%!important;
+
+    .us-bank {
+        width: 35% !important;
         float: right;
         margin-top: -13px;
         font-size: 12px;
     }
+
     #checking, #saving {
         width: 100%;
     }
-    .col-md-12 label{
-        width: 100%!important;
+
+    .col-md-12 label {
+        width: 100% !important;
     }
-    .invest-amounts{
-        width: 170px!important;
+
+    .invest-amounts {
+        width: 170px !important;
         font-size: 24px !important;
         height: 40px !important;
         border-radius: 5px !important;
     }
+
     .money {
         font-size: 24px !important;
         left: 15px !important;
         top: -14px !important;
     }
-    .s-hide{
+
+    .s-hide {
         display: none;
     }
-    #get-invest-entrance{
-        width: 300px!important;
-        margin-left: calc(50% - 150px)!important;
+
+    #get-invest-entrance {
+        width: 300px !important;
+        margin-left: calc(50% - 150px) !important;
         background-size: 100% 170px;
     }
-    .modal-dialog{
-        width: 95%!important;
+
+    .modal-dialog {
+        width: 95% !important;
     }
-    #invest-entrance{
-        width: 300px!important;
-        margin-left: calc(50% - 150px)!important;
+
+    #invest-entrance {
+        width: 300px !important;
+        margin-left: calc(50% - 150px) !important;
         background-size: 100% 170px;
     }
+
     #bank-name-wrapper {
         margin-bottom: 50px;
     }
+
     #find-common-banks {
         width: 100% !important;
         float: right;
         margin-top: 1px;
     }
-    #bank-name{
-        width: 100%!important;
+
+    #bank-name {
+        width: 100% !important;
     }
-    .get-base-info span{
-        display: inline-block!important;
+
+    .get-base-info span {
+        display: inline-block !important;
     }
-    .get-base-info .row .form-control{
+
+    .get-base-info .row .form-control {
         width: 65%;
     }
-    .get-bank-info .row{
-        margin-bottom: 10px!important;
+
+    .get-bank-info .row {
+        margin-bottom: 10px !important;
     }
-    .get-bank-info .row p{
-        width: 100%!important;
-        padding: 0!important;
+
+    .get-bank-info .row p {
+        width: 100% !important;
+        padding: 0 !important;
     }
-    #confirm-identity, #base-info, #address-prove, #bank-info, #invest-info, #invest-signature, #invest-golden, #order-id{
-        width: 90%!important;
+
+    #confirm-identity, #base-info, #address-prove, #bank-info, #invest-info, #invest-signature, #invest-golden, #order-id {
+        width: 90% !important;
         margin-left: 5%;
     }
-    #nav-golden-list .form-control p{
+
+    #nav-golden-list .form-control p {
         margin: 0;
         padding: 0;
     }
-    #address{
-        position: relative!important;
+
+    #address {
+        position: relative !important;
     }
-    #address-detail-wrapper{
-        position: absolute!important;
-        width: 100%!important;
-        top: 270px!important;
+
+    #address-detail-wrapper {
+        position: absolute !important;
+        width: 100% !important;
+        top: 270px !important;
     }
-    #post-code-mb{
+
+    #post-code-mb {
         margin-top: 150px;
     }
 }
 
-.form-control{
-    border-radius: 0!important;
+.form-control {
+    border-radius: 0 !important;
 }
-.productAndOrder{
+
+.productAndOrder {
     width: 75%;
     margin: 30px auto 0;
     color: #555;
@@ -978,11 +1008,27 @@ div#document-loading p, div#document-error p {
     height: 20px;
     line-height: 20px;
 }
-.about_product,.about_order{
+
+.about_product, .about_order {
     width: 50%;
     float: left;
 }
-.about_product span,.about_order span{
+
+.about_product span, .about_order span {
     margin-right: 10px;
     font-weight: 500;
+}
+#invest-info .payment{
+    margin-left: 80px;
+    text-align: left;
+}
+#invest-info .payment label{
+    color: #555;
+    font-weight: normal;
+}
+.checkbox, .radio{
+    margin: 5px 0;
+}
+#signature-box{
+    overflow: hidden;
 }

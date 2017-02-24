@@ -10,10 +10,13 @@ $(function () {
         $('.about_order').html('<span>订单</span>' + order_number);
     }
 
+    /**************************** 返回第三步 ******************************/
     $('.prev-three').on('click', function () {
         window.location = '/auxiliary_order/stepThree.html?' +
             'product_id=' + product_id + '&phone=' + user_phone + '&channel_code=' + channel_code + '&order_number=' + order_number;
     });
+
+    /**************************** 提交第四步数据 ******************************/
     $('.step-four').on('click', function () {
         $(this).prop('disabled', true);
         var invest_value = parseInt($('.invest-amounts').val());
@@ -27,10 +30,8 @@ $(function () {
             $(this).prop('disabled', false);
             return false;
         }
-        user_data.payment_method='wire';
-        if(user_data.bank_type=='US'&&$('#invest-info .checkbox input[type="checkbox"]:checked')){
-            user_data.payment_method='ach';
-        }
+
+        user_data.payment_method = $('#invest-info .payment input:checked').val();
         user_data.channel_code = channel_code;
         user_data.product_id = product_id;
         user_data.phone = user_phone;
@@ -56,15 +57,37 @@ $(function () {
     }
 
     var invest_par_value, minimum_invest_amount;
-    // 辅助下单获取产品信息
+
+    /***************************** 辅助下单获取产品信息 *****************************/
     if (product_id != '') {
         getData({
             url: base_url + '/white_label/product_info',
             data: {product_id: product_id},
+            async: false,
             sucFn: getProductSuc,
             failFn: getFail
         });
     }
+
+    /***************************** 辅助下单获取支付方式 *****************************/
+    var ach = false;
+    if (product_id != '') {
+        getData({
+            url: base_url + '/white_label/product/payment_list',
+            data: {product_id: product_id},
+            async: false,
+            sucFn: getPaymentSuc,
+            failFn: getFail
+        });
+    }
+    function getPaymentSuc(res) {
+        var d = res.body;
+        if (d) {
+            ach = d.is_ach_enabled;
+        }
+    }
+
+    /***************************** 辅助下单获取用户信息 *****************************/
     if (user_phone != '') {
         getData({
             url: base_url + '/zion/assist/customerInfo',
@@ -123,7 +146,20 @@ $(function () {
                 $('#get-aba').html(d.bank_us.routing_number);
                 $('#get-bank-user-name').html(d.first_name + ' ' + d.last_name);
                 $('#get-bank-user-account').html(d.bank_us.account_number.replace(/^\d+(\d{4})$/, "****************$1"));
-                $('#invest-info .checkbox label').html('<input type="checkbox">确认投资后通过ACH自动从' + d.bank_us.bank_name + '（' + d.bank_us.account_number.replace(/^\d+(\d{4})$/, "$1") + '）扣款')
+                if (ach) {
+                    $('#invest-info .payment').html('<p style="color: #000;margin-bottom: 5px;">入金方式只能选择其中一项：</p><div class="radio">'+
+                        '<label>'+
+                        '<input type="radio" name="optionsRadios" checked value="ach">通过ACH自动从'+d.bank_us.bank_name+'（' + d.bank_us.account_number.replace(/^\d+(\d{4})$/, "$1") + '）扣款'+
+                    '</label>'+
+                    '</div>'+
+                    '<div class="radio">'+
+                        '<label>'+
+                        '<input type="radio" name="optionsRadios" value="wire">通过银行电汇线下打款'+
+                    '</label>'+
+                    '</div>');
+                } else {
+                    $('#invest-info .payment').html('<div class="checkbox"><label><input type="checkbox" checked value="wire" disabled>通过银行电汇线下打款</label></div>');
+                }
             } else {
                 $('#get-bank-aba').hide();
                 $('#get-bank-name').html(d.bank_non_us.bank_name);
@@ -139,6 +175,7 @@ $(function () {
                 }
                 $('#get-bank-user-name').html(d.first_name + ' ' + d.last_name);
                 $('#get-bank-user-account').html(d.bank_non_us.account_number.replace(/^\d+(\d{4})$/, "****************$1"));
+                $('#invest-info .payment').html('<div class="checkbox"><label><input type="checkbox" checked value="wire" disabled>通过银行电汇线下打款</label></div>');
             }
         }
     }

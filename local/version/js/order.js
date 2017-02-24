@@ -93,6 +93,7 @@ $(function () {
         $(this).css('border', '1px solid #ccc');
     });
     $('.search').on('click', function () {
+        $('.error').html('');
         $(this).prop('disabled', true);
         var data = {}, arr = [];
         var checkedBox = $('.checkbox input[type="checkbox"]:checked'); //获取选中的筛选条件checkbox
@@ -144,7 +145,8 @@ $(function () {
                 non_admin_order_list(jsonData)
             }
         } else {
-            $('.order-list tbody').html('无数据！')
+            $('.order-list tbody').html('');
+            $('.error').html('<div class="text-center"><img src="/vendor/img/wu.png"><p style="margin-top: 10px;">暂无数据</p></div>')
         }
         $('.search').prop('disabled', false);
     }
@@ -162,7 +164,7 @@ $(function () {
                 first_name = item.first_name != null ? item.first_name : '',
                 last_name = item.last_name != null ? item.last_name : '',
                 fa_investment_status = item.fa_investment_status != null ? item.fa_investment_status : '',
-                created_at = item.created_at != null ? item.created_at : '',
+                created_at = item.created_at != null ? formatDate(item.created_at) : '',
                 order_number = item.order_number != null ? item.order_number : '';
             var invest_status;
             if (fa_investment_status == 'not_commit') {
@@ -194,7 +196,7 @@ $(function () {
                 '<td><a href="/orderDetails.html?order_number=' + order_number + '">' + order_number + '</a></td>' +
                 '<td><a href="/productDetails.html?product_id=' + item.product_id + '">' + product_name + '</a></td>' +
                 '<td>' + product_number + '</td>' +
-                '<td><a href="/customerDetails.html?phone=' + phone + '">' + first_name + ' ' + last_name + '</a>' +
+                '<td><a href="/customerDetails.html?phone=' + phone + '">' + first_name + ' ' + last_name + '</a></td>' +
                 '<td>' + phone + '</td>' +
                 '<td>' + invest_amount + '</td>' +
                 '<td>' + advisor_name + '</td>' +
@@ -208,7 +210,7 @@ $(function () {
 
     // 写入非管理员的订单列表信息
     function non_admin_order_list(data) {
-        $('.order-list tbody').html('')
+        $('.order-list tbody').html('');
         var html = '';
         $.each(data, function (i, item) {
             var
@@ -219,7 +221,7 @@ $(function () {
                 first_name = item.first_name != null ? item.first_name : '',
                 last_name = item.last_name != null ? item.last_name : '',
                 fa_investment_status = item.fa_investment_status != null ? item.fa_investment_status : '',
-                created_at = item.created_at != null ? item.created_at : '',
+                created_at = item.created_at != null ? formatDate(item.created_at) : '',
                 order_number = item.order_number != null ? item.order_number : '';
             if (fa_investment_status == 'not_commit') {
                 fa_investment_status = '未签署'
@@ -250,13 +252,13 @@ $(function () {
                 '<td><a href="/orderDetails.html?order_number=' + order_number + '">' + order_number + '</a></td>' +
                 '<td><a href="/productDetails.html?product_id=' + item.product_id + '">' + product_name + '</a></td>' +
                 '<td>' + product_number + '</td>' +
-                '<td>' + first_name + ' ' + last_name + '</td>' +
+                '<td><a href="/customerDetails.html?phone=' + phone + '">' + first_name + ' ' + last_name + '</a></td>' +
                 '<td>' + phone + '</td>' +
                 '<td>' + invest_amount + '</td>' +
                 '<td>' + fa_investment_status + '</td>' +
                 '<td>' + created_at + '</td>' +
                 '</tr>'
-        })
+        });
         $('.order-list tbody').html(html);
     }
 
@@ -264,5 +266,20 @@ $(function () {
     function order_fail(res) {
         $('.search').prop('disabled', false);
         alert(res.msg)
+    }
+
+    /************************* 时间戳转换时间 *************************/
+    function formatDate(now) {
+        var newDate = new Date(now);
+        var year = newDate.getFullYear();
+        var month = newDate.getMonth() + 1;
+        var date = newDate.getDate();
+        if (month < 10) {
+            month = '0' + month;
+        }
+        if (date < 10) {
+            date = '0' + date;
+        }
+        return year + "-" + month + "-" + date;
     }
 });

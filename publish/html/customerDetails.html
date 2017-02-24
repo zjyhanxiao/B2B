@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>客户详情</title>
+</head>
+<link href="https://www.meixinglobal.com/vendor/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://www.meixinglobal.com/zion/version_1.0/dist/css/backstageDetails.min.css" rel="stylesheet">
+<body>
+<link href="https://www.meixinglobal.com/zion/version_1.0/dist/css/header.min.css" rel="stylesheet">
+<div id="product_head">
+    <div class="header">
+        <div class="product_logo">
+            <img src="https://www.meixinglobal.com/zion/version_1.0/dist/img/logo.png" alt="">
+        </div>
+        <ul>
+            <li data-name="产品"><a href="/productList.html">产品</a></li>
+            <li data-name="订单"><a href="/order.html">订单</a></li>
+            <li data-name="客户"><a href="/customerList.html">客户</a></li>
+            <li class="backstage" data-name="内部管理"><a href="/backstageList.html">内部管理</a></li>
+            <li class="user_img myAccount"><a href="/myAccount.html"></a></li>
+            <li class="user_img" id="logout"><a href="javascript:;"><img src="https://www.meixinglobal.com/zion/version_1.0/dist/img/exit.png" alt=""></a></li>
+        </ul>
+    </div>
+</div>
+<div id="main">
+    <div id="product_content">
+        <div class="product_main">
+            <div class="head">
+                <p class="head_left"><span style="font-size: 20px;color: #223976;border-left: 3px solid #223967;padding: 0 20px">客户&nbsp;&nbsp;&nbsp;<span id="name"></span></span></p>
+            </div>
+            <p style="margin-bottom: 20px"><a class="check_indent" href="">查看订单</a></p>
+            <div class="counselor_info">
+
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-5 line50">
+                        <label>电话:</label>&nbsp;&nbsp;&nbsp;
+                        <span id="phone"></span>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-5 line50">
+                        <label>邮箱:</label>&nbsp;&nbsp;&nbsp;
+                        <span id="email"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-5 line50">
+                        <label>成单数量:</label>&nbsp;&nbsp;&nbsp;
+                        <span id="order_count"></span>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-5 line50">
+                        <label>总成单金额:</label>&nbsp;&nbsp;&nbsp;
+                        <span id="invest_amount"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="https://www.meixinglobal.com/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="https://www.meixinglobal.com/vendor/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="https://www.meixinglobal.com/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
+<script src="https://www.meixinglobal.com/zion/version_1.0/dist/js/common.min.js" type="text/javascript"></script>
+<script src="https://www.meixinglobal.com/zion/version_1.0/dist/js/customerDetails.min.js" type="text/javascript"></script>
+
+</html>

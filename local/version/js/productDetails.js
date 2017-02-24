@@ -179,17 +179,17 @@ $(function () {
                 $('#account_address').html(res.body.receive_bank.account_address)
                 $('#bank_name').html(res.body.receive_bank.bank_name)
                 $('#bank_address').html(res.body.receive_bank.bank_address)
-                $('#routing_number').html(res.body.receive_bank.riouting_number)
+                $('#routing_number').html(res.body.receive_bank.routing_number)
                 $('#swift_code').html(res.body.receive_bank.swift_code)
                 $('#account_number').html(res.body.receive_bank.account_number)
-
-                $('#middle_bank_name').html(res.body.middle_bank.bank_name)
-                $('#middle_bank_address').html(res.body.middle_bank.bank_address)
-                $('#middle_swift_code').html(res.body.middle_bank.swift_code)
+                $('#remark').html(res.body.receive_bank.remark)
             }
 
             if (res.body.is_middle_bank_enabled){
                 $('.middle_bank').css('display','block');
+                $('#middle_bank_name').html(res.body.middle_bank.bank_name)
+                $('#middle_bank_address').html(res.body.middle_bank.bank_address)
+                $('#middle_swift_code').html(res.body.middle_bank.swift_code)
             }else {
                 $('.middle_bank').css('display','none');
             }
@@ -440,7 +440,6 @@ window.onload = function () {
     $('#select2').change(function () {
 //            $('.assist').attr("href","https://invest.meixinglobal.com/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select2').val())
 
-
         // 兼容ie
         if (window["context"] == undefined) {
             if (!window.location.origin) {
@@ -449,10 +448,13 @@ window.onload = function () {
             window["context"] = location.origin;
         }
 
-
-
         $('.order_btn').data('shuju',window.location.origin+"/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&channel_code="+$('#select2').val())
         $('.order_btn').data('code',$('#select2').val())
+    })
+
+    //关闭按钮至disabled
+    $('.close_on').click(function () {
+        $('.choose_user').attr('disabled',"disabled");
     })
 
     //复制分享链接

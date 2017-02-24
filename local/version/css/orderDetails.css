@@ -1,6 +1,6 @@
 .order_warp {
     width: 1030px;
-    margin: auto;
+    margin: 0 auto 40px;
 }
 
 .about_product, .about_file, .about_order {
@@ -77,7 +77,7 @@
     background: none;
     border: none;
     color: #ff3300;
-    padding-left: 23px;
+    padding-left: 13px;
     cursor: pointer;
 }
 

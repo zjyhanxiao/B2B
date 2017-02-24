@@ -1,7 +1,8 @@
 /**
  * Created by zhiqiang.li on 2017/1/17.
  */
-var baseUrlChannel = 'https://zion-api.meixincn.com';
+var baseUrlChannel = 'https://zion-api.meixinglobal.com';
+// var baseUrlChannel = 'https://zion-api.meixincn.com';
 var invest_success = false;
 $(function () {
     // 让用户知道，如果要关掉此页面则会丢去所有工作
@@ -936,38 +937,38 @@ $(function () {
         next_step = false;
         if ($("[name=checkbox]:not(:checked)").length == 0) {
             $("#document-waring").hide();
-            //获取签名
-            signature = $('#signature-line').jSignature('getData');
-            if (signature != jSignatureDefult) {
-                console.log('签名验证通过');
-                $(".signature-default").hide();
-                signature = $('#signature-line').jSignature('getData');
-                next_step = true;
-                $("#invest-signature").removeClass('active').next().addClass('active');
-                $('body').scrollTop(0);
-                //获取可选择的支付方式
-                var product = {'product_id': product_id};
-                $.ajax({
-                    type: 'get',
-                    dataType: 'json',
-                    contentType: 'application/json',
-                    data: product,
-                    url: baseUrlChannel + '/white_label/product/payment_list',
-                    success: getProductPayment
-                });
-            } else {
-                $(".signature-default").show();
-                next_step = false;
-                return false;
-            }
-        }
-        else {
+
+        } else {
             $("#document-waring").show();
             $('body').scrollTop($('#get-invest-document').eq(0).offset().top - 50);
 
         }
+        //获取签名
+        signature = $('#signature-line').jSignature('getData');
+        if (signature != jSignatureDefult) {
+            console.log('签名验证通过');
+            $(".signature-default").hide();
+            signature = $('#signature-line').jSignature('getData');
+            next_step = true;
+            $("#invest-signature").removeClass('active').next().addClass('active');
+        } else {
+            $(".signature-default").show();
+            next_step = false;
+            return false;
+        }
+        //获取可选择的支付方式
+        var product = {'product_id': product_id};
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: product,
+            url: baseUrlChannel + '/white_label/product/payment_list',
+            success: getProductPayment
+        });
         //加载第六页信息
         function getProductPayment(res) {
+            $('body').scrollTop(0);
             var d = res.body;
             if (d.is_ach_enabled) {
                 $("#nav-golden").append(achLiDom);

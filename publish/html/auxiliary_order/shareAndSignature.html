@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="hotcss" content="initial-dpr=1">
+    <title>确认签字</title>
+    <link href="https://www.meixinglobal.com/vendor/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://www.meixinglobal.com/zion/version_1.0/dist/css/auxiliary_order.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="beforeOpen">
+    <p>请输入密码打开“安心定期六期”产品投资文件</p>
+    <input type="password" placeholder="请输入解锁密码">
+    <div>
+        <button>打开</button>
+    </div>
+</div>
+<div class="container" id="signaturePage">
+    <div class="row">
+        <div class="col-md-12 text-center product-warp">
+            <h2 class="product_name">产品名称</h2>
+            <p class="return_rate">预计年化收益：%</p>
+            <p class="invest_term">投资期限：个月</p>
+            <div id="invest_value">
+                <div class="invest_value">投资金额<span></span></div>
+                <div class="payment"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="show-user-info text-center"><a href="javascript:;">点击查看投资信息</a></div>
+            <div class="user-info">
+                <a href="javascript:;" class="hide-info">收起</a>
+                <div class="base_info">
+                    <div class="info-title">基本信息</div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>姓名</label>
+                            <span class="full_name"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>电话</label>
+                            <span class="phone"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label>电子邮箱</label>
+                            <span class="email"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>出生日期</label>
+                            <span class="date_of_birth"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label>资金来源</label>
+                            <span class="source_of_capital"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>行业</label>
+                            <span class="industry"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label>职业</label>
+                            <span class="occupation"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>护照号</label>
+                            <span class="passport_number"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label>有效期至</label>
+                            <span class="passport_expire_date"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="address_info">
+                    <div class="info-title">地址信息</div>
+                    <div class="row">
+                        <div class="col-md-12 line-1">
+
+                        </div>
+                        <div class="col-md-12 line-2">
+
+                        </div>
+                        <div class="col-md-12 line-3">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="bank_info">
+                    <div class="info-title">银行信息</div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>银行名称</label>
+                            <span class="bank_name"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label>银行地址</label>
+                            <span class="bank_address"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label>ABA/routing #</label>
+                            <span class="routing_number"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label>SwiftCode</label>
+                            <span class="swift_code"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label>银行账户姓名</label>
+                            <span class="full_name"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label>账户号</label>
+                            <span class="account_number"></span>
+                        </div>
+                        <div class="col-md-12 middle_bank">
+                            <label>中间行名称</label>
+                            <span class="middle_bank_name"></span>
+                        </div>
+                        <div class="col-md-12 middle_bank">
+                            <label>中间行地址</label>
+                            <span class="middle_bank_address"></span>
+                        </div>
+                        <div class="col-md-12 middle_bank">
+                            <label>中间行SwiftCode</label>
+                            <span class="middle_bank_swift_code"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form>
+                <div class="document-info">
+                    <p>请认真查看以下文件并核对所填写的信息和已勾选的选项</p>
+                    <div class="document-item form-inline">
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="signature">
+                <p style="color: #999;font-size: 12px;">
+                    本人声明：本人提供的所有信息均真实准确并同意在内容有任何变化的情况下以电话或邮件形式通知美信金融。必要时，本人授权美信金融对资料的准确性进行确认。此处输入本人签名并通过网络发送之前，本人确认，阅读并已了解申购过程中提供的所有信息；本人了解同意此签名同等于手写签名，同时授权美信金融在必要时可以使用此签名人作为确认依据。</p>
+                <p style="color: #223976; margin-bottom: 5px;">投资人 (<span class="full_name"></span>) 签名</p>
+                <div id="signature-box">
+                    <div id="signature-line">
+                    </div>
+                </div>
+                <button id="signature-reset-button" type="button"
+                        onclick="$('#signature-line').jSignature('clear');">重新签名
+                </button>
+                <p style="color: #ff6600; width: 70%;">温馨提示：您的签名必须与已上传的证件上所提供的签名一致</p>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <button id="update_order">确认签字</button>
+        </div>
+    </div>
+</div>
+<!-- The overlay -->
+<div id="document-preview" class="overlay">
+    <span class="overlay-left-top close-document-preview">&lt; 返回签字页面</span>
+
+    <div id="document-loading">
+        <img src="https://www.meixinglobal.com/zion/version_1.0/dist/img/channel/loading.gif"/>
+        <p>请稍后，正在生成文件...<br/><br/>Please wait, generating document...</p>
+    </div>
+    <div id="document-error">
+        <img src="https://www.meixinglobal.com/zion/version_1.0/dist/img/channel/error.png"/>
+        <p>暂时无法生成文件！请关闭重试。<br/><br/>Could not generate document! Please retry.</p>
+    </div>
+
+    <!-- Document -->
+    <div id="document-element-wrapper"></div>
+</div>
+<script src="https://www.meixinglobal.com/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="https://www.meixinglobal.com/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
+<script src="https://www.meixinglobal.com/vendor/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="https://www.meixinglobal.com/zion/version_1.0/dist/js/common.min.js" type="text/javascript"></script>
+<script src="https://www.meixinglobal.com/vendor/js/jSignature.min.js" type="text/javascript"></script>
+<script src="https://www.meixinglobal.com/zion/version_1.0/dist/js/auxiliary_order.min.js" type="text/javascript"></script>
+</body>
+</html>
