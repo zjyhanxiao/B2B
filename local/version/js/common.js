@@ -119,4 +119,27 @@ $(function () {
         $.cookie('mx_secret', null);
         window.location = '/login.html'
     }
+
+    function alertMsg(msg, ts, status) {
+        var that = this;
+        ts = ts || 2;
+        var $tipw = $('#times-tip-wraps');
+        if ($tipw && $tipw.length > 0) {
+            $tipw.html('<span>' + msg + '</span>');
+            $tipw.show();
+        } else {
+            var $tipw = $('<div id="times-tip-wraps" class="tips" ><span>' + msg + '</span></div>');
+            $('body').append($tipw);
+        }
+        this.tipTs && clearTimeout(this.tipTs);
+        this.tipTs = setTimeout(function () {
+            $tipw.hide();
+        }, ts * 1000);
+        $tipw.unbind();
+        $tipw.bind('click', function () {
+            clearTimeout(that.tipTs);
+            $(this).hide();
+            return false;
+        });
+    }
 });

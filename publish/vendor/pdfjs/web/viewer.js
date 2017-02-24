@@ -2072,6 +2072,7 @@ var HOSTED_VIEWER_ORIGINS = [
  'http://localhost:8000',
  'http://zion.meixincn.com',
  'https://www.meixinglobal.com',
+ 'https://meixinglobal.com',
  'https://invest.meixinglobal.com',
  'https://prod-gl-api.meixincn.com',
  'http://www.yuechenzhao.com',

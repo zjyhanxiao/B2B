@@ -256,3 +256,6 @@ div#document-loading p, div#document-error p {
         right: 0;
     }
 }
+#signature-box{
+    overflow: hidden;
+}
