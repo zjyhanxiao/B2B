@@ -5,7 +5,7 @@ html, body {
 
 body {
     background: #fff url("../img/login_bg.png") bottom center no-repeat;
-    background-size: 100%;
+    background-size: cover;
 }
 
 .user_warp {
