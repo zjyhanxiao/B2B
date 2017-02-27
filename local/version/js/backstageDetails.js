@@ -230,14 +230,14 @@ $('#abolish_password').click(function () {
 $('.login_on').click(function () {
 
     if ($('.login_on').html() == '关闭登录权限'){
-        $('.message').html('关闭登录权限后，该用户将无法登陆查看用户信息或跟进订单情况。')
+        $('.message').html('关闭登录权限后，该用户将无法登录查看用户信息或跟进订单情况。')
         $('#confirm_permission').css({'background':'#ff9933','border-color':'#ff9933'})
 
         $('.permission').modal('show')
 
         $('#confirm_permission').html('关闭权限')
     }else {
-        $('.message').html('开启登录权限后，该用户将可以登陆查看用户信息或跟进订单情况。')
+        $('.message').html('开启登录权限后，该用户将可以登录查看用户信息或跟进订单情况。')
         $('#confirm_permission').css({'background':'#337ab7','border-color':'#337ab7'})
 
         $('.permission').modal('show')
