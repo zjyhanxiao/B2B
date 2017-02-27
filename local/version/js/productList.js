@@ -28,13 +28,13 @@ $(function () {
                     var big = '';
                     var small = '';
                     domBody='<tr class="table_th">' +
-                        '<td>'+val+'</td>' +
-                        '<td>预计年化</td>' +
-                        '<td>投资期限</td>' +
-                        '<td>起息时期</td>' +
-                        '<td>开售日期</td>' +
-                        '<td>停售日期</td>'+
-                        '<td></td>'+
+                        '<th>'+val+'</th>' +
+                        '<th>预计年化</th>' +
+                        '<th>投资期限</th>' +
+                        '<th>起息时期</th>' +
+                        '<th>开售日期</th>' +
+                        '<th>停售日期</th>'+
+                        '<th></th>'+
                         '</tr>'
                     console.log(res.body[key][val])
                     if (res.body[key][val].length>3){
@@ -54,7 +54,7 @@ $(function () {
                             }
                             if (j>2){
 
-                                big += '<tr class="big"><td><a href="productDetails.html?product_id='+jtem.id+'" class="color_223976">'+jtem.number+'</a></td>' +
+                                big += '<tr class="big hover"><td><a href="productDetails.html?product_id='+jtem.id+'" class="color_223976">'+jtem.number+'</a></td>' +
                                     '<td>'+jtem.return_rate+'%</td>' +
                                     '<td>'+jtem.invest_term+'个月</td>' +
                                     '<td>'+jtem.close_fund_start_interest_day+'</td>' +
@@ -63,7 +63,7 @@ $(function () {
                                     '<td class="">'+statu+'</td></tr>';
                             } else {
 
-                                small += '<tr><td><a href="productDetails.html?product_id='+jtem.id+'" class="color_223976">'+jtem.number+'</a></td>' +
+                                small += '<tr class="hover"><td><a href="productDetails.html?product_id='+jtem.id+'" class="color_223976">'+jtem.number+'</a></td>' +
                                     '<td>'+jtem.return_rate+'%</td>' +
                                     '<td>'+jtem.invest_term+'个月</td>' +
                                     '<td>'+jtem.close_fund_start_interest_day+'</td>' +
@@ -91,7 +91,7 @@ $(function () {
                             if (jtem.status == 'FOR_APPOINTMENT'){
                                 statu = '<a href="productDetails.html?product_id='+jtem.id+'" class="state bg_yu">预售</a>'
                             }
-                            tableDom+='<tr><td><a href="productDetails.html?product_id='+jtem.id+'" class="color_223976">'+jtem.number+'</a></td>' +
+                            tableDom+='<tr class="hover"><td><a href="productDetails.html?product_id='+jtem.id+'" class="color_223976">'+jtem.number+'</a></td>' +
                                 '<td>'+jtem.return_rate+'%</td>' +
                                 '<td>'+jtem.invest_term+'个月</td>' +
                                 '<td>'+jtem.close_fund_start_interest_day+'</td>' +

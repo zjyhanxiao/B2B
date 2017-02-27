@@ -10,6 +10,7 @@ a:hover{
 }
 body{
     font-size: 14px;
+    color: #555555;
 }
 #main{
     width: 1200px;
@@ -89,6 +90,22 @@ body{
 .color_223976{
     color: #223976;
 }
+
+
+
+
+table tr{
+    cursor: pointer;
+}
+table tr.hover:hover{
+    background: #f0f0f0;
+}
+th{
+    text-align: center;
+}
+
+
+
 table tr td:first-child{
     font-size: 16px;
     color: #223976;
