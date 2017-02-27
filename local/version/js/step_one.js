@@ -275,7 +275,7 @@ $(function () {
 
 
     //上传护照
-    $('#passport-proof').change(function () {
+/*    $('#passport-proof').change(function () {
         $("#passport-false").hide();
         var $this = $(this);
         var val = $(this).val().toLowerCase();
@@ -286,8 +286,8 @@ $(function () {
         } else {
             file_passport_upload($this);
         }
-    });
-    function file_passport_upload(dom) {
+    });*/
+/*    function file_passport_upload(dom) {
         var formData = new FormData($('form')[0]);
         formData.append('file', $("#passport-proof")[0].files[0]);
         $.ajax({
@@ -316,7 +316,7 @@ $(function () {
     //上传组件
     $('.fa-upload-pic').find('a').click(function () {
         $(this).siblings('input').trigger('click');
-    });
+    });*/
 
     //获取焦点后移除红框
     $('input').on('focus', function () {
@@ -343,7 +343,7 @@ $(function () {
             doFormat(e.target)
     });
 
-    $('#fileMapping').find('img').click(function () {
+    $('#fileMapping').click(function () {
         $('.filePicker input').trigger('click');
     });
     uploader_file('#fileMapping');
