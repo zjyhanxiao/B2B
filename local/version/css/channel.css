@@ -78,9 +78,9 @@ body {
     z-index: 1000;
 }
 
-.input-sm {
+/*.input-sm {
     border-radius: 0;
-}
+}*/
 
 input[type="checkbox"] {
     margin-right: 10px;
@@ -996,9 +996,9 @@ div#document-loading p, div#document-error p {
     }
 }
 
-.form-control {
+/*.form-control {
     border-radius: 0 !important;
-}
+}*/
 
 .productAndOrder {
     width: 75%;

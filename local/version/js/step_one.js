@@ -7,9 +7,9 @@ $(function () {
     var product_id = getUrlParam('product_id') || ''; //获取产品id
     var order_number = getUrlParam('order_number') || ''; // 获取订单编号
 
-    var passport_photo_default = $('.fa-upload-pic img').attr('src');
+    var passport_photo_default = $('#fileMapping img').attr('src');
     $('.step-one').on('click', function () {
-        var passport_photo = $('.fa-upload-pic img').attr('src');
+        var passport_photo = $('#fileMapping img').attr('src');
         if (passport_photo == passport_photo_default) {
             passport_photo = '';
         }
@@ -196,7 +196,7 @@ $(function () {
     });
 
     //获取电话区号
-    var country_data = {'city': '', 'country': '', 'region': ''};
+/*    var country_data = {'city': '', 'country': '', 'region': ''};
     $.ajax({
         type: 'post',
         dataType: 'json',
@@ -212,10 +212,11 @@ $(function () {
             });
             $("#phone-code").empty().append(html);
         }
-    });
+    });*/
 
     // 通过手机号获取渠道用户信息
     if (user_phone != '') {
+        $('#phone-code,#phone').prop('disabled',true);
         getData({
             url: base_url + '/zion/assist/customerInfo',
             data: {phone: user_phone},
@@ -231,12 +232,12 @@ $(function () {
     function baseInfo(res) {
         var d = res.body;
         if (d && d != null) {
-            $('#phone-code,#phone').prop({readOnly: true, disabled: true});
+            // $('#phone-code,#phone').prop({readOnly: true, disabled: true});
             $('#last_name').val(d.last_name);
             $('#first_name').val(d.first_name);
             if (d.phone != '' && d.phone.indexOf(' ')) {
                 $('#phone').val(d.phone.split(' ')[1]);
-                $("#phone-code").val(d.phone.split(' ')[0]);
+                // $("#phone-code").val(d.phone.split(' ')[0]);
             }
             $('#email').val(d.email);
             $('#date-of-birth').val(d.base_info.date_of_birth);
@@ -244,7 +245,7 @@ $(function () {
             $('#industry').val(d.base_info.industry);
             $('#passport-number').val(d.passport_number);
             $('#effective').val(d.passport_expire_date);
-            $('.fa-upload-pic img').attr('src', d.passport_url);
+            $('#fileMapping img').attr('src', d.passport_url);
             if (d.base_info.industry != '' && d.base_info.industry != null &&
                 d.base_info.occupation != '' && d.base_info.occupation != null
             ) {
@@ -341,4 +342,9 @@ $(function () {
         if (!e.ctrlKey && !e.metaKey && (e.keyCode == 32 || e.keyCode > 46))
             doFormat(e.target)
     });
+
+    $('#fileMapping').find('img').click(function () {
+        $('.filePicker input').trigger('click');
+    });
+    uploader_file('#fileMapping');
 });

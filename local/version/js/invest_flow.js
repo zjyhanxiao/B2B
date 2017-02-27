@@ -1,6 +1,7 @@
 $(function () {
     var product_id = getUrlParam('product_id') || '';
     var order_number = getUrlParam('order_number') || '';
+    $('#fileMapping').height(Math.floor($('#fileMapping').width()*200/340));
     if (order_number != '' && $('.about_order').length) {
         $('.about_order').html('<span>订单</span>' + order_number);
     }

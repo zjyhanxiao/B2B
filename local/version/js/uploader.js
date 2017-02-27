@@ -64,7 +64,8 @@ var uploader_file = function (id, url, imgAccept) {
     // 当有文件添加进来的时候
     uploader.on('fileQueued', function (file) {
         var $li = $(
-                '<div id="' + file.id + '" class="file-item thumbnail">' + '<span class="glyphicon glyphicon-remove"></span>' +
+                '<div id="' + file.id + '" class="file-item thumbnail">' +
+                // '<span class="glyphicon glyphicon-remove"></span>' +
                 '<img>' +
                 // '<div class="info">' + file.name + '</div>' +
                 '</div>'
