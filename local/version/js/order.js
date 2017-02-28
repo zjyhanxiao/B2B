@@ -139,11 +139,7 @@ $(function () {
              return i > 2000;
              }, true);*/
             var jsonData = data.body;
-            if (is_admin) {// 管理员和客户分别渲染不同数据
-                admin_order_list(jsonData)
-            } else {
-                non_admin_order_list(jsonData)
-            }
+            admin_order_list(jsonData)
         } else {
             $('.order-list tbody').html('');
             $('.error').html('<div class="text-center"><img src="/vendor/img/wu.png"><p style="margin-top: 10px;">暂无数据</p></div>')
@@ -151,7 +147,7 @@ $(function () {
         $('.search').prop('disabled', false);
     }
 
-    // 写入管理员的订单列表信息
+    // 写入订单列表信息
     function admin_order_list(data) {
         $('.order-list tbody').html('');
         var html = '';
@@ -198,67 +194,16 @@ $(function () {
                 '<td>' + product_number + '</td>' +
                 '<td><a href="/customerDetails.html?phone=' + phone + '">' + first_name + ' ' + last_name + '</a></td>' +
                 '<td>' + phone + '</td>' +
-                '<td>' + invest_amount + '</td>' +
-                '<td>' + advisor_name + '</td>' +
-                '<td>' + item.code + '</td>' +
-                '<td>' + invest_status + '</td>' +
+                '<td>' + invest_amount + '</td>';
+            if (is_admin) {
+                html += '<td>' + advisor_name + '</td>' +
+                    '<td>' + item.code + '</td>';
+            }
+
+            html += '<td>' + invest_status + '</td>' +
                 '<td>' + created_at + '</td>' +
                 '</tr>'
         })
-        $('.order-list tbody').html(html);
-    }
-
-    // 写入非管理员的订单列表信息
-    function non_admin_order_list(data) {
-        $('.order-list tbody').html('');
-        var html = '';
-        $.each(data, function (i, item) {
-            var
-                phone = item.phone != null ? item.phone : '',
-                product_number = item.product_number != null ? item.product_number : '',
-                product_name = item.product_name != null ? item.product_name : '',
-                invest_amount = item.invest_amount != null ? item.invest_amount : '',
-                first_name = item.first_name != null ? item.first_name : '',
-                last_name = item.last_name != null ? item.last_name : '',
-                fa_investment_status = item.fa_investment_status != null ? item.fa_investment_status : '',
-                created_at = item.created_at != null ? formatDate(item.created_at) : '',
-                order_number = item.order_number != null ? item.order_number : '';
-            if (fa_investment_status == 'not_commit') {
-                fa_investment_status = '未签署'
-            }
-            if (fa_investment_status == 'not_received') {
-                fa_investment_status = '未入金'
-            }
-            if (fa_investment_status == 'start_audit') {
-                fa_investment_status = '审核中'
-            }
-            if (fa_investment_status == 'audit_failed') {
-                fa_investment_status = '审核失败'
-            }
-            if (fa_investment_status == 'audit_success') {
-                fa_investment_status = '审核通过'
-            }
-            if (fa_investment_status == 'start_interest') {
-                fa_investment_status = '投资中'
-            }
-            if (fa_investment_status == 'refunded') {
-                fa_investment_status = '投资结束'
-            }
-            if (fa_investment_status == 'voided') {
-                fa_investment_status = '已取消'
-            }
-            html +=
-                '<tr>' +
-                '<td><a href="/orderDetails.html?order_number=' + order_number + '">' + order_number + '</a></td>' +
-                '<td><a href="/productDetails.html?product_id=' + item.product_id + '">' + product_name + '</a></td>' +
-                '<td>' + product_number + '</td>' +
-                '<td><a href="/customerDetails.html?phone=' + phone + '">' + first_name + ' ' + last_name + '</a></td>' +
-                '<td>' + phone + '</td>' +
-                '<td>' + invest_amount + '</td>' +
-                '<td>' + fa_investment_status + '</td>' +
-                '<td>' + created_at + '</td>' +
-                '</tr>'
-        });
         $('.order-list tbody').html(html);
     }
 

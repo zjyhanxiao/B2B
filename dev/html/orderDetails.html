@@ -99,10 +99,41 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">取消订单</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
             </div>
             <div class="modal-body">
+                <div class="order_progress clearfix">
+                    <div class="number">
+                        <ul>
+                            <li class="passing">1</li>
+                            <li class="passing">2</li>
+                            <li class="active">3</li>
+                            <li>4</li>
+                            <li>5</li>
+                        </ul>
+                    </div>
+                    <div class="describe">
+                        <ul>
+                            <li><span style="color: #ff0000">未入金</span>
+                                <p>认购成功！请客户从Bank of American（5548）账户操作入金</p>
+                            </li>
+                            <li><span style="color: #ff6600">审核中</span>
+                                <p>资金已经进入账户，开始对投资资料进行审核</p>
+                            </li>
+                            <li><span style="color: #16bd16">审核通过</span>
+                                <p>审核通过，等待投资起息</p>
+                            </li>
+                            <li><span style="color: #4faeff">投资中</span>
+                                <p>投资开始计息</p>
+                            </li>
+                            <li><span style="color: #555">投资结束</span>
+                                <p>投资结束，本金及利息将全部归还之客户的Bank of American（5548）账户</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <!--<p>订单F2CG8M01001</p>
                 <p>请输入F2CG8M01001确定您要取消的订单。订单一旦取消不可复原！</p>
                 <div class="form-inline">
