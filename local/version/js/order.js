@@ -170,7 +170,7 @@ $(function () {
                 invest_status = '<span style="color: #f00;">未入金</span>';
             }
             if (fa_investment_status == 'start_audit' || fa_investment_status == 'received') {
-                invest_status = '<span style="color: #ff6600;">审核中</span>';
+                invest_status = '<span style="color: #ff9933;">审核中</span>';
             }
             if (fa_investment_status == 'audit_failed') {
                 invest_status = '<span style="color: #f00;">审核失败</span>';
