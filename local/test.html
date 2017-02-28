@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outter {
+            width: 800px;
+            height: 600px;
+            margin: 100px auto 0;
+            background-color: gray;
+        }
+        .inner {
+            width: 800px;
+            height: 600px;
+
+            transform: scale(0);
+            transform-origin: 50% 50%;
+            transition: transform .4s ease-in-out;
+
+            background:url(http://www.ppt123.net/beijing/UploadFiles_8374/201203/2012032518062306.jpg);
+            background-size:cover;
+        }
+        .outter:hover .inner {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+<div class="outter">
+    <div class="inner"></div>
+</div>
+</body>
+</html>
