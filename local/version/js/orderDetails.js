@@ -3,6 +3,7 @@ $(function () {
     var order_number = getUrlParam('order_number') || '';
     var product_id = '';
     var failRemark = ''; // 审核失败原因
+    var gold_guide_dom = ''; //入金指南
     // 取订单信息
     getData({
         url: base_url + '/zion/order/amount',
@@ -24,6 +25,15 @@ $(function () {
         sucFn: getDocumentSuc,
         failFn: failFn
     });
+    /************************* 入金指南 *************************/
+    $('.not_received').on('click', function () {
+        $('#myModalLabel').html($(this).data('title'));
+        $('#myModal .modal-footer').hide();
+        $('#myModal .modal-body').html('<div class="gold_guide">' + gold_guide_dom + '</div>');
+        $('#myModal').modal('show');
+        return false;
+    });
+    /************************* 投资进度 *************************/
     $('.status_notes').on('click', function () {
         $('#myModalLabel').html($(this).data('title'));
         $('#myModal .modal-footer').hide();
@@ -66,7 +76,7 @@ $(function () {
             '</div>';
         var index = $(this).data('progress');
         $('#myModal .modal-body').html(html);
-        $.each($('.number li'),function (i, item) {
+        $.each($('.number li'), function (i, item) {
             if (i < index - 1) {
                 $(item).addClass('passing');
             }
@@ -77,7 +87,7 @@ $(function () {
         $('#myModal').modal('show');
         return false;
     });
-    // 订单状态未签署和未入金，管理员可以取消订单
+// 订单状态未签署和未入金，可以取消订单
     $('.cancel_order').on('click', function () {
         $('#myModalLabel').html($(this).data('title'));
         $('#myModal .modal-body').html(
@@ -138,7 +148,7 @@ $(function () {
                 advisor_code = d.advisor_code != null ? d.advisor_code : '',
                 remain_amount = d.remain_amount != null ? '$' + d.remain_amount : 0,
                 close_fund_start_interest_day = d.close_fund_start_interest_day != null ? d.close_fund_start_interest_day : '';
-            var invest_status, find_link, audit_failed, order_progress = '';
+            var invest_status, find_link, audit_failed, order_progress = '', not_received;
             if (fa_investment_status == 'not_commit') {
                 invest_status = '<span style="color: #ff6600">未签署</span>';
                 find_link = '<div class="row">' +
@@ -149,6 +159,17 @@ $(function () {
             if (fa_investment_status == 'not_received') {
                 invest_status = '<span style="color: #ff6600">未入金</span>';
                 order_progress = '<a href="javascript:;" class="status_notes" data-progress="1" data-title="当前投资进度"></a>';
+                not_received = '<div class="row">' +
+                    '<div class="col-md-12 text-right"><a href="javascript:;" class="not_received" data-title="入金指南">入金指南</a></div>' +
+                    '</div>';
+                //    获取入金指南
+                getData({
+                    url: base_url + '/white_label/product/payment_list',
+                    data: {product_id: product_id},
+                    async: false,
+                    sucFn: paymentSuc,
+                    failFn: failFn
+                });
             }
             if (fa_investment_status == 'start_audit' || fa_investment_status == 'received') {
                 invest_status = '<span style="color: #ff9933">审核中</span>';
@@ -196,7 +217,11 @@ $(function () {
                 '</div>' +
                 '</div>';
 
-
+            if (fa_investment_status == 'not_received') {
+                if (not_received != '') {
+                    dom += '<div>' + not_received + '</div>';
+                }
+            }
             if (fa_investment_status == 'audit_failed') {
                 if (failRemark != '') {
                     dom += audit_failed;
@@ -302,6 +327,51 @@ $(function () {
     // 获取审核失败原因
     function failedRemark(res) {
         failRemark = res.body;
+    }
+
+    // 获取入金指南
+    function paymentSuc(res) {
+        var d = res.body;
+        if (d && d != null) {
+            if (d.is_receive_bank_enabled) {
+                if (d.receive_bank.account_name != '' && d.receive_bank.account_name != null) {
+                    gold_guide_dom += '<p><label>收款人</label><span>' + d.receive_bank.account_name + '</span></p>';
+                }
+                if (d.receive_bank.account_address != '' && d.receive_bank.account_address != null) {
+                    gold_guide_dom += '<p><label>收款人地址</label><span>' + d.receive_bank.account_address + '</span></p>';
+                }
+                if (d.receive_bank.bank_name != '' && d.receive_bank.bank_name != null) {
+                    gold_guide_dom += '<p><label>收款银行</label><span>' + d.receive_bank.bank_name + '</span></p>';
+                }
+                if (d.receive_bank.bank_address != '' && d.receive_bank.bank_address != null) {
+                    gold_guide_dom += '<p><label>收款银行地址</label><span>' + d.receive_bank.bank_address + '</span></p>';
+                }
+                if (d.receive_bank.routing_number != '' && d.receive_bank.routing_number != null) {
+                    gold_guide_dom += '<p><label>ABA/Routing #</label><span>' + d.receive_bank.routing_number + '</span></p>';
+                }
+                if (d.receive_bank.swift_code != '' && d.receive_bank.swift_code != null) {
+                    gold_guide_dom += '<p><label>Swift Code</label><span>' + d.receive_bank.swift_code + '</span></p>';
+                }
+                if (d.receive_bank.account_number != '' && d.receive_bank.account_number != null) {
+                    gold_guide_dom += '<p><label>账户号</label><span>' + d.receive_bank.account_name + '</span></p>';
+                }
+                if (d.receive_bank.remark != '' && d.receive_bank.remark != null) {
+                    gold_guide_dom += '<p><label>备注栏请填写</label><span>' + d.receive_bank.remark + '</span></p>';
+                }
+            }
+            if (d.is_middle_bank_enabled) {
+                gold_guide_dom+='<br>';
+                if (d.middle_bank.bank_name != '' && d.middle_bank.bank_name != null) {
+                    gold_guide_dom += '<p><label>中间行名称</label><span>' + d.middle_bank.bank_name + '</span></p>';
+                }
+                if (d.middle_bank.bank_address != '' && d.middle_bank.bank_address != null) {
+                    gold_guide_dom += '<p><label>中间行地址</label><span>' + d.middle_bank.bank_address + '</span></p>';
+                }
+                if (d.middle_bank.swift_code != '' && d.middle_bank.swift_code != null) {
+                    gold_guide_dom += '<p><label>中间行Swift Code</label><span>' + d.middle_bank.swift_code + '</span></p>';
+                }
+            }
+        }
     }
 
     // 请求失败执行

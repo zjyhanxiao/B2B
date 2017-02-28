@@ -84,12 +84,14 @@
     padding-left: 13px;
     cursor: pointer;
 }
-@media (min-width: 768px){
+
+@media (min-width: 768px) {
     .modal-dialog {
         width: 800px;
         margin: 30px auto;
     }
 }
+
 .modal-header {
     background: #223976;
     border-radius: 4px 4px 0 0;
@@ -200,9 +202,27 @@
 .describe li {
     color: #999;
 }
-.describe li p{
+
+.describe li p {
     margin-top: 6px;
 }
+
 .describe li:not(:last-child) {
     margin-bottom: 24px;
+}
+
+/************************************* 入金指南  *************************************/
+.not_received {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.gold_guide {
+    text-align: left;
+    margin-left: 30px;
+}
+.gold_guide  label{
+    font-weight: 700;
+    display: inline-block;
+    width: 250px;
 }
