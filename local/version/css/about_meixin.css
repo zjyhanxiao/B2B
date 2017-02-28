@@ -16,8 +16,7 @@ ul{
 
 .tab_title{
     font-size: 16px;
-    height: 600px;
-    background: url("../img/about_meixin/about_meixin.png") no-repeat;
+    /*background: url("../img/about_meixin/about_meixin.png") no-repeat;*/
 }
 
 .tab_title_bgc{
@@ -102,9 +101,9 @@ ul{
 }
 
 .nav_photo{
-    padding-top: 160px;
+    /*padding-top: 160px;*/
     text-align: center;
-    height: 525px;
+    /*height: 525px;*/
     color: #fff;
     position: relative;
 }
