@@ -50,7 +50,7 @@ $(function () {
             '<div class="describe">' +
             '<ul>' +
             '<li><span style="color: #ff0000">未入金</span>' +
-            '<p>认购成功！请客户从Bank of American（5548）账户操作入金</p>' +
+            '<p>认购成功！请客户操作打款或等待资金入账</p>' +
             '</li>' +
             '<li><span style="color: #ff9933">审核中</span>' +
             '<p>资金已经进入账户，开始对投资资料进行审核</p>' +
@@ -69,7 +69,7 @@ $(function () {
             '<p>投资开始计息</p>' +
             '</li>' +
             '<li><span style="color: #555">投资结束</span>' +
-            '<p>投资结束，本金及利息将全部归还至客户的Bank of American（5548）账户</p>' +
+            '<p>投资结束，本金与收益将全部归还至客户预留的银行账户</p>' +
             '</li>' +
             '</ul>' +
             '</div>' +
