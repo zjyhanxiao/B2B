@@ -1018,17 +1018,38 @@ div#document-loading p, div#document-error p {
     margin-right: 10px;
     font-weight: 500;
 }
-#invest-info .payment{
+
+#invest-info .payment {
     margin-left: 80px;
     text-align: left;
 }
-#invest-info .payment label{
+
+#invest-info .payment label {
     color: #555;
     font-weight: normal;
 }
-.checkbox, .radio{
+
+.checkbox, .radio {
     margin: 5px 0;
 }
-#signature-box{
+
+#signature-box {
     overflow: hidden;
+}
+
+.banks {
+    border-top: 1px solid #999;
+    margin-top: 20px;
+}
+
+.banks .col-md-4 {
+    padding: 0 5px;
+}
+
+.bank-wrapper-background {
+    display: none;
+}
+
+.banks {
+    /*display: none;*/
 }
