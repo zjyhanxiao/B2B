@@ -52,7 +52,7 @@ $(function () {
             '<li><span style="color: #ff0000">未入金</span>' +
             '<p>认购成功！请客户从Bank of American（5548）账户操作入金</p>' +
             '</li>' +
-            '<li><span style="color: #ff6600">审核中</span>' +
+            '<li><span style="color: #ff9933">审核中</span>' +
             '<p>资金已经进入账户，开始对投资资料进行审核</p>' +
             '</li>';
         if ($(this).data('failed')) {
@@ -60,8 +60,8 @@ $(function () {
                 '<p>审核失败，请按照提示解决订单问题。订单审核通过后才可以进入投资状态。</p>' +
                 '</li>'
         } else {
-            html += '<li><span style="color: #16bd16">审核通过</span>' +
-                '<p>审核通过，等待投资起息</p>' +
+            html += '<li><span style="color: #16bd16">审核成功</span>' +
+                '<p>审核成功，等待投资起息</p>' +
                 '</li>'
         }
 
