@@ -116,6 +116,17 @@ $(function () {
         data.begin = $('#invest-date').val().split(' 至 ')[0] || '';
         data.end = $('#invest-date').val().split(' 至 ')[1] || '';
         data.status = arr.join(', ');
+        if (
+            data.number == '' &&
+            data.product == '' &&
+            data.channel_advisor_name == '' &&
+            data.user == '' &&
+            data.begin == '' &&
+            data.end == '' &&
+            data.status == ''
+        ) {
+            data.status = "not_commit, not_received, received, start_audit, audit_failed, audit_success, invest_success, start_interest";
+        }
         getOrderList(data);
         return false;
     });
