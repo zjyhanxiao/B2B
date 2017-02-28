@@ -4,7 +4,8 @@ $(function () {
     $.cookie('mx_secret', null);
     // input 获取焦点时删除错误警告
     $('.user_warp input').focus(function () {
-        $(this).css('border-color', '#ccc')
+        $('.user_error').html('');
+        $(this).css('border-color', '#ccc');
     });
     // 回车提交数据
     $(window).keydown(function (event) {
