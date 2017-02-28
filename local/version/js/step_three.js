@@ -7,7 +7,7 @@ $(function () {
     var product_id = getUrlParam('product_id') || ''; //获取产品id
     var order_number = getUrlParam('order_number') || ''; // 获取订单编号
 
-    $('.prev-two').on('click',function () {
+    $('.prev-two').on('click', function () {
         window.location = '/auxiliary_order/stepTwo.html?' +
             'product_id=' + product_id + '&phone=' + user_phone + '&channel_code=' + channel_code + '&order_number=' + order_number;
     });
@@ -137,6 +137,7 @@ $(function () {
     }
     // 获取银行信息成功
     function bankInfo(res) {
+        alertMsg(res.msg);
         var d = res.body;
         if (d && d != null) {
             user_data = d;
@@ -159,13 +160,17 @@ $(function () {
                         $("#saving").removeClass('checked');
                         $("#checking").addClass('checked');
                     }
+                    if (d.bank_us.swift_code == '' || d.bank_us.swift_code == null) {
+                        $('.banks').show();
+                    }
                 }
             } else {
                 $('.non-us-bank').addClass('button-blue').removeClass('button-white');
                 $('.us-bank').addClass('button-white').removeClass('button-blue');
                 $(".middle-bank").show();
                 $(".checking-saving").hide();
-                $("#routing-number-wrapper").hide();$('#bank-name').val(d.bank_non_us.bank_name);
+                $("#routing-number-wrapper").hide();
+                $('#bank-name').val(d.bank_non_us.bank_name);
                 $('#bank-address').val(d.bank_non_us.bank_address);
                 $('#swift-code').val(d.bank_non_us.swift_code);
                 $('#account-number').val(d.bank_non_us.account_number);
@@ -174,6 +179,9 @@ $(function () {
                     $('#middle-bank-name').val(d.bank_non_us.middle_bank_name);
                     $('#middle-bank-address').val(d.bank_non_us.middle_bank_address);
                     $('#middle-bank-swift-code').val(d.bank_non_us.middle_bank_swift_code);
+                }
+                if (d.bank_non_us.swift_code == '' || d.bank_non_us.swift_code == null) {
+                    $('.banks').show();
                 }
             }
         }
