@@ -38,6 +38,7 @@ $(function () {
         if (password == '') {
             $('#password').css('border-color', 'red');
             $('.user_button button').prop('disabled', false);
+            $('.user_error').html('密码不能为空');
             return false;
         }
         // 所有校验通过，发送ajax请求
