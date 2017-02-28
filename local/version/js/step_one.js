@@ -347,4 +347,21 @@ $(function () {
         $('.filePicker input').trigger('click');
     });
     uploader_file('#fileMapping');
+
+
+    $('.uploader-demo').find('img').load(function () {
+        var w = $('.uploader-demo').find('img').width();
+        var h = $('.uploader-demo').find('img').height();
+        var warp_w = $('.file-item').width();
+        var warp_h = $('.file-item').height();
+        if ((w / h) < (warp_w / warp_h)) {
+            $('.uploader-demo').find('img').css({width: 'auto', height: '100%'});
+        } else {
+            $('.uploader-demo').find('img').css({
+                width: '100%',
+                height: 'auto',
+                'margin-top': Math.floor((warp_h - warp_w * h / w) / 2) + 'px'
+            });
+        }
+    })
 });
