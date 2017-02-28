@@ -105,6 +105,8 @@
 .modal-header .close {
     color: #fff;
     opacity: 1;
+    font-size: 30px;
+    margin-top: -5px;
 }
 
 .modal-footer {
