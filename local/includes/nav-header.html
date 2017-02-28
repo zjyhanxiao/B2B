@@ -1,0 +1,124 @@
+<style>
+    .header-bg{
+        width: 100%;
+        height: 600px;
+        background: url("http://localhost:8080/version/dist/img/AT/header-bg.png") no-repeat;
+    }
+    .nav-bg{
+        width: 100%;
+        height: 75px;
+    }
+    .header-nav{
+        width: 1200px;
+        height: 75px;
+        margin: 0 auto;
+        /*background: red;*/
+        color: #000;
+        overflow: hidden;
+    }
+    .logo-box{
+        width: 160px;
+        height: 45px;
+        float: left;
+    }
+    .logo-box img{
+        float: left;
+        width: 100%;
+        display: block;
+        padding: 5px;
+    }
+    .link{
+        float: right;
+        overflow: hidden;
+        padding: 15px 0;
+    }
+    .link li{
+        float: left;
+        margin-left: 60px;
+    }
+    .link li a{
+        color: #FFFFFF;
+        display: block;
+        padding-bottom: 10px;
+    }
+
+
+    /*当前页选中*/
+    .header-active{
+        font-size: 18px;
+        border-bottom: 3px solid #FFFFFF;
+    }
+
+
+
+    .anniu{
+        float: right;
+        overflow: hidden;
+        padding: 8px;
+    }
+    .button{
+        float: left;
+        width: 78px;
+        height: 34px;
+        display: block;
+        text-align: center;
+        line-height: 34px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    #sign-in{
+        border: 1px solid #FFFFFF;
+        background: #FFFFFF;
+        color: #000000;
+        margin-left: 60px;
+    }
+    #login{
+        border: 1px solid #FFFFFF;
+        color: #FFFFFF;
+        margin-left: 25px;
+    }
+    .slogan{
+        width: 100%;
+        height: 525px;
+        display: table;
+    }
+    .slogan .font{
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 48px;
+        color: #FFFFFF;
+    }
+    .slogan .font p{
+        line-height: 30px;
+    }
+
+</style>
+
+<div class="header-bg">
+    <div class="nav-bg">
+        <div class="header-nav">
+            <div style="padding: 13px;overflow: hidden">
+                <div class="logo-box">
+                    <img src="http://localhost:8080/version/dist/img/public/logo.png" alt="美信金融">
+                </div>
+                <div class="anniu">
+                    <a href=""><span class="button" id="sign-in">加入</span></a>
+                    <a href=""><span class="button" id="login">登录</span></a>
+                </div>
+                <ul class="link">
+                    <li><a class="header-active" data-name="首页" href="">首页</a></li>
+                    <li><a data-name="资产概况" href="">资产概况</a></li>
+                    <li><a data-name="AT平台" href="">AT平台</a></li>
+                    <li><a data-name="投资服务" href="">投资服务</a></li>
+                    <li><a data-name="关于美信" href="">关于美信</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="slogan">
+        <div class="font">
+            <!--<p>标题子</p>-->
+        </div>
+    </div>
+</div>
