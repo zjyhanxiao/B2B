@@ -333,6 +333,7 @@ $(function () {
     function paymentSuc(res) {
         var d = res.body;
         if (d && d != null) {
+            gold_guide_dom +='<p style="color: #223976;">请引导客户以银行电汇的方式汇款至以下账户</p>';
             if (d.is_receive_bank_enabled) {
                 if (d.receive_bank.account_name != '' && d.receive_bank.account_name != null) {
                     gold_guide_dom += '<p><label>收款人</label><span>' + d.receive_bank.account_name + '</span></p>';
