@@ -69,7 +69,7 @@ $(function () {
             '<p>投资开始计息</p>' +
             '</li>' +
             '<li><span style="color: #555">投资结束</span>' +
-            '<p>投资结束，本金及利息将全部归还之客户的Bank of American（5548）账户</p>' +
+            '<p>投资结束，本金及利息将全部归还至客户的Bank of American（5548）账户</p>' +
             '</li>' +
             '</ul>' +
             '</div>' +
