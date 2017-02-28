@@ -164,28 +164,28 @@ $(function () {
                 order_number = item.order_number != null ? item.order_number : '';
             var invest_status;
             if (fa_investment_status == 'not_commit') {
-                invest_status = '未签署'
+                invest_status = '<span style="color: #f00;">未签署</span>';
             }
             if (fa_investment_status == 'not_received') {
-                invest_status = '未入金'
+                invest_status = '<span style="color: #f00;">未入金</span>';
             }
             if (fa_investment_status == 'start_audit' || fa_investment_status == 'received') {
-                invest_status = '审核中'
+                invest_status = '<span style="color: #ff6600;">审核中</span>';
             }
             if (fa_investment_status == 'audit_failed') {
-                invest_status = '审核失败'
+                invest_status = '<span style="color: #f00;">审核失败</span>';
             }
             if (fa_investment_status == 'audit_success' || fa_investment_status == 'invest_success') {
-                invest_status = '审核成功'
+                invest_status = '<span style="color: #16bd16;">审核成功</span>';
             }
             if (fa_investment_status == 'start_interest') {
-                invest_status = '投资中'
+                invest_status = '<span style="color: #4faeff;">投资中</span>';
             }
             if (fa_investment_status == 'refunded' || fa_investment_status == 'closed') {
-                invest_status = '投资结束'
+                invest_status = '<span>投资结束</span>';
             }
             if (fa_investment_status == 'voided') {
-                invest_status = '已取消'
+                invest_status = '<span>已取消</span>';
             }
             html +=
                 '<tr>' +
