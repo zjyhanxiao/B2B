@@ -138,10 +138,6 @@ ul{
     margin-left: 20%;
 }
 
-.nav_photo_tab_wrapper ul{
-    /*float: left;*/
-}
-
 .nav_photo_tab_wrapper ul li{
     float: left;
     list-style-type: none;
@@ -163,10 +159,11 @@ ul{
 }
 
 
+
 /**
 * 团队成员
 */
-.about_team{
+.about_team, .about_advisors, .about_backers, .about_media, .about_contact_us{
     width: 1200px;
     margin-left: calc(50% - 600px);
 }
@@ -190,28 +187,12 @@ ul{
     display: table-cell;
 }
 
-.about_advisors .table-cell{
-
-}
-
-/*.person img{
-    cursor: pointer;
-    transition: all 0.6s;
-}
-
-.person img:hover{
-    transform: scale(.5);
-}*/
-
-/**
-*  翻转特效
-*/
-
 
 /* entire container, keeps perspective */
 .flip-container {
     perspective: 1000;
 }
+
 /* flip the pane when hovered */
 .flip-container:hover .flipper, .flip-container.hover .flipper {
     transform: rotateY(180deg);
@@ -226,7 +207,6 @@ ul{
 .flipper {
     transition: 0.6s;
     transform-style: preserve-3d;
-
     position: relative;
 }
 
@@ -274,14 +254,10 @@ ul{
     box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .075), 2px 2px 10px #f0f0f0;
 }
 
+
 /*
 * 专家顾问
 */
-
-.about_advisors{
-    width: 1200px;
-    margin-left: calc(50% - 600px);
-}
 
 .advisors_cell_img{
     float: left;
@@ -321,10 +297,6 @@ ul{
 * 投资机构
 */
 
-.about_backers{
-    width: 1200px;
-    margin-left: calc(50% - 600px);
-}
 
 .backers_cell_img{
     float: left;
@@ -336,4 +308,48 @@ ul{
     float: right;
     width: 900px;
     height: 200px;
+}
+
+/*
+* 媒体报道
+*/
+
+.about_row_left{
+    float: left;
+}
+
+.about_row_right{
+    float: right;
+}
+
+.media_cell_img{
+    float: left;
+    width: 200px;
+    height: 200px;
+}
+
+.media_cell_text{
+    float: right;
+    width: 400px;
+    height: 200px;
+    margin-top: 30px;
+    padding: 0 30px;
+}
+
+.media_cell_text .report{
+    float: right;
+}
+
+/*
+* 联系我们
+*/
+
+.contact_us_cell_img{
+    width: 500px;
+    margin-bottom: 70px;
+    padding-left: 100px;
+}
+
+.contact_us_cell_img img{
+    margin-bottom: 5px;
 }
