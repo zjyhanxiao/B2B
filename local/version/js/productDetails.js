@@ -232,7 +232,7 @@ $(function () {
                 }
 
                 $('.sharelink').attr("value",window.location.origin+"/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code)
-                $('.order_btn').data('shuju',window.location.origin+"/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&channel_code="+res.body[0].code)
+                $('.order_btn').data('shuju',window.location.origin+"/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body[0].code)
 
                 $('.order_btn').data('code',res.body[0].code)
 
@@ -278,7 +278,7 @@ $(function () {
                 }
 
                 $('.sharelink').attr("value",window.location.origin+"/invest.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body.code)
-                $('.order_btn').data('shuju',window.location.origin+"/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&channel_code="+res.body.code)
+                $('.order_btn').data('shuju',window.location.origin+"/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&partner_id="+res.body.code)
 
                 $('.order_btn').data('code',res.body.code)
 
@@ -448,7 +448,7 @@ window.onload = function () {
             window["context"] = location.origin;
         }
 
-        $('.order_btn').data('shuju',window.location.origin+"/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&channel_code="+$('#select2').val())
+        $('.order_btn').data('shuju',window.location.origin+"/auxiliary_order/stepOne.html?product_id="+getUrlParam('product_id')+"&partner_id="+$('#select2').val())
         $('.order_btn').data('code',$('#select2').val())
     })
 
