@@ -29,6 +29,7 @@
 .link li{
     float: left;
     margin-left: 60px;
+    list-style-type: none;
 }
 .link li a{
     width: 70px;

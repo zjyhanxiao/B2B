@@ -8,7 +8,42 @@
     <link href="http://localhost:8080/version/dist/css/nav_header_footer.min.css" rel="stylesheet">
 </head>
 <body>
-@@include('includes/nav-header.html')
+<div class="header-bg">
+    <div class="nav-bg">
+        <div class="header-nav">
+            <div style="padding: 13px;overflow: hidden">
+                <div class="logo-box">
+                    <img src="http://localhost:8080/version/dist/img/public/logo.png" alt="美信金融">
+                </div>
+                <div class="anniu">
+                    <a href="/join.html"><span class="button" id="sign-in">加入</span></a>
+                    <a href="/login.html"><span class="button" id="login">登录</span></a>
+                </div>
+                <ul class="link">
+                    <li><a data-name="首页" href="/index.html">首页</a></li>
+                    <li><a class="header-active" data-name="资产概况" href="/assetGeneral.html">资产概况</a></li>
+                    <li><a data-name="AT平台" href="/AT.html">AT平台</a></li>
+                    <li><a data-name="投资服务" href="/investService">投资服务</a></li>
+                    <li><a data-name="关于美信" href="?">关于美信</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="slogan">
+        <div class="font">
+            <p class="nav_photo_fir">美信的使命</p>
+            <p class="nav_photo_sec">Our Mission</p>
+            <p class="nav_photo_thi">构建海外金融产品交易生态圈</p>
+        </div>
+    </div>
+</div>
+<style>
+    .header-bg{
+        width: 100%;
+        height: 600px;
+        background: url("http://localhost:8080/version/dist/img/about_meixin/assetGeneral.png") no-repeat;
+    }
+</style>
 <div class="tab_title">
     <div class="nav_photo">
         <div class="nav_photo_tab">
