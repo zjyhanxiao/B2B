@@ -2,6 +2,12 @@
     width: 100%;
     height: 75px;
 }
+.nav-bg-white{
+    width: 100%;
+    height: 75px;
+    text-align: center;
+    background-color: rgba(255,255,255,.7);
+}
 .header-nav{
     width: 1200px;
     height: 75px;
@@ -41,6 +47,10 @@
     padding-bottom: 10px;
 }
 
+.nav-bg-white .link li a{
+    color: #555;
+}
+
 
 /*当前页选中*/
 .header-active{
@@ -48,9 +58,11 @@
     border-bottom: 2px solid #FFFFFF;
 }
 
+.nav-bg-white .header-active{
+    border-bottom: 2px solid #335095;
+}
 
-
-.anniu{
+.button-wrapper{
     float: right;
     overflow: hidden;
     padding: 8px;
@@ -65,22 +77,38 @@
     border-radius: 3px;
     cursor: pointer;
 }
-#sign-in{
+
+.join{
     border: 1px solid #FFFFFF;
     background: #FFFFFF;
     color: #000000;
     margin-left: 60px;
 }
-#login{
+
+.login{
     border: 1px solid #FFFFFF;
     color: #FFFFFF;
     margin-left: 25px;
 }
+
+.nav-bg-white .join{
+    border: 1px solid transparent;
+    background: #159bd6;
+    color: #fff;
+}
+
+.nav-bg-white .login{
+    border: 1px solid #335095;
+    color: #335095;
+    margin-left: 25px;
+}
+
 .slogan{
     width: 100%;
     height: 525px;
     display: table;
 }
+
 .slogan .font{
     display: table-cell;
     text-align: center;
@@ -113,6 +141,11 @@
     color: #1a2337;
     font-size: 30px;
     cursor: pointer;
+}
+.check-in>p{
+    font-size: 24px;
+    color: #1a2337;
+    text-align: center
 }
 .relation{
     width: 1200px;
@@ -196,6 +229,7 @@ a.wechat:hover{
 .footer-right ul li{
     list-style-type: none;
     width: 150px;
+    line-height: 24px;
     float: left;
     margin-bottom: 15px;
     color: #FFFFFF;
@@ -207,6 +241,13 @@ a.wechat:hover{
     list-style-type: none;
     width: 450px;
     text-align: left;
+}
+
+.footer-right p{
+    color: #FFFFFF;
+    text-align: left;
+    padding-left: 45px;
+    margin-top: 20px;
 }
 
 .footer-logo{
