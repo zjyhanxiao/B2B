@@ -893,7 +893,7 @@ div#document-loading p, div#document-error p {
 }
 
 .bank-cn,.bank-us{
-    display: none;
+    /*display: none;*/
     margin-top: 30px;
 }
 .account_type button.form-control{
