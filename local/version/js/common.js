@@ -1,5 +1,5 @@
-var base_url = 'https://zion-api.meixinglobal.com';  // 线上接口地址
-// var base_url = 'https://zion-api.meixincn.com';   // 测试环境接口地址
+// var base_url = 'https://zion-api.meixinglobal.com';  // 线上接口地址
+var base_url = 'https://zion-api.meixincn.com';   // 测试环境接口地址
 // var base_url = 'http://192.168.1.102:8001'
 var is_admin;    // 定义用户权限
 //获取url中的参数
