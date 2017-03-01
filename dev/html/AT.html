@@ -236,15 +236,54 @@
     $('.phone').mouseover(function () {
       $('.phone_before').css('display','none')
       $('.phone_after').css('display','block')
-    })
+    });
     $('.phone').mouseout(function () {
       $('.phone_before').css('display','block')
       $('.phone_after').css('display','none')
-    })
+    });
 
-    $(window).scroll(function () {
-      console.log( $(document).scrollTop() )
-    })
+    var d, h;
+    function scroll( fn ) {
+      var beforeScrollTop = document.body.scrollTop,
+              fn = fn || function() {};
+      window.addEventListener("scroll", function() {
+        var afterScrollTop = document.body.scrollTop,
+                delta = afterScrollTop - beforeScrollTop;
+        if( delta === 0 ) return false;
+        fn( delta > 0 ? "down" : "up" );
+        beforeScrollTop = afterScrollTop;
+      }, false);
+    }
+    scroll(function(direction) {
+//       console.log(direction);
+      d =  direction;
+      h = $(document).scrollTop();
+
+      var $header = $(".nav-bg");
+      var $headerWhite = $(".nav-bg-white");
+      if(d=="up"){
+//        console.log(d);
+        console.log(h);
+        if(h<720){
+          $header.fadeIn();
+          $headerWhite.fadeOut();
+        }else if(h>720){
+          console.log(d);
+          $header.fadeOut();
+          $headerWhite.fadeIn();
+        }
+      }else{
+        $header.hide();
+        $headerWhite.hide();
+      }
+    });
+
+    /*  $(window).scroll(function () {
+     //      console.log( $(document).scrollTop() )
+
+
+     });*/
+
   })
 </script>
 </body>
