@@ -60,14 +60,14 @@
     $(function () {
         $('#product_head ul li[data-name="产品"]').addClass('active');
         var product_id = getUrlParam('product_id') || '';
-        var channel_code = getUrlParam('channel_code') || '';
+        var partner_id = getUrlParam('partner_id') || '';
         var verify_code = getUrlParam('verify_code') || '';
         var order_number = getUrlParam('order_number') || '';
         var phone = getUrlParam('phone') || '';
         $('.password').html(verify_code);
-        $('.href_link').html('http://zion.meixincn.com/auxiliary_order/shareAndSignature.html?product_id=' + product_id + '&channel_code=' + channel_code + '&order_number=' + order_number);
+        $('.href_link').html('http://zion.meixincn.com/auxiliary_order/shareAndSignature.html?product_id=' + product_id + '&partner_id=' + partner_id + '&order_number=' + order_number);
         $('.change_order').on('click', function () {
-            window.location = '/auxiliary_order/stepOne.html?product_id=' + product_id + '&phone=' + phone + '&channel_code=' + channel_code + '&order_number=' + order_number;
+            window.location = '/auxiliary_order/stepOne.html?product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number;
         });
         $('.share').on('click', function () {
             getData({

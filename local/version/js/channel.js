@@ -26,7 +26,7 @@ $(function () {
     var invest_par_value = '', minimum_invest_amount = '';
     var invest_amount = '', account_number_secret = '';
     var bank_type = '', payment_method = '', accreditation = '', addreess_non_cn = '';
-    var bank_non_us = {}, bank_us = {}, base_info = {}, address_cn = {}, channel_code = '';
+    var bank_non_us = {}, bank_us = {}, base_info = {}, address_cn = {}, partner_id = '';
 
     //获取url中的参数
     function getUrlParam(name) {
@@ -37,9 +37,9 @@ $(function () {
     }
 
     product_id = getUrlParam('product_id') || 'error';
-    channel_code = getUrlParam('partner_id') || 'error';
+    partner_id = getUrlParam('partner_id') || 'error';
 
-    if (product_id == 'error' || channel_code == 'error') {
+    if (product_id == 'error' || partner_id == 'error') {
         $("#invest-error").show();
         $("#base-info .base-info-title").hide();
         $("#base-info .base-info-wrapper").hide();
@@ -882,7 +882,7 @@ $(function () {
             'bill_expire_date': '',
             'bill_number': '',
             'bill_url': '',
-            'channel_code': channel_code,
+            'channel_code': partner_id,
             'document_id': document_id,
             'driving_license_expire_date': '',
             'driving_license_number': '',
@@ -1088,7 +1088,7 @@ $(function () {
             'bank_type': bank_type,
             'bank_us': bank_us,
             'base_info': base_info,
-            'channel_code': channel_code,
+            'channel_code': partner_id,
             'address_cn': address_cn,
             'email': email,
             'first_name': first_name,
@@ -1116,7 +1116,7 @@ $(function () {
     function createUsers(res) {
         if (res.code == 1) {
             data = {
-                'channel_code': channel_code,
+                'channel_code': partner_id,
                 'invest_amount': invest_amount,
                 'payment_method': payment_method,
                 'phone': phone,

@@ -3,13 +3,13 @@ $(function () {
 
     var user_data = {};// 定义用户信息数据
     var user_phone = getUrlParam('phone') || ''; // 通过手机号查找用户信息
-    var channel_code = getUrlParam('channel_code') || ''; // 渠道编码
+    var partner_id = getUrlParam('partner_id') || ''; // 渠道编码
     var product_id = getUrlParam('product_id') || ''; //获取产品id
     var order_number = getUrlParam('order_number') || ''; // 获取订单编号
     var idCard_default = $('#fileMapping img').attr('src');
     $('.prev-one').on('click',function () {
         window.location = '/auxiliary_order/stepOne.html?' +
-            'product_id=' + product_id + '&phone=' + user_phone + '&channel_code=' + channel_code + '&order_number=' + order_number;
+            'product_id=' + product_id + '&phone=' + user_phone + '&partner_id=' + partner_id + '&order_number=' + order_number;
     });
     $('.step-two').on('click', function () {
         var id_card_url = $('#fileMapping img').attr('src');
@@ -62,7 +62,7 @@ $(function () {
             var t = $('.red-shadow').eq(0).offset().top;
             $('body').scrollTop(t);
         } else {
-            user_data.channel_code = channel_code;
+            user_data.channel_code = partner_id;
             user_data.product_id = product_id;
             user_data.order_number = order_number;
             user_data.phone = user_phone;
@@ -90,7 +90,7 @@ $(function () {
                 var d = res.body;
                 if (d) {
                     window.location = '/auxiliary_order/stepThree.html?' +
-                        'product_id=' + product_id + '&phone=' + user_phone + '&channel_code=' + channel_code + '&order_number=' + order_number;
+                        'product_id=' + product_id + '&phone=' + user_phone + '&partner_id=' + partner_id + '&order_number=' + order_number;
                 }
             }
 

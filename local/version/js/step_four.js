@@ -3,7 +3,7 @@ $(function () {
 
     var user_data = {}; // 定义用户信息数据
     var user_phone = getUrlParam('phone') || ''; // 通过手机号查找用户信息
-    var channel_code = getUrlParam('channel_code') || ''; // 渠道编码
+    var partner_id = getUrlParam('partner_id') || ''; // 渠道编码
     var product_id = getUrlParam('product_id') || ''; //获取产品id
     var order_number = getUrlParam('order_number') || ''; // 获取订单编号
     if (order_number != '' && $('.about_order').length) {
@@ -13,7 +13,7 @@ $(function () {
     /**************************** 返回第三步 ******************************/
     $('.prev-three').on('click', function () {
         window.location = '/auxiliary_order/stepThree.html?' +
-            'product_id=' + product_id + '&phone=' + user_phone + '&channel_code=' + channel_code + '&order_number=' + order_number;
+            'product_id=' + product_id + '&phone=' + user_phone + '&partner_id=' + partner_id + '&order_number=' + order_number;
     });
 
     /**************************** 提交第四步数据 ******************************/
@@ -32,7 +32,7 @@ $(function () {
         }
 
         user_data.payment_method = $('#invest-info .payment input:checked').val();
-        user_data.channel_code = channel_code;
+        user_data.channel_code = partner_id;
         user_data.product_id = product_id;
         user_data.phone = user_phone;
         user_data.order_number = order_number;
@@ -52,7 +52,7 @@ $(function () {
     function stepFourSuccess(res) {
         var d = res.body;
         if (d) {
-            window.location = '/auxiliary_order/share.html?product_id=' + product_id + '&channel_code=' + channel_code + '&verify_code=' + d.verify_code + '&order_number=' + order_number + '&phone=' + user_phone;
+            window.location = '/auxiliary_order/share.html?product_id=' + product_id + '&partner_id=' + partner_id + '&verify_code=' + d.verify_code + '&order_number=' + order_number + '&phone=' + user_phone;
         }
     }
 
