@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>美信金融</title>
+  <link href="http://localhost:8080/vendor/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://localhost:8080/version/dist/css/index.min.css" rel="stylesheet">
+  <link href="http://localhost:8080/version/dist/css/nav_header_footer.min.css" rel="stylesheet">
+</head>
+<body>
+@@include('includes/nav-header.html')
+<div class="row asset_row_1">
+  <div class="col-md-6 col-sm-6">
+    <div class="text-right">
+      <img src="http://localhost:8080/version/dist/img/assetGeneral/pic1.png" alt="">
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-6">
+    <div class="text-left">
+      <p class="asset_title">资产优质 &nbsp;&nbsp; 风控严格</p>
+      <p class="asset_text">只与海外最优质资产方合作，多道风控流程和尽职调查甄选</p>
+      <p class="asset_text">资产，确保抵押资产雄厚、现金流稳定。</p>
+    </div>
+  </div>
+</div>
+<div class="row asset_row_2">
+  <div class="col-md-6 col-sm-6">
+    <div class="text-right">
+      <p class="asset_title">供给能力强 &nbsp;&nbsp; 资产可持续</p>
+      <p class="asset_text">美信海外资产合作伙伴超过100家，海外优质资产池容量</p>
+      <p class="asset_text">超过$50亿，确保优质资产供给源源不断。</p>
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-6">
+    <div class="text-left">
+      <img src="http://localhost:8080/version/dist/img/assetGeneral/pic2.png" alt="">
+    </div>
+  </div>
+</div>
+<div class="row asset_row_1">
+  <div class="col-md-6 col-sm-6">
+    <div class="text-right">
+      <img src="http://localhost:8080/version/dist/img/assetGeneral/pic3.png" alt="">
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-6">
+    <div class="text-left">
+      <p class="asset_title">低投资门槛 &nbsp;&nbsp; 多资产类型</p>
+      <p class="asset_text">降低起投金额提高客户群体多元性，净资产收益6-18%，</p>
+      <p class="asset_text"> 为您提供绝佳的竞争优势。</p>
+    </div>
+  </div>
+</div>
+<div class="row asset_row_2">
+  <div class="col-md-6 col-sm-6">
+    <div class="text-right">
+      <p class="asset_title">全程监管 &nbsp;&nbsp; 透明规范</p>
+      <p class="asset_text">第三方银行托管资金，第三方基金监管资金流，定期的资产</p>
+      <p class="asset_text">审计报告，确保资金安全透明。</p>
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-6">
+    <div class="text-left">
+      <img src="http://localhost:8080/version/dist/img/assetGeneral/pic4.png" alt="">
+    </div>
+  </div>
+</div>
+@@include('includes/nav-footer.html')
+<script src="http://localhost:8080/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="http://localhost:8080/vendor/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="http://localhost:8080/version/dist/js/about_meixin.min.js" type="text/javascript"></script>
+<script src="http://localhost:8080/version/dist/js/slider.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(function() {
+    var bannerSlider = new Slider($('#banner_tabs'), {
+      time: 5000,
+      delay: 400,
+      event: 'hover',
+      auto: true,
+      mode: 'fade',
+      controller: $('#bannerCtrl'),
+      activeControllerCls: 'active'
+    });
+    $('#banner_tabs .flex-prev').click(function() {
+      bannerSlider.prev()
+    });
+    $('#banner_tabs .flex-next').click(function() {
+      bannerSlider.next()
+    });
+  })
+</script>
+<script>
+  $(function () {
+    $('.phone').mouseover(function () {
+      $('.phone_before').css('display','none')
+      $('.phone_after').css('display','block')
+    })
+    $('.phone').mouseout(function () {
+      $('.phone_before').css('display','block')
+      $('.phone_after').css('display','none')
+    })
+
+    $(window).scroll(function () {
+      console.log( $(document).scrollTop() )
+    })
+  })
+</script>
+</body>
+</html>
