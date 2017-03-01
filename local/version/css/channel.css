@@ -298,6 +298,11 @@ input[type="checkbox"] {
     margin-top: 20px;
 }
 
+.bank-choose {
+    border-bottom: 1px solid #223976;
+    padding-bottom: 20px;
+}
+
 .us-bank-choose .col-md-5 span {
     height: 35px;
     line-height: 35px;
@@ -831,6 +836,7 @@ div#document-loading p, div#document-error p {
 #nav-golden-list p {
     height: inherit !important;
 }
+
 .productAndOrder {
     width: 75%;
     margin: 30px auto 0;
@@ -869,7 +875,6 @@ div#document-loading p, div#document-error p {
 }
 
 .banks {
-    border-top: 1px solid #999;
     margin-top: 20px;
 }
 
@@ -888,25 +893,124 @@ div#document-loading p, div#document-error p {
 .chang_bank {
     padding: 16px;
 }
-.bank_account{
+
+.bank_account_l, .bank_account_r {
+    float: left;
+}
+
+.bank_account_l {
+    width: 25%;
     line-height: 34px;
 }
 
-.bank-cn,.bank-us{
+.bank_account_r {
+    width: 75%;
+}
+
+.bank_account_r .form-control {
+    width: 80%;
+}
+
+.bank-cn, .bank-us, .bank-us-other, .bank-cn-other {
     /*display: none;*/
     margin-top: 30px;
 }
-.account_type button.form-control{
-    width: 33%;
+
+.other_bank {
+     border-bottom: 1px solid #153078;
+    padding-bottom: 20px;
 }
-.account_type button.form-control:first-child{
+.bank-name-wrapper{
+    margin-top: 20px;
+}
+.search_bank {
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 8px 40px;
+    border-radius: 30px;
+    background: none;
+    font-size: 14px;
+    color: #159bd6;
+}
+
+.search_bank span {
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    color: #159bd6;
+}
+
+.account_type button.form-control {
+    width: 33%;
+    border-radius: 30px;
+}
+
+.account_type button.form-control:first-child {
     margin-right: 2%;
 }
-label.bank_account{
-    width: 20%;
+
+.bank_border {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px 0;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    min-height: 80px;
+    cursor: pointer;
+}
+
+.bank_url {
     float: left;
+    width: 25%;
+}
+
+.bank_border img {
+    max-width: 80px;
+}
+
+.bank_home {
+    position: relative;
+    text-align: center;
+    font-size: 18px;
+    color: #00abd7;
+    line-height: 64px;
+}
+
+.bank_home img {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+}
+
+.bank_detail {
+    float: left;
+    width: 75%;
+}
+
+.bank_account_l label {
+    width: 100%;
+}
+.middle-bank label{
+    width: 100%;
+}
+.middle-bank .form-control{
+    width: 100%;
 }
 @media (max-width: 767px) {
+    .form-inline label,.bank-cn .col-xs-5,.bank-cn .col-xs-2,.bank-us .col-xs-5,.bank-us .col-xs-2{
+        width: 100%;
+    }
+    .bank_account_l, .bank_account_r {
+        width: 100%;
+    }
+
+    .bank_border img {
+        max-width: 60px;
+    }
+
     .form-inline .form-control {
         width: 100%;
     }
@@ -1004,10 +1108,6 @@ label.bank_account{
         background-size: 100% 170px;
     }
 
-    .bank-name-wrapper {
-        margin-bottom: 50px;
-    }
-
     .find-common-banks {
         width: 100% !important;
         float: right;
@@ -1075,18 +1175,18 @@ label.bank_account{
     .next-step {
         margin-right: 0;
     }
-    .account_type button.form-control{
+
+    .account_type button.form-control {
         width: 40%;
         display: inline-block;
     }
-    .account_type button.checking{
+
+    .account_type button.checking {
         float: left;
     }
-    .account_type button.saving{
+
+    .account_type button.saving {
         float: right;
-    }
-    label.bank_account{
-        width: 100%;
     }
 }
 
