@@ -1,0 +1,223 @@
+
+.header-bg{
+    width: 100%;
+    height: 600px;
+    background: url("../img/AT/header-bg.png") no-repeat;
+}
+.nav-bg{
+    width: 100%;
+    height: 75px;
+}
+.header-nav{
+    width: 1200px;
+    height: 75px;
+    margin: 0 auto;
+    /*background: red;*/
+    color: #000;
+    overflow: hidden;
+}
+.logo-box{
+    width: 160px;
+    height: 45px;
+    float: left;
+}
+.logo-box img{
+    float: left;
+    width: 100%;
+    display: block;
+    padding: 5px;
+}
+.link{
+    float: right;
+    overflow: hidden;
+    padding: 15px 0;
+}
+.link li{
+    float: left;
+    margin-left: 60px;
+}
+.link li a{
+    color: #FFFFFF;
+    display: block;
+    padding-bottom: 10px;
+}
+
+
+/*当前页选中*/
+.header-active{
+    font-size: 18px;
+    border-bottom: 3px solid #FFFFFF;
+}
+
+
+
+.anniu{
+    float: right;
+    overflow: hidden;
+    padding: 8px;
+}
+.button{
+    float: left;
+    width: 78px;
+    height: 34px;
+    display: block;
+    text-align: center;
+    line-height: 34px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+#sign-in{
+    border: 1px solid #FFFFFF;
+    background: #FFFFFF;
+    color: #000000;
+    margin-left: 60px;
+}
+#login{
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    margin-left: 25px;
+}
+.slogan{
+    width: 100%;
+    height: 525px;
+    display: table;
+}
+.slogan .font{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 48px;
+    color: #FFFFFF;
+}
+.slogan .font p{
+    line-height: 30px;
+}
+
+
+ .footer{
+     width: 100%;
+ }
+.check-in{
+    width: 100%;
+    height: 240px;
+    background: url("../img/public/ruzhupic.png");
+    overflow: hidden;
+}
+.ruzhu{
+    display: block;
+    width: 225px;
+    height: 75px;
+    margin: 60px auto 30px;
+    background: url("../img/public/ruzhu.png");
+    line-height: 75px;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 30px;
+    cursor: pointer;
+}
+.relation{
+    width: 1200px;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 20px;
+    overflow: hidden;
+}
+.relation dl{
+    float:left;
+    margin-left: 138px;
+}
+.relation dt{
+    width: 215px;
+    height: 215px;
+    cursor: pointer;
+    overflow: hidden;
+}
+.relation dt img{
+    width: 100%;
+}
+.relation dd{
+    width: 215px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: #555555;
+}
+.relation dt .wechat{
+    display: block;
+    width: 215px;
+    height: 215px;
+    background: url("../img/public/wechatn.png");
+}
+a.wechat:hover{
+    background: url("../img/public/wechat.png");
+}
+.phone_after{
+    width: 215px;
+    height: 215px;
+    text-align: center;
+}
+.phone-l{
+    display: block;
+    width: 30px;
+    height: 30px;
+}
+.phone-l img{
+    width: 100px;
+    display: block;
+}
+.footer-bg{
+    width: 100%;
+    background: #0b1e45;
+}
+.footer-bottom{
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.footer-bottom .footer-left{
+    width: 600px;
+    float: left;
+}
+.footer-bottom .footer-right{
+    width: 600px;
+    float: left;
+    margin-bottom: 125px;
+}
+
+.footer-right ul{
+    padding: 0;
+    overflow: hidden;
+}
+.footer-right ul li{
+    list-style-type: none;
+    width: 150px;
+    float: left;
+    margin-bottom: 15px;
+    color: #FFFFFF;
+}
+.footer-right ul li a{
+    color: #FFFFFF;
+}
+.footer-right ul li.long{
+    list-style-type: none;
+    width: 450px;
+    text-align: left;
+}
+
+.footer-logo{
+    width: 100px;
+    height: 25px;
+    margin-bottom: 15px;
+}
+.footer-logo img{
+    width: 100%;
+    display: block;
+}
+.footer-qr{
+    width: 100px;
+    height: 100px;
+}
+.footer-qr img{
+    width: 100%;
+    display: block;
+}
