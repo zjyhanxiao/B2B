@@ -20,7 +20,7 @@
                         <span class="light-blue font-18">打款/回款银行信息</span>
                         <p class="orange font-12">请注意：您的汇款与收款银行必须一致，而且银行账户上的姓名应当为投资人姓名。请仔细查填写以下信息，以免回款时给您带来不便。</p>
                     </div>
-                    <div class="banks">
+                    <div class="banks" style="display: none;">
                         <div class="row bank-choose">
                             <div style="text-align: right;" class="col-md-5">
                                 <div class="form-inline">
@@ -208,93 +208,200 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bank-wrapper-background">
-                        <!--                        <div class="row">
-                                                    <div class="col-md-12" id="bank-name-wrapper">
-                                                        <div class="form-inline">
-                                                            <label for="bank-name">银行名称 / Bank name</label>
-                                                            <input style="width: 64%;" type="text" class="form-control input-sm" id="bank-name" placeholder="标准银行名称(英语)">
-                                                            <button class="font-14 button" data-toggle='modal' data-target='#Modal' id="find-common-banks">查找常用银行</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row" style="height: 130px;">
-                                                    <div class="col-md-12">
-                                                        <div class="form-inline">
-                                                            <label for="bank-address">银行地址 / Bank address</label>
-                                                            <textarea style="height: 80px; font-size: 12px;" class="form-control us-bank-address" id="bank-address" type="text" placeholder="标准银行地址(英语)"></textarea>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-inline">
-                                                            <label for="swift-code">Swiftcode</label>
-                                                            <input type="text" class="form-control input-sm" id="swift-code" maxlength="11" placeholder="8位或11位字母数字组合"
-                                                                   onkeyup="value=value.replace(/[\W]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div id="routing-number-wrapper" class="row" style="display: none;">
-                                                    <div class="col-md-12">
-                                                        <div class="form-inline">
-                                                            <label for="swift-code">ABA / Routing number</label>
-                                                            <input type="text" class="form-control input-sm" id="routing-number" maxlength="9" placeholder="9位数字"
-                                                                   onkeyup="value=value.replace(/[\W]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-inline">
-                                                            <label for="account-number">账户号 / Account number</label>
-                                                            <input type="text" class="form-control input-sm" id="account-number" maxlength="24"
-                                                                   onkeyup="value=value.replace(/[\W]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                        &lt;!&ndash;                        <div class="middle-bank-info">
-                                                    <span style="font-size: 18px" class="light-blue">中间行信息（选填）</span>
-                                                    <p class="orange font-12">请填写您回款银行收美元时所使用的中间行信息。如您的银行不指定任何中间行，以下信息无需填写。</p>
-                                                </div>&ndash;&gt;
-                                                <div class="row middle-bank">
-                                                    <div class="col-md-12">
-                                                        <div class="form-inline">
-                                                            <label for="middle-bank-name">中间行名称 / Intermediary (correspondent) bank name</label>
-                                                            <input type="text" class="form-control input-sm" id="middle-bank-name" placeholder="标准银行名称(英语)">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <div class="form-inline">
-                                                            <label for="middle-bank-address">中间行地址 / Intermediary (correspondent) bank address</label>
-                                                            <textarea style="height: 80px; font-size: 12px;" class="form-control input-sm" id="middle-bank-address" placeholder="标准银行地址(英语)"></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <div class="form-inline">
-                                                            <label for="middle-bank-swift-code">中间行Swiftcode / Intermediary (correspondent) bank swiftcode</label>
-                                                            <input type="text" class="form-control input-sm" id="middle-bank-swift-code" maxlength="11" placeholder="8位或11位字母数字组合"
-                                                                   onkeyup="value=value.replace(/[\W]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row checking-saving">
-                                                    <div class="col-md-3">
-                                                        <div class="form-inline">
-                                                            <label style="width: 160px;" class="account-type">账户类型 / Account type</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="form-inline text-center">
-                                                            <button type="text" class="form-control input-sm checked" id="checking">Checking</button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="form-inline text-center">
-                                                            <button type="text" class="form-control input-sm" id="saving">Saving</button>
-                                                        </div>
-                                                    </div>
-                                                </div>-->
+                    <div class="bank-us">
+                        <div class="row">
+                            <div class="col-xs-4 text-right">
+                                <div class="bank_url text-right"><img
+                                        src="https://prod-static.oss-cn-beijing.aliyuncs.com/vendor/banklogo/pc-bank-logo/nonuslogo/CMB.png">
+                                </div>
+                            </div>
+                            <div class="col-xs-8">
+                                <div class="bank_name_en">China Merchants Bank (Hong Kong Branch)</div>
+                                <div class="bank_swift_code">SWIFT：CMBCHKHH</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4 text-right">
+                                <div class="chang_bank"><a href="javascript:;">更换银行</a></div>
+                            </div>
+                        </div>
+                        <div class="row form-inline">
+                            <div class="col-xs-4 text-right bank_account">ABA / Routing number</div>
+                            <div class="col-xs-8 bank_account"><input type="text" class="form-control routing_number">
+                            </div>
+                        </div>
+                        <div class="row form-inline">
+                            <div class="col-xs-4 text-right bank_account">银行账户 / Account number</div>
+                            <div class="col-xs-8 bank_account"><input type="text" class="form-control account_number">
+                            </div>
+                        </div>
+                        <div class="row form-inline">
+                            <div class="col-xs-4 text-right bank_account">账户类型 / Account type</div>
+                            <div class="col-xs-8 bank_account account_type">
+                                <button class="form-control input-sm checking checked">Checking</button>
+                                <button class="form-control input-sm saving">Saving</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bank-us-other">
+                        <div class="row">
+                            <div class="col-md-12 bank-name-wrapper">
+                                <div class="form-inline">
+                                    <label>银行名称 / Bank name</label>
+                                    <input style="width: 64%;" type="text" class="form-control input-sm bank_name"
+                                           placeholder="标准银行名称(英语)">
+                                    <button class="font-14 button find-common-banks" data-toggle='modal' data-target='#Modal'>查找常用银行
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="height: 130px;">
+                            <div class="col-md-12">
+                                <div class="form-inline">
+                                    <label>银行地址 / Bank address</label>
+                                    <textarea style="height: 80px; font-size: 12px;"
+                                              class="form-control us-bank-address bank_address" type="text"
+                                              placeholder="标准银行地址(英语)"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-inline">
+                                    <label>Swiftcode</label>
+                                    <input type="text" class="form-control input-sm swift_code" maxlength="11"
+                                           placeholder="8位或11位字母数字组合"
+                                           onkeyup="value=value.replace(/[\W]/g,'') "
+                                           onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row routing-number-wrapper">
+                            <div class="col-md-12">
+                                <div class="form-inline">
+                                    <label>ABA / Routing number</label>
+                                    <input type="text" class="form-control input-sm routing_number" maxlength="9"
+                                           placeholder="9位数字"
+                                           onkeyup="value=value.replace(/[\W]/g,'') "
+                                           onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-inline">
+                                    <label>账户号 / Account number</label>
+                                    <input type="text" class="form-control input-sm account-number" maxlength="24"
+                                           onkeyup="value=value.replace(/[\W]/g,'') "
+                                           onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-inline">
+                            <label class="bank_account">账户类型 / Account type</label>
+                            <div class="col-xs-8 bank_account account_type" style="padding-left: 0;">
+                                &nbsp;<button class="form-control input-sm checking checked">Checking</button>
+                                <button class="form-control input-sm saving">Saving</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bank-cn">
+                        <div class="row">
+                            <div class="col-xs-4 text-right">
+                                <div class="bank_url text-right"><img
+                                        src="https://prod-static.oss-cn-beijing.aliyuncs.com/vendor/banklogo/pc-bank-logo/nonuslogo/CMB.png">
+                                </div>
+                            </div>
+                            <div class="col-xs-8">
+                                <div class="bank_name_cn">招商银行－香港分行</div>
+                                <div class="bank_name_en">China Merchants Bank (Hong Kong Branch)</div>
+                                <div class="bank_swift_code">SWIFT：CMBCHKHH</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4 text-right">
+                                <div class="chang_bank"><a href="javascript:;">更换银行</a></div>
+                            </div>
+                        </div>
+                        <div class="row form-inline">
+                            <div class="col-xs-4 text-right bank_account">银行账户 / Account number</div>
+                            <div class="col-xs-8 bank_account"><input type="text" class="form-control account_number">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bank-cn-other">
+                        <div class="row">
+                            <div class="col-md-12 bank-name-wrapper">
+                                <div class="form-inline">
+                                    <label>银行名称 / Bank name</label>
+                                    <input style="width: 64%;" type="text" class="form-control input-sm bank_name"
+                                           placeholder="标准银行名称(英语)">
+                                    <button class="font-14 button find-common-banks" data-toggle='modal' data-target='#Modal'>查找常用银行
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="height: 130px;">
+                            <div class="col-md-12">
+                                <div class="form-inline">
+                                    <label>银行地址 / Bank address</label>
+                                    <textarea style="height: 80px; font-size: 12px;"
+                                              class="form-control us-bank-address bank_address" type="text"
+                                              placeholder="标准银行地址(英语)"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-inline">
+                                    <label>Swiftcode</label>
+                                    <input type="text" class="form-control input-sm swift_code" maxlength="11"
+                                           placeholder="8位或11位字母数字组合"
+                                           onkeyup="value=value.replace(/[\W]/g,'') "
+                                           onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-inline">
+                                    <label>账户号 / Account number</label>
+                                    <input type="text" class="form-control input-sm account_number" maxlength="24"
+                                           onkeyup="value=value.replace(/[\W]/g,'') "
+                                           onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="middle-bank-info">
+                            <span style="font-size: 18px" class="light-blue">中间行信息（选填）</span>
+                            <p class="orange font-12">请填写您回款银行收美元时所使用的中间行信息。如您的银行不指定任何中间行，以下信息无需填写。</p>
+                        </div>
+                        <div class="row middle-bank">
+                            <div class="col-md-12">
+                                <div class="form-inline">
+                                    <label>中间行名称 / Intermediary (correspondent) bank name</label>
+                                    <input type="text" class="form-control input-sm middle_bank_name"
+                                           placeholder="标准银行名称(英语)">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-inline">
+                                    <label>中间行地址 / Intermediary (correspondent) bank
+                                        address</label>
+                                    <textarea style="height: 80px; font-size: 12px;" class="form-control input-sm middle_bank_address" placeholder="标准银行地址(英语)"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-inline">
+                                    <label>中间行Swiftcode / Intermediary (correspondent) bank
+                                        swiftcode</label>
+                                    <input type="text" class="form-control input-sm middle_bank_swift_code"
+                                           maxlength="11" placeholder="8位或11位字母数字组合"
+                                           onkeyup="value=value.replace(/[\W]/g,'') "
+                                           onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="text-center next-step-wrapper">
                         <button class="prev-step prev-two">上一步</button>

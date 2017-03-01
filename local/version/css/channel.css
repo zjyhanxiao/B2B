@@ -150,6 +150,7 @@ input[type="checkbox"] {
 
 .next-step-wrapper {
     margin-top: 30px;
+    overflow: hidden;
 }
 
 .step-one {
@@ -163,27 +164,29 @@ input[type="checkbox"] {
 }
 
 .prev-step {
-    width: 120px;
+    width: 6em;
     height: 40px;
     color: #223976;
     font-size: 18px;
-    margin: 0 60px;
     background-color: #fff;
     border: 1px solid #223976;
     border-radius: 30px;
     margin-bottom: 20px;
+    float: left;
+    margin-left: 20%;
 }
 
 .next-step {
-    width: 120px;
+    width: 6em;
     height: 40px;
     border: none;
     color: #fff;
     font-size: 18px;
-    margin: 0 60px;
     background-color: #223976;
     border-radius: 30px;
     margin-bottom: 50px;
+    float: right;
+    margin-right: 20%;
 }
 
 .success {
@@ -347,15 +350,6 @@ input[type="checkbox"] {
 
 .non-us-bank, .us-bank {
     width: 75%;
-}
-
-#checking, #saving {
-    color: #555;
-    height: 35px;
-    width: 200px;
-    font-size: 12px;
-    border-radius: 20px;
-    margin-right: 100px;
 }
 
 #bank-info .checked {
@@ -837,8 +831,82 @@ div#document-loading p, div#document-error p {
 #nav-golden-list p {
     height: inherit !important;
 }
+.productAndOrder {
+    width: 75%;
+    margin: 30px auto 0;
+    color: #555;
+    font-size: 14px;
+    height: 20px;
+    line-height: 20px;
+}
 
-@media (max-width: 735px) {
+.about_product, .about_order {
+    width: 50%;
+    float: left;
+}
+
+.about_product span, .about_order span {
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+#invest-info .payment {
+    margin-left: 80px;
+    text-align: left;
+}
+
+#invest-info .payment label {
+    color: #555;
+    font-weight: normal;
+}
+
+.checkbox, .radio {
+    margin: 5px 0;
+}
+
+#signature-box {
+    overflow: hidden;
+}
+
+.banks {
+    border-top: 1px solid #999;
+    margin-top: 20px;
+}
+
+.banks .col-md-4 {
+    padding: 0 5px;
+}
+
+.bank-wrapper-background {
+    display: none;
+}
+
+.banks {
+    /*display: none;*/
+}
+
+.chang_bank {
+    padding: 16px;
+}
+.bank_account{
+    line-height: 34px;
+}
+
+.bank-cn,.bank-us{
+    display: none;
+    margin-top: 30px;
+}
+.account_type button.form-control{
+    width: 33%;
+}
+.account_type button.form-control:first-child{
+    margin-right: 2%;
+}
+label.bank_account{
+    width: 20%;
+    float: left;
+}
+@media (max-width: 767px) {
     .form-inline .form-control {
         width: 100%;
     }
@@ -899,10 +967,6 @@ div#document-loading p, div#document-error p {
         font-size: 12px;
     }
 
-    #checking, #saving {
-        width: 100%;
-    }
-
     .col-md-12 label {
         width: 100% !important;
     }
@@ -940,17 +1004,17 @@ div#document-loading p, div#document-error p {
         background-size: 100% 170px;
     }
 
-    #bank-name-wrapper {
+    .bank-name-wrapper {
         margin-bottom: 50px;
     }
 
-    #find-common-banks {
+    .find-common-banks {
         width: 100% !important;
         float: right;
         margin-top: 1px;
     }
 
-    #bank-name {
+    .bank_name {
         width: 100% !important;
     }
 
@@ -994,62 +1058,39 @@ div#document-loading p, div#document-error p {
     #post-code-mb {
         margin-top: 150px;
     }
+
+    .bank_account {
+        width: 100%;
+        text-align: left;
+    }
+
+    .account_number {
+        display: block;
+    }
+
+    .prev-step {
+        margin-left: 0;
+    }
+
+    .next-step {
+        margin-right: 0;
+    }
+    .account_type button.form-control{
+        width: 40%;
+        display: inline-block;
+    }
+    .account_type button.checking{
+        float: left;
+    }
+    .account_type button.saving{
+        float: right;
+    }
+    label.bank_account{
+        width: 100%;
+    }
 }
 
 /*.form-control {
     border-radius: 0 !important;
 }*/
 
-.productAndOrder {
-    width: 75%;
-    margin: 30px auto 0;
-    color: #555;
-    font-size: 14px;
-    height: 20px;
-    line-height: 20px;
-}
-
-.about_product, .about_order {
-    width: 50%;
-    float: left;
-}
-
-.about_product span, .about_order span {
-    margin-right: 10px;
-    font-weight: 500;
-}
-
-#invest-info .payment {
-    margin-left: 80px;
-    text-align: left;
-}
-
-#invest-info .payment label {
-    color: #555;
-    font-weight: normal;
-}
-
-.checkbox, .radio {
-    margin: 5px 0;
-}
-
-#signature-box {
-    overflow: hidden;
-}
-
-.banks {
-    border-top: 1px solid #999;
-    margin-top: 20px;
-}
-
-.banks .col-md-4 {
-    padding: 0 5px;
-}
-
-.bank-wrapper-background {
-    display: none;
-}
-
-.banks {
-    /*display: none;*/
-}
