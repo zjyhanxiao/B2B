@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>美信金融</title>
+  <link href="http://localhost:8080/vendor/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://localhost:8080/version/dist/css/index.min.css" rel="stylesheet">
+  <link href="http://localhost:8080/version/dist/css/nav_header_footer.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="header-bg">
+  <div class="nav-bg">
+    <div class="header-nav">
+      <div style="padding: 13px;overflow: hidden">
+        <div class="logo-box">
+          <img src="http://localhost:8080/version/dist/img/public/logo.png" alt="美信金融">
+        </div>
+        <div class="anniu">
+          <a href=""><span class="button" id="sign-in">加入</span></a>
+          <a href=""><span class="button" id="login">登录</span></a>
+        </div>
+        <ul class="link">
+          <li><a class="header-active" data-name="首页" href="/index.html">首页</a></li>
+          <li><a data-name="资产概况" href="/assetGeneral.html">资产概况</a></li>
+          <li><a data-name="AT平台" href="/AT.html">AT平台</a></li>
+          <li><a data-name="投资服务" href="/investService">投资服务</a></li>
+          <li><a data-name="关于美信" href="?">关于美信</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="join_us">
+  <div class="row join_text">
+    <p class="">美信金融致力于为线上金融平台以及线下理财平台提供海外金融产品交易服务，</p>
+    <p class="">若您想使用美信金融的产品或对于技术对接方式存有疑问，</p>
+    <p class="">请留下您的联系方式，方便美信的工作人员联系您。</p>
+    <div class="model">
+      <div class="join_us_model">
+        <p><input type="text" id="name" placeholder="请输入机构名称"></p>
+        <p><select id="country">
+          <option value="中国">中国 +86</option>
+          <option value="美国">美国 +1</option>
+        </select><input id="phone" type="text">
+        </p>
+        <p><input type="text" id="email" placeholder="请输入邮箱"></p>
+        <textarea name="" id="question" rows="5" placeholder="问题(选填)"></textarea>
+        <p><button id="join_us">提交</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+@@include('includes/nav-footer.html')
+<script src="http://localhost:8080/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="http://localhost:8080/vendor/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="http://localhost:8080/version/dist/js/about_meixin.min.js" type="text/javascript"></script>
+<script src="http://localhost:8080/version/dist/js/slider.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(function() {
+    var bannerSlider = new Slider($('#banner_tabs'), {
+      time: 5000,
+      delay: 400,
+      event: 'hover',
+      auto: true,
+      mode: 'fade',
+      controller: $('#bannerCtrl'),
+      activeControllerCls: 'active'
+    });
+    $('#banner_tabs .flex-prev').click(function() {
+      bannerSlider.prev()
+    });
+    $('#banner_tabs .flex-next').click(function() {
+      bannerSlider.next()
+    });
+  })
+</script>
+<script>
+  $(function () {
+    $('.phone').mouseover(function () {
+      $('.phone_before').css('display','none')
+      $('.phone_after').css('display','block')
+    })
+    $('.phone').mouseout(function () {
+      $('.phone_before').css('display','block')
+      $('.phone_after').css('display','none')
+    })
+
+    $(window).scroll(function () {
+      console.log( $(document).scrollTop() )
+    })
+  })
+</script>
+</body>
+</html>

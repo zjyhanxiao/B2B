@@ -1,5 +1,17 @@
-
 .index, .partner{
+    width: 1200px;
+    margin-left: calc(50% - 600px);
+}
+
+.nav_photo_fir{
+    line-height: 80px!important;
+}
+
+.nav_photo_sec{
+    line-height: 80px!important;
+}
+
+.row{
     width: 1200px;
     margin-left: calc(50% - 600px);
 }
@@ -137,12 +149,12 @@
 }
 
 .flex-direction-nav .flex-next {
-    background: url(../img/index/banner/index_nav_right.png) no-repeat;
+    background: url("../img/index/banner/index_nav_right.png") no-repeat;
     right: 0;
 }
 
 .flex-direction-nav .flex-prev {
-    background: url(../img/index/banner/index_nav_left.png) no-repeat;
+    background: url("../img/index/banner/index_nav_left.png") no-repeat;
     left: 30px;
 }
 
@@ -177,7 +189,7 @@
 }
 
 .flex-control-paging li a {
-    background: url(../img/index/banner/dot.png) no-repeat 0 -16px;
+    background: url("../img/index/banner/dot.png") no-repeat 0 -16px;
     display: block;
     height: 16px;
     overflow: hidden;
@@ -213,3 +225,263 @@
 .partner{
     margin-bottom: 100px;
 }
+
+.index_ria{
+    height: 434px;
+    background: url("../img/index/index_ria_bgi.png") no-repeat;
+}
+
+.ria{
+    color: #fff;
+    text-align: right;
+    padding-top: 130px;
+    padding-right: 80px;
+}
+
+.ria_title{
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+.ria_text{
+    font-size: 16px;
+}
+
+.ria_icon{
+    padding-top: 100px;
+    padding-left: 80px;
+}
+
+.about_us{
+    padding-top: 60px;
+}
+
+.about_us p{
+    text-align: center;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.index_about_us_button{
+    margin-top: 50px;
+    display: inline-block;
+    width: 224px;
+    height: 74px;
+    position: relative;
+}
+
+.index_about_us_text{
+    font-size: 30px;
+    color: #1a2337;
+    position: absolute;
+    top: 17px;
+    left: 52px;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.text-right{
+    margin-top: 50px;
+    text-align: right;
+    padding-right: 50px;
+}
+
+.text-left{
+    margin-top: 50px;
+    text-align: left;
+    padding-left: 50px;
+}
+
+
+/*
+* 资产概况
+*/
+
+.asset_row_1{
+    height: 350px;
+}
+
+.asset_row_2{
+    height: 350px;
+    background-color: #f4f4f4;
+}
+
+.asset_title{
+    font-size: 24px;
+    line-height: 50px;
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+.asset_text{
+    font-size: 18px;
+    line-height: 24px;
+}
+
+/*
+* AT
+*/
+
+.at_title{
+    text-align: center;
+    font-size: 32px;
+    line-height: 50px;
+    margin-top: 100px;
+}
+
+.at_text_wrapper{
+    padding-top: 120px;
+}
+
+.at_text{
+    text-align: left;
+    padding-left: 10px;
+    font-size: 18px;
+    line-height: 36px;
+}
+
+.at-middle-banner{
+    height: 500px;
+    margin-top: 80px;
+    background: url("../img/AT/img07.png") no-repeat;
+}
+
+.at-middle-banner-text{
+    margin: 50px 0;
+    text-align: center;
+}
+
+.at-middle-banner-text p{
+    color: #fff;
+    font-size: 30px;
+    line-height: 50px;
+}
+
+.at-middle-banner p{
+    text-align: center;
+    font-size: 26px;
+    color: #fff;
+    line-height: 52px;
+}
+
+.at_row_2{
+    margin-top: 20px;
+    position: relative;
+}
+
+.icon-right-1{
+    position: absolute;
+    top: -10px;
+    left: 400px;
+}
+
+.icon-right-2{
+    position: absolute;
+    top: -10px;
+    right: 370px;
+}
+
+.at_row_3{
+    height: 325px;
+    padding-top: 120px;
+}
+
+.at_consult_wrapper{
+    position: relative;
+}
+
+.at_consult{
+    position: absolute;
+    top: 15px;
+    left: 50px;
+    color: #1a2337;
+    font-size: 34px;
+}
+
+.at_api_text{
+    padding-left: 10px;
+    font-size: 32px;
+    line-height: 50px;
+}
+
+.at-middle-bgc{
+    background-color: #f4f4f4;
+}
+
+
+/*
+* 加入我们
+*/
+
+.join_us{
+    height: 700px;
+    background: url("../img/join_us_pic.png") no-repeat;
+}
+
+.join_text{
+    margin-top: 50px;
+}
+
+.join_us p{
+    text-align: center;
+    font-size: 18px;
+    line-height: 32px;
+}
+
+.model{
+    text-align: center;
+}
+
+.join_us_model{
+    padding-top: 60px;
+    width: 630px;
+    height: 460px;
+    border-radius: 8px;
+    margin-left: calc(50% - 315px);
+    background-color: #fff;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .075), 2px 2px 10px rgba(97, 225, 255, 0.07);
+}
+
+.join_us_model input{
+    border: 1px solid silver;
+    border-radius: 4px;
+    height: 45px;
+}
+
+#name, #email{
+    text-align: center;
+    width: 400px;
+}
+
+#country{
+    width: 65px;
+    height: 45px;
+    border: 1px solid silver;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+#phone{
+    width: 330px;
+}
+
+#question{
+    width: 400px;
+    border: 1px solid silver;
+    border-radius: 4px;
+}
+
+#join_us{
+    color: #fff;
+    width: 140px;
+    height: 45px;
+    font-size: 16px;
+    margin-top: 30px;
+    padding: 10px 30px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: #159bd6;
+}
+
