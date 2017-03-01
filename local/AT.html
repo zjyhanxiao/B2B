@@ -9,15 +9,35 @@
 </head>
 <body>
 <div class="header-bg">
-  <div class="nav-bg">
+  <div class="nav-bg" style="position: fixed; z-index: 5">
     <div class="header-nav">
       <div style="padding: 13px;overflow: hidden">
         <div class="logo-box">
           <img src="http://localhost:8080/version/dist/img/public/logo.png" alt="美信金融">
         </div>
-        <div class="anniu">
-          <a href="/join.html"><span class="button" id="sign-in">加入</span></a>
-          <a href="/login.html"><span class="button" id="login">登录</span></a>
+        <div class="button-wrapper">
+          <a href="/join.html"><span class="button join">加 入</span></a>
+          <a href="/login.html"><span class="button login">登 录</span></a>
+        </div>
+        <ul class="link">
+          <li><a data-name="首页" href="/index.html">首页</a></li>
+          <li><a data-name="资产概况" href="/assetGeneral.html">资产概况</a></li>
+          <li><a class="header-active" data-name="AT平台" href="/AT.html">AT平台</a></li>
+          <li><a data-name="投资服务" href="/investService.html">投资服务</a></li>
+          <li><a data-name="关于美信" href="/aboutTeam.html">关于美信</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="nav-bg-white" style="position: fixed; display: none; z-index: 5">
+    <div class="header-nav">
+      <div style="padding: 13px;overflow: hidden">
+        <div class="logo-box">
+          <img src="http://localhost:8080/version/dist/img/public/meixinlogo.png" alt="美信金融">
+        </div>
+        <div class="button-wrapper">
+          <a href="/join.html"><span class="button join">加 入</span></a>
+          <a href="/login.html"><span class="button login">登 录</span></a>
         </div>
         <ul class="link">
           <li><a data-name="首页" href="/index.html">首页</a></li>
@@ -31,9 +51,7 @@
   </div>
   <div class="slogan">
     <div class="font">
-      <p class="nav_photo_fir">美信的使命</p>
-      <p class="nav_photo_sec">Our Mission</p>
-      <p class="nav_photo_thi">构建海外金融产品交易生态圈</p>
+      <p class="nav_photo_fir">入驻美信 AT 平台，海外投资化繁为简</p>
     </div>
   </div>
 </div>
@@ -152,15 +170,54 @@
     $('.phone').mouseover(function () {
       $('.phone_before').css('display','none')
       $('.phone_after').css('display','block')
-    })
+    });
     $('.phone').mouseout(function () {
       $('.phone_before').css('display','block')
       $('.phone_after').css('display','none')
-    })
+    });
 
-    $(window).scroll(function () {
-      console.log( $(document).scrollTop() )
-    })
+    var d, h;
+    function scroll( fn ) {
+      var beforeScrollTop = document.body.scrollTop,
+              fn = fn || function() {};
+      window.addEventListener("scroll", function() {
+        var afterScrollTop = document.body.scrollTop,
+                delta = afterScrollTop - beforeScrollTop;
+        if( delta === 0 ) return false;
+        fn( delta > 0 ? "down" : "up" );
+        beforeScrollTop = afterScrollTop;
+      }, false);
+    }
+    scroll(function(direction) {
+//       console.log(direction);
+      d =  direction;
+      h = $(document).scrollTop();
+
+      var $header = $(".nav-bg");
+      var $headerWhite = $(".nav-bg-white");
+      if(d=="up"){
+//        console.log(d);
+        console.log(h);
+        if(h<720){
+          $header.fadeIn();
+          $headerWhite.fadeOut();
+        }else if(h>720){
+          console.log(d);
+          $header.fadeOut();
+          $headerWhite.fadeIn();
+        }
+      }else{
+        $header.hide();
+        $headerWhite.hide();
+      }
+    });
+
+    /*  $(window).scroll(function () {
+     //      console.log( $(document).scrollTop() )
+
+
+     });*/
+
   })
 </script>
 </body>
