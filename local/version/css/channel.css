@@ -153,16 +153,6 @@ input[type="checkbox"] {
     overflow: hidden;
 }
 
-.step-one {
-    width: 120px;
-    height: 40px;
-    border: none;
-    color: #fff;
-    font-size: 18px;
-    margin: 10px 60px;
-    border-radius: 30px;
-}
-
 .prev-step {
     width: 6em;
     height: 40px;
@@ -998,6 +988,10 @@ div#document-loading p, div#document-error p {
 }
 .middle-bank .form-control{
     width: 100%;
+}
+.step-one{
+    float: none;
+    margin-right: 0;
 }
 @media (max-width: 767px) {
     .form-inline label,.bank-cn .col-xs-5,.bank-cn .col-xs-2,.bank-us .col-xs-5,.bank-us .col-xs-2{
