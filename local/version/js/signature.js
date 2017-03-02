@@ -6,7 +6,7 @@ $(function () {
     var partner_id = getUrlParam('partner_id') || ''; // 渠道编码
     var product_id = getUrlParam('product_id') || ''; //获取产品id
     var order_number = getUrlParam('order_number') || ''; // 获取订单编号
-    var voucher = getUrlParam('voucher') || ''; // 获取通行证
+    var access_token = getUrlParam('access_token') || ''; // 获取通行证
     var pdf = null;   // 定义获取pdf所需上传的数据
 
     /**************************** 获取产品信息 ****************************/
@@ -36,7 +36,7 @@ $(function () {
 
     getData({
         url: base_url + '/zion/common/openSignature',
-        data: {order_number: order_number, phone: phone, channel_code: partner_id, voucher: voucher},
+        data: {order_number: order_number, phone: phone, channel_code: partner_id, access_token: access_token},
         async: false,
         sucFn: getUserData,
         failFn: failFn
@@ -72,7 +72,7 @@ $(function () {
         update_data.invest_amount = 10000;
         update_data.payment_method = 'wire';
         update_data.phone = phone;
-        update_data.voucher = voucher;
+        update_data.access_token = access_token;
         postData({
             url: base_url + '/zion/common/updateSignature',
             data: JSON.stringify(update_data),

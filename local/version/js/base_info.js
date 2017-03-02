@@ -4,7 +4,7 @@ $(function () {
     var partner_id = getUrlParam('partner_id') || ''; // 渠道编码
     var product_id = getUrlParam('product_id') || ''; //获取产品id
     var order_number = getUrlParam('order_number') || ''; // 获取订单编号
-    var voucher = getUrlParam('voucher') || ''; // 获取通行证
+    var access_token = getUrlParam('access_token') || ''; // 获取通行证
 
     var passport_photo_default = $('#fileMapping img').attr('src');
     $('.step-one').on('click', function () {
@@ -117,7 +117,7 @@ $(function () {
             user_data.passport_number = passport_number;
             user_data.passport_expire_date = effective;
             user_data.passport_url = passport_photo;
-            user_data.voucher = voucher;
+            user_data.access_token = access_token;
             user_data.product_id = product_id;
             postData({
                 url: base_url + '/zion/white_label/operate_user',
@@ -133,10 +133,10 @@ $(function () {
                 }
                 if (order_number == '') {
                     window.location = '/white_label/address_info.html?' +
-                        'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&voucher=' + voucher;
+                        'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&access_token=' + access_token;
                 } else {
                     window.location = '/white_label/address_info.html?' +
-                        'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number + '&voucher=' + voucher;
+                        'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number + '&access_token=' + access_token;
                 }
 
 
@@ -216,10 +216,10 @@ $(function () {
      });*/
 
     // 通过手机号获取渠道用户信息
-    if (phone != '' && voucher != '') {
+    if (phone != '' && access_token != '') {
         getData({
             url: base_url + '/zion/white_label/user_info',
-            data: {phone: phone, voucher: voucher, channel_code: partner_id},
+            data: {phone: phone, access_token: access_token, channel_code: partner_id},
             sucFn: baseInfo,
             failFn: noBaseInfo
         })

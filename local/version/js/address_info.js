@@ -4,12 +4,12 @@ $(function () {
     var partner_id = getUrlParam('partner_id') || ''; // 渠道编码
     var product_id = getUrlParam('product_id') || ''; //获取产品id
     var order_number = getUrlParam('order_number') || ''; // 获取订单编号
-    var voucher = getUrlParam('voucher') || ''; // 获取通行证
+    var access_token = getUrlParam('access_token') || ''; // 获取通行证
 
     var idCard_default = $('#fileMapping img').attr('src');
     $('.prev-one').on('click', function () {
         window.location = '/white_label/base_info.html?' +
-            'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number + '&voucher=' + voucher;
+            'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number + '&access_token=' + access_token;
     });
     $('.step-two').on('click', function () {
         user_data.product_id = product_id;
@@ -77,7 +77,7 @@ $(function () {
             user_data.address_cn.district = county;
             user_data.address_cn.detail = address_detail;
             user_data.address_cn.postal_code = post_code;
-            user_data.voucher = voucher;
+            user_data.access_token = access_token;
             postData({
                 url: base_url + '/zion/white_label/operate_user',
                 data: JSON.stringify(user_data),
@@ -88,10 +88,10 @@ $(function () {
             function stepTwoSuccess(res) {
                 if (order_number == '') {
                     window.location = '/white_label/bank_info.html?' +
-                        'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&voucher=' + voucher;
+                        'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&access_token=' + access_token;
                 } else {
                     window.location = '/white_label/bank_info.html?' +
-                        'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number + '&voucher=' + voucher;
+                        'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number + '&access_token=' + access_token;
                 }
             }
 
@@ -137,10 +137,10 @@ $(function () {
         }
     });
     // 手机号不为空，查找用户地址证明信息
-    if (phone != '' && voucher != '') {
+    if (phone != '' && access_token != '') {
         getData({
             url: base_url + '/zion/white_label/user_info',
-            data: {phone: phone, voucher: voucher, channel_code: partner_id},
+            data: {phone: phone, access_token: access_token, channel_code: partner_id},
             sucFn: addressInfo,
             failFn: noAddressInfo
         })

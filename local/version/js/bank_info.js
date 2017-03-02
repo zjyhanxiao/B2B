@@ -4,15 +4,15 @@ $(function () {
     var partner_id = getUrlParam('partner_id') || ''; // 渠道编码
     var product_id = getUrlParam('product_id') || ''; //获取产品id
     var order_number = getUrlParam('order_number') || ''; // 获取订单编号
-    var voucher = getUrlParam('voucher') || ''; // 获取通行证
+    var access_token = getUrlParam('access_token') || ''; // 获取通行证
     var bankUs = '', bankNonUs = '';
 
     getCnBank(); // 默认加载非美国常用银行
     // 获取用户银行信息
-    if (phone != '' && voucher != '') {
+    if (phone != '' && access_token != '') {
         getData({
             url: base_url + '/zion/white_label/user_info',
-            data: {phone: phone, voucher: voucher, channel_code: partner_id},
+            data: {phone: phone, access_token: access_token, channel_code: partner_id},
             async: false,
             sucFn: bankInfo,
             failFn: failFn
@@ -23,7 +23,7 @@ $(function () {
         user_data.channel_code = partner_id;
         user_data.order_number = order_number;
         user_data.phone = phone;
-        user_data.voucher = voucher;
+        user_data.access_token = access_token;
         $('.error').remove();
         $(this).prop('disabled', true);
         if ($('.banks').css('display') == 'block') {
@@ -166,7 +166,7 @@ $(function () {
 
     $('.prev-two').click(function () {
         window.location = '/white_label/address_info.html?' +
-            'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number + '&voucher=' + voucher;
+            'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number + '&access_token=' + access_token;
     });
 
     //点击切换银行类型
@@ -494,7 +494,7 @@ $(function () {
         if (d != null && d.order_number != '' && d.order_number != null && d.order_number != undefined) {
             order_number = d.order_number;
             window.location = '/white_label/signature.html?' +
-                'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&voucher=' + voucher + '&order_number=' + order_number;
+                'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&access_token=' + access_token + '&order_number=' + order_number;
         }
     }
 

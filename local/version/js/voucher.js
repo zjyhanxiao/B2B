@@ -55,7 +55,7 @@ $(function () {
         if (phone.indexOf('+') == -1) {
             phone = '+86 ' + phone;
         }
-        window.location = '/white_label/base_info.html?product_id=' + product_id + '&partner_id=' + partner_id + '&phone=' + phone + '&voucher=' + res.body;
+        window.location = '/white_label/base_info.html?product_id=' + product_id + '&partner_id=' + partner_id + '&phone=' + phone + '&access_token=' + res.body;
     }
 
     function failFn(res) {
