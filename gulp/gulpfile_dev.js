@@ -24,7 +24,7 @@ gulp.task('img_compress', function() {
 
 /* Watch JS For Changes */
 gulp.task('js', function() {
-    return gulp.src(['../local/version/js/**/*.js','!../local/version/js/common.js','!../local/version/js/channel.js'])
+    return gulp.src(['../local/version/js/**/*.js','!../local/version/js/main.js'])
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
         .pipe(gulp.dest('../dev/version/dist/js'))
