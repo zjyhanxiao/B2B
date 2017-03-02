@@ -132,14 +132,14 @@
 }
 
 .flex-direction-nav a {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 150px;
     line-height: 99em;
     overflow: hidden;
     margin: -35px 0 0;
     display: block;
     position: absolute;
-    top: 50%;
+    top: 25%;
     z-index: 10;
     cursor: pointer;
     opacity: 0;
@@ -149,12 +149,12 @@
 }
 
 .flex-direction-nav .flex-next {
-    background: url("../img/index/banner/index_nav_right.png") no-repeat;
+    background: url("../img/index/banner/index_nav_l.png") no-repeat;
     right: 0;
 }
 
 .flex-direction-nav .flex-prev {
-    background: url("../img/index/banner/index_nav_left.png") no-repeat;
+    background: url("../img/index/banner/index_nav_r.png") no-repeat;
     left: 30px;
 }
 
@@ -488,3 +488,51 @@
     background-color: #159bd6;
 }
 
+
+/*
+*  首页banner
+*/
+
+.index_nav_banner{
+    width: 1200px;
+    position: relative
+}
+
+.index_nav_banner .index_nav_text_wrapper{
+    width: 680px;
+    height: 250px;
+    border: 1px solid #6b80b8;
+    margin-left: 360px;
+    background-color: #fff;
+}
+
+.index_nav_banner .index_nav_text{
+    width: 450px;
+    margin: 50px;
+    height: 150px;
+    float: right;
+}
+
+.index_nav_banner .person_name{
+    text-align: left;
+    padding-left: 50px;
+    margin-top: 30px;
+    color: #223976;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.index_nav_banner .person_evaluate{
+    text-align: left;
+    padding-left: 50px;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.index_nav_banner .img{
+    position: absolute;
+    top: 45px!important;
+    left: 250px!important;
+    width: 252px!important;
+    height: 159px!important;
+}
