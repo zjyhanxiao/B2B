@@ -1,6 +1,11 @@
 .index, .partner{
     width: 1200px;
     margin-left: calc(50% - 600px);
+    /*position: absolute;*/
+    /*left: 50%;*/
+    /*top: 50%;*/
+    /*margin-left: -600px;*/
+    /*margin-top: 350px;*/
 }
 
 .nav_photo_fir{
@@ -229,6 +234,7 @@
 .index_ria{
     height: 434px;
     background: url("../img/index/index_ria_bgi.png") no-repeat;
+    background-position: center;
 }
 
 .ria{
@@ -406,6 +412,7 @@
 
 .at_consult a{
     color: #1a2337;
+    font-size: 30px;
     text-decoration: none;
 }
 
@@ -532,6 +539,7 @@
     color: #223976;
     font-size: 24px;
     line-height: 32px;
+    font-weight: 300;
 }
 
 .index_nav_banner .person_evaluate{
@@ -539,6 +547,7 @@
     padding-left: 50px;
     font-size: 18px;
     line-height: 24px;
+    font-weight: 300;
     color: #07080e;
 }
 
