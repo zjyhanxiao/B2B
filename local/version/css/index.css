@@ -273,10 +273,14 @@
 
 .index_about_us_text{
     font-size: 30px;
-    color: #1a2337;
     position: absolute;
     top: 17px;
     left: 52px;
+}
+
+.index_about_us_text a{
+    color: #1a2337;
+    text-decoration: none;
 }
 
 .text-center{
@@ -397,8 +401,12 @@
     position: absolute;
     top: 15px;
     left: 50px;
-    color: #1a2337;
     font-size: 34px;
+}
+
+.at_consult a{
+    color: #1a2337;
+    text-decoration: none;
 }
 
 .at_api_text{
@@ -417,6 +425,7 @@
 */
 
 .join_us{
+    margin-top: 100px;
     height: 700px;
     background: url("../img/join_us_pic.png") no-repeat;
 }
@@ -535,4 +544,8 @@
     left: 250px!important;
     width: 252px!important;
     height: 159px!important;
+}
+
+a{
+    text-decoration: none!important;
 }

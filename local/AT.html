@@ -49,17 +49,12 @@
       </div>
     </div>
   </div>
-  <div class="slogan">
-    <div class="font">
-      <p class="nav_photo_fir">入驻美信 AT 平台，海外投资化繁为简</p>
-    </div>
-  </div>
 </div>
 <style>
   .header-bg{
     width: 100%;
     height: 600px;
-    background: url("http://localhost:8080/version/dist/img/AT/header-bg.png") no-repeat;
+    background: url("http://localhost:8080/version/dist/img/AT/AT_banner.png") no-repeat;
     background-position: center;
   }
 </style>
@@ -137,7 +132,7 @@
     <div class="col-md-3 col-sm-6">
       <div class="at_consult_wrapper">
         <img src="http://localhost:8080/version/dist/img/AT/at_button.png" alt="">
-        <span class="at_consult">咨询API</span>
+        <span class="at_consult"><a href="/join.html">咨询API</a></span>
       </div>
     </div>
   </div>
@@ -147,79 +142,6 @@
 <script src="http://localhost:8080/vendor/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="http://localhost:8080/version/dist/js/about_meixin.min.js" type="text/javascript"></script>
 <script src="http://localhost:8080/version/dist/js/slider.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-  $(function() {
-    var bannerSlider = new Slider($('#banner_tabs'), {
-      time: 5000,
-      delay: 400,
-      event: 'hover',
-      auto: true,
-      mode: 'fade',
-      controller: $('#bannerCtrl'),
-      activeControllerCls: 'active'
-    });
-    $('#banner_tabs .flex-prev').click(function() {
-      bannerSlider.prev()
-    });
-    $('#banner_tabs .flex-next').click(function() {
-      bannerSlider.next()
-    });
-  })
-</script>
-<script>
-  $(function () {
-    $('.phone').mouseover(function () {
-      $('.phone_before').css('display','none')
-      $('.phone_after').css('display','block')
-    });
-    $('.phone').mouseout(function () {
-      $('.phone_before').css('display','block')
-      $('.phone_after').css('display','none')
-    });
-
-    var d, h;
-    function scroll( fn ) {
-      var beforeScrollTop = document.body.scrollTop,
-              fn = fn || function() {};
-      window.addEventListener("scroll", function() {
-        var afterScrollTop = document.body.scrollTop,
-                delta = afterScrollTop - beforeScrollTop;
-        if( delta === 0 ) return false;
-        fn( delta > 0 ? "down" : "up" );
-        beforeScrollTop = afterScrollTop;
-      }, false);
-    }
-    scroll(function(direction) {
-//       console.log(direction);
-      d =  direction;
-      h = $(document).scrollTop();
-
-      var $header = $(".nav-bg");
-      var $headerWhite = $(".nav-bg-white");
-      if(d=="up"){
-//        console.log(d);
-        console.log(h);
-        if(h<720){
-          $header.fadeIn();
-          $headerWhite.fadeOut();
-        }else if(h>720){
-          console.log(d);
-          $header.fadeOut();
-          $headerWhite.fadeIn();
-        }
-      }else{
-        $header.hide();
-        $headerWhite.hide();
-      }
-    });
-
-    /*  $(window).scroll(function () {
-     //      console.log( $(document).scrollTop() )
-
-
-     });*/
-
-  })
-</script>
+<script src="http://localhost:8080/version/dist/js/banner.min.js" type="text/javascript"></script>
 </body>
 </html>
