@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="hotcss" content="initial-dpr=1">
+
+    <title>海航详情页</title>
+
+    <link href="http://localhost:8080/vendor/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+        p,table,tr,td{
+            margin: 0px;
+            padding: 0px;
+        }
+        a{
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: none;
+        }
+        #wapper{
+            width: 100%;
+        }
+        .content{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .xian{
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: #efefef;
+            margin: 50px 0 40px;
+        }
+        .main{
+            width: 830px;
+            margin: 0 auto;
+        }
+        .title{
+            font-size: 24px;
+            color: #223976;
+            text-align: center;
+            margin-bottom: 35px;
+        }
+        .table-left{
+            text-align: center;
+            width: 276px;
+            float: left;
+        }
+        .numerical{
+            padding: 15px 0;
+            background: #f8fbff;
+            overflow: hidden;
+        }
+        .labal{
+            font-size: 14px;
+        }
+        .data{
+            font-size: 16px;
+            color: #223976;
+        }
+        .details{
+            width: 830px;
+        }
+        .details table{
+            width: 100%;
+        }
+        table tr{
+            border-bottom: 1px solid #f4f4f4;
+        }
+        table tr td{
+            font-size: 14px;
+            color: #999999;
+            word-break:break-all;
+        }
+        table tr td:first-child{
+            width: 155px;
+            font-size: 16px;
+            color: #555555;
+        }
+        table tr td:last-child{
+            width: 674px;
+            padding: 15px 0;
+        }
+        .join-btn{
+            width: 160px;
+            height: 45px;
+            display: block;
+            background: #223976;
+            color: #FFFFFF;
+            line-height: 45px;
+            text-align: center;
+            margin: 20px auto 40px;
+            border-radius: 30px;
+            font-size: 18px;
+        }
+
+
+        @media (min-width: 480px) and (max-width: 768px) {
+            .content{
+                width: 100%;
+            }
+            .main{
+                width: 100%;
+                padding: 0 15px;
+            }
+            .xian{
+                display: none;
+            }
+            .title{
+                font-size: 24px;
+                color: #223976;
+                text-align: center;
+                margin: 20px 0 30px;
+            }
+            .table-left{
+                text-align: center;
+                width: 33.33%;
+                float: left;
+            }
+            .numerical{
+                padding: 15px 0;
+                background: #f8fbff;
+                overflow: hidden;
+            }
+            .dis{
+                display: block;
+            }
+
+            .details{
+                width: 100%;
+            }
+            .details table{
+                width: 100%;
+            }
+            table tr{
+                border-bottom: 1px solid #f4f4f4;
+            }
+            table tr td{
+                font-size: 14px;
+                color: #999999;
+                word-break:break-all;
+                display: block;
+            }
+            table tr td:first-child{
+                width: 50%;
+                font-size: 16px;
+                color: #555555;
+                padding-top: 15px;
+            }
+            table tr td:last-child{
+                width: 100%;
+            }
+
+            .join-btn{
+                width: 100%;
+                height: 45px;
+                display: block;
+                background: #223976;
+                color: #FFFFFF;
+                line-height: 45px;
+                text-align: center;
+                margin: 20px auto 40px;
+                font-size: 18px;
+                border-radius: 0px;
+            }
+
+        }
+        @media (min-width: 375px) and (max-width: 480px){
+            .content{
+                width: 100%;
+            }
+            .main{
+                width: 100%;
+                padding: 0 15px;
+            }
+            .xian{
+                display: none;
+            }
+            .title{
+                font-size: 24px;
+                color: #223976;
+                text-align: center;
+                margin: 20px 0 30px;
+            }
+            .table-left{
+                text-align: center;
+                width: 33.33%;
+                float: left;
+            }
+            .numerical{
+                padding: 15px 0;
+                background: #f8fbff;
+                overflow: hidden;
+            }
+
+            .dis{
+                display: block;
+            }
+
+            .details{
+                width: 100%;
+            }
+            .details table{
+                width: 100%;
+            }
+            table tr{
+                border-bottom: 1px solid #f4f4f4;
+            }
+            table tr td{
+                font-size: 14px;
+                color: #999999;
+                word-break:break-all;
+                display: block;
+            }
+            table tr td:first-child{
+                width: 50%;
+                font-size: 16px;
+                color: #555555;
+                padding-top: 15px;
+            }
+            table tr td:last-child{
+                width: 100%;
+            }
+
+
+            .join-btn{
+                width: 100%;
+                height: 45px;
+                display: block;
+                background: #223976;
+                color: #FFFFFF;
+                line-height: 45px;
+                text-align: center;
+                margin: 20px auto 40px;
+                font-size: 18px;
+                border-radius: 0px;
+            }
+
+        }
+        @media (min-width: 315px) and (max-width: 375px){
+            .content{
+                width: 100%;
+            }
+            .main{
+                width: 100%;
+                padding: 0 15px;
+            }
+            .xian{
+                display: none;
+            }
+            .title{
+                font-size: 24px;
+                color: #223976;
+                text-align: center;
+                margin: 15px 0 20px;
+            }
+            .table-left{
+                text-align: center;
+                width: 33.33%;
+                float: left;
+            }
+            .numerical{
+                padding: 15px 0;
+                background: #f8fbff;
+                overflow: hidden;
+            }
+
+            .dis{
+                display: block;
+            }
+
+            .details{
+                width: 100%;
+            }
+            .details table{
+                width: 100%;
+            }
+            table tr{
+                border-bottom: 1px solid #f4f4f4;
+            }
+            table tr td{
+                font-size: 14px;
+                color: #999999;
+                word-break:break-all;
+                display: block;
+            }
+            table tr td:first-child{
+                width: 50%;
+                font-size: 16px;
+                color: #555555;
+                padding-top: 15px;
+            }
+            table tr td:last-child{
+                width: 100%;
+            }
+
+
+
+            .join-btn{
+                width: 100%;
+                height: 45px;
+                display: block;
+                background: #223976;
+                color: #FFFFFF;
+                line-height: 45px;
+                text-align: center;
+                margin: 20px auto 40px;
+                font-size: 18px;
+                border-radius: 0px;
+            }
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div id="wapper">
+        <div class="content">
+            <div class="xian"></div>
+            <div class="main">
+                <p class="title" id="product">   </p>
+                <div class="numerical">
+                    <div class="table-left">
+                        <span class="dis labal">预计年化</span>
+                        <span class="dis data" id="return_rate">   </span>
+                    </div>
+                    <div class="table-left">
+                        <span class="dis labal">投资年限</span>
+                        <span class="dis data" id="invest_term">   </span>
+                    </div>
+                    <div class="table-left">
+                        <span class="dis labal">起投金额</span>
+                        <span class="dis data" id="min_invest_amount">   </span>
+                    </div>
+                </div>
+                <div class="details" id="product_desc">
+
+                    <!--<table>-->
+                        <!--<tr>-->
+                            <!--<td>产品说明</td>-->
+                            <!--<td>11111111111111111111111111111111111111</td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td>产品说明</td>-->
+                            <!--<td>2222222222222222222222222222222222</td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td>产品说明</td>-->
+                            <!--<td>3333333333333333333333333333333333</td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td>产品说明</td>-->
+                            <!--<td>4444444444444444444444444444444444</td>-->
+                        <!--</tr>-->
+                    <!--</table>-->
+
+                </div>
+            </div>
+            <div class="join">
+                <a class="join-btn" id="lay-out" href=""> 立即加入 </a>
+            </div>
+
+
+        </div>
+    </div>
+
+</body>
+<script src="http://localhost:8080/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="http://localhost:8080/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
+<script src="http://localhost:8080/version/dist/js/common.min.js" type="text/javascript"></script>
+<script>
+    $(function () {
+        $.ajax({
+            type: 'get',
+            url: base_url + '/product/query_detail',
+            data: {'app_id':getUrlParam('partner_id'),'product_id':getUrlParam('product_id')},
+            contentType: "application/json; charset=utf-8",
+            success: function (res) {
+                console.log(res.body)
+                $('#product').html( res.body.product_name +'  '+ res.body.product_number )
+
+                $('#return_rate').html( res.body.return_rate +'%' )
+                $('#invest_term').html( res.body.invest_term +'个月' )
+                $('#min_invest_amount').html( '$'+res.body.min_invest_amount )
+
+                $('#product_desc').html( res.body.product_desc )
+                $('#lay-out').attr('href','invest.html?partner_id='+getUrlParam('partner_id')+'&product_id='+getUrlParam('product_id')+'')
+            },
+            error: function () {
+
+            }
+        })
+    })
+
+
+
+</script>
+
+</html>
