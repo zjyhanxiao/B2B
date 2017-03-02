@@ -1203,17 +1203,21 @@ div#document-loading p, div#document-error p {
 
 
 /********** 认购完成新样式 ************/
+#channel{
+    text-align: center;
+}
 
 #modal-content{
-    width: 900px;
-    position: absolute;
-    left: 50%;
-    margin-left: -450px;
+    display: inline-block;
+    /*width: 900px;*/
+    /*position: absolute;*/
+    /*left: 50%;*/
+    /*margin-left: -450px;*/
 }
 
 #order{
     text-align: center;
-    width: 900px;
+    /*width: 900px;*/
     height: 185px;
     padding-top: 100px;
     border-bottom: 2px solid #223976;
@@ -1234,7 +1238,7 @@ div#document-loading p, div#document-error p {
 
 
 .ach{
-    max-width: 900px;
+    width: 100%;
     padding: 20px 50px;
 }
 
@@ -1247,7 +1251,12 @@ div#document-loading p, div#document-error p {
 
 
 .wire{
+    width: 100%;
     padding: 15px 40px;
+}
+
+.wire_us{
+    width: 100%;
 }
 
 .wire p{
@@ -1259,7 +1268,27 @@ div#document-loading p, div#document-error p {
 }
 
 .wire .col-md-4{
+    text-align: left;
+    padding-left: 50px;
     font-size: 14px;
     font-weight: 400;
     line-height: 28px;
+}
+
+.wire .col-md-8{
+    text-align: left;
+    padding-left: 50px;
+}
+
+.wire_us .col-md-4{
+    text-align: left;
+    padding-left: 50px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+.wire_us .col-md-8{
+    text-align: left;
+    padding-left: 50px;
 }
