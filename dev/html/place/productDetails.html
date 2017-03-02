@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="hotcss" content="initial-dpr=1">
 
-    <title>海航详情页</title>
+    <title>产品详情</title>
 
     <link href="http://zion.meixincn.com/vendor/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -378,7 +378,7 @@
                 </div>
             </div>
             <div class="join">
-                <a class="join-btn" id="lay-out" href=""> 立即投资 </a>
+                <a class="join-btn" id="lay-out" href=""> 立即加入 </a>
             </div>
 
 
@@ -405,7 +405,7 @@
                 $('#min_invest_amount').html( '$'+res.body.min_invest_amount )
 
                 $('#product_desc').html( res.body.product_desc )
-                $('#lay-out').attr('href','invest.html?partner_id='+getUrlParam('partner_id')+'&product_id='+getUrlParam('product_id')+'')
+                $('#lay-out').attr('href','../invest.html?partner_id='+getUrlParam('partner_id')+'&product_id='+getUrlParam('product_id')+'')
             },
             error: function () {
 

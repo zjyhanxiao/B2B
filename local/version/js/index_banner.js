@@ -49,10 +49,10 @@ $(function () {
         if(d=="up"){
 //        console.log(d);
 //        console.log(h);
-            if(h<600){
+            if(h<720){
                 $header.fadeIn();
                 $headerWhite.fadeOut();
-            }else if(h>600){
+            }else if(h>720){
                 $header.fadeOut();
                 $headerWhite.fadeIn();
             }
