@@ -901,9 +901,9 @@ div#document-loading p, div#document-error p {
     width: 80%;
 }
 
-.bank-cn, .bank-us, .bank-us-other, .bank-cn-other, .banks {
+.bank-cn, .bank-us, .bank-us-other, .bank-cn-other {
     display: none;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 .other_bank {
@@ -952,6 +952,7 @@ div#document-loading p, div#document-error p {
     box-sizing: border-box;
     min-height: 90px;
     cursor: pointer;
+    margin-bottom: 30px;
 }
 
 .bank_url {
@@ -962,7 +963,12 @@ div#document-loading p, div#document-error p {
 .bank_border img {
     max-width: 80px;
 }
-
+.error{
+    color: red;
+    text-align: center;
+    margin: 20px;
+    font-size: 20px;
+}
 .bank_home {
     position: relative;
     text-align: center;

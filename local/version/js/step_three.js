@@ -137,7 +137,6 @@ $(function () {
     }
     // 获取银行信息成功
     function bankInfo(res) {
-        alertMsg(res.msg);
         var d = res.body;
         if (d && d != null) {
             user_data = d;

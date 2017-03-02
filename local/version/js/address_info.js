@@ -8,8 +8,8 @@ $(function () {
 
     var idCard_default = $('#fileMapping img').attr('src');
     $('.prev-one').on('click',function () {
-        window.location = '/auxiliary_order/stepOne.html?' +
-            'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number;
+        window.location = '/white_label/base_info.html?' +
+            'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number + '&voucher=' + voucher;
     });
     $('.step-two').on('click', function () {
         var id_card_url = $('#fileMapping img').attr('src');
