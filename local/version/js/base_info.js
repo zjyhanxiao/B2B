@@ -1,6 +1,4 @@
 $(function () {
-    $('#product_head ul li[data-name="产品"]').addClass('active');
-
     var user_data = {}; // 用户数据
     var phone = getUrlParam('phone') || ''; // 通过手机号查找用户信息
     var partner_id = getUrlParam('partner_id') || ''; // 渠道编码
@@ -121,25 +119,25 @@ $(function () {
             user_data.passport_url = passport_photo;
             user_data.voucher = voucher;
             postData({
-                url: base_url + '/zion/white_label/operate_user',
+                url: base_url + '/white_label/invest/operate_user',
                 data: JSON.stringify(user_data),
-                headers: {
-                    mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
-                },
                 contentType: "application/json; charset=utf-8",
                 sucFn: stepOneSuccess,
                 failFn: stepOneFail
             });
             function stepOneSuccess(res) {
                 var d = res.body;
-                if (d) {
-                    user_data = d;
-                    if (d != null && d.order_number != '' && d.order_number != null && d.order_number != undefined) {
-                        order_number = d.order_number;
-                    }
-                    window.location = '/auxiliary_order/stepTwo.html?' +
-                        'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number;
+                if (d != null && d.order_number != '' && d.order_number != null && d.order_number != undefined) {
+                    order_number = d.order_number;
                 }
+                if (order_number == '') {
+                    window.location = '/white_label/address_info.html?' +
+                        'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&voucher=' + voucher;
+                } else {
+                    window.location = '/white_label/address_info.html?' +
+                        'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number + '&voucher=' + voucher;
+                }
+
 
             }
 
@@ -230,7 +228,7 @@ $(function () {
     function baseInfo(res) {
         var d = res.body;
         if (d && d != null) {
-            // $('#phone-code,#phone').prop({readOnly: true, disabled: true});
+            user_data = d;
             $('#last_name').val(d.last_name);
             $('#first_name').val(d.first_name);
             if (d.phone != '' && d.phone.indexOf(' ')) {

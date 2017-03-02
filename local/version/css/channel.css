@@ -901,18 +901,20 @@ div#document-loading p, div#document-error p {
     width: 80%;
 }
 
-.bank-cn, .bank-us, .bank-us-other, .bank-cn-other {
-    /*display: none;*/
+.bank-cn, .bank-us, .bank-us-other, .bank-cn-other, .banks {
+    display: none;
     margin-top: 30px;
 }
 
 .other_bank {
-     border-bottom: 1px solid #153078;
+    border-bottom: 1px solid #153078;
     padding-bottom: 20px;
 }
-.bank-name-wrapper{
+
+.bank-name-wrapper {
     margin-top: 20px;
 }
+
 .search_bank {
     position: relative;
     border: 1px solid #ccc;
@@ -983,20 +985,25 @@ div#document-loading p, div#document-error p {
 .bank_account_l label {
     width: 100%;
 }
-.middle-bank label{
+
+.middle-bank label {
     width: 100%;
 }
-.middle-bank .form-control{
+
+.middle-bank .form-control {
     width: 100%;
 }
-.step-one{
+
+.step-one {
     float: none;
     margin-right: 0;
 }
+
 @media (max-width: 767px) {
-    .form-inline label,.bank-cn .col-xs-5,.bank-cn .col-xs-2,.bank-us .col-xs-5,.bank-us .col-xs-2{
+    .form-inline label, .bank-cn .col-xs-5, .bank-cn .col-xs-2, .bank-us .col-xs-5, .bank-us .col-xs-2 {
         width: 100%;
     }
+
     .bank_account_l, .bank_account_r {
         width: 100%;
     }
