@@ -6,7 +6,7 @@ $(function () {
     var partner_id = getUrlParam('partner_id') || ''; // 渠道编码
     var product_id = getUrlParam('product_id') || ''; //获取产品id
     var order_number = getUrlParam('order_number') || ''; // 获取订单编号
-    var permit_code = getUrlParam('permit_code') || ''; // 获取通行证
+    var voucher = getUrlParam('voucher') || ''; // 获取通行证
 
     var passport_photo_default = $('#fileMapping img').attr('src');
     $('.step-one').on('click', function () {
@@ -120,7 +120,7 @@ $(function () {
             user_data.passport_expire_date = effective;
             user_data.passport_url = passport_photo;
             postData({
-                url: base_url + '/zion/assist/operateUser',
+                url: base_url + '/zion/white_label/operate_user',
                 data: JSON.stringify(user_data),
                 headers: {
                     mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
@@ -216,11 +216,10 @@ $(function () {
      });*/
 
     // 通过手机号获取渠道用户信息
-    if (phone != '' && permit_code != '') {
-        $('#phone-code,#phone').prop('disabled', true);
+    if (phone != '' && voucher != '') {
         getData({
             url: base_url + '/zion/white_label/user_info',
-            data: {phone: phone, voucher: permit_code, channel_code: partner_id},
+            data: {phone: phone, voucher: voucher, channel_code: partner_id},
             sucFn: baseInfo,
             failFn: noBaseInfo
         })
@@ -234,6 +233,7 @@ $(function () {
             $('#last_name').val(d.last_name);
             $('#first_name').val(d.first_name);
             if (d.phone != '' && d.phone.indexOf(' ')) {
+                $('#phone-code,#phone').prop('disabled', true);
                 $('#phone').val(d.phone.split(' ')[1]);
                 // $("#phone-code").val(d.phone.split(' ')[0]);
             }
