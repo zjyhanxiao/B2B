@@ -118,8 +118,9 @@ $(function () {
             user_data.passport_expire_date = effective;
             user_data.passport_url = passport_photo;
             user_data.voucher = voucher;
+            user_data.product_id = product_id;
             postData({
-                url: base_url + '/white_label/invest/operate_user',
+                url: base_url + '/zion/white_label/operate_user',
                 data: JSON.stringify(user_data),
                 contentType: "application/json; charset=utf-8",
                 sucFn: stepOneSuccess,

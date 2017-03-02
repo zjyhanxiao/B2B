@@ -19,6 +19,11 @@ $(function () {
         })
     }
     $('.step-three').on('click', function () {
+        user_data.product_id = product_id;
+        user_data.channel_code = partner_id;
+        user_data.order_number = order_number;
+        user_data.phone = phone;
+        user_data.voucher = voucher;
         $('.error').remove();
         $(this).prop('disabled', true);
         if ($('.banks').css('display') == 'block') {
@@ -43,7 +48,7 @@ $(function () {
                 user_data.bank_us.routing_number = routing_number;
                 user_data.bank_us.account_number = account_number;
                 user_data.bank_us.bank_type = bank_type;
-                updateUserInfo(user_data);
+                updateUserInfo();
             } else {
                 var t = $('.red-shadow').eq(0).offset().top;
                 $('body').scrollTop(t);
@@ -84,7 +89,7 @@ $(function () {
                 user_data.bank_us.swift_code = swift_code;
                 user_data.bank_us.account_number = account_number;
                 user_data.bank_us.bank_type = bank_type;
-                updateUserInfo(user_data);
+                updateUserInfo();
             } else {
                 var t = $('.red-shadow').eq(0).offset().top;
                 $('body').scrollTop(t);
@@ -95,14 +100,15 @@ $(function () {
         if ($('.bank-cn').css('display') == 'block') {
             var can_next = true;
             $('.bank-cn .account_number').css('border-color', '#ccc').removeClass('red-shadow');
-            var account_number = $('.bank-cn .bank_name').val();
+            var account_number = $('.bank-cn .account_number').val();
             if (account_number == '') {
                 $('.bank-us-other .account_number').css('border-color', 'red').addClass('red-shadow');
                 can_next = false;
             }
             if (can_next) {
-                user_data.bank_us.account_number = account_number;
-                updateUserInfo(user_data);
+                user_data.bank_non_us.account_number = account_number;
+                console.log(JSON.stringify(user_data));
+                updateUserInfo();
             } else {
                 var t = $('.red-shadow').eq(0).offset().top;
                 $('body').scrollTop(t);
@@ -137,8 +143,17 @@ $(function () {
                 can_next = false;
             }
             if (can_next) {
-                user_data.bank_us.account_number = account_number;
-                updateUserInfo(user_data);
+                user_data.bank_non_us.bank_name = bank_name;
+                user_data.bank_non_us.bank_address = bank_address;
+                user_data.bank_non_us.swift_code = swift_code;
+                user_data.bank_non_us.account_number = account_number;
+                if (middle_bank_name != '' && middle_bank_address != '' && middle_bank_swift_code != '') {
+                    user_data.bank_non_us.have_middle_bank = 1;
+                    user_data.bank_non_us.middle_bank_name = middle_bank_name;
+                    user_data.bank_non_us.middle_bank_address = middle_bank_address;
+                    user_data.bank_non_us.middle_bank_swift_code = middle_bank_swift_code;
+                }
+                updateUserInfo();
             } else {
                 var t = $('.red-shadow').eq(0).offset().top;
                 $('body').scrollTop(t);
@@ -146,6 +161,7 @@ $(function () {
             }
             return false;
         }
+        return false;
     });
 
     $('.prev-two').click(function () {
@@ -194,6 +210,9 @@ $(function () {
                 user_data.bank_non_us.middle_bank_name = bank_data.middle_bank_name;
                 user_data.bank_non_us.middle_bank_address = bank_data.middle_bank_address;
                 user_data.bank_non_us.middle_bank_swift_code = bank_data.middle_bank_swift_code;
+                if (bank_data.middle_bank_address != '' && bank_data.middle_bank_swift_code != '' && bank_data.middle_bank_address != '') {
+                    user_data.bank_non_us.have_middle_bank = 1;
+                }
                 writeBankCn(bank_data);
                 return false;
             }
@@ -459,20 +478,24 @@ $(function () {
     }
 
     // 提交信息
-    function updateUserInfo(data) {
+    function updateUserInfo() {
         postData({
-            url: base_url + '/white_label/invest/operate_user',
-            data: JSON.stringify(data),
+            url: base_url + '/zion/white_label/operate_user',
+            data: JSON.stringify(user_data),
             async: false,
+            contentType: "application/json; charset=utf-8",
             sucFn: updateSuc,
             failFn: failFn
         })
     }
 
     function updateSuc(res) {
-        console.log(res.msg);
-        window.location = '/white_label/signature.html?' +
-            'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&voucher=' + voucher + '&order_number=' + res.body.order_number;
+        var d=res.body;
+        if (d != null && d.order_number != '' && d.order_number != null && d.order_number != undefined) {
+            order_number = d.order_number;
+            window.location = '/white_label/signature.html?' +
+                'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&voucher=' + voucher + '&order_number=' + order_number;
+        }
     }
 
     function failFn(res) {

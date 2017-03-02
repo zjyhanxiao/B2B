@@ -7,11 +7,12 @@ $(function () {
     var voucher = getUrlParam('voucher') || ''; // 获取通行证
 
     var idCard_default = $('#fileMapping img').attr('src');
-    $('.prev-one').on('click',function () {
+    $('.prev-one').on('click', function () {
         window.location = '/white_label/base_info.html?' +
             'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number + '&voucher=' + voucher;
     });
     $('.step-two').on('click', function () {
+        user_data.product_id = product_id;
         var id_card_url = $('#fileMapping img').attr('src');
         if (id_card_url == idCard_default) {
             id_card_url = '';
@@ -78,7 +79,7 @@ $(function () {
             user_data.address_cn.postal_code = post_code;
             user_data.voucher = voucher;
             postData({
-                url: base_url + '/white_label/invest/operate_user',
+                url: base_url + '/zion/white_label/operate_user',
                 data: JSON.stringify(user_data),
                 contentType: "application/json; charset=utf-8",
                 sucFn: stepTwoSuccess,
