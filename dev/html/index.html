@@ -117,19 +117,6 @@
 </div>
 <div class="index_nav">
   <p>“已有超过50家机构入驻美信AT平台”</p>
-<!--  <div id="index_nav_banner">
-    <div class="index_nav_text_wrapper">
-      <div class="index_nav_text">
-        <p class="person_name">
-          仓央嘉措
-        </p>
-        <p class="person_evaluate">
-          一个人需要隐藏多少秘密才能巧妙地度过一生
-        </p>
-      </div>
-    </div>
-    <img style="position: absolute; top: 45px; left: 550px;" src="http://zion.meixincn.com/version/dist/img/index/index_card.png" alt="">
-  </div>-->
   <div>
     <div id="banner_tabs" class="flexslider">
       <ul class="slides">
@@ -139,16 +126,15 @@
               <div class="index_nav_text_wrapper">
                 <div class="index_nav_text">
                   <p class="person_name">
-                    大写锁定
+                    纳兰性德
                   </p>
                   <p class="person_evaluate">
-                    一个人需要隐藏多少秘密才能巧妙地度过一生
+                    山一程，水一程，身向榆关那畔行，夜深千帐灯。
                   </p>
                 </div>
               </div>
               <img class="img" src="http://zion.meixincn.com/version/dist/img/index/index_card.png" alt="">
             </div>
-            <!--<img width="1920" height="482" alt="" style="background: url(http://zion.meixincn.com/version/dist/img/index/banner/banner1.jpg) no-repeat center;" src="http://zion.meixincn.com/version/dist/img/index/banner/alpha.png">-->
           </a>
         </li>
         <li>
@@ -157,16 +143,15 @@
               <div class="index_nav_text_wrapper">
                 <div class="index_nav_text">
                   <p class="person_name">
-                    小写锁定
+                    柳永
                   </p>
                   <p class="person_evaluate">
-                    一个人需要隐藏多少秘密才能巧妙地度过一生
+                    衣带渐宽终不悔,为伊消得人憔悴。
                   </p>
                 </div>
               </div>
               <img class="img" src="http://zion.meixincn.com/version/dist/img/index/index_card.png" alt="">
             </div>
-            <!--<img width="1920" height="482" alt="" style="background: url(http://zion.meixincn.com/version/dist/img/index/banner/banner2.jpg) no-repeat center;" src="http://zion.meixincn.com/version/dist/img/index/banner/alpha.png">-->
           </a>
         </li>
         <li>
@@ -184,7 +169,23 @@
               </div>
               <img class="img" src="http://zion.meixincn.com/version/dist/img/index/index_card.png" alt="">
             </div>
-            <!--<img width="1920" height="482" alt="" style="background: url(http://zion.meixincn.com/version/dist/img/index/banner/banner3.jpg) no-repeat center;" src="http://zion.meixincn.com/version/dist/img/index/banner/alpha.png">-->
+          </a>
+        </li>
+        <li>
+          <a title="" href="javascript:;">
+            <div class="index_nav_banner">
+              <div class="index_nav_text_wrapper">
+                <div class="index_nav_text">
+                  <p class="person_name">
+                    张若虚
+                  </p>
+                  <p class="person_evaluate">
+                    江天一色无纤尘，皎皎空中孤月轮。
+                  </p>
+                </div>
+              </div>
+              <img class="img" src="http://zion.meixincn.com/version/dist/img/index/index_card.png" alt="">
+            </div>
           </a>
         </li>
       </ul>
@@ -195,7 +196,8 @@
       <ol id="bannerCtrl" class="flex-control-nav flex-control-paging">
         <li><a href="javascript:;">1</a></li>
         <li><a href="javascript:;">2</a></li>
-        <li><a href="javascript:;">2</a></li>
+        <li><a href="javascript:;">3</a></li>
+        <li><a href="javascript:;">4</a></li>
       </ol>
     </div>
   </div>
@@ -247,7 +249,7 @@
   <p>全球顶尖金融与科技公司，致力于构建海外金融产品交易生态圈。</p>
   <div class="text-center">
     <span class="index_about_us_button">
-      <span class="index_about_us_text">关于我们</span>
+      <span class="index_about_us_text"><a href="/aboutTeam.html">关于我们</a></span>
       <img src="http://zion.meixincn.com/version/dist/img/index/index_button.png" alt="">
     </span>
   </div>
@@ -272,7 +274,7 @@
 </div>
 <div class="footer">
     <div class="check-in">
-        <a class="ruzhu" style="text-decoration: none">立即入住</a>
+        <a class="ruzhu" style="text-decoration: none" href="/join.html">立即入住</a>
         <p style="">助力华人金融机构，开拓海投新市场</p>
     </div>
     <div class="relation">
@@ -337,79 +339,6 @@
 <script src="http://zion.meixincn.com/vendor/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="http://zion.meixincn.com/version/dist/js/about_meixin.min.js" type="text/javascript"></script>
 <script src="http://zion.meixincn.com/version/dist/js/slider.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-  $(function() {
-    var bannerSlider = new Slider($('#banner_tabs'), {
-      time: 5000,
-      delay: 400,
-      event: 'hover',
-      auto: true,
-      mode: 'fade',
-      controller: $('#bannerCtrl'),
-      activeControllerCls: 'active'
-    });
-    $('#banner_tabs .flex-prev').click(function() {
-      bannerSlider.prev()
-    });
-    $('#banner_tabs .flex-next').click(function() {
-      bannerSlider.next()
-    });
-  })
-</script>
-<script>
-  $(function () {
-    $('.phone').mouseover(function () {
-      $('.phone_before').css('display','none')
-      $('.phone_after').css('display','block')
-    });
-    $('.phone').mouseout(function () {
-      $('.phone_before').css('display','block')
-      $('.phone_after').css('display','none')
-    });
-
-    var d, h;
-    function scroll( fn ) {
-      var beforeScrollTop = document.body.scrollTop,
-              fn = fn || function() {};
-      window.addEventListener("scroll", function() {
-        var afterScrollTop = document.body.scrollTop,
-                delta = afterScrollTop - beforeScrollTop;
-        if( delta === 0 ) return false;
-        fn( delta > 0 ? "down" : "up" );
-        beforeScrollTop = afterScrollTop;
-      }, false);
-    }
-    scroll(function(direction) {
-//       console.log(direction);
-      d =  direction;
-      h = $(document).scrollTop();
-
-      var $header = $(".nav-bg");
-      var $headerWhite = $(".nav-bg-white");
-      if(d=="up"){
-//        console.log(d);
-        console.log(h);
-        if(h<720){
-          $header.fadeIn();
-          $headerWhite.fadeOut();
-        }else if(h>720){
-          console.log(d);
-          $header.fadeOut();
-          $headerWhite.fadeIn();
-        }
-      }else{
-        $header.hide();
-        $headerWhite.hide();
-      }
-    });
-
-  /*  $(window).scroll(function () {
-//      console.log( $(document).scrollTop() )
-
-
-    });*/
-
-  })
-</script>
+<script src="http://zion.meixincn.com/version/dist/js/banner.min.js" type="text/javascript"></script>
 </body>
 </html>
