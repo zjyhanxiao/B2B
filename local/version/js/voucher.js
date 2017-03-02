@@ -29,7 +29,7 @@ $(function () {
         if(phone==''){
             $("#error").html('请输入您的手机号码');
             return false;
-        }if(get_verify_code==''){
+        }if(verify_code==''){
             $("#error").html('请输入您的校验码');
             return false;
         }else{
