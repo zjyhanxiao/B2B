@@ -442,7 +442,7 @@
 
 .model{
     margin-top: 50px;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 .join_us_model{
@@ -459,10 +459,11 @@
     border: 1px solid silver;
     border-radius: 4px;
     height: 45px;
+    padding: 0px 8px;
 }
 
 #name, #email{
-    text-align: center;
+    /*text-align: center;*/
     width: 400px;
 }
 
@@ -483,6 +484,8 @@
     width: 400px;
     border: 1px solid silver;
     border-radius: 4px;
+    margin-left: calc(50% - 315px);
+    padding: 0px 8px;
 }
 
 #join_us{
@@ -525,7 +528,7 @@
 .index_nav_banner .person_name{
     text-align: left;
     padding-left: 50px;
-    margin-top: 30px;
+    /*margin-top: 30px;*/
     color: #223976;
     font-size: 24px;
     line-height: 32px;
@@ -536,6 +539,7 @@
     padding-left: 50px;
     font-size: 18px;
     line-height: 24px;
+    color: #07080e;
 }
 
 .index_nav_banner .img{
