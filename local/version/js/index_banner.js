@@ -3,6 +3,12 @@
  */
 $(function () {
     $('body').scrollTop(0);
+    console.log($(document).scrollTop());
+    if($(document).scrollTop()==0){
+        $("#zhichiBtnBox").hide();
+    }else{
+        $("#zhichiBtnBox").show();
+    }
     var bannerSlider = new Slider($('#banner_tabs'), {
         time: 5000,
         delay: 400,
@@ -62,11 +68,4 @@ $(function () {
         }
     });
 
-/*    if(!window.name){
-        alert("第一次开这个窗口！name值"+ window.name);
-        window.name = 'lijia';
-
-    }else{
-        alert('刷新操作 name值：'+ window.name);
-    }*/
 });
