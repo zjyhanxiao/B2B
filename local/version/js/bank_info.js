@@ -1,5 +1,18 @@
 $(function () {
-    var user_info = {};
+    var user_data = {};// 定义用户信息数据
+    var phone = getUrlParam('phone') || ''; // 通过手机号查找用户信息
+    var partner_id = getUrlParam('partner_id') || ''; // 渠道编码
+    var product_id = getUrlParam('product_id') || ''; //获取产品id
+    var order_number = getUrlParam('order_number') || ''; // 获取订单编号
+    var voucher = getUrlParam('voucher') || ''; // 获取通行证
+
+    $('')
+
+
+
+
+
+
     // 写入美国银行信息
     function writeBankUs(data) {
         $('.bank-us .bank_url img').attr('src', data.a);
