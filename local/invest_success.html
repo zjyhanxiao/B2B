@@ -21,18 +21,90 @@
 <body>
 <div id="channel">
     <div class="tab-content" id="modal-content">
-        <div role="tabpanel" class="tab-pane active" id="order-id">
-            <div class="order-wrapper">
-                <div class="order-img">
-                    <img src="http://localhost:8080/version/dist/img/channel/order_number.png" alt="">
-                </div>
-                <p id="invest-success" class="text-center font-18" style="margin-top: 20px;">
-                    恭喜您成功完成认购流程！
-                </p>
-                <p id="order-number" class="text-center">
+        <div id="order">
+            <p class="con">恭喜您成功完成认购!</p>
+            <p class="or_num">订单编号: <span id="order_number"></span></p>
+        </div>
+        <div class="ach" style="display: none;">
+            <p>我们将使用ACH从您的 Bank of America ( 2809 ) 账户扣款。</p>
+            <p>您无需操作打款！</p>
+        </div>
+        <div class="wire" style="display: none;">
+            <p class="wire-info-show">请使用您的 <span class="user_pay">Bank of America ( 2809 </span>) 账户以银行电汇（ Wire ) 方式打款至以下账户。</p>
+            <p>我们将把以下信息发到您的邮箱。请您在三个工作日内完成打款操作。</p>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">收款人</div>
+                <div id="wire_name" class="col-md-8 col-sm-12">Fund America Securities,LLC</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">收款人地址</div>
+                <div id="wire_address" class="col-md-8 col-sm-12">Fund America Securities,LLC</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">收款银行</div>
+                <div id="wire_bank" class="col-md-8 col-sm-12">Fund America Securities,LLC</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">收款银行地址</div>
+                <div id="wire_bank_address" class="col-md-8 col-sm-12">Fund America Securities,LLC</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">账户号</div>
+                <div id="wire_account" class="col-md-8 col-sm-12">Fund America Securities,LLC</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">备注栏请填写</div>
+                <div id="wire_remark" class="col-md-8 col-sm-12">Fund America Securities,LLC</div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">中间行</div>
+                <div id="wire_middle_bank" class="col-md-8 col-sm-12">Fund America Securities,LLC</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">中间行地址</div>
+                <div id="wire_middle_bank_address" class="col-md-8 col-sm-12">Fund America Securities,LLC</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">中间行Swift Code</div>
+                <div id="wire_middle_bank_swiftCode" class="col-md-8 col-sm-12">Fund America Securities,LLC</div>
+            </div>
 
-                </p><br>
-                <!--<p style="text-align: center;">请与您的理财师联系并汇款至投资账户</p>-->
+        </div>
+        <div class="wire_us">
+            <p class="wire-info-show">请使用您的 <span class="user_pay">Bank of America ( 2809 </span>) 账户以银行电汇（ Wire ) 方式打款至以下账户。</p>
+            <p>我们将把以下信息发到您的邮箱。请您在三个工作日内完成打款操作。</p>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">收款人</div>
+                <div id="wire_us_name" class="col-md-8 col-sm-12">Fund America Securities,LLC</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">收款人地址</div>
+                <div id="wire_us_address" class="col-md-8 col-sm-12">Fund America Securities,LLC</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">收款银行</div>
+                <div id="wire_us_bank" class="col-md-8 col-sm-12">Fund America Securities,LLC</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">收款银行地址</div>
+                <div id="wire_us_bank_address" class="col-md-8 col-sm-12">Fund America Securities,LLC</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">收款银行ABA / Routing #</div>
+                <div id="wire_us_bank_routing" class="col-md-8 col-sm-12">Fund America Securities,LLC</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">收款银行Swift Code</div>
+                <div id="wire_us_swiftCode" class="col-md-8 col-sm-12">Fund America Securities,LLC</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">账户号</div>
+                <div id="wire_us_account" class="col-md-8 col-sm-12">Fund America Securities,LLC</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">备注栏请填写</div>
+                <div id="wire_us_remark" class="col-md-8 col-sm-12">Fund America Securities,LLC</div>
             </div>
         </div>
     </div>

@@ -3,33 +3,49 @@ $(function () {
     var partner_id = getUrlParam('partner_id') || '';
     var phone = getUrlParam('phone') || '';
     var order_number = getUrlParam('order_number') || '';
+
+    var get_phone = $("#phone").val();
+    var get_verify_code = $("#verify_code").val();
     $('#get_code').on('click', function () {
-        phone = $('#phone').val();
-        if (phone.indexOf('+') == -1) {
-            phone = '+86 ' + phone;
+        get_phone = $("#phone").val();
+        if(get_phone==''){
+            $("#error").html('请输入您的手机号码');
+            return false;
+        }else{
+            if (get_phone.indexOf('+') == -1) {
+                get_phone = '+86 ' + get_phone;
+            }
+            getData({
+                url: base_url + '/zion/common/verify_code',
+                data: {phone: get_phone, channel_code: partner_id},
+                async: false,
+                sucFn: getCodeSuc,
+                failFn: failFn
+            });
         }
-        getData({
-            url: base_url + '/zion/common/verify_code',
-            data: {phone: phone, channel_code: partner_id},
-            async: false,
-            sucFn: getCodeSuc,
-            failFn: failFn
-        });
-        return false;
     });
+    
     $('#submit').on('click', function () {
-        phone = $('#phone').val();
-        if (phone.indexOf('+') == -1) {
-            phone = '+86 ' + phone;
+        get_phone = $("#phone").val();
+        get_verify_code = $("#verify_code").val();
+        if(get_phone==''){
+            $("#error").html('请输入您的手机号码');
+            return false;
+        }if(get_verify_code==''){
+            $("#error").html('请输入您的校验码');
+            return false;
+        }else{
+            if (get_phone.indexOf('+') == -1) {
+                get_phone = '+86 ' + get_phone;
+            }
+            getData({
+                url: base_url + '/zion/common/voucher',
+                data: {phone: get_phone, channel_code: partner_id, verify_code: get_verify_code},
+                async: false,
+                sucFn: voucherSuc,
+                failFn: failFn
+            });
         }
-        getData({
-            url: base_url + '/zion/common/voucher',
-            data: {phone: phone, channel_code: partner_id, verify_code: $('#verify_code').val()},
-            async: false,
-            sucFn: voucherSuc,
-            failFn: failFn
-        });
-        return false;
     });
     function getCodeSuc(res) {
 
@@ -45,6 +61,11 @@ $(function () {
     function failFn(res) {
         alert(res.msg);
     }
+
+
+    $('input').on('focus',function () {
+        $("#error").css('visibility','hidden');
+    })
 });
 
 //获取url中的参数

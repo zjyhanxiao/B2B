@@ -13,19 +13,24 @@
     <meta name="hotcss" content="initial-dpr=1">
     <title>投资认购</title>
     <link href="http://localhost:8080/vendor/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://localhost:8080/version/dist/css/vouchers.min.css" rel="stylesheet">
 </head>
 <body>
 <div id="zero-step">
     <div id="wrapper">
         <p id="product-name">美信金融</p>
-        <p>投资认购</p>
-        <p>为保障您的认购信息安全请进行身份校验</p>
+        <p class="fs-28 text-center">投资认购</p>
+        <p class="fs-14">为保障您的认购信息安全</p>
+        <p class="fs-14">请进行身份校验</p>
+        <p id="error"></p>
         <div id="log-info">
-            <input type="text" id="phone" placeholder="手机号码(+86)">
-            <input type="text" id="verify_code" placeholder="校验码">
-            <button id="get_code">获取验证码</button>
+            <span><input type="text" id="phone" placeholder="手机号码(+86)"></span>
+            <span>
+                <input type="text" id="verify_code" placeholder="校验码">
+                <button id="get_code">获取验证码</button>
+            </span>
         </div>
-        <button id="submit">进入投资流程</button>
+        <button id="submit">验证</button>
     </div>
 </div>
 </body>
