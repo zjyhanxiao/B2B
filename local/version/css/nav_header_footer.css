@@ -127,7 +127,7 @@
 .check-in{
     width: 100%;
     height: 240px;
-    background: url("../img/public/ruzhupic.png");
+    background: url("../img/public/ruzhupic.png") no-repeat;
     overflow: hidden;
 }
 .ruzhu{
@@ -183,16 +183,22 @@
     display: block;
     width: 215px;
     height: 215px;
-    background: url("../img/public/wechatn.png");
+    background: url("../img/public/wechatn.png") no-repeat;
 }
 a.wechat:hover{
-    background: url("../img/public/wechat.png");
+    background: url("../img/public/wechat.png") no-repeat;
 }
 
 .phone_after{
-    width: 215px;
-    height: 215px;
+    width: 168px;
+    height: 168px;
+    margin-left: 25px;
+    margin-top: 20px;
     text-align: center;
+    padding-top: 1px;
+    background: url("../img/public/bgi.png");
+    -webkit-background-size: cover;
+    background-size: cover;
 }
 .phone-l{
     display: block;
