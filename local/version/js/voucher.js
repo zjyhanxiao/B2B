@@ -4,20 +4,18 @@ $(function () {
     var phone = getUrlParam('phone') || '';
     var order_number = getUrlParam('order_number') || '';
 
-    var get_phone = $("#phone").val();
-    var get_verify_code = $("#verify_code").val();
     $('#get_code').on('click', function () {
-        get_phone = $("#phone").val();
-        if(get_phone==''){
+        phone = $("#phone").val();
+        if(phone==''){
             $("#error").html('请输入您的手机号码');
             return false;
         }else{
-            if (get_phone.indexOf('+') == -1) {
-                get_phone = '+86 ' + get_phone;
+            if (phone.indexOf('+') == -1) {
+                phone = '+86 ' + phone;
             }
             getData({
                 url: base_url + '/zion/common/verify_code',
-                data: {phone: get_phone, channel_code: partner_id},
+                data: {phone: phone, channel_code: partner_id},
                 async: false,
                 sucFn: getCodeSuc,
                 failFn: failFn
@@ -26,21 +24,21 @@ $(function () {
     });
     
     $('#submit').on('click', function () {
-        get_phone = $("#phone").val();
-        get_verify_code = $("#verify_code").val();
-        if(get_phone==''){
+        phone = $("#phone").val();
+        var verify_code = $("#verify_code").val();
+        if(phone==''){
             $("#error").html('请输入您的手机号码');
             return false;
         }if(get_verify_code==''){
             $("#error").html('请输入您的校验码');
             return false;
         }else{
-            if (get_phone.indexOf('+') == -1) {
-                get_phone = '+86 ' + get_phone;
+            if (phone.indexOf('+') == -1) {
+                phone = '+86 ' + phone;
             }
             getData({
                 url: base_url + '/zion/common/voucher',
-                data: {phone: get_phone, channel_code: partner_id, verify_code: get_verify_code},
+                data: {phone: phone, channel_code: partner_id, verify_code: verify_code},
                 async: false,
                 sucFn: voucherSuc,
                 failFn: failFn
