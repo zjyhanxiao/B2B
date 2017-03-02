@@ -11,7 +11,7 @@
     <!-- 避免IE使用兼容模式 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="hotcss" content="initial-dpr=1">
-    <title>海航列表页</title>
+    <title>产品页</title>
 
     <link href="http://zion.meixincn.com/vendor/css/bootstrap.min.css" rel="stylesheet">
 
@@ -183,7 +183,7 @@
                         <!--<div class="col-md-12 col-xs-12"><p class="first">计划理财</p></div>-->
                     <!--</div>-->
                     <!--<div class="col-md-12 col-xs-12" style="border: 1px solid #efefef;background: #fcfdff;padding-right: 0px">-->
-                        <!--<a href="haihangdetails.html">-->
+
                             <!--<div class="col-md-6 col-xs-12">-->
                                 <!--<div class="row marR0">-->
                                     <!--<p class="secend">安心计划6个月</p>-->
@@ -233,7 +233,7 @@
                             <!--</div>-->
                         <!--</a>-->
 
-                        <!--<a href="haihangdetails.html">-->
+                        <!--<a href="productDetails.html">-->
                             <!--<div class="col-md-6 col-xs-12">-->
                                 <!--<div class="row marR0">-->
                                     <!--<p class="secend">安心计划6个月</p>-->
@@ -281,7 +281,7 @@
                                     <!--</div>-->
                                 <!--</div>-->
                             <!--</div>-->
-                        <!--</a>-->
+
                     <!--</div>-->
                 <!--</div>-->
 
@@ -327,7 +327,6 @@
                     $.each( res.body[key] ,function ( i , item ) {
                         console.log( item.product_id )
                         secendhtml+=
-                        '<a href="haihangdetails.html?partner_id='+getUrlParam('partner_id')+'&product_id='+item.product_id+'"> ' +
                         '<div class="col-md-6 col-xs-12"> <div class="row marR0"> ' +
                         '<p class="secend">'+item.product_name+'</p> </div> <div class="row marR0"> ' +
                         '<div class="col-md-12 col-xs-12" style="border: 1px solid #efefef;background: #FFFFFF;margin-bottom: 10px">' +
@@ -345,8 +344,8 @@
                         ' <p class="case">起投金额   <span class="details">'+item.min_invest_amount+'美元</span> ' +
                         '</p> </div> </div> <div class="row" style="margin: 20px 0 25px">' +
                         ' <div class="col-md-12 col-xs-12" style="text-align: center"> ' +
-                        '<a href="invest.html?partner_id='+getUrlParam('partner_id')+'&product_id='+item.product_id+'" class="invest-btn"> 立即投资 </a>' +
-                        ' </div> </div> </div> </div> </div> </a>'
+                        '<a href="haihangdetails.html?partner_id='+getUrlParam('partner_id')+'&product_id='+item.product_id+'" class="invest-btn"> 立即加入 </a>' +
+                        ' </div> </div> </div> </div> </div> '
                     })
                     secendhtml = '<div class="col-md-12 col-xs-12" style="border: 1px solid #efefef;background: #fcfdff;padding-right: 0px;margin-bottom: 30px">'+secendhtml+'</div>'
                      allhtml += '<div>'+firsthtml + secendhtml+'</div>';
