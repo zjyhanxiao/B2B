@@ -3,11 +3,48 @@ $(function () {
     var partner_id = getUrlParam('partner_id') || '';
     var phone = getUrlParam('phone') || '';
     var order_number = getUrlParam('order_number') || '';
-    $('.get_code').on('click', function () {
-        if (order_number == '') {
-
+    $('#get_code').on('click', function () {
+        phone = $('#phone').val();
+        if (phone.indexOf('+') == -1) {
+            phone = '+86 ' + phone;
         }
+        getData({
+            url: base_url + '/zion/common/verify_code',
+            data: {phone: phone, channel_code: partner_id},
+            async: false,
+            sucFn: getCodeSuc,
+            failFn: failFn
+        });
+        return false;
     });
+    $('#submit').on('click', function () {
+        phone = $('#phone').val();
+        if (phone.indexOf('+') == -1) {
+            phone = '+86 ' + phone;
+        }
+        getData({
+            url: base_url + '/zion/common/voucher',
+            data: {phone: phone, channel_code: partner_id, verify_code: $('#verify_code').val()},
+            async: false,
+            sucFn: voucherSuc,
+            failFn: failFn
+        });
+        return false;
+    });
+    function getCodeSuc(res) {
+
+    }
+
+    function voucherSuc(res) {
+        if (phone.indexOf('+') == -1) {
+            phone = '+86 ' + phone;
+        }
+        window.location = '/white_label/base_info.html?product_id=' + product_id + '&partner_id=' + partner_id + '&phone=' + phone + '&voucher=' + res.body;
+    }
+
+    function failFn(res) {
+        alert(res.msg);
+    }
 });
 
 //获取url中的参数

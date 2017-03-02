@@ -251,7 +251,7 @@
                                     </div>
                                     <div class="bank_detail">
                                         <div class="bank_name_en">China Merchants Bank (Hong Kong Branch)</div>
-                                        <div class="bank_swift_code">SWIFT：CMBCHKHH</div>
+                                        <div class="swift_code">SWIFT：CMBCHKHH</div>
                                     </div>
                                 </div>
                             </div>
@@ -282,7 +282,7 @@
                             <div class="bank_account_l"><label>账户类型 / Account type</label></div>
                             <div class="bank_account_r account_type">
                                 <button class="form-control input-sm checking checked">Checking</button>
-                                <button class="form-control input-sm saving">Saving</button>
+                                <button class="form-control input-sm savings">Savings</button>
                             </div>
                         </div>
                     </div>
@@ -342,7 +342,7 @@
                             <div class="col-md-10 col-md-offset-1 ">
                                 <div class="form-inline">
                                     <label>账户号 / Account number</label>
-                                    <input type="text" class="form-control input-sm account-number" maxlength="24"
+                                    <input type="text" class="form-control input-sm account_number" maxlength="24"
                                            onkeyup="value=value.replace(/[\W]/g,'') "
                                            onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
                                 </div>
@@ -354,7 +354,7 @@
                                     <label style="float: left;">账户类型 / Account type</label>
                                     <div class="col-xs-8 bank_account account_type" style="padding-left: 0;">
                                         <button class="form-control input-sm checking checked">Checking</button>
-                                        <button class="form-control input-sm saving">Saving</button>
+                                        <button class="form-control input-sm savings">Savings</button>
                                     </div>
                                 </div>
                             </div>
@@ -368,8 +368,9 @@
                                             src="https://prod-static.oss-cn-beijing.aliyuncs.com/vendor/banklogo/pc-bank-logo/nonuslogo/CMB.png">
                                     </div>
                                     <div class="bank_detail">
+                                        <div class="bank_name_cn">招商银行</div>
                                         <div class="bank_name_en">China Merchants Bank (Hong Kong Branch)</div>
-                                        <div class="bank_swift_code">SWIFT：CMBCHKHH</div>
+                                        <div class="swift_code">SWIFT：CMBCHKHH</div>
                                     </div>
                                 </div>
                             </div>
@@ -442,7 +443,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row middle-bank">
                             <div class="col-md-10 col-md-offset-1">
                                 <div class="middle-bank-info">
                                     <span style="font-size: 18px" class="light-blue">中间行信息（选填）</span>
@@ -513,6 +514,7 @@
 <script src="http://zion.meixincn.com/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
 <script src="http://zion.meixincn.com/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
 <script src="http://zion.meixincn.com/vendor/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="http://zion.meixincn.com/version/dist/js/main.min.js" type="text/javascript"></script>
 <script src="http://zion.meixincn.com/version/dist/js/common.min.js" type="text/javascript"></script>
 <script src="http://zion.meixincn.com/version/dist/js/invest_flow.min.js" type="text/javascript"></script>
 <script src="http://zion.meixincn.com/version/dist/js/step_three.min.js" type="text/javascript"></script>
