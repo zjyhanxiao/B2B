@@ -119,6 +119,7 @@ $(function () {
             user_data.passport_number = passport_number;
             user_data.passport_expire_date = effective;
             user_data.passport_url = passport_photo;
+            user_data.voucher = voucher;
             postData({
                 url: base_url + '/zion/white_label/operate_user',
                 data: JSON.stringify(user_data),
