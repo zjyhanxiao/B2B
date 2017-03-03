@@ -103,6 +103,7 @@ $(function () {
 
     function failFn(res) {
         alert(res.msg);
+        $("#submit, #get_code").prop('disabled', false);
     }
 
 

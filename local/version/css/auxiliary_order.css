@@ -96,6 +96,11 @@ body {
     margin-top: 30px;
 }
 
+.show-user-info{
+    height: 40px;
+    background: url('../img/channel/zk2.png') center no-repeat;
+}
+
 .user-info, .document-info, .signature {
     width: 60%;
     margin: 30px auto 0;
