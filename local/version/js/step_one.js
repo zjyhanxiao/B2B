@@ -2,11 +2,21 @@ $(function () {
     $('#product_head ul li[data-name="产品"]').addClass('active');
 
     var user_data = {}; // 用户数据
-    var user_phone = getUrlParam('phone') || ''; // 通过手机号查找用户信息
+    var phone = getUrlParam('phone') || ''; // 通过手机号查找用户信息
     var partner_id = getUrlParam('partner_id') || ''; // 渠道编码
     var product_id = getUrlParam('product_id') || ''; //获取产品id
     var order_number = getUrlParam('order_number') || ''; // 获取订单编号
 
+    /**************************** 链接中存在手机号，手机号不可更改 ****************************/
+    if (phone != '') {
+        $('#phone-code,#phone').prop('disabled', true);
+        if (phone.indexOf(' ')) {
+            $('#phone').val(phone.split(' ')[1]);
+            // $("#phone-code").val(d.phone.split(' ')[0]);
+        }else{
+            $('#phone').val(phone);
+        }
+    }
     var passport_photo_default = $('#fileMapping img').attr('src');
     $('.step-one').on('click', function () {
         var passport_photo = $('#fileMapping img').attr('src');
@@ -17,7 +27,7 @@ $(function () {
         var next_step = true;
         var last_name = $("#last_name").val();
         var first_name = $("#first_name").val();
-        user_phone = $('#phone-code').val() + ' ' + $("#phone").val();
+        // phone = $('#phone-code').val() + ' ' + $("#phone").val();
         var email = $("#email").val();
         var date_of_birth = $("#date-of-birth").val();
         var source_of_income = $("#source-of-income").val();
@@ -37,7 +47,7 @@ $(function () {
             $("#first_name").addClass('red-shadow');
             next_step = false;
         }
-        if (user_phone == '' || user_phone.length < 6) {
+        if (phone == '' || phone.length < 6) {
             $("#phone").addClass('red-shadow');
             next_step = false;
         }
@@ -101,7 +111,7 @@ $(function () {
             user_data.channel_code = partner_id;
             user_data.product_id = product_id;
             user_data.order_number = order_number;
-            user_data.phone = user_phone;
+            user_data.phone = phone;
             user_data.last_name = last_name;
             user_data.first_name = first_name;
             user_data.email = email;
@@ -136,7 +146,7 @@ $(function () {
                         order_number = d.order_number;
                     }
                     window.location = '/auxiliary_order/stepTwo.html?' +
-                        'product_id=' + product_id + '&phone=' + user_phone + '&partner_id=' + partner_id + '&order_number=' + order_number;
+                        'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number;
                 }
 
             }
@@ -215,11 +225,10 @@ $(function () {
     });*/
 
     // 通过手机号获取渠道用户信息
-    if (user_phone != '') {
-        $('#phone-code,#phone').prop('disabled',true);
+    if (phone != '') {
         getData({
             url: base_url + '/zion/assist/customerInfo',
-            data: {phone: user_phone},
+            data: {phone: phone},
             headers: {
                 mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
             },

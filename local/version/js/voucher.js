@@ -5,11 +5,12 @@ $(function () {
     var order_number = getUrlParam('order_number') || '';
 
     $('#get_code').on('click', function () {
+        $(this).prop('disabled',true);
         phone = $("#phone").val();
         var $that = $(this);
-        if(!/[1]d{10}$/.test(phone)){
+        if(!(/^1\d{10}$/.test(phone))){
             $("#error").html('请输入您的手机号码');
-            return false;
+            $(this).prop('disabled',false);
         }else{
             var timer = null, i = 60;
             timer = setInterval(function () {
@@ -33,16 +34,20 @@ $(function () {
                 failFn: failFn
             });
         }
+        return false;
     });
     
     $('#submit').on('click', function () {
+        $(this).prop('disabled',true);
         phone = $("#phone").val();
         var verify_code = $("#verify_code").val();
         if(!/^1\d{10}$/.test(phone)){
             $("#error").html('请输入您的手机号码');
+            $(this).prop('disabled',false);
             return false;
         }if(verify_code==''){
             $("#error").html('请输入您的校验码');
+            $(this).prop('disabled',false);
             return false;
         }else{
             if (phone.indexOf('+') == -1) {
@@ -74,6 +79,6 @@ $(function () {
 
 
     $('input').on('focus',function () {
-        $("#error").css('visibility','hidden');
+        $("#error").empty();
     })
 });
