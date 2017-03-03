@@ -5,7 +5,15 @@ $(function () {
     var product_id = getUrlParam('product_id') || ''; //获取产品id
     var order_number = getUrlParam('order_number') || ''; // 获取订单编号
     var access_token = getUrlParam('access_token') || ''; // 获取通行证
-
+    if (phone != '') {
+        $('#phone-code,#phone').prop('disabled', true);
+        if (phone.indexOf(' ')) {
+            $('#phone').val(phone.split(' ')[1]);
+            // $("#phone-code").val(d.phone.split(' ')[0]);
+        }else{
+            $('#phone').val(phone);
+        }
+    }
     var passport_photo_default = $('#fileMapping img').attr('src');
     $('.step-one').on('click', function () {
         var passport_photo = $('#fileMapping img').attr('src');
@@ -232,8 +240,7 @@ $(function () {
             user_data = d;
             $('#last_name').val(d.last_name);
             $('#first_name').val(d.first_name);
-            if (d.phone != '' && d.phone.indexOf(' ')) {
-                $('#phone-code,#phone').prop('disabled', true);
+            if (d.phone != '' && d.phone.indexOf('+')) {
                 $('#phone').val(d.phone.split(' ')[1]);
                 // $("#phone-code").val(d.phone.split(' ')[0]);
             }
