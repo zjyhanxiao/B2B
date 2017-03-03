@@ -49,13 +49,14 @@ $(function () {
 
     // 点击'点击查看投资信息'查看投资信息
     $('.show-user-info a').on('click', function () {
-        $(this).hide();
         $('.user-info').show();
+        $('.show-user-info').hide();
     });
     // 点击'收起'隐藏投资信息
     $('.hide-info').on('click', function () {
         $('.user-info').hide();
-        $('.show-user-info a').show();
+        // $('.show-user-info a').show();
+        $('.show-user-info').show();
     });
 
     /**************************** 提交签名信息 ****************************/
