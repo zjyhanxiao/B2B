@@ -846,12 +846,12 @@ div#document-loading p, div#document-error p {
     font-weight: 500;
 }
 
-#invest-info .payment {
+#invest_value .payment {
     margin-left: 80px;
     text-align: left;
 }
 
-#invest-info .payment label {
+#invest_value .payment label {
     color: #555;
     font-weight: normal;
 }

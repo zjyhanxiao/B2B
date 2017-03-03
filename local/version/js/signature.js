@@ -111,20 +111,6 @@ $(function () {
             $('.line-2').html(address.detail.replace(/\r\n|\r|\n/, ', '));
             $('.line-3').html(address.postal_code);
             if (d.order_user_info.bank_type == 'US') {
-                if (ach) {
-                    $('#invest_value .payment').html('<p style="color: #000;margin-bottom: 5px;">入金方式只能选择其中一项：</p><div class="radio">' +
-                        '<label>' +
-                        '<input type="radio" name="optionsRadios" checked value="ach">通过ACH自动从' + d.order_user_info.bank_us.bank_name + '（' + d.order_user_info.bank_us.account_number.replace(/^\d+(\d{4})$/, "$1") + '）扣款' +
-                        '</label>' +
-                        '</div>' +
-                        '<div class="radio">' +
-                        '<label>' +
-                        '<input type="radio" name="optionsRadios" value="wire">通过银行电汇线下打款' +
-                        '</label>' +
-                        '</div>');
-                } else {
-                    $('#invest_value .payment').html('<div class="checkbox"><label><input type="checkbox" checked value="wire" disabled>通过银行电汇线下打款</label></div>');
-                }
                 var bank_us = d.order_user_info.bank_us;
                 $('.bank_name').html(bank_us.bank_name);
                 $('.bank_address').html(bank_us.bank_address.replace(/\r\n|\r|\n/, ', '));
@@ -151,21 +137,32 @@ $(function () {
             $.each(d.product_document, function (index, item) {
                 if (item.need_mapped) {
                     document_list += '<div class="checkbox">' +
-                        '<label>' +
-                        '我已阅读并接受' +
-                        '</label>' +
                         '<a data-id="' + item.id + '" class="getPdf">' + item.document_name + '</a>' +
                         '</div>'
                 } else {
                     document_list += '<div class="checkbox">' +
-                        '<label>' +
-                        '我已阅读并接受' +
-                        '</label>' +
                         '<a data-url="' + item.document_url + '" class="getPdf">' + item.document_name + '</a>' +
                         '</div>'
                 }
             });
             $('.document-item').html(document_list);
+            if (ach && d.order_user_info.bank_type == 'US') {
+                $('#invest_value .payment').html('<p style="color: #000;margin-bottom: 5px;">入金方式只能选择其中一项：</p><div class="radio">' +
+                    '<label>' +
+                    '<input type="radio" name="optionsRadios" checked value="ach">通过ACH自动从' + d.order_user_info.bank_us.bank_name + '（' + d.order_user_info.bank_us.account_number.replace(/^\d+(\d{4})$/, "$1") + '）扣款' +
+                    '</label>' +
+                    '</div>' +
+                    '<div class="radio">' +
+                    '<label>' +
+                    '<input type="radio" name="optionsRadios" value="wire">通过银行电汇线下打款' +
+                    '</label>' +
+                    '</div>');
+                $('.document-item').append('<div class="checkbox">'+
+                    '<a data-url="/vendor/doc/ACH.pdf" class="getPdf">ACH自动扣款协议</a>' +
+                    '</div>');
+            } else {
+                $('#invest_value .payment').html('<div class="checkbox"><label><input type="checkbox" checked value="wire" disabled>通过银行电汇线下打款</label></div>');
+            }
             /*if (d.payment_method) {
              if (d.payment_method == 'ach') {
              $('.payment').html('确认投资后将通过ACH自动从' + bank_us.bank_name + '（' + bank_us.account_number.replace(/^\d+(\d{4})$/, "$1") + '）扣款');
