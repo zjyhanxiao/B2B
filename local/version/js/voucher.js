@@ -5,13 +5,13 @@ $(function () {
     var order_number = getUrlParam('order_number') || '';
 
     $('#get_code').on('click', function () {
-        $(this).prop('disabled',true);
+        $(this).prop('disabled', true);
         phone = $("#phone").val();
         var $that = $(this);
-        if(!(/^1\d{10}$/.test(phone))){
+        if (!(/^1\d{10}$/.test(phone))) {
             $("#error").html('请输入您的手机号码');
-            $(this).prop('disabled',false);
-        }else{
+            $(this).prop('disabled', false);
+        } else {
             var timer = null, i = 60;
             timer = setInterval(function () {
                 $('#get_code').html(i + '秒后重新发送');
@@ -36,20 +36,21 @@ $(function () {
         }
         return false;
     });
-    
+
     $('#submit').on('click', function () {
-        $(this).prop('disabled',true);
+        $(this).prop('disabled', true);
         phone = $("#phone").val();
         var verify_code = $("#verify_code").val();
-        if(!/^1\d{10}$/.test(phone)){
+        if (!/^1\d{10}$/.test(phone)) {
             $("#error").html('请输入您的手机号码');
-            $(this).prop('disabled',false);
+            $(this).prop('disabled', false);
             return false;
-        }if(verify_code==''){
+        }
+        if (verify_code == '') {
             $("#error").html('请输入您的校验码');
-            $(this).prop('disabled',false);
+            $(this).prop('disabled', false);
             return false;
-        }else{
+        } else {
             if (phone.indexOf('+') == -1) {
                 phone = '+86 ' + phone;
             }
@@ -70,7 +71,12 @@ $(function () {
         if (phone.indexOf('+') == -1) {
             phone = '+86 ' + phone;
         }
-        window.location = '/white_label/base_info.html?product_id=' + product_id + '&partner_id=' + partner_id + '&phone=' + phone + '&access_token=' + res.body.token;
+
+        if (order_number != '') {
+            window.location = '/white_label/signature.html?product_id=' + product_id + '&partner_id=' + partner_id + '&phone=' + phone + '&access_token=' + res.body.token + '&order_number=' + order_number;
+        } else {
+            window.location = '/white_label/base_info.html?product_id=' + product_id + '&partner_id=' + partner_id + '&phone=' + phone + '&access_token=' + res.body.token;
+        }
     }
 
     function failFn(res) {
@@ -78,7 +84,7 @@ $(function () {
     }
 
 
-    $('input').on('focus',function () {
+    $('input').on('focus', function () {
         $("#error").empty();
     })
 });

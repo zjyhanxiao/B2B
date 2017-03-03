@@ -28,8 +28,7 @@
     <div class="row">
         <div class="col-md-12">
             <p style="font-size: 16px; color: #223976;">请把以下链接发给投资人，让投资人查看投资文件并签字确认。</p>
-            <p style="color: red; margin-bottom: 20px;">注：投资人需要输入密码才可以打开此页面</p>
-            <p style="margin-bottom: 5px;">解锁密码<span class="password"></span></p>
+            <p style="color: red; margin-bottom: 20px;">注：投资人需要输入手机验证码才可以打开此页面</p>
             <p style="margin-bottom: 20px;">链接：<span class="href_link"></span>
             </p>
             <button class="change_order">修改订单</button>
@@ -62,11 +61,9 @@
         $('#product_head ul li[data-name="产品"]').addClass('active');
         var product_id = getUrlParam('product_id') || '';
         var partner_id = getUrlParam('partner_id') || '';
-        var verify_code = getUrlParam('verify_code') || '';
         var order_number = getUrlParam('order_number') || '';
         var phone = getUrlParam('phone') || '';
-        $('.password').html(verify_code);
-        $('.href_link').html('http://zion.meixincn.com/auxiliary_order/shareAndSignature.html?product_id=' + product_id + '&partner_id=' + partner_id + '&order_number=' + order_number);
+        $('.href_link').html('http://zion.meixincn.com/invest.html?product_id=' + product_id + '&partner_id=' + partner_id + '&order_number=' + order_number);
         $('.change_order').on('click', function () {
             window.location = '/auxiliary_order/stepOne.html?product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number;
         });

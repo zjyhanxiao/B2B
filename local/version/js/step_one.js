@@ -13,7 +13,7 @@ $(function () {
         if (phone.indexOf(' ')) {
             $('#phone').val(phone.split(' ')[1]);
             // $("#phone-code").val(d.phone.split(' ')[0]);
-        }else{
+        } else {
             $('#phone').val(phone);
         }
     }
@@ -206,29 +206,41 @@ $(function () {
     });
 
     //获取电话区号
-/*    var country_data = {'city': '', 'country': '', 'region': ''};
-    $.ajax({
-        type: 'post',
-        dataType: 'json',
-        contentType: 'application/json',
-        data: JSON.stringify(country_data),
-        async: false,
-        url: base_url + '/white_label/invest/access_district',
-        success: function (res) {
-            var d = res.body;
-            var html = '';
-            $.each(d, function (i) {
-                html += '<option value="' + d[i].cellcode + '">' + d[i].name + ' ' + d[i].cellcode + '</option>';
-            });
-            $("#phone-code").empty().append(html);
-        }
-    });*/
+    /*    var country_data = {'city': '', 'country': '', 'region': ''};
+     $.ajax({
+     type: 'post',
+     dataType: 'json',
+     contentType: 'application/json',
+     data: JSON.stringify(country_data),
+     async: false,
+     url: base_url + '/white_label/invest/access_district',
+     success: function (res) {
+     var d = res.body;
+     var html = '';
+     $.each(d, function (i) {
+     html += '<option value="' + d[i].cellcode + '">' + d[i].name + ' ' + d[i].cellcode + '</option>';
+     });
+     $("#phone-code").empty().append(html);
+     }
+     });*/
 
     // 通过手机号获取渠道用户信息
-    if (phone != '') {
+    if (phone != '' && order_number == '') {
         getData({
             url: base_url + '/zion/assist/customerInfo',
             data: {phone: phone},
+            headers: {
+                mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
+            },
+            sucFn: baseInfo,
+            failFn: noBaseInfo
+        })
+    }
+    // 修改订单
+    if (order_number !== '') {
+        getData({
+            url: base_url + '/zion/assist/customerOrderInfo',
+            data: {phone: phone, order_number: order_number},
             headers: {
                 mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
             },
@@ -284,48 +296,48 @@ $(function () {
 
 
     //上传护照
-/*    $('#passport-proof').change(function () {
-        $("#passport-false").hide();
-        var $this = $(this);
-        var val = $(this).val().toLowerCase();
-        var regex = new RegExp("(.*?)\.(jpg|jpeg|png|gif|bmp)$");
-        if (!(regex.test(val))) {
-            $(this).val('');
-            alert('图片格式不正确，支持图片格式(.jpg|.jpeg|.png|.gif|.bmp)');
-        } else {
-            file_passport_upload($this);
-        }
-    });*/
-/*    function file_passport_upload(dom) {
-        var formData = new FormData($('form')[0]);
-        formData.append('file', $("#passport-proof")[0].files[0]);
-        $.ajax({
-            url: 'https://prod-gl-api.meixincn.com/web/upload/private',
-            dataType: 'json',
-            type: 'post',
-            data: formData,
-            async: false,
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function (result, status) {
-                if (result.code == 1) {
-                    $("#passport-false").hide();
-                    // $("#passport-uploading").hide();
-                    var passport_photo = result.body;
-                    dom.siblings('img').attr('src', passport_photo);
-                }
-                if (result.code != 1) {
-                    alert("上传失败,请重新上传");
-                }
-            }
-        });
-    }
+    /*    $('#passport-proof').change(function () {
+     $("#passport-false").hide();
+     var $this = $(this);
+     var val = $(this).val().toLowerCase();
+     var regex = new RegExp("(.*?)\.(jpg|jpeg|png|gif|bmp)$");
+     if (!(regex.test(val))) {
+     $(this).val('');
+     alert('图片格式不正确，支持图片格式(.jpg|.jpeg|.png|.gif|.bmp)');
+     } else {
+     file_passport_upload($this);
+     }
+     });*/
+    /*    function file_passport_upload(dom) {
+     var formData = new FormData($('form')[0]);
+     formData.append('file', $("#passport-proof")[0].files[0]);
+     $.ajax({
+     url: 'https://prod-gl-api.meixincn.com/web/upload/private',
+     dataType: 'json',
+     type: 'post',
+     data: formData,
+     async: false,
+     cache: false,
+     contentType: false,
+     processData: false,
+     success: function (result, status) {
+     if (result.code == 1) {
+     $("#passport-false").hide();
+     // $("#passport-uploading").hide();
+     var passport_photo = result.body;
+     dom.siblings('img').attr('src', passport_photo);
+     }
+     if (result.code != 1) {
+     alert("上传失败,请重新上传");
+     }
+     }
+     });
+     }
 
-    //上传组件
-    $('.fa-upload-pic').find('a').click(function () {
-        $(this).siblings('input').trigger('click');
-    });*/
+     //上传组件
+     $('.fa-upload-pic').find('a').click(function () {
+     $(this).siblings('input').trigger('click');
+     });*/
 
     //获取焦点后移除红框
     $('input').on('focus', function () {

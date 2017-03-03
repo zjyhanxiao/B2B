@@ -2,14 +2,14 @@ $(function () {
     $('#product_head ul li[data-name="产品"]').addClass('active');
 
     var user_data = {};// 定义用户信息数据
-    var user_phone = getUrlParam('phone') || ''; // 通过手机号查找用户信息
+    var phone = getUrlParam('phone') || ''; // 通过手机号查找用户信息
     var partner_id = getUrlParam('partner_id') || ''; // 渠道编码
     var product_id = getUrlParam('product_id') || ''; //获取产品id
     var order_number = getUrlParam('order_number') || ''; // 获取订单编号
     var idCard_default = $('#fileMapping img').attr('src');
-    $('.prev-one').on('click',function () {
+    $('.prev-one').on('click', function () {
         window.location = '/auxiliary_order/stepOne.html?' +
-            'product_id=' + product_id + '&phone=' + user_phone + '&partner_id=' + partner_id + '&order_number=' + order_number;
+            'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number;
     });
     $('.step-two').on('click', function () {
         var id_card_url = $('#fileMapping img').attr('src');
@@ -65,7 +65,7 @@ $(function () {
             user_data.channel_code = partner_id;
             user_data.product_id = product_id;
             user_data.order_number = order_number;
-            user_data.phone = user_phone;
+            user_data.phone = phone;
             user_data.id_card_url = id_card_url;
             user_data.id_card_expire_date = address_effective;
             user_data.address_type = 'CN';
@@ -90,7 +90,7 @@ $(function () {
                 var d = res.body;
                 if (d) {
                     window.location = '/auxiliary_order/stepThree.html?' +
-                        'product_id=' + product_id + '&phone=' + user_phone + '&partner_id=' + partner_id + '&order_number=' + order_number;
+                        'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number;
                 }
             }
 
@@ -136,10 +136,22 @@ $(function () {
         }
     });
     // 手机号不为空，查找用户地址证明信息
-    if (user_phone != '') {
+    if (phone != '' && order_number == '') {
         getData({
             url: base_url + '/zion/assist/customerInfo',
-            data: {phone: user_phone},
+            data: {phone: phone},
+            headers: {
+                mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
+            },
+            sucFn: addressInfo,
+            failFn: noAddressInfo
+        })
+    }
+    // 获取订单用户信息
+    if (order_number !== '') {
+        getData({
+            url: base_url + '/zion/assist/customerInfo',
+            data: {phone: phone, order_number: order_number},
             headers: {
                 mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
             },
@@ -211,48 +223,48 @@ $(function () {
         });
     }
 
-/*//上传地址证明
-    $('#address-proof').change(function () {
-        var $this = $(this);
-        var val = $(this).val().toLowerCase();
-        var regex = new RegExp("(.*?)\.(jpg|jpeg|png|gif|bmp)$");
-        if (!(regex.test(val))) {
-            $(this).val('');
-            alert('图片格式不正确，支持图片格式(.jpg|.jpeg|.png|.gif|.bmp)');
-        } else {
-            file_upload($this);
-        }
-    });
-    //上传地址照片
-    function file_upload(dom) {
-        var formData = new FormData($('form')[1]);
-        formData.append('file', $("#address-proof")[0].files[0]);
-        $.ajax({
-            url: 'https://prod-gl-api.meixincn.com/web/upload/private',
-            dataType: 'json',
-            type: 'post',
-            data: formData,
-            async: false,
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function (result, status) {
-                if (result.code == 1) {
-                    $("#address-false").hide();
-                    $("#address-uploading").hide();
-                    dom.siblings('img').attr('src', result.body);
-                }
-                if (result.code != 1) {
-                    alert("上传失败,请重新上传");
-                }
-            }
-        });
-    }
+    /*//上传地址证明
+     $('#address-proof').change(function () {
+     var $this = $(this);
+     var val = $(this).val().toLowerCase();
+     var regex = new RegExp("(.*?)\.(jpg|jpeg|png|gif|bmp)$");
+     if (!(regex.test(val))) {
+     $(this).val('');
+     alert('图片格式不正确，支持图片格式(.jpg|.jpeg|.png|.gif|.bmp)');
+     } else {
+     file_upload($this);
+     }
+     });
+     //上传地址照片
+     function file_upload(dom) {
+     var formData = new FormData($('form')[1]);
+     formData.append('file', $("#address-proof")[0].files[0]);
+     $.ajax({
+     url: 'https://prod-gl-api.meixincn.com/web/upload/private',
+     dataType: 'json',
+     type: 'post',
+     data: formData,
+     async: false,
+     cache: false,
+     contentType: false,
+     processData: false,
+     success: function (result, status) {
+     if (result.code == 1) {
+     $("#address-false").hide();
+     $("#address-uploading").hide();
+     dom.siblings('img').attr('src', result.body);
+     }
+     if (result.code != 1) {
+     alert("上传失败,请重新上传");
+     }
+     }
+     });
+     }
 
-    //上传组件
-    $('.fa-upload-pic').find('a').click(function () {
-        $(this).siblings('input').trigger('click');
-    });*/
+     //上传组件
+     $('.fa-upload-pic').find('a').click(function () {
+     $(this).siblings('input').trigger('click');
+     });*/
 
     //获取焦点后移除红框
     $('input').on('focus', function () {
