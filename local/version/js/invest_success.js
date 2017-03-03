@@ -31,9 +31,9 @@ $(function () {
         }
         if (res.body != null) {
             var d = res.body;
-            if (d.is_ach_enabled) {
-                $(".user_pay").html(bank_name + '(' + 'account_number');
-            }
+            /*if (d.is_ach_enabled) {
+                $(".user_pay").html(bank_name + '(' + account_number);
+            }*/
             if (d.is_receive_bank_enabled) {
                 if (d.receive_bank.account_name != '') {
                     $("#wire_name").html(d.receive_bank.account_name);
