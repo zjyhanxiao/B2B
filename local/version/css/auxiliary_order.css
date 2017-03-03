@@ -21,20 +21,70 @@ body {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.payment{
+
+.payment {
     width: 90%;
     margin: auto;
-    border-top:1px solid #ccc;
-    padding: 10px 0;
+    border-top: 1px solid #ccc;
+    padding: 10px 20px;
     color: #666;
     font-weight: normal;
+    text-align: left;
 }
+
+.payment p {
+    text-align: center;
+}
+
+#invest-amount-title {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.dark-blue {
+    color: #223976;
+}
+
+.add, .sub {
+    margin-bottom: 10px;
+}
+
+.invest-money {
+    position: relative;
+}
+
+.invest-amounts {
+    width: 260px;
+    height: 50px;
+    font-size: 32px;
+    margin: 0 5px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding-left: 22px;
+}
+
+.orange {
+    color: #f60;
+}
+
+.font-12 {
+    font-size: 12px;
+    font-weight: 300;
+}
+
 .invest_value {
     font-size: 24px;
     line-height: 5;
     height: 5em;
     color: #335095;
+}
 
+.money {
+    position: absolute;
+    font-size: 32px;
+    left: 20px;
 }
 
 .invest_value span {
@@ -51,6 +101,11 @@ body {
     margin: 30px auto 0;
     position: relative;
     color: #555;
+}
+
+.signature {
+    border-top: 1px solid #ccc;
+    padding-top: 30px;
 }
 
 .hide-info {
@@ -256,6 +311,7 @@ div#document-loading p, div#document-error p {
         right: 0;
     }
 }
-#signature-box{
+
+#signature-box {
     overflow: hidden;
 }

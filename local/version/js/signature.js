@@ -8,6 +8,11 @@ $(function () {
     var order_number = getUrlParam('order_number') || ''; // 获取订单编号
     var access_token = getUrlParam('access_token') || ''; // 获取通行证
     var pdf = null;   // 定义获取pdf所需上传的数据
+    var min_invest_amount = 0; // 最小投资金额
+    var invest_par_value = 0;  // 增加单位
+    var account_number = '';  // 账户号
+    var bank_name = '';  // 银行名称
+    var payment_method = ''; // 支付方式
 
     /**************************** 获取产品信息 ****************************/
     getData({
@@ -55,9 +60,17 @@ $(function () {
 
     /**************************** 提交签名信息 ****************************/
     $('#update_order').on('click', function () {
-        $('#signature-box').css('border', '1px solid #ccc');
+        $('#signature-box,.invest-amounts').css('border', '1px solid #ccc');
         $('.document-unCheck').remove();
         $(this).prop('disabled', true);
+        var invest_amount = parseInt($('.invest-amounts').val());
+        payment_method = $('.payment input:checked').val();
+        if (invest_amount < min_invest_amount || ((invest_amount - min_invest_amount) > 0 && (invest_amount - min_invest_amount) / invest_par_value != 0)) {
+            $('.invest-amounts').css('border-color', 'red');
+            $('body').scrollTop($('.invest-amounts').offset().top);
+            $(this).prop('disabled', false);
+            return false;
+        }
         var signature = $('#signature-line').jSignature('getData');
         if (signature == jSignatureData) {
             $(this).prop('disabled', false);
@@ -69,8 +82,8 @@ $(function () {
         update_data.order_number = order_number;
         update_data.signature = signature;
         update_data.channel_code = partner_id;
-        update_data.invest_amount = 10000;
-        update_data.payment_method = 'wire';
+        update_data.invest_amount = invest_amount;
+        update_data.payment_method = payment_method;
         update_data.phone = phone;
         update_data.access_token = access_token;
         postData({
@@ -83,7 +96,7 @@ $(function () {
         return false;
     });
     function updateSignature(res) {
-        window.location = '/auxiliary_order/invest_success.html?order_number=' + order_number
+        window.location = '/invest_success.html?order_number=' + order_number + '&payment_method=' + payment_method + '&bank_name=' + bank_name + '&account_number=' + account_number;
     }
 
     /**************************** 密码认证成功回调，渲染签名页面数据 ****************************/
@@ -94,7 +107,14 @@ $(function () {
             $('.product_name').html(d.product_name);
             $('.return_rate').html('预计年化收益：' + d.return_rate + '%');
             $('.invest_term').html('投资期限：' + d.invest_term + '个月');
-            $('.invest_value span').html(d.invest_amount);
+            min_invest_amount = d.min_invest_amount;
+            invest_par_value = d.invest_par_value;
+            $('.invest-amounts').val(min_invest_amount);
+            if (invest_par_value < 10000) {
+                $('.invest-par-value').html(d.invest_par_value);
+            } else {
+                $('.invest-par-value').html(invest_par_value / 10000 + '万');
+            }
             $('.product_name').html(d.product_name);
             $('.full_name').html(d.order_user_info.first_name + ' ' + d.order_user_info.last_name);
             $('.phone').html(d.order_user_info.phone);
@@ -112,23 +132,27 @@ $(function () {
             $('.line-3').html(address.postal_code);
             if (d.order_user_info.bank_type == 'US') {
                 var bank_us = d.order_user_info.bank_us;
-                $('.bank_name').html(bank_us.bank_name);
+                bank_name = bank_us.bank_name;
+                $('.bank_name').html(bank_name);
                 $('.bank_address').html(bank_us.bank_address.replace(/\r\n|\r|\n/, ', '));
                 $('.routing_number').show().html(bank_us.routing_number);
                 $('.swift_code').html(bank_us.swift_code);
-                $('.account_number').html(bank_us.account_number.replace(/^\d+(\d{4})$/, "****************$1"));
+                account_number = bank_us.account_number.replace(/^\d+(\d{4})$/, "$1");
+                $('.account_number').html('****************' + account_number);
 
             } else {
-                var ban_non_us = d.order_user_info.bank_non_us;
-                $('.bank_name').html(ban_non_us.bank_name);
-                $('.bank_address').html(ban_non_us.bank_address.replace(/\r\n|\r|\n/, ', '));
-                $('.swift_code').html(ban_non_us.swift_code);
-                $('.account_number').html(ban_non_us.account_number.replace(/^\d+(\d{4})$/, "****************$1"));
-                if (ban_non_us.have_middle_bank) {
+                var bank_non_us = d.order_user_info.bank_non_us;
+                bank_name = bank_non_us.bank_name;
+                $('.bank_name').html(bank_name);
+                $('.bank_address').html(bank_non_us.bank_address.replace(/\r\n|\r|\n/, ', '));
+                $('.swift_code').html(bank_non_us.swift_code);
+                account_number = bank_non_us.account_number.replace(/^\d+(\d{4})$/, "$1");
+                $('.account_number').html('****************' + account_number);
+                if (bank_non_us.have_middle_bank) {
                     $('.middle_bank').show();
-                    $('.middle_bank_name').html(ban_non_us.middle_bank_name);
-                    $('.middle_bank_address').html(ban_non_us.middle_bank_address);
-                    $('.middle_bank_swift_code').html(ban_non_us.middle_bank_swift_code);
+                    $('.middle_bank_name').html(bank_non_us.middle_bank_name);
+                    $('.middle_bank_address').html(bank_non_us.middle_bank_address);
+                    $('.middle_bank_swift_code').html(bank_non_us.middle_bank_swift_code);
                 }
                 $('#invest_value .payment').html('<div class="checkbox"><label><input type="checkbox" checked value="wire" disabled>通过银行电汇线下打款</label></div>');
             }
@@ -149,7 +173,7 @@ $(function () {
             if (ach && d.order_user_info.bank_type == 'US') {
                 $('#invest_value .payment').html('<p style="color: #000;margin-bottom: 5px;">入金方式只能选择其中一项：</p><div class="radio">' +
                     '<label>' +
-                    '<input type="radio" name="optionsRadios" checked value="ach">通过ACH自动从' + d.order_user_info.bank_us.bank_name + '（' + d.order_user_info.bank_us.account_number.replace(/^\d+(\d{4})$/, "$1") + '）扣款' +
+                    '<input type="radio" name="optionsRadios" checked value="ach">通过ACH自动从' + bank_name + '（' + account_number + '）扣款' +
                     '</label>' +
                     '</div>' +
                     '<div class="radio">' +
@@ -157,9 +181,10 @@ $(function () {
                     '<input type="radio" name="optionsRadios" value="wire">通过银行电汇线下打款' +
                     '</label>' +
                     '</div>');
-                $('.document-item').append('<div class="checkbox">'+
+                $('.document-item').append('<div class="checkbox ach">' +
                     '<a data-url="/vendor/doc/ACH.pdf" class="getPdf">ACH自动扣款协议</a>' +
                     '</div>');
+                $('.showAch').html('- 我确认' + bank_name + ' (' + account_number + ')账户里面有充足的资金并授权美信金融使用ACH从此账户扣款。');
             } else {
                 $('#invest_value .payment').html('<div class="checkbox"><label><input type="checkbox" checked value="wire" disabled>通过银行电汇线下打款</label></div>');
             }
@@ -248,4 +273,40 @@ $(function () {
     function failFn(res) {
         alert(res.msg);
     }
+
+    //  金额加减
+    $('.add').click(function () {
+        var incest_amounts = parseInt($('.invest-amounts').val());
+        incest_amounts += invest_par_value;
+        $('.invest-amounts').val(incest_amounts);
+        if (incest_amounts <= min_invest_amount) {
+            $('.sub').prop('disabled', true);
+        } else {
+            $('.sub').prop('disabled', false);
+        }
+        return false;
+    });
+    $('.sub').click(function () {
+        var incest_amounts = parseInt($('.invest-amounts').val());
+        if (incest_amounts <= min_invest_amount) {
+            $(this).prop('disabled', true);
+        } else {
+            incest_amounts -= invest_par_value;
+            if (incest_amounts < min_invest_amount) {
+                return false;
+            }
+            $('.invest-amounts').val(incest_amounts);
+        }
+        return false;
+    });
+    // 支付方式切换
+    $('.radio input[type="radio"]').on('change', function () {
+        if ($(this).val() == 'ach') {
+            $('.ach').empty();
+            $('.document-info .ach').html('<a data-url="/vendor/doc/ACH.pdf" class="getPdf">ACH自动扣款协议</a>');
+            $('.signature .ach').html('- 我确认' + bank_name + ' (' + account_number + ')账户里面有充足的资金并授权美信金融使用ACH从此账户扣款。');
+        } else {
+            $('.ach').empty();
+        }
+    });
 });
