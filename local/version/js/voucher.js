@@ -6,10 +6,22 @@ $(function () {
 
     $('#get_code').on('click', function () {
         phone = $("#phone").val();
+        var $that = $(this);
         if(phone==''){
             $("#error").html('请输入您的手机号码');
             return false;
         }else{
+            var timer = null, i = 60;
+            timer = setInterval(function () {
+                $('#get_code').html(i + '秒后重新发送');
+                i--;
+                if (i == 0) {
+                    clearInterval(timer);
+                    $that.prop('disabled', false);
+                    $that.html('重新获取验证码');
+                    i = 60;
+                }
+            }, 1000);
             if (phone.indexOf('+') == -1) {
                 phone = '+86 ' + phone;
             }
