@@ -125,6 +125,7 @@ var uploader_file = function (id, url, imgAccept) {
                 });
             }
         })
+        $('.step-one,.step-two').prop('disabled',false);
     });
 
     // 文件上传失败，现实上传出错。
