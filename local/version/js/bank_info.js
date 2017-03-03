@@ -360,15 +360,30 @@ $(function () {
 
     function bankInfo(res) {
         var d = res.body;
-        if (d != null && d != '') {
+        if (d && d != null) {
             user_data = d;
             if (user_data.bank_type == '' || user_data.bank_type == null) {
                 user_data.bank_type = 'NON_US';
             }
-            if (d.bank_type == 'US') {
-
+            if (d.bank_type == 'US' && d.bank_us.swift_code) {
+                $('.banks').hide();
+                if (d.bank_url && d.bank_name_cn) {
+                    var bank_us_data = d.bank_us;
+                    bank_us_data.bank_name_cn = d.bank_name_cn;
+                    bank_us_data.bank_url = d.bank_url;
+                    writeBankUs(bank_us_data);
+                } else {
+                    writeBankUsOther(d.bank_us);
+                }
             } else {
-
+                $('.banks').hide();
+                if (d.bank_url && d.bank_name_cn) {
+                    var bank_cn_data = d.bank_non_us;
+                    bank_cn_data.bank_name_cn = d.bank_name_cn;
+                    bank_cn_data.bank_url = d.bank_url;
+                } else {
+                    writeBankCnOther(d.bank_non_us);
+                }
             }
         }
     }
@@ -490,7 +505,7 @@ $(function () {
     }
 
     function updateSuc(res) {
-        var d=res.body;
+        var d = res.body;
         if (d != null && d.order_number != '' && d.order_number != null && d.order_number != undefined) {
             order_number = d.order_number;
             window.location = '/white_label/signature.html?' +
