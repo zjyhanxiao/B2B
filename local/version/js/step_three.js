@@ -550,8 +550,8 @@ $(function () {
 
     function updateSuc(res) {
         var d = res.body;
-        if (d != null && d.order_number != '' && d.order_number != null && d.order_number != undefined) {
-            order_number = d.order_number;
+        if (d != null) {
+            order_number = d || d.order_number;
         }
         window.location = '/auxiliary_order/share.html?product_id=' + product_id + '&partner_id=' + partner_id + '&order_number=' + order_number + '&phone=' + phone;
     }
