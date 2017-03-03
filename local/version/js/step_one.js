@@ -225,19 +225,7 @@ $(function () {
      });*/
 
     // 通过手机号获取渠道用户信息
-    if (phone != '' && order_number == '') {
-        getData({
-            url: base_url + '/zion/assist/customerInfo',
-            data: {phone: phone},
-            headers: {
-                mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
-            },
-            sucFn: baseInfo,
-            failFn: noBaseInfo
-        })
-    }
-    // 修改订单
-    if (order_number !== '') {
+    if (phone != '') {
         getData({
             url: base_url + '/zion/assist/customerOrderInfo',
             data: {phone: phone, order_number: order_number},

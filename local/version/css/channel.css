@@ -435,6 +435,10 @@ input[type="checkbox"] {
     border-radius: 6px;
 }
 
+.uploader-demo {
+    cursor: pointer;
+}
+
 .get-bank-info .col-md-10 .form-control {
     width: 600px;
 }
@@ -839,6 +843,7 @@ div#document-loading p, div#document-error p {
 .about_product, .about_order {
     width: 50%;
     float: left;
+    font-size: 12px;
 }
 
 .about_product span, .about_order span {
@@ -963,12 +968,14 @@ div#document-loading p, div#document-error p {
 .bank_border img {
     max-width: 80px;
 }
-.error{
+
+.error {
     color: red;
     text-align: center;
     margin: 20px;
     font-size: 20px;
 }
+
 .bank_home {
     position: relative;
     text-align: center;

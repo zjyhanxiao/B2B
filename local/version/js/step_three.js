@@ -10,21 +10,7 @@ $(function () {
     getCnBank(); // 默认加载非美国常用银行
     // 获取用户银行信息
     // 获取用户银行信息
-    if (phone != '' && order_number == '') {
-        getData({
-            url: base_url + '/zion/assist/customerInfo',
-            data: {phone: phone},
-            async: false,
-            headers: {
-                mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
-            },
-            contentType: "application/json; charset=utf-8",
-            sucFn: bankInfo,
-            failFn: failFn
-        })
-    }
-    // 获取订单用户银行信息
-    if (order_number !== '') {
+    if (phone != '') {
         getData({
             url: base_url + '/zion/assist/customerOrderInfo',
             data: {phone: phone, order_number: order_number},
@@ -431,8 +417,14 @@ $(function () {
             if (data.bank_name_en) {
                 $('.bank-us .bank_name_en').html(data.bank_name_en);
             }
+            if (data.bank_name) {
+                $('.bank-us .bank_name_en').html(data.bank_name);
+            }
             if (data.bank_swift_code) {
                 $('.bank-us .swift_code').html('SWIFT：' + data.bank_swift_code);
+            }
+            if (data.swift_code) {
+                $('.bank-us .swift_code').html('SWIFT：' + data.swift_code);
             }
             if (data.routing_number) {
                 $('.bank-us .routing_number').val(data.routing_number);
@@ -461,14 +453,17 @@ $(function () {
             if (data.bank_name_en) {
                 $('.bank-cn .bank_name_en').html(data.bank_name_en);
             }
+            if (data.bank_name) {
+                $('.bank-cn .bank_name_en').html(data.bank_name);
+            }
             if (data.swift_code) {
                 $('.bank-cn .swift_code').html('SWIFT：' + data.swift_code);
             }
+            if (data.bank_swift_code) {
+                $('.bank-cn .swift_code').html('SWIFT：' + data.bank_swift_code);
+            }
             if (data.account_number) {
                 $('.bank-cn .account_number').val(data.account_number);
-            }
-            if (data.bank_name) {
-                $('.bank-cn .bank_name_en').html(data.bank_name);
             }
         }
         $('.bank-cn').show().siblings('.bank-us-other,.bank-us,.bank-cn-other,.middle-bank').hide();

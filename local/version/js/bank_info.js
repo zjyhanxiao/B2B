@@ -11,8 +11,8 @@ $(function () {
     // 获取用户银行信息
     if (phone != '' && access_token != '') {
         getData({
-            url: base_url + '/zion/white_label/user_info',
-            data: {phone: phone, access_token: access_token, channel_code: partner_id},
+            url: base_url + '/zion/white_label/order_user_info',
+            data: {phone: phone, access_token: access_token, channel_code: partner_id, order_number: order_number},
             async: false,
             sucFn: bankInfo,
             failFn: failFn
@@ -412,8 +412,14 @@ $(function () {
             if (data.bank_name_en) {
                 $('.bank-us .bank_name_en').html(data.bank_name_en);
             }
+            if (data.bank_name) {
+                $('.bank-us .bank_name_en').html(data.bank_name);
+            }
             if (data.bank_swift_code) {
                 $('.bank-us .swift_code').html('SWIFT：' + data.bank_swift_code);
+            }
+            if (data.swift_code) {
+                $('.bank-us .swift_code').html('SWIFT：' + data.swift_code);
             }
             if (data.routing_number) {
                 $('.bank-us .routing_number').val(data.routing_number);
@@ -442,14 +448,17 @@ $(function () {
             if (data.bank_name_en) {
                 $('.bank-cn .bank_name_en').html(data.bank_name_en);
             }
+            if (data.bank_name) {
+                $('.bank-cn .bank_name_en').html(data.bank_name);
+            }
             if (data.swift_code) {
                 $('.bank-cn .swift_code').html('SWIFT：' + data.swift_code);
             }
+            if (data.bank_swift_code) {
+                $('.bank-cn .swift_code').html('SWIFT：' + data.bank_swift_code);
+            }
             if (data.account_number) {
                 $('.bank-cn .account_number').val(data.account_number);
-            }
-            if (data.bank_name) {
-                $('.bank-cn .bank_name_en').html(data.bank_name);
             }
         }
         $('.bank-cn').show().siblings('.bank-us-other,.bank-us,.bank-cn-other,.middle-bank').hide();
@@ -523,7 +532,7 @@ $(function () {
         if (d != null && d.order_number != '' && d.order_number != null && d.order_number != undefined) {
             order_number = d.order_number;
             window.location = '/white_label/signature.html?' +
-             'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&access_token=' + access_token + '&order_number=' + order_number;
+                'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&access_token=' + access_token + '&order_number=' + order_number;
         }
     }
 

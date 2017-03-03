@@ -136,21 +136,9 @@ $(function () {
         }
     });
     // 手机号不为空，查找用户地址证明信息
-    if (phone != '' && order_number == '') {
+    if (phone != '') {
         getData({
-            url: base_url + '/zion/assist/customerInfo',
-            data: {phone: phone},
-            headers: {
-                mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
-            },
-            sucFn: addressInfo,
-            failFn: noAddressInfo
-        })
-    }
-    // 获取订单用户信息
-    if (order_number !== '') {
-        getData({
-            url: base_url + '/zion/assist/customerInfo',
+            url: base_url + '/zion/assist/customerOrderInfo',
             data: {phone: phone, order_number: order_number},
             headers: {
                 mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')

@@ -139,8 +139,8 @@ $(function () {
     // 手机号不为空，查找用户地址证明信息
     if (phone != '' && access_token != '') {
         getData({
-            url: base_url + '/zion/white_label/user_info',
-            data: {phone: phone, access_token: access_token, channel_code: partner_id},
+            url: base_url + '/zion/white_label/order_user_info',
+            data: {phone: phone, access_token: access_token, channel_code: partner_id, order_number: order_number},
             sucFn: addressInfo,
             failFn: noAddressInfo
         })

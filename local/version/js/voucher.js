@@ -4,6 +4,28 @@ $(function () {
     var phone = getUrlParam('phone') || '';
     var order_number = getUrlParam('order_number') || '';
 
+    if (product_id != '') {
+        getData({
+            url: base_url + '/white_label/product_info',
+            data: {product_id: product_id},
+            sucFn: getProductSuc,
+            failFn: getProductFail
+        });
+    }
+
+    function getProductSuc(res) {
+        if (res.body.status !== 'FOR_INVEST') {
+            window.location = '/auxiliary_order/errLink.html';
+            return false;
+        } else {
+            $('#product-name').html(res.body.name);
+        }
+    }
+
+    function getProductFail(res) {
+        alert(res.msg)
+    }
+
     $('#get_code').on('click', function () {
         $(this).prop('disabled', true);
         phone = $("#phone").val();
@@ -73,7 +95,7 @@ $(function () {
         }
 
         if (order_number != '') {
-            window.location = '/white_label/signature.html?product_id=' + product_id + '&partner_id=' + partner_id + '&phone=' + phone + '&access_token=' + res.body.token + '&order_number=' + order_number;
+            window.location = '/auxiliary_order/shareAndSignature.html?product_id=' + product_id + '&partner_id=' + partner_id + '&phone=' + phone + '&access_token=' + res.body.token + '&order_number=' + order_number;
         } else {
             window.location = '/white_label/base_info.html?product_id=' + product_id + '&partner_id=' + partner_id + '&phone=' + phone + '&access_token=' + res.body.token;
         }

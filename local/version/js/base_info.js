@@ -229,8 +229,8 @@ $(function () {
     // 通过手机号获取渠道用户信息
     if (phone != '' && access_token != '') {
         getData({
-            url: base_url + '/zion/white_label/user_info',
-            data: {phone: phone, access_token: access_token, channel_code: partner_id},
+            url: base_url + '/zion/white_label/order_user_info',
+            data: {phone: phone, access_token: access_token, channel_code: partner_id, order_number: order_number},
             sucFn: baseInfo,
             failFn: noBaseInfo
         })
