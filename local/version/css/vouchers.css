@@ -114,8 +114,8 @@ body{
     color: #fff;
 }
 
-input:-webkit-autofill {
-    background-color: #FFF;
+#phone:-webkit-autofill {
+    background-color: #FFF!important;
     background-image: none;
     color: #000;
 }
