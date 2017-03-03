@@ -65,7 +65,7 @@ $(function () {
         $(this).prop('disabled', true);
         var invest_amount = parseInt($('.invest-amounts').val());
         payment_method = $('.payment input:checked').val();
-        if (invest_amount < min_invest_amount || ((invest_amount - min_invest_amount) > 0 && (invest_amount - min_invest_amount) / invest_par_value != 0)) {
+        if (invest_amount < min_invest_amount || ((invest_amount - min_invest_amount) < 0 && (invest_amount - min_invest_amount) / invest_par_value != 0)) {
             $('.invest-amounts').css('border-color', 'red');
             $('body').scrollTop($('.invest-amounts').offset().top);
             $(this).prop('disabled', false);
