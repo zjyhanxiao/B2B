@@ -49,11 +49,12 @@
 
 .wire{
     width: 100%;
-    padding: 15px 40px;
+    padding: 15px 40px 40px;
 }
 
 .wire_us{
     width: 100%;
+    padding: 15px 40px 40px;
 }
 
 .wire p{
@@ -105,5 +106,7 @@
     }
     #order{
         margin: 0 30px;
+        height: 85px;
+        padding-top: 20px;
     }
 }
