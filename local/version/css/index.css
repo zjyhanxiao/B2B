@@ -1,6 +1,7 @@
 .index, .partner{
     width: 1200px;
-    margin-left: calc(50% - 600px);
+    display: inline-block;
+    /*margin-left: calc(50% - 600px);*/
     /*position: absolute;*/
     /*left: 50%;*/
     /*top: 50%;*/
@@ -18,7 +19,7 @@
 
 .row{
     width: 1200px;
-    margin-left: calc(50% - 600px);
+    /*margin-left: calc(50% - 600px);*/
 }
 
 .about_row{
@@ -259,6 +260,7 @@
 }
 
 .about_us{
+    display: inline-block;
     padding-top: 60px;
     padding-bottom: 60px;
 }
@@ -311,12 +313,17 @@
 */
 
 .asset_row_1{
+    display: inline-block;
     height: 350px;
 }
 
 .asset_row_2{
     height: 350px;
     background-color: #f4f4f4;
+}
+
+.asset_row_2 .row{
+    display: inline-block;
 }
 
 .asset_title{
@@ -354,9 +361,13 @@
 }
 
 .at-middle-banner{
-    height: 500px;
+    height: 490px;
     margin-top: 80px;
     background: url("../img/AT/img07.png") no-repeat;
+}
+
+.at-middle-banner .row{
+    display: inline-block;
 }
 
 .at-middle-banner-text{
@@ -375,6 +386,10 @@
     font-size: 26px;
     color: #fff;
     line-height: 52px;
+}
+
+.at_row_1{
+    display: inline-block;
 }
 
 .at_row_2{
@@ -400,13 +415,14 @@
 }
 
 .at_consult_wrapper{
+    text-align: center;
     position: relative;
 }
 
 .at_consult{
     position: absolute;
-    top: 15px;
-    left: 50px;
+    top: 11px;
+    left: 80px;
     font-size: 34px;
 }
 
@@ -420,10 +436,15 @@
     padding-left: 10px;
     font-size: 32px;
     line-height: 50px;
+    text-align: left;
 }
 
 .at-middle-bgc{
     background-color: #f4f4f4;
+}
+
+.at-middle-bgc .row{
+    display: inline-block;
 }
 
 
@@ -493,6 +514,7 @@
     border-radius: 4px;
     margin-left: calc(50% - 315px);
     padding: 0px 8px;
+    resize: none;
 }
 
 #join_us{
