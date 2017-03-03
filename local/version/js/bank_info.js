@@ -393,6 +393,7 @@ $(function () {
                     var bank_cn_data = d.bank_non_us;
                     bank_cn_data.bank_name_cn = d.bank_name_cn;
                     bank_cn_data.bank_url = d.bank_url;
+                    writeBankCn(bank_cn_data);
                 } else {
                     writeBankCnOther(d.bank_non_us);
                 }
