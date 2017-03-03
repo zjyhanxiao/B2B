@@ -1,5 +1,9 @@
 
 /********** 认购完成新样式 ************/
+body{
+    background-color: #fff;
+}
+
 #channel{
     text-align: center;
 }
@@ -43,6 +47,26 @@
 }
 
 
+.check{
+    width: 100%;
+    padding: 15px 40px 40px;
+}
+
+.check .col-md-4{
+    color: #555;
+    text-align: left;
+    padding-left: 40px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+.check .col-md-8{
+    color: #999;
+    text-align: left;
+    padding-left: 40px;
+}
+
 .wire{
     width: 100%;
     padding: 15px 40px 40px;
@@ -62,7 +86,7 @@
 }
 
 .wire-info{
-    padding: 0 20px;
+    padding: 0 20px 10px;
 }
 
 .wire .col-md-4{
@@ -104,5 +128,8 @@
         margin: 0 20px;
         height: 85px;
         padding-top: 20px;
+    }
+    .row{
+        margin-bottom: 10px;
     }
 }
