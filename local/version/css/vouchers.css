@@ -114,6 +114,12 @@ body{
     color: #fff;
 }
 
+input:-webkit-autofill {
+    background-color: #FFF;
+    background-image: none;
+    color: #000;
+}
+
 @media (max-width: 767px) {
     #wrapper{
         box-shadow: none;
