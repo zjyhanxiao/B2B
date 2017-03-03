@@ -35,7 +35,7 @@ $(function () {
             $('.bank-us .routing_number,.bank-us .account_number').css('border-color', '#ccc').removeClass('red-shadow');
             var routing_number = $('.bank-us .routing_number').val();
             var account_number = $('.bank-us .account_number').val();
-            var bank_type = $('.bank-us .account_type .checked').html();
+            var account_type = $('.bank-us .account_type .checked').html();
             if (routing_number == '') {
                 $('.bank-us .routing_number').css('border-color', 'red').addClass('red-shadow');
                 can_next = false;
@@ -47,7 +47,7 @@ $(function () {
             if (can_next) {
                 user_data.bank_us.routing_number = routing_number;
                 user_data.bank_us.account_number = account_number;
-                user_data.bank_us.bank_type = bank_type;
+                user_data.bank_us.account_type = account_type;
                 updateUserInfo();
             } else {
                 var t = $('.red-shadow').eq(0).offset().top;
@@ -64,7 +64,7 @@ $(function () {
             var swift_code = $('.bank-us-other .swift_code').val();
             var routing_number = $('.bank-us-other .routing_number').val();
             var account_number = $('.bank-us-other .account_number').val();
-            var bank_type = $('.bank-us-other .account_type .checked').html();
+            var account_type = $('.bank-us-other .account_type .checked').html();
             if (bank_name == '') {
                 $('.bank-us-other .bank_name').css('border-color', 'red').addClass('red-shadow');
                 can_next = false;
@@ -88,7 +88,7 @@ $(function () {
                 user_data.bank_us.routing_number = routing_number;
                 user_data.bank_us.swift_code = swift_code;
                 user_data.bank_us.account_number = account_number;
-                user_data.bank_us.bank_type = bank_type;
+                user_data.bank_us.account_type = account_type;
                 updateUserInfo();
             } else {
                 var t = $('.red-shadow').eq(0).offset().top;
@@ -195,6 +195,7 @@ $(function () {
             var bank_data;
             if (user_data.bank_type == 'US') {
                 bank_data = bankUs[index];
+                bank_data.account_number = '';
                 user_data.bank_us.bank_name = bank_data.bank_name_en;
                 user_data.bank_us.bank_address = bank_data.bank_address;
                 user_data.bank_us.swift_code = bank_data.bank_swift_code;
@@ -204,6 +205,7 @@ $(function () {
             }
             if (user_data.bank_type == 'NON_US') {
                 bank_data = bankNonUs[index];
+                bank_data.account_number = '';
                 user_data.bank_non_us.bank_name = bank_data.bank_name_en;
                 user_data.bank_non_us.bank_address = bank_data.bank_address;
                 user_data.bank_non_us.swift_code = bank_data.bank_swift_code;
@@ -228,11 +230,19 @@ $(function () {
         }
         return false;
     });
-
+    // 切换账户类型
+    $('.account_type button').click(function () {
+        if ($(this).hasClass('checked')) {
+            return false;
+        } else {
+            $(this).addClass('checked').siblings('button').removeClass('checked');
+        }
+    });
 
     // 已选银行，再次切换银行
     $('.search_bank, .bank_home').on('click', function () {
         $('.step-three').prop('disabled', false);
+        $('input,textarea').val('');
         $('.error').remove();
         if (user_data.bank_type == 'US') {
             getUsBank();
@@ -508,8 +518,8 @@ $(function () {
         var d = res.body;
         if (d != null && d.order_number != '' && d.order_number != null && d.order_number != undefined) {
             order_number = d.order_number;
-            window.location = '/white_label/signature.html?' +
-                'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&access_token=' + access_token + '&order_number=' + order_number;
+            /*window.location = '/white_label/signature.html?' +
+                'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&access_token=' + access_token + '&order_number=' + order_number;*/
         }
     }
 
