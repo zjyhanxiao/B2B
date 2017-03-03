@@ -5,6 +5,8 @@ $(function () {
     var product_id = getUrlParam('product_id') || ''; //获取产品id
     var order_number = getUrlParam('order_number') || ''; // 获取订单编号
     var access_token = getUrlParam('access_token') || ''; // 获取通行证
+
+    /**************************** 链接中存在手机号，手机号不可更改 ****************************/
     if (phone != '') {
         $('#phone-code,#phone').prop('disabled', true);
         if (phone.indexOf(' ')) {
@@ -14,6 +16,7 @@ $(function () {
             $('#phone').val(phone);
         }
     }
+
     var passport_photo_default = $('#fileMapping img').attr('src');
     $('.step-one').on('click', function () {
         var passport_photo = $('#fileMapping img').attr('src');
