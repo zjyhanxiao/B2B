@@ -215,7 +215,17 @@ ul{
 }
 
 /* hide back of pane during swap */
-.front, .back {
+.front{
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;	/* Chrome 和 Safari */
+    -moz-backface-visibility:hidden; 	/* Firefox */
+    -ms-backface-visibility:hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.back {
     backface-visibility:hidden;
     -webkit-backface-visibility:hidden;	/* Chrome 和 Safari */
     -moz-backface-visibility:hidden; 	/* Firefox */
@@ -227,7 +237,7 @@ ul{
 
 /* front pane, placed above back */
 .front {
-    z-index: 2;
+    /*z-index: 2;*/
 }
 
 /* back, initially hidden pane */
