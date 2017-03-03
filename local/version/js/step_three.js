@@ -9,7 +9,6 @@ $(function () {
 
     getCnBank(); // 默认加载非美国常用银行
     // 获取用户银行信息
-    // 获取用户银行信息
     if (phone != '') {
         getData({
             url: base_url + '/zion/assist/customerOrderInfo',
