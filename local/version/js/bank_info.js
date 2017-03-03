@@ -375,7 +375,7 @@ $(function () {
             if (user_data.bank_type == '' || user_data.bank_type == null) {
                 user_data.bank_type = 'NON_US';
             }
-            if (d.bank_type == 'US' && d.bank_us.swift_code) {
+            if (d.bank_type == 'US' && d.bank_us.swift_code != null) {
                 $('.banks').hide();
                 if (d.bank_url && d.bank_name_cn) {
                     var bank_us_data = d.bank_us;
@@ -385,7 +385,9 @@ $(function () {
                 } else {
                     writeBankUsOther(d.bank_us);
                 }
-            } else {
+                return false;
+            }
+            if (d.bank_type == 'NON_US' && d.bank_non_us.swift_code != null) {
                 $('.banks').hide();
                 if (d.bank_url && d.bank_name_cn) {
                     var bank_cn_data = d.bank_non_us;
@@ -394,6 +396,7 @@ $(function () {
                 } else {
                     writeBankCnOther(d.bank_non_us);
                 }
+                return false;
             }
         }
     }
@@ -519,7 +522,7 @@ $(function () {
         if (d != null && d.order_number != '' && d.order_number != null && d.order_number != undefined) {
             order_number = d.order_number;
             /*window.location = '/white_label/signature.html?' +
-                'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&access_token=' + access_token + '&order_number=' + order_number;*/
+             'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&access_token=' + access_token + '&order_number=' + order_number;*/
         }
     }
 
