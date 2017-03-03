@@ -517,23 +517,34 @@ $(function () {
 
     // 提交信息
     function updateUserInfo() {
-        postData({
-            url: base_url + '/zion/white_label/operate_user',
-            data: JSON.stringify(user_data),
-            async: false,
-            contentType: "application/json; charset=utf-8",
-            sucFn: updateSuc,
-            failFn: failFn
-        })
+        if (order_number == '') {
+            postData({
+                url: base_url + '/zion/white_label/create_order',
+                data: JSON.stringify(user_data),
+                async: false,
+                contentType: "application/json; charset=utf-8",
+                sucFn: updateSuc,
+                failFn: failFn
+            })
+        } else {
+            postData({
+                url: base_url + '/zion/white_label/operate_user',
+                data: JSON.stringify(user_data),
+                async: false,
+                contentType: "application/json; charset=utf-8",
+                sucFn: updateSuc,
+                failFn: failFn
+            })
+        }
     }
 
     function updateSuc(res) {
         var d = res.body;
         if (d != null && d.order_number != '' && d.order_number != null && d.order_number != undefined) {
             order_number = d.order_number;
-            window.location = '/white_label/signature.html?' +
-                'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&access_token=' + access_token + '&order_number=' + order_number;
         }
+        window.location = '/white_label/signature.html?' +
+            'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&access_token=' + access_token + '&order_number=' + order_number;
     }
 
     function failFn(res) {

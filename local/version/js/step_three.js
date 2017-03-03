@@ -521,25 +521,39 @@ $(function () {
 
     // 提交信息
     function updateUserInfo() {
-        postData({
-            url: base_url + '/zion/assist/operateUser',
-            data: JSON.stringify(user_data),
-            async: false,
-            headers: {
-                mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
-            },
-            contentType: "application/json; charset=utf-8",
-            sucFn: updateSuc,
-            failFn: failFn
-        })
+        if (order_number == '') {
+            postData({
+                url: base_url + '/zion/assist/createOrder',
+                data: JSON.stringify(user_data),
+                async: false,
+                headers: {
+                    mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
+                },
+                contentType: "application/json; charset=utf-8",
+                sucFn: updateSuc,
+                failFn: failFn
+            })
+        } else {
+            postData({
+                url: base_url + '/zion/assist/operateUser',
+                data: JSON.stringify(user_data),
+                async: false,
+                headers: {
+                    mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
+                },
+                contentType: "application/json; charset=utf-8",
+                sucFn: updateSuc,
+                failFn: failFn
+            })
+        }
     }
 
     function updateSuc(res) {
         var d = res.body;
         if (d != null && d.order_number != '' && d.order_number != null && d.order_number != undefined) {
             order_number = d.order_number;
-            window.location = '/auxiliary_order/share.html?product_id=' + product_id + '&partner_id=' + partner_id + '&order_number=' + order_number + '&phone=' + phone;
         }
+        window.location = '/auxiliary_order/share.html?product_id=' + product_id + '&partner_id=' + partner_id + '&order_number=' + order_number + '&phone=' + phone;
     }
 
     function failFn(res) {
