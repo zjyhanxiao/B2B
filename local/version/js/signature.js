@@ -98,7 +98,7 @@ $(function () {
         return false;
     });
     function updateSignature(res) {
-        window.location = '/invest_success.html?order_number=' + order_number + '&payment_method=' + payment_method + '&bank_name=' + bank_name + '&account_number=' + account_number;
+        window.location = '/invest_success.html?order_number=' + order_number + '&payment_method=' + payment_method + '&bank_name=' + bank_name + '&account_number=' + account_number+'&product_id='+product_id;
     }
 
     /**************************** 密码认证成功回调，渲染签名页面数据 ****************************/
