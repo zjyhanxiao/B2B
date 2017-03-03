@@ -61,12 +61,5 @@ $(function () {
             $headerWhite.hide();
         }
     });
-
-/*    if(!window.name){
-        alert("第一次开这个窗口！name值"+ window.name);
-        window.name = 'lijia';
-
-    }else{
-        alert('刷新操作 name值：'+ window.name);
-    }*/
+    
 });
