@@ -23,12 +23,6 @@ $(function () {
     });
 
     function paymentSuc(res) {
-        if (payment_method == 'ach') {
-            $(".ach").show();
-        }
-        if (payment_method == 'wire') {
-            $(".wire").show();
-        }
         if (res.body != null) {
             var d = res.body;
             /*if (d.is_ach_enabled) {
@@ -94,6 +88,12 @@ $(function () {
                 }
             } else {
                 $(".middle-bank").hide();
+            }
+            if (payment_method == 'ach') {
+                $(".ach").show();
+            }
+            if (payment_method == 'wire') {
+                $(".wire").show();
             }
         }
     }
