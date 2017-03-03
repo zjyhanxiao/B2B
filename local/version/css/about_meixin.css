@@ -164,7 +164,8 @@ ul{
 */
 .about_team, .about_advisors, .about_backers, .about_media, .about_contact_us{
     width: 1200px;
-    margin-left: calc(50% - 600px);
+    display: inline-block;
+    /*margin-left: calc(50% - 600px);*/
 }
 
 .about_team_describe{
@@ -189,12 +190,14 @@ ul{
 
 /* entire container, keeps perspective */
 .flip-container {
-    perspective: 1000;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
 }
 
 /* flip the pane when hovered */
 .flip-container:hover .flipper, .flip-container.hover .flipper {
-    transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg);
+    -moz-transform:rotateY(180deg);
 }
 
 .flip-container, .front, .back {
@@ -205,13 +208,18 @@ ul{
 /* flip speed goes here */
 .flipper {
     transition: 0.6s;
+    -webkit-transition: 0.6s;  /*safari*/
     transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
     position: relative;
 }
 
 /* hide back of pane during swap */
 .front, .back {
-    backface-visibility: hidden;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;	/* Chrome 和 Safari */
+    -moz-backface-visibility:hidden; 	/* Firefox */
+    -ms-backface-visibility:hidden;
     position: absolute;
     top: 0;
     left: 0;
@@ -224,12 +232,18 @@ ul{
 
 /* back, initially hidden pane */
 .back {
-    transform: rotateY(180deg);
+    position: relative;
+    -webkit-transform:rotateY(180deg);
+    -moz-transform:rotateY(180deg);
 }
 
 .back img{
     width: 100px;
     height: 100px;
+    z-index: 2;
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
 }
 
 .about_team .name{
@@ -242,13 +256,17 @@ ul{
 }
 
 .about_team .describe{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -120px;
+    margin-top: -150px;
     width: 240px;
     height: 300px;
-    margin-left: calc(50% - 120px);
+    display: inline-block;
     font-size: 14px;
     line-height: 24px;
     text-align: left;
-    margin-top: -50px;
     background-color: #fff;
     padding: 70px 12px 30px;
     box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .075), 2px 2px 10px #f0f0f0;
@@ -269,6 +287,7 @@ ul{
     float: right;
     width: 900px;
     height: 300px;
+    text-align: left;
 }
 
 .advisors_cell_img{
@@ -305,6 +324,7 @@ ul{
 }
 
 .backers_cell_text{
+    text-align: left;
     float: right;
     width: 900px;
     height: 200px;
@@ -338,6 +358,7 @@ ul{
 }
 
 .media_cell_text{
+    text-align: left;
     float: right;
     width: 400px;
     height: 200px;
@@ -352,6 +373,9 @@ ul{
 /*
 * 联系我们
 */
+.about_contact_us .about_row{
+    text-align: left;
+}
 
 .contact_us_cell_img{
     width: 500px;

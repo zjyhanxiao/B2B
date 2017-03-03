@@ -3,9 +3,7 @@
  */
 $(function () {
     $('body').scrollTop(0);
-    console.log($(document).scrollTop());
     if($(document).scrollTop()==0){
-        $("#zhichiBtnBox").hide();
     }else{
         $("#zhichiBtnBox").show();
     }
@@ -27,20 +25,20 @@ $(function () {
 
 
     $('.phone').mouseover(function () {
-        $('.phone_before').css('display','none')
+        $('.phone_before').css('display','none');
         $('.phone_after').css('display','block')
     });
     $('.phone').mouseout(function () {
-        $('.phone_before').css('display','block')
+        $('.phone_before').css('display','block');
         $('.phone_after').css('display','none')
     });
 
     var d, h;
     function scroll( fn ) {
-        var beforeScrollTop = document.body.scrollTop,
+        var beforeScrollTop = $(document).scrollTop, //用元素获取高度,在firefox/IE下会有兼容性问题
             fn = fn || function() {};
         window.addEventListener("scroll", function() {
-            var afterScrollTop = document.body.scrollTop,
+            var afterScrollTop = $(document).scrollTop,
                 delta = afterScrollTop - beforeScrollTop;
             if( delta === 0 ) return false;
             fn( delta > 0 ? "down" : "up" );
@@ -53,15 +51,15 @@ $(function () {
         var $header = $(".nav-bg");
         var $headerWhite = $(".nav-bg-white");
         if(d=="up"){
-//        console.log(d);
-//        console.log(h);
-            if(h<720){
-                $header.fadeIn();
-                $headerWhite.fadeOut();
-            }else if(h>720){
-                $header.fadeOut();
-                $headerWhite.fadeIn();
-            }
+        console.log(d);
+        console.log(h);
+          if(h<80){
+            $header.fadeIn();
+            $headerWhite.fadeOut();
+          }else if(h>80){
+            $header.fadeOut();
+            $headerWhite.fadeIn();
+          }
         }else{
             $header.hide();
             $headerWhite.hide();
