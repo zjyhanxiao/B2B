@@ -215,17 +215,7 @@ ul{
 }
 
 /* hide back of pane during swap */
-.front{
-    backface-visibility:hidden;
-    -webkit-backface-visibility:hidden;	/* Chrome 和 Safari */
-    -moz-backface-visibility:hidden; 	/* Firefox */
-    -ms-backface-visibility:hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.back {
+.front, .back{
     backface-visibility:hidden;
     -webkit-backface-visibility:hidden;	/* Chrome 和 Safari */
     -moz-backface-visibility:hidden; 	/* Firefox */
@@ -243,6 +233,7 @@ ul{
 /* back, initially hidden pane */
 .back {
     position: relative;
+    background-color: #fff;
     -webkit-transform:rotateY(180deg);
     -moz-transform:rotateY(180deg);
 }

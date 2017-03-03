@@ -3,10 +3,6 @@
  */
 $(function () {
     $('body').scrollTop(0);
-    if($(document).scrollTop()==0){
-    }else{
-        $("#zhichiBtnBox").show();
-    }
     var bannerSlider = new Slider($('#banner_tabs'), {
         time: 5000,
         delay: 400,
@@ -35,10 +31,10 @@ $(function () {
 
     var d, h;
     function scroll( fn ) {
-        var beforeScrollTop = $(document).scrollTop, //用元素获取高度,在firefox/IE下会有兼容性问题
+        var beforeScrollTop = $(window).scrollTop(), //用元素获取高度,在firefox/IE下会有兼容性问题
             fn = fn || function() {};
         window.addEventListener("scroll", function() {
-            var afterScrollTop = $(document).scrollTop,
+            var afterScrollTop = $(window).scrollTop(),
                 delta = afterScrollTop - beforeScrollTop;
             if( delta === 0 ) return false;
             fn( delta > 0 ? "down" : "up" );
@@ -47,12 +43,12 @@ $(function () {
     }
     scroll(function(direction) {
         d =  direction;
-        h = $(document).scrollTop();
+        h = $(window).scrollTop();
         var $header = $(".nav-bg");
         var $headerWhite = $(".nav-bg-white");
+        // console.log(d);
         if(d=="up"){
-        console.log(d);
-        console.log(h);
+        // console.log(h);
           if(h<80){
             $header.fadeIn();
             $headerWhite.fadeOut();

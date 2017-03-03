@@ -31,10 +31,10 @@ $(function () {
 
     var d, h;
     function scroll( fn ) {
-        var beforeScrollTop = document.body.scrollTop,
+        var beforeScrollTop = $(window).scrollTop(),
             fn = fn || function() {};
         window.addEventListener("scroll", function() {
-            var afterScrollTop = document.body.scrollTop,
+            var afterScrollTop = $(window).scrollTop(),
                 delta = afterScrollTop - beforeScrollTop;
             if( delta === 0 ) return false;
             fn( delta > 0 ? "down" : "up" );
@@ -47,8 +47,8 @@ $(function () {
         var $header = $(".nav-bg");
         var $headerWhite = $(".nav-bg-white");
         if(d=="up"){
-//        console.log(d);
-//        console.log(h);
+       // console.log(d);
+       // console.log(h);
             if(h<600){
                 $header.fadeIn();
                 $headerWhite.fadeOut();
