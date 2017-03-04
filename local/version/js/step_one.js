@@ -17,9 +17,10 @@ $(function () {
             $('#phone').val(phone);
         }
     }
-    var passport_photo_default = $('#fileMapping img').attr('src');
+    // var passport_photo_default = $('#fileMapping img').attr('src');
+    var passport_photo_default = $('.fa-upload-pic img').attr('src');
     $('.step-one').on('click', function () {
-        var passport_photo = $('#fileMapping img').attr('src');
+        var passport_photo = $('.fa-upload-pic img').attr('src');
         if (passport_photo == passport_photo_default) {
             passport_photo = '';
         }
@@ -254,7 +255,7 @@ $(function () {
             $('#industry').val(d.base_info.industry);
             $('#passport-number').val(d.passport_number);
             $('#effective').val(d.passport_expire_date);
-            $('#fileMapping img').attr('src', d.passport_url);
+            $('.fa-upload-pic img').attr('src', d.passport_url);
             if (d.base_info.industry != '' && d.base_info.industry != null &&
                 d.base_info.occupation != '' && d.base_info.occupation != null
             ) {
@@ -284,7 +285,7 @@ $(function () {
 
 
     //上传护照
-    /*    $('#passport-proof').change(function () {
+        $('#passport-proof').change(function () {
      $("#passport-false").hide();
      var $this = $(this);
      var val = $(this).val().toLowerCase();
@@ -295,8 +296,8 @@ $(function () {
      } else {
      file_passport_upload($this);
      }
-     });*/
-    /*    function file_passport_upload(dom) {
+     });
+        function file_passport_upload(dom) {
      var formData = new FormData($('form')[0]);
      formData.append('file', $("#passport-proof")[0].files[0]);
      $.ajax({
@@ -325,7 +326,7 @@ $(function () {
      //上传组件
      $('.fa-upload-pic').find('a').click(function () {
      $(this).siblings('input').trigger('click');
-     });*/
+     });
 
     //获取焦点后移除红框
     $('input').on('focus', function () {

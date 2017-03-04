@@ -6,14 +6,14 @@ $(function () {
     var order_number = getUrlParam('order_number') || ''; // 获取订单编号
     var access_token = getUrlParam('access_token') || ''; // 获取通行证
 
-    var idCard_default = $('#fileMapping img').attr('src');
+    var idCard_default = $('.fa-upload-pic img').attr('src');
     $('.prev-one').on('click', function () {
         window.location = '/white_label/base_info.html?' +
             'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number + '&access_token=' + access_token;
     });
     $('.step-two').on('click', function () {
         user_data.product_id = product_id;
-        var id_card_url = $('#fileMapping img').attr('src');
+        var id_card_url = $('.fa-upload-pic img').attr('src');
         if (id_card_url == idCard_default) {
             id_card_url = '';
         }
@@ -155,7 +155,7 @@ $(function () {
                 $('#address-effective').val(d.id_card_expire_date);
             }
             if (d.id_card_url != null && d.id_card_url != '') {
-                $('#fileMapping img').attr('src', d.id_card_url);
+                $('#address-proof').siblings('img').attr('src', d.id_card_url);
             }
             if (d.address_type == 'CN' && d.address_cn != null) {
                 if (d.address_cn.region != '' && d.address_cn.region != null && d.address_cn.city != '' && d.address_cn.city != null && d.address_cn.district != '' && d.address_cn.district != null) {
@@ -209,7 +209,7 @@ $(function () {
         });
     }
 
-    /*//上传地址证明
+    //上传地址证明
      $('#address-proof').change(function () {
      var $this = $(this);
      var val = $(this).val().toLowerCase();
@@ -250,7 +250,7 @@ $(function () {
      //上传组件
      $('.fa-upload-pic').find('a').click(function () {
      $(this).siblings('input').trigger('click');
-     });*/
+     });
 
     //获取焦点后移除红框
     $('input').on('focus', function () {
