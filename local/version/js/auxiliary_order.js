@@ -65,7 +65,7 @@ $(function () {
         $('.document-unCheck').remove();
         $(this).prop('disabled', true);
         var invest_amount = parseInt($('.invest-amounts').val());
-        payment_method = $('.payment input:checked').val();
+        payment_method = $('.payment input:checked').val()||'wire';
         if (invest_amount < min_invest_amount ||
             ((invest_amount - min_invest_amount) % invest_par_value != 0))
         {
