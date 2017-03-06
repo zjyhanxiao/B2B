@@ -1208,6 +1208,7 @@ div#document-loading p, div#document-error p {
     border-radius: 0 !important;
 }*/
 .dis_table {
+    width: 100%;
     display: table;
 }
 
@@ -1229,4 +1230,7 @@ div#document-loading p, div#document-error p {
 
 .bank_border .swift_code {
     display: block;
+}
+.bank-list a{
+    text-decoration: none;
 }
