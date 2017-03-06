@@ -555,8 +555,11 @@ $(function () {
 
         function updateSuc(res) {
             var d = res.body;
-            if (d != null) {
-                order_number = d.order_number || d;
+            if (typeof d == 'string') {
+                order_number = d;
+            }
+            if (typeof d == 'object') {
+                order_number = d.order_number;
             }
             if (order_number !== '') {
                 window.location = '/white_label/signature.html?' +
@@ -566,8 +569,11 @@ $(function () {
 
         function createSuc(res) {
             var d = res.body;
-            if (d != null) {
-                order_number = d.order_number || d;
+            if (typeof d == 'string') {
+                order_number = d;
+            }
+            if (typeof d == 'object') {
+                order_number = d.order_number;
             }
             window.location = '/white_label/signature.html?' +
                 'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&access_token=' + access_token + '&order_number=' + order_number;
