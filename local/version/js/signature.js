@@ -47,7 +47,7 @@ $(function () {
         failFn: failFn
     });
     $('.prev_three').on('click', function () {
-        window.location = '/white_label/base_info.html?' +
+        window.location = '/white_label/bank_info.html?' +
             'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number + '&access_token=' + access_token;
     });
     // 点击'点击查看投资信息'查看投资信息
