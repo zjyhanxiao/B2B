@@ -101,8 +101,10 @@ body {
     background: url('../img/channel/zk2.png') center no-repeat;
 }
 .show-user-info a, .hide-info {
-    text-decoration: none;
     line-height: 2;
+}
+.show-user-info a:hover, .hide-info:hover{
+    text-decoration: none;
 }
 .user-info {
     width: 70% !important;
