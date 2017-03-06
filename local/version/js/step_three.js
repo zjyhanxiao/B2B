@@ -304,7 +304,7 @@ $(function () {
                 '<div class="form-line choose-bank">' +
                 '<div style="float: left; width: 30%; height:60px;">' +
                 '<img class="bank-icon" style="margin-top: 10px; width: 38px"' +
-                'src="http://localhost:8080/version/dist/img/other_bank.png"' +
+                'src="/version/dist/img/other_bank.png"' +
                 'alt="">' +
                 '</div>' +
                 '<div style="float: right; width: 70%; height:60px;">' +
@@ -358,7 +358,7 @@ $(function () {
                 '<div class="form-line choose-bank">' +
                 '<div style="float: left; width: 30%; height:60px;">' +
                 '<img class="bank-icon" style="margin-top: 10px; width: 38px"' +
-                'src="http://localhost:8080/version/dist/img/other_bank.png"' +
+                'src="/version/dist/img/other_bank.png"' +
                 'alt="">' +
                 '</div>' +
                 '<div style="float: right; width: 70%; height:60px;">' +
