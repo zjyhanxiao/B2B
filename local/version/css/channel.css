@@ -1207,4 +1207,26 @@ div#document-loading p, div#document-error p {
 /*.form-control {
     border-radius: 0 !important;
 }*/
+.dis_table {
+    display: table;
+}
 
+.table_row {
+    height: 100%;
+    display: table-row;
+}
+
+.table_cell {
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    float: none;
+}
+
+.table_cell img {
+    vertical-align: middle;
+}
+
+.bank_border .swift_code {
+    display: block;
+}
