@@ -100,7 +100,7 @@ body {
     height: 40px;
     background: url('../img/channel/zk2.png') center no-repeat;
 }
-.show-user-info a, .hide-info a {
+.show-user-info a, .hide-info {
     text-decoration: none;
     line-height: 2;
 }
