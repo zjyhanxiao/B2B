@@ -20,7 +20,8 @@ $(function () {
             window.location = '/auxiliary_order/errLink.html';
             return false;
         } else {
-            $('.about_product').html('<span>' + res.body.name + '</span>' + res.body.number);
+            $('.about_product').html('<span>' + res.body.name + '</span>');
+            // $('.about_product').html('<span>' + res.body.name + '</span>' + res.body.number);
         }
     }
 
