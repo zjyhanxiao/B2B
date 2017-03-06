@@ -101,6 +101,20 @@ body {
     background: url('../img/channel/zk2.png') center no-repeat;
 }
 
+.user-info{
+    width: 70%!important;
+    background: url('../img/channel/zk.png');
+    background-size: 100% 100%;
+}
+
+.base_info, .address_info, .bank_info{
+    margin: 0 5%;
+}
+
+.bank_info{
+    padding-bottom: 80px;
+}
+
 .user-info, .document-info, .signature {
     width: 60%;
     margin: 30px auto 0;
@@ -115,8 +129,10 @@ body {
 
 .hide-info {
     position: absolute;
-    top: 20px;
-    right: 0;
+    bottom: 30px;
+    right: 50%;
+    font-size: 16px;
+    margin-right: -14px;
 }
 
 .info-title {
@@ -136,6 +152,7 @@ body {
     width: 35%;
     display: inline-block;
     vertical-align: top;
+    font-weight: 500;
 }
 
 .user-info span {

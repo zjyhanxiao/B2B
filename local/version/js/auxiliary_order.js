@@ -55,7 +55,6 @@ $(function () {
     // 点击'收起'隐藏投资信息
     $('.hide-info').on('click', function () {
         $('.user-info').hide();
-        // $('.show-user-info a').show();
         $('.show-user-info').show();
     });
 
