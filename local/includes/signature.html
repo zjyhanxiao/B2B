@@ -1,3 +1,19 @@
+<!-- The overlay -->
+<div id="document-preview" class="overlay">
+    <span class="overlay-left-top close-document-preview">&lt; 返回签字页面</span>
+
+    <div id="document-loading">
+        <img src="http://localhost:8080/version/dist/img/channel/loading.gif"/>
+        <p>请稍后，正在生成文件...<br/><br/>Please wait, generating document...</p>
+    </div>
+    <div id="document-error">
+        <img src="http://localhost:8080/version/dist/img/channel/error.png"/>
+        <p>暂时无法生成文件！请关闭重试。<br/><br/>Could not generate document! Please retry.</p>
+    </div>
+
+    <!-- Document -->
+    <div id="document-element-wrapper"></div>
+</div>
 <div class="container" id="signaturePage">
     <div class="row">
         <div class="col-md-12 text-center product-warp">
@@ -151,14 +167,14 @@
     <div class="row">
         <div class="col-md-12">
             <div class="signature">
-                <p style="color: red;font-size: 12px;">
+                <p style="color: #ff6600;font-size: 12px;">
                     在此处签名表示：</p>
-                <p style="color: red;font-size: 12px;">
-                    - 我同意所有认购协议并已确认所有认购文件填写的内容。</p>
-                <p style="color: red;font-size: 12px;" class="ach showAch">
+                <p style="color: #ff6600;font-size: 12px;">
+                    - 我同意所有认购文件并已确认所有认购文件里填写的内容。</p>
+                <p style="color: #ff6600;font-size: 12px;" class="ach showAch">
                     </p>
-                <p style="color: red;font-size: 12px;">
-                    - 我了解并同意在此处签名同等于手写签名并权授权美信金融在必要时使用此签名做为确认依据。</p>
+                <p style="color: #ff6600;font-size: 12px;">
+                    - 我了解并同意此处签名的合法性并权授美信金融在必要时使用此签名作为确认依据。</p>
                 <p style="color: #223976; margin-bottom: 5px; margin-top: 20px;">投资人 (<span class="full_name"></span>) 签名</p>
                 <div id="signature-box">
                     <div id="signature-line">
@@ -167,30 +183,8 @@
                 <button id="signature-reset-button" type="button"
                         onclick="$('#signature-line').jSignature('clear');">重新签名
                 </button>
-                <p style="color: #ff6600; width: 70%;">温馨提示：您的签名必须与已上传的证件上所提供的签名一致</p>
+                <p style="color: #ff6600; width: 70%;">请注意：您的签名必须与已上传的证件上所提供的签名一致</p>
 
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <button id="update_order">确认签字</button>
-        </div>
-    </div>
-</div>
-<!-- The overlay -->
-<div id="document-preview" class="overlay">
-    <span class="overlay-left-top close-document-preview">&lt; 返回签字页面</span>
-
-    <div id="document-loading">
-        <img src="http://localhost:8080/version/dist/img/channel/loading.gif"/>
-        <p>请稍后，正在生成文件...<br/><br/>Please wait, generating document...</p>
-    </div>
-    <div id="document-error">
-        <img src="http://localhost:8080/version/dist/img/channel/error.png"/>
-        <p>暂时无法生成文件！请关闭重试。<br/><br/>Could not generate document! Please retry.</p>
-    </div>
-
-    <!-- Document -->
-    <div id="document-element-wrapper"></div>
-</div>

@@ -63,11 +63,10 @@ $(function () {
         $('#signature-box,.invest-amounts').css('border', '1px solid #ccc');
         $('.document-unCheck').remove();
         $(this).prop('disabled', true);
-        var invest_amount = parseInt($('.invest-amounts').val());
-        payment_method = $('.payment input:checked').val()||'wire';
+        var invest_amount = parseInt($('.invest-amounts').val()) || min_invest_amount;
+        payment_method = $('.payment input[type="radio"]:checked').val() || 'wire';
         if (invest_amount < min_invest_amount ||
-            ((invest_amount - min_invest_amount) % invest_par_value != 0))
-        {
+            ((invest_amount - min_invest_amount) % invest_par_value != 0)) {
             $('.invest-amounts').css('border-color', 'red');
             $('body').scrollTop($('.invest-amounts').offset().top);
             $(this).prop('disabled', false);
@@ -98,7 +97,7 @@ $(function () {
         return false;
     });
     function updateSignature(res) {
-        window.location = '/invest_success.html?order_number=' + order_number + '&payment_method=' + payment_method + '&bank_name=' + bank_name + '&account_number=' + account_number+'&product_id='+product_id;
+        window.location = '/invest_success.html?order_number=' + order_number + '&payment_method=' + payment_method + '&bank_name=' + bank_name + '&account_number=' + account_number + '&product_id=' + product_id;
     }
 
     /**************************** 密码认证成功回调，渲染签名页面数据 ****************************/
@@ -279,8 +278,12 @@ $(function () {
     //  金额加减
     $('.add').click(function () {
         var incest_amounts = parseInt($('.invest-amounts').val());
-        incest_amounts += invest_par_value;
-        $('.invest-amounts').val(incest_amounts);
+        if (incest_amounts == '' || isNaN(incest_amounts)) {
+            $('.invest-amounts').val(min_invest_amount);
+        } else {
+            incest_amounts += invest_par_value;
+            $('.invest-amounts').val(incest_amounts);
+        }
         if (incest_amounts <= min_invest_amount) {
             $('.sub').prop('disabled', true);
         } else {

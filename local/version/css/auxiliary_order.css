@@ -96,22 +96,22 @@ body {
     margin-top: 30px;
 }
 
-.show-user-info{
+.show-user-info {
     height: 40px;
     background: url('../img/channel/zk2.png') center no-repeat;
 }
 
-.user-info{
-    width: 70%!important;
+.user-info {
+    width: 70% !important;
     background: url('../img/channel/zk.png');
     background-size: 100% 100%;
 }
 
-.base_info, .address_info, .bank_info{
+.base_info, .address_info, .bank_info {
     margin: 0 5%;
 }
 
-.bank_info{
+.bank_info {
     padding-bottom: 80px;
 }
 
@@ -326,12 +326,10 @@ div#document-loading p, div#document-error p {
     }
 
     .user-info {
+        width: 100% !important;
         margin-top: 15px;
     }
 
-    .hide-info {
-        right: 0;
-    }
     .invest-amounts {
         width: 170px !important;
         font-size: 24px !important;

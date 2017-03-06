@@ -48,14 +48,14 @@ $(function () {
     });
 
     // 点击'点击查看投资信息'查看投资信息
-    $('.show-user-info a').on('click', function () {
+    $('.show-user-info').on('click', function () {
         $(this).hide();
         $('.user-info').show();
     });
     // 点击'收起'隐藏投资信息
     $('.hide-info').on('click', function () {
         $('.user-info').hide();
-        $('.show-user-info a').show();
+        $('.show-user-info').show();
     });
 
     /**************************** 提交签名信息 ****************************/
@@ -63,11 +63,10 @@ $(function () {
         $('#signature-box,.invest-amounts').css('border', '1px solid #ccc');
         $('.document-unCheck').remove();
         $(this).prop('disabled', true);
-        var invest_amount = parseInt($('.invest-amounts').val());
-        payment_method = $('.payment input:checked').val();
+        var invest_amount = parseInt($('.invest-amounts').val()) || min_invest_amount;
+        payment_method = $('.payment input[type="radio"]:checked').val() || 'wire';
         if (invest_amount < min_invest_amount ||
-            ((invest_amount - min_invest_amount) % invest_par_value != 0))
-        {
+            ((invest_amount - min_invest_amount) % invest_par_value != 0)) {
             $('.invest-amounts').css('border-color', 'red');
             $('body').scrollTop($('.invest-amounts').offset().top);
             $(this).prop('disabled', false);
@@ -98,7 +97,7 @@ $(function () {
         return false;
     });
     function updateSignature(res) {
-        window.location = '/invest_success.html?order_number=' + order_number + '&payment_method=' + payment_method + '&bank_name=' + bank_name + '&account_number=' + account_number+'&product_id='+product_id;
+        window.location = '/invest_success.html?order_number=' + order_number + '&payment_method=' + payment_method + '&bank_name=' + bank_name + '&account_number=' + account_number + '&product_id=' + product_id;
     }
 
     /**************************** 密码认证成功回调，渲染签名页面数据 ****************************/
@@ -156,7 +155,6 @@ $(function () {
                     $('.middle_bank_address').html(bank_non_us.middle_bank_address);
                     $('.middle_bank_swift_code').html(bank_non_us.middle_bank_swift_code);
                 }
-                $('#invest_value .payment').html('<div class="checkbox"><label><input type="checkbox" checked value="wire" disabled>通过银行电汇线下打款</label></div>');
             }
             var document_list = '';
             pdf = d.order_user_info;
@@ -173,7 +171,7 @@ $(function () {
             });
             $('.document-item').html(document_list);
             if (ach && d.order_user_info.bank_type == 'US') {
-                $('#invest_value .payment').html('<p style="color: #000;margin-bottom: 5px;">入金方式只能选择其中一项：</p><div class="radio">' +
+                $('#invest_value .payment').html('<p style="color: #223976;margin-bottom: 5px; font-size: 16px; text-align: left;">入金方式</p><div class="radio">' +
                     '<label>' +
                     '<input type="radio" name="optionsRadios" checked value="ach">通过ACH自动从' + bank_name + '（' + account_number + '）扣款' +
                     '</label>' +
@@ -188,7 +186,7 @@ $(function () {
                     '</div>');
                 $('.showAch').html('- 我确认' + bank_name + ' (' + account_number + ')账户里面有充足的资金并授权美信金融使用ACH从此账户扣款。');
             } else {
-                $('#invest_value .payment').html('<div class="checkbox"><label><input type="checkbox" checked value="wire" disabled>通过银行电汇线下打款</label></div>');
+                $('#invest_value .payment').html('<div class="checkbox text-center"><span style="display: block; color: #223976; text-align: center; font-size: 16px;">入金方式</span>通过银行电汇线下打款</div>');
             }
             /*if (d.payment_method) {
              if (d.payment_method == 'ach') {
@@ -279,8 +277,12 @@ $(function () {
     //  金额加减
     $('.add').click(function () {
         var incest_amounts = parseInt($('.invest-amounts').val());
-        incest_amounts += invest_par_value;
-        $('.invest-amounts').val(incest_amounts);
+        if (incest_amounts == '' || isNaN(incest_amounts)) {
+            $('.invest-amounts').val(min_invest_amount);
+        } else {
+            incest_amounts += invest_par_value;
+            $('.invest-amounts').val(incest_amounts);
+        }
         if (incest_amounts <= min_invest_amount) {
             $('.sub').prop('disabled', true);
         } else {
