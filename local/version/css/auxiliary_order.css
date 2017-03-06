@@ -332,6 +332,18 @@ div#document-loading p, div#document-error p {
     .hide-info {
         right: 0;
     }
+    .invest-amounts {
+        width: 170px !important;
+        font-size: 24px !important;
+        height: 40px !important;
+        border-radius: 5px !important;
+    }
+
+    .money {
+        font-size: 24px !important;
+        left: 15px !important;
+        top: -14px !important;
+    }
 }
 
 #signature-box {
