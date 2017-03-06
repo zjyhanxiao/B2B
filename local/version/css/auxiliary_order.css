@@ -103,7 +103,7 @@ body {
 .show-user-info a, .hide-info {
     line-height: 2;
 }
-.show-user-info a:hover, .hide-info:hover{
+.show-user-info a:hover, a.hide-info:hover{
     text-decoration: none;
 }
 .user-info {
