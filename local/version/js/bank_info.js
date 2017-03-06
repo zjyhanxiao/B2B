@@ -524,18 +524,26 @@ $(function () {
             delete user_data['bank_us']['bank_name_cn'];
             delete user_data['bank_non_us']['bank_url'];
             delete user_data['bank_non_us']['bank_name_cn'];
-            postData({
-                url: base_url + '/zion/white_label/operate_user',
-                data: JSON.stringify(user_data),
-                async: false,
-                contentType: "application/json; charset=utf-8",
-                sucFn: updateSuc,
-                failFn: failFn
-
-            });
             if (order_number == '') {
                 postData({
+                    url: base_url + '/zion/white_label/operate_user',
+                    data: JSON.stringify(user_data),
+                    async: false,
+                    contentType: "application/json; charset=utf-8",
+                    sucFn: updateSuc,
+                    failFn: failFn
+                });
+                postData({
                     url: base_url + '/zion/white_label/create_order',
+                    data: JSON.stringify(user_data),
+                    async: false,
+                    contentType: "application/json; charset=utf-8",
+                    sucFn: createSuc,
+                    failFn: failFn
+                });
+            } else {
+                postData({
+                    url: base_url + '/zion/white_label/operate_user',
                     data: JSON.stringify(user_data),
                     async: false,
                     contentType: "application/json; charset=utf-8",
@@ -552,8 +560,17 @@ $(function () {
             }
             if (order_number !== '') {
                 window.location = '/white_label/signature.html?' +
-                 'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&access_token=' + access_token + '&order_number=' + order_number;
+                    'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&access_token=' + access_token + '&order_number=' + order_number;
             }
+        }
+
+        function createSuc(res) {
+            var d = res.body;
+            if (d != null) {
+                order_number = d.order_number || d;
+            }
+            window.location = '/white_label/signature.html?' +
+                'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&access_token=' + access_token + '&order_number=' + order_number;
         }
 
         function failFn(res) {
