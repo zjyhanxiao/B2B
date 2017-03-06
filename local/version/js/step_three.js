@@ -521,39 +521,50 @@ $(function () {
 
     // 提交信息
     function updateUserInfo() {
+        delete user_data['bank_url'];
+        delete user_data['bank_name_cn'];
+        delete user_data['bank_us']['bank_url'];
+        delete user_data['bank_us']['bank_name_cn'];
+        delete user_data['bank_non_us']['bank_url'];
+        delete user_data['bank_non_us']['bank_name_cn'];
         if (order_number == '') {
             postData({
-                url: base_url + '/zion/assist/createOrder',
+                url: base_url + '/zion/white_label/operate_user',
                 data: JSON.stringify(user_data),
                 async: false,
-                headers: {
-                    mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
-                },
                 contentType: "application/json; charset=utf-8",
                 sucFn: updateSuc,
                 failFn: failFn
-            })
+            });
+            postData({
+                url: base_url + '/zion/white_label/create_order',
+                data: JSON.stringify(user_data),
+                async: false,
+                contentType: "application/json; charset=utf-8",
+                sucFn: updateSuc,
+                failFn: failFn
+            });
         } else {
             postData({
-                url: base_url + '/zion/assist/operateUser',
+                url: base_url + '/zion/white_label/operate_user',
                 data: JSON.stringify(user_data),
                 async: false,
-                headers: {
-                    mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
-                },
                 contentType: "application/json; charset=utf-8",
                 sucFn: updateSuc,
                 failFn: failFn
-            })
+            });
         }
     }
 
     function updateSuc(res) {
         var d = res.body;
-        if (d != null) {
-            order_number = d || d.order_number;
+        if (d && d.order_number) {
+            order_number = d.order_number;
         }
-        window.location = '/auxiliary_order/share.html?product_id=' + product_id + '&partner_id=' + partner_id + '&order_number=' + order_number + '&phone=' + phone;
+        if (order_number !== '') {
+            window.location = '/white_label/signature.html?' +
+                'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&access_token=' + access_token + '&order_number=' + order_number;
+        }
     }
 
     function failFn(res) {
