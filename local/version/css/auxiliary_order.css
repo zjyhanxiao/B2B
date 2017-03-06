@@ -321,16 +321,36 @@ div#document-loading p, div#document-error p {
     height: 100%;
     width: 90%;
 }
-
+#signature-box {
+    overflow: hidden;
+}
+.prev_three{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #223976;
+    border: 1px solid #223976;
+    width: 120px;
+    height: 44px;
+    border-radius: 22px;
+    font-size: 18px;
+    background: #fff;
+    margin: 30px 200px 30px 0;
+}
 @media (max-width: 767px) {
     #invest_value, .user-info, .document-info, .signature {
         width: 100%;
     }
-
+    .prev_three{
+        float: left;
+        margin-right: 0;
+    }
     .beforeOpen p {
         font-size: 20px;
     }
-
+    #update_order{
+        float: right;
+    }
     .beforeOpen input {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
@@ -354,8 +374,4 @@ div#document-loading p, div#document-error p {
         left: 15px !important;
         top: -14px !important;
     }
-}
-
-#signature-box {
-    overflow: hidden;
 }
