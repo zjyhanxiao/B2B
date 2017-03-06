@@ -102,6 +102,7 @@ body {
 }
 .show-user-info a, .hide-info a {
     text-decoration: none;
+    line-height: 2;
 }
 .user-info {
     width: 70% !important;
