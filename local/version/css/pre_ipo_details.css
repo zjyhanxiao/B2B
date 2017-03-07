@@ -109,27 +109,34 @@ body{
 .investor_descriptions{
     margin: 1rem 0;
     background-color: #fff;
-    padding: 1rem 2rem;
 }
 
 .investor_descriptions>p{
+    padding: 1rem 2rem;
     font-size: 1.6rem;
-    line-height: 2rem;
-    height: 32px;
+    height: 40px;
     color: #efc54b;
     border-bottom: 1px solid #ccc;
 }
 
+.investor_wrapper{
+    margin: 0 2rem;
+    padding: 0 0 1px;
+}
+
 .investor_list{
+    display: table;
     overflow: hidden;
     margin-bottom: 30px;
 }
 
+
 .investor_logo{
-    float: left;
+    /*float: left;*/
     width: 25%;
     padding-right: 10px;
-    display: inline-block;
+    display: table-cell;
+    vertical-align: middle;
     border-right: 1px solid #ccc;
 }
 
@@ -140,40 +147,46 @@ body{
 
 .investor_text{
     padding-left: 10px;
-    float: right;
+    /*float: right;*/
     width: 75%;
-    display: inline-block;
+    display: table-cell;
 }
 
 .founder_descriptions{
     background-color: #fff;
-    padding: 1rem 2rem;
+    margin: 1rem 0;
+    /*padding: 1rem 2rem;*/
 }
 
 .founder_descriptions>p{
+    padding: 1rem 2rem;
     font-size: 1.6rem;
-    line-height: 2rem;
-    height: 32px;
+    height: 40px;
     color: #54c6f4;
     border-bottom: 1px solid #ccc;
 }
 
+.founder_wrapper{
+    margin: 0 2rem;
+    padding: 0 0 40px;
+}
+
 .founder_list{
+    display: table;
     overflow: hidden;
     margin-bottom: 30px;
 }
 
 .founder_logo{
-    float: left;
     width: 25%;
-    display: inline-block;
+    vertical-align: middle;
+    display: table-cell;
 }
 
 .founder_text{
     padding-left: 10px;
-    float: right;
     width: 75%;
-    display: inline-block;
+    display: table-cell;
 }
 
 .founder_logo img{
@@ -183,13 +196,11 @@ body{
 }
 
 
-.appointment{
+#appointment{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
     text-align: center;
-}
-
-.appointment p{
-    height: 60px;
-    margin: 0;
 }
 
 #consult{
@@ -293,3 +304,12 @@ body{
     opacity: 1;
 }
 
+.appoint_err{
+    text-align: center;
+    color: #ff3300;
+    display: none;
+}
+
+.appointment p{
+    margin: 0;
+}
