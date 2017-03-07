@@ -149,7 +149,7 @@ input[type="checkbox"] {
 }
 
 .next-step-wrapper {
-    margin-top: 30px;
+    margin-top: 50px;
     overflow: hidden;
 }
 
@@ -939,7 +939,7 @@ div#document-loading p, div#document-error p {
 
 .account_type button.form-control {
     width: 33%;
-    border-radius: 30px;
+    border-radius: 6px;
 }
 
 .account_type button.form-control:first-child {
@@ -947,17 +947,19 @@ div#document-loading p, div#document-error p {
 }
 
 .bank_border {
-    width: 100%;
     border: 1px solid #ccc;
     border-radius: 4px;
-    padding: 8px 0;
     overflow: hidden;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    min-height: 90px;
     cursor: pointer;
     margin-bottom: 30px;
+    padding: 0;
+}
+
+.bank_border .table_cell {
+    padding: 16px 0;
 }
 
 .bank_url {
@@ -967,6 +969,20 @@ div#document-loading p, div#document-error p {
 
 .bank_border img {
     max-width: 80px;
+}
+
+.bank_bottom {
+    border-bottom: 1px solid #223976;
+    margin-bottom: 10px;
+}
+
+.changeBank {
+    color: #159bd6;
+    font-size: 16px;
+    line-height: 2.5;
+    border-top: 1px solid #ccc;
+    text-align: center;
+    cursor: pointer;
 }
 
 .error {
@@ -1231,6 +1247,7 @@ div#document-loading p, div#document-error p {
 .bank_border .swift_code {
     display: block;
 }
-.bank-list a{
+
+.bank-list a {
     text-decoration: none;
 }
