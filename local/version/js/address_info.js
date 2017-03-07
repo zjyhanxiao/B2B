@@ -9,6 +9,7 @@ if (access_token == '') {
 }
 
 $(function () {
+    var idCard_default = $('#fileMapping img').attr('src');
     /**************************** 校验token ****************************/
     getData({
         url: base_url + '/zion/common/verify_token',
@@ -24,6 +25,7 @@ $(function () {
         $('#country').empty().append("<option value=''>" + '请选择' + "</option>" + res);
         $('#country').find('option:first').prop('selected', 'selected');
     }
+
     // 手机号不为空，查找用户地址证明信息
     if (phone != '' && access_token != '') {
         getData({
@@ -35,7 +37,6 @@ $(function () {
         })
     }
 
-    var idCard_default = $('#fileMapping img').attr('src');
     $('.prev-one').on('click', function () {
         window.location = '/invest.html?' +
             'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number + '&access_token=' + access_token;
@@ -83,10 +84,12 @@ $(function () {
             $("#address-effective").addClass('red-shadow');
             next_step = false;
         }
+
         if (id_card_url == '') {
             $("#address-false").show();
             next_step = false;
         }
+
         if (!next_step) {
             $(this).prop('disabled', false);
             var t = $('.red-shadow').eq(0).offset().top;
@@ -298,7 +301,8 @@ $(function () {
     function tokenSuc(res) {
         console.log('合法用户');
     }
+
     function tokenFail(res) {
-        window.location='/verify_code.html?product_id=' + partner_id + '&partner_id=' + partner_id;
+        window.location = '/verify_code.html?product_id=' + partner_id + '&partner_id=' + partner_id;
     }
 });

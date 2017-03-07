@@ -8,6 +8,7 @@ if (access_token == '') {
     window.location = '/verify_code.html?product_id=' + partner_id + '&partner_id=' + partner_id;
 }
 $(function () {
+    var passport_photo_default = $('#fileMapping img').attr('src');
     /**************************** 校验token ****************************/
     getData({
         url: base_url + '/zion/common/verify_token',
@@ -27,7 +28,6 @@ $(function () {
         }
     }
 
-    var passport_photo_default = $('#fileMapping img').attr('src');
     $('.step-one').on('click', function () {
         var passport_photo = $('#fileMapping img').attr('src');
         if (passport_photo == passport_photo_default) {
