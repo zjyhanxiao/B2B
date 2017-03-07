@@ -114,7 +114,7 @@
 <script type="text/javascript">
     $(function () {
         var product_id = getUrlParam('product_id') || ''; // 获取通行证
-        $.getJSON("http://zion.meixincn.com/version/dist/js/whiteLabel.json",function(d){
+        $.getJSON("../version/dist/js/whiteLabel.json",function(d){
             $.each(d,function(arr,info){
                 if(product_id==info["id"]){
                     $(".logo_img").attr('src',info["logo"]);
@@ -124,7 +124,7 @@
                 }
             });
         });
-        $.getJSON("http://zion.meixincn.com/version/dist/js/whiteLabelDetail.json",function(d){
+        $.getJSON("../version/dist/js/whiteLabelDetail.json",function(d){
             $.each(d,function(arr,info){
                 if(product_id==info["id"]){
                     var investment_highlights = '';
