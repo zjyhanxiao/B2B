@@ -13,17 +13,23 @@
     <meta name="hotcss" content="initial-dpr=1">
     <title>海外理财</title>
 
-    <link href="http://zion.meixincn.com/vendor/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://localhost:8080/vendor/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
         html,body{
             font-size: 14px;
+        }
+        body{
+            font-family: "微软雅黑";
         }
         p{
             margin: 0px;
             padding: 0px;
         }
         a{
+            text-decoration: none;
+        }
+        a:hover{
             text-decoration: none;
         }
 
@@ -47,7 +53,7 @@
             border-left: 2px solid #223976;
             font-size: 20px;
             color: #223976;
-            margin: 15px 0px 15px;
+            margin: 20px 0px 10px;
         }
         .third{
             text-align: center;
@@ -67,15 +73,20 @@
         }
 
         .invest-btn{
-            width: 120px;
-            height: 45px;
+            width: 100px;
+            height: 36px;
             display: block;
             border: 1px solid #223976;
+            color: #223976;
             text-align: center;
-            line-height: 45px;
+            line-height: 36px;
             border-radius: 30px;
             margin: 0 auto;
             font-size: 16px;
+        }
+        .invest-btn:hover{
+            background: #223976;
+            color: #FFFFFF;
         }
 
         @media (min-width: 480px) and (max-width: 768px) {
@@ -301,9 +312,9 @@
 
 
 </body>
-<script src="http://zion.meixincn.com/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
-<script src="http://zion.meixincn.com/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
-<script src="http://zion.meixincn.com/version/dist/js/main.min.js" type="text/javascript"></script>
+<script src="http://localhost:8080/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="http://localhost:8080/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
+<script src="http://localhost:8080/version/dist/js/main.min.js" type="text/javascript"></script>
 <script>
     $(function () {
 
@@ -344,10 +355,10 @@
                         ' <p class="case">起投金额   <span class="details">'+item.min_invest_amount+'美元</span> ' +
                         '</p> </div> </div> <div class="row" style="margin: 20px 0 25px">' +
                         ' <div class="col-md-12 col-xs-12" style="text-align: center"> ' +
-                        '<a href="productDetails.html?partner_id='+getUrlParam('partner_id')+'&product_id='+item.product_id+'" class="invest-btn"> 立即加入 </a>' +
+                        ''+getUrlParam('partner_id')+'<a href="productDetails1.html?partner_id=&product_id=" class="invest-btn">立即加入</a>'+item.product_id+'' +
                         ' </div> </div> </div> </div> </div> '
                     })
-                    secendhtml = '<div class="col-md-12 col-xs-12" style="border: 1px solid #efefef;background: #fcfdff;padding-right: 0px;margin-bottom: 30px">'+secendhtml+'</div>'
+                    secendhtml = '<div class="col-md-12 col-xs-12" style="border: 1px solid #efefef;background: #f7faff;padding-right: 0px;margin-bottom: 30px">'+secendhtml+'</div>'
                      allhtml += '<div>'+firsthtml + secendhtml+'</div>';
                 }
                 $('.main').html( allhtml )
