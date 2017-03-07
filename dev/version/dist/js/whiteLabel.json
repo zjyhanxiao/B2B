@@ -3,7 +3,7 @@
   "128":{
     "id":"128",
     "name": "滴滴出行 Pre-IPO股权投资",
-    "logo": "http://localhost:8080/version/dist/img/funds/logo/didi.png",
+    "logo": "http://zion.meixincn.com/version/dist/img/funds/logo/didi.png",
     "total_funding": "$74.4亿",
     "most_recent_valuation": "$337亿",
     "instruction": "SpaceX是世界上发展速度最快的发射服务提供商。"
@@ -11,7 +11,7 @@
   "129": {
     "id":"129",
     "name": "Airbnb Pre-IPO股权投资",
-    "logo": "http://localhost:8080/version/dist/img/funds/logo/airbnb.png",
+    "logo": "http://zion.meixincn.com/version/dist/img/funds/logo/airbnb.png",
     "total_funding": "$29.5亿",
     "most_recent_valuation": "$100亿",
     "instruction": "Airbnb，是一个让大众出租住宿民宿的平台，为近年来共享经济发展的代表之一。"
@@ -19,7 +19,7 @@
   "130": {
     "id":"130",
     "name": "SpaceX Pre-IPO股权投资",
-    "logo": "http://localhost:8080/version/dist/img/funds/logo/shengxin_spacex.png",
+    "logo": "http://zion.meixincn.com/version/dist/img/funds/logo/shengxin_spacex.png",
     "total_funding": "$11.5亿",
     "most_recent_valuation": "$100亿",
     "instruction": "SpaceX至今已与NASA签署了60项发射任务,合同金额合计70亿美元,是唯一盈利的私人航空公司。"
@@ -27,7 +27,7 @@
   "131": {
     "id":"131",
     "name": "Uber Pre-IPO股权投资",
-    "logo": "http://localhost:8080/version/dist/img/funds/logo/uber.png",
+    "logo": "http://zion.meixincn.com/version/dist/img/funds/logo/uber.png",
     "total_funding": "$88.1亿",
     "most_recent_valuation": "$400亿",
     "instruction": "Uber是全球最大、最早的互联网叫车平台。"
@@ -35,7 +35,7 @@
   "132": {
     "id":"132",
     "name": "Spotify Pre-IPO股权投资",
-    "logo": "http://localhost:8080/version/dist/img/funds/logo/Spotify.png",
+    "logo": "http://zion.meixincn.com/version/dist/img/funds/logo/Spotify.png",
     "total_funding": "$15.6亿",
     "most_recent_valuation": "$40亿",
     "instruction": "Spotify是全球最大的正版流媒体音乐服务平台。"
@@ -43,7 +43,7 @@
   "133": {
     "id":"133",
     "name": "Lyft Pre-IPO股权投资",
-    "logo": "http://localhost:8080/version/dist/img/funds/logo/lyft.png",
+    "logo": "http://zion.meixincn.com/version/dist/img/funds/logo/lyft.png",
     "total_funding": "$20.1亿",
     "most_recent_valuation": "$90亿",
     "instruction": "Lyft是美国第二大打车应用。"
@@ -51,7 +51,7 @@
   "134": {
     "id":"134",
     "name": "Pinterest Pre-IPO股权投资",
-    "logo": "http://localhost:8080/version/dist/img/funds/logo/pinterest.png",
+    "logo": "http://zion.meixincn.com/version/dist/img/funds/logo/pinterest.png",
     "total_funding": "$13.2亿",
     "most_recent_valuation": "$50亿",
     "instruction": "Pinterest是一个图片分享类的社交网站，现已进入全球最热门社交网站前十名。"
