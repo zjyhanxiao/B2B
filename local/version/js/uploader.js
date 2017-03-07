@@ -4,7 +4,8 @@ var imgAccept = {
     extensions: 'gif,jpg,jpeg,bmp,png',
     mimeTypes: 'image/*'
 };
-
+var u = navigator.userAgent;
+var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
 var uploader_file = function (id, url, imgAccept) {
 
     var $list = $(id),
@@ -27,7 +28,8 @@ var uploader_file = function (id, url, imgAccept) {
         /*server: 'https://api1.meixinglobal.com/web/upload/user_file',
          formData: user_tooken,*/
         // 文件接收服务端。
-        server: 'https://prod-gl-api.meixincn.com/web/upload/private',
+        // server: 'http://192.168.1.104:9001/web/upload/binary',
+        server: 'https://prod-gl-api.meixincn.com/web/upload/binary',
         // server: baseUrlS + '/oper/product/uploadProductAch',
         // formData: {"mx_token": mx_token, "mx_secret": mx_secret},
         // server: baseUrl + '/oper/product/uploadProductAch',
@@ -45,13 +47,13 @@ var uploader_file = function (id, url, imgAccept) {
             id: $(id).siblings('.filePicker'),
             multiple: false
         },
-
+        sendAsBinary: true,
 
         // 只允许选择文件，可选。
         accept: {
             title: 'Images,Applications',
             extensions: 'gif,jpg,jpeg,bmp,png',
-            mimeTypes: 'image/!*'
+            mimeTypes: 'image/*'
         }
         /*accept: {
          title: 'Applications,Images',
@@ -67,7 +69,7 @@ var uploader_file = function (id, url, imgAccept) {
                 '<div id="' + file.id + '" class="file-item thumbnail">' +
                 // '<span class="glyphicon glyphicon-remove"></span>' +
                 '<img>' +
-                // '<div class="info">' + file.name + '</div>' +
+                '<div class="info"><p class="progress"><span>正在上传</span></p></div>' +
                 '</div>'
             ),
             $img = $li.find('img');
@@ -125,7 +127,7 @@ var uploader_file = function (id, url, imgAccept) {
                 });
             }
         })
-        $('.step-one,.step-two').prop('disabled',false);
+        $('.step-one,.step-two').prop('disabled', false);
     });
 
     // 文件上传失败，现实上传出错。

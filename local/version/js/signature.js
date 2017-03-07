@@ -1,12 +1,14 @@
+var phone = getUrlParam('phone') || ''; // 通过手机号查找用户信息
+var partner_id = getUrlParam('partner_id') || ''; // 渠道编码
+var product_id = getUrlParam('product_id') || ''; //获取产品id
+var order_number = getUrlParam('order_number') || ''; // 获取订单编号
+var access_token = getUrlParam('access_token') || ''; // 获取通行证
+if (access_token == '') {
+    window.location = '/verify_code.html?product_id=' + partner_id + '&partner_id=' + partner_id;
+}
 $(function () {
     $("#signature-line").jSignature({width: 800, height: 200});       // 初始化签名框
     var jSignatureData = $('#signature-line').jSignature('getData');  // 获取签名默认base64数据
-    var user_data = {};// 定义用户信息数据
-    var phone = getUrlParam('phone') || ''; // 通过手机号查找用户信息
-    var partner_id = getUrlParam('partner_id') || ''; // 渠道编码
-    var product_id = getUrlParam('product_id') || ''; //获取产品id
-    var order_number = getUrlParam('order_number') || ''; // 获取订单编号
-    var access_token = getUrlParam('access_token') || ''; // 获取通行证
     var pdf = null;   // 定义获取pdf所需上传的数据
     var min_invest_amount = 0; // 最小投资金额
     var invest_par_value = 0;  // 增加单位

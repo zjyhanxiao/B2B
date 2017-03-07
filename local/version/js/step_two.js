@@ -6,13 +6,13 @@ $(function () {
     var partner_id = getUrlParam('partner_id') || ''; // 渠道编码
     var product_id = getUrlParam('product_id') || ''; //获取产品id
     var order_number = getUrlParam('order_number') || ''; // 获取订单编号
-    var idCard_default = $('.fa-upload-pic img').attr('src');
+    var idCard_default = $('#fileMapping img').attr('src');
     $('.prev-one').on('click', function () {
         window.location = '/auxiliary_order/stepOne.html?' +
             'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number;
     });
     $('.step-two').on('click', function () {
-        var id_card_url = $('.fa-upload-pic img').attr('src');
+        var id_card_url = $('#fileMapping img').attr('src');
         if (id_card_url == idCard_default) {
             id_card_url = '';
         }
@@ -157,7 +157,7 @@ $(function () {
                 $('#address-effective').val(d.id_card_expire_date);
             }
             if (d.id_card_url != null && d.id_card_url != '') {
-                $('#address-proof').siblings('img').attr('src', d.id_card_url);
+                $('#fileMapping img').attr('src', d.id_card_url);
             }
             if (d.address_type == 'CN' && d.address_cn != null) {
                 if (d.address_cn.region != '' && d.address_cn.region != null && d.address_cn.city != '' && d.address_cn.city != null && d.address_cn.district != '' && d.address_cn.district != null) {
@@ -211,7 +211,7 @@ $(function () {
         });
     }
 
-    //上传地址证明
+    /*//上传地址证明
      $('#address-proof').change(function () {
      var $this = $(this);
      var val = $(this).val().toLowerCase();
@@ -252,7 +252,7 @@ $(function () {
      //上传组件
      $('.fa-upload-pic').find('a').click(function () {
      $(this).siblings('input').trigger('click');
-     });
+     });*/
 
     //获取焦点后移除红框
     $('input').on('focus', function () {
@@ -284,20 +284,4 @@ $(function () {
         $('.filePicker input').trigger('click');
     });
     uploader_file('#fileMapping');
-
-    $('.uploader-demo').find('img').load(function () {
-        var w = $('.uploader-demo').find('img').width();
-        var h = $('.uploader-demo').find('img').height();
-        var warp_w = $('.file-item').width();
-        var warp_h = $('.file-item').height();
-        if ((w / h) < (warp_w / warp_h)) {
-            $('.uploader-demo').find('img').css({width: 'auto', height: '100%'});
-        } else {
-            $('.uploader-demo').find('img').css({
-                width: '100%',
-                height: 'auto',
-                'margin-top': Math.floor((warp_h - warp_w * h / w) / 2) + 'px'
-            });
-        }
-    })
 });

@@ -1,25 +1,35 @@
+var user_data = {}; // 用户数据
+var phone = getUrlParam('phone') || ''; // 通过手机号查找用户信息
+var partner_id = getUrlParam('partner_id') || ''; // 渠道编码
+var product_id = getUrlParam('product_id') || ''; //获取产品id
+var order_number = getUrlParam('order_number') || ''; // 获取订单编号
+var access_token = getUrlParam('access_token') || ''; // 获取通行证
+if (access_token == '') {
+    window.location = '/verify_code.html?product_id=' + partner_id + '&partner_id=' + partner_id;
+}
 $(function () {
-    var user_data = {}; // 用户数据
-    var phone = getUrlParam('phone') || ''; // 通过手机号查找用户信息
-    var partner_id = getUrlParam('partner_id') || ''; // 渠道编码
-    var product_id = getUrlParam('product_id') || ''; //获取产品id
-    var order_number = getUrlParam('order_number') || ''; // 获取订单编号
-    var access_token = getUrlParam('access_token') || ''; // 获取通行证
-
+    /**************************** 校验token ****************************/
+    getData({
+        url: base_url + '/zion/common/verify_token',
+        data: {phone: phone, access_token: access_token, channel_code: partner_id},
+        async: false,
+        sucFn: tokenSuc,
+        failFn: tokenFail
+    });
     /**************************** 链接中存在手机号，手机号不可更改 ****************************/
     if (phone != '') {
         $('#phone-code,#phone').prop('disabled', true);
         if (phone.indexOf(' ')) {
             $('#phone').val(phone.split(' ')[1]);
-            // $("#phone-code").val(d.phone.split(' ')[0]);
-        }else{
+            $("#phone-code").val(d.phone.split(' ')[0]);
+        } else {
             $('#phone').val(phone);
         }
     }
 
-    var passport_photo_default = $('.fa-upload-pic img').attr('src');
+    var passport_photo_default = $('#fileMapping img').attr('src');
     $('.step-one').on('click', function () {
-        var passport_photo = $('.fa-upload-pic img').attr('src');
+        var passport_photo = $('#fileMapping img').attr('src');
         if (passport_photo == passport_photo_default) {
             passport_photo = '';
         }
@@ -253,7 +263,8 @@ $(function () {
             $('#industry').val(d.base_info.industry);
             $('#passport-number').val(d.passport_number);
             $('#effective').val(d.passport_expire_date);
-            $('.fa-upload-pic img').attr('src', d.passport_url);
+
+            $('#fileMapping img').attr('src', d.passport_url);
             if (d.base_info.industry != '' && d.base_info.industry != null &&
                 d.base_info.occupation != '' && d.base_info.occupation != null
             ) {
@@ -282,8 +293,8 @@ $(function () {
     }
 
 
-    //上传护照
-        $('#passport-proof').change(function () {
+    /*    //上传护照
+     $('#passport-proof').change(function () {
      $("#passport-false").hide();
      var $this = $(this);
      var val = $(this).val().toLowerCase();
@@ -295,7 +306,7 @@ $(function () {
      file_passport_upload($this);
      }
      });
-        function file_passport_upload(dom) {
+     function file_passport_upload(dom) {
      var formData = new FormData($('form')[0]);
      formData.append('file', $("#passport-proof")[0].files[0]);
      $.ajax({
@@ -324,7 +335,7 @@ $(function () {
      //上传组件
      $('.fa-upload-pic').find('a').click(function () {
      $(this).siblings('input').trigger('click');
-     });
+     });*/
 
     //获取焦点后移除红框
     $('input').on('focus', function () {
@@ -351,25 +362,19 @@ $(function () {
             doFormat(e.target)
     });
 
+    /********************   图片上传    ********************/
     $('#fileMapping').click(function () {
         $('.filePicker input').trigger('click');
     });
     uploader_file('#fileMapping');
+    /********************   图片上传end    ********************/
 
 
-    $('.uploader-demo').find('img').load(function () {
-        var w = $('.uploader-demo').find('img').width();
-        var h = $('.uploader-demo').find('img').height();
-        var warp_w = $('.file-item').width();
-        var warp_h = $('.file-item').height();
-        if ((w / h) < (warp_w / warp_h)) {
-            $('.uploader-demo').find('img').css({width: 'auto', height: '100%'});
-        } else {
-            $('.uploader-demo').find('img').css({
-                width: '100%',
-                height: 'auto',
-                'margin-top': Math.floor((warp_h - warp_w * h / w) / 2) + 'px'
-            });
-        }
-    })
+    function tokenSuc(res) {
+        console.log('合法用户');
+    }
+
+    function tokenFail(res) {
+        window.location = '/verify_code.html?product_id=' + partner_id + '&partner_id=' + partner_id;
+    }
 });

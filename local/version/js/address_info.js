@@ -1,14 +1,36 @@
+var user_data = {};// 定义用户信息数据
+var phone = getUrlParam('phone') || ''; // 通过手机号查找用户信息
+var partner_id = getUrlParam('partner_id') || ''; // 渠道编码
+var product_id = getUrlParam('product_id') || ''; //获取产品id
+var order_number = getUrlParam('order_number') || ''; // 获取订单编号
+var access_token = getUrlParam('access_token') || ''; // 获取通行证
+if (access_token == '') {
+    window.location = '/verify_code.html?product_id=' + partner_id + '&partner_id=' + partner_id;
+}
+
 $(function () {
-    var user_data = {};// 定义用户信息数据
-    var phone = getUrlParam('phone') || ''; // 通过手机号查找用户信息
-    var partner_id = getUrlParam('partner_id') || ''; // 渠道编码
-    var product_id = getUrlParam('product_id') || ''; //获取产品id
-    var order_number = getUrlParam('order_number') || ''; // 获取订单编号
-    var access_token = getUrlParam('access_token') || ''; // 获取通行证
+    /**************************** 校验token ****************************/
+    getData({
+        url: base_url + '/zion/common/verify_token',
+        data: {phone: phone, access_token: access_token, channel_code: partner_id},
+        async: false,
+        sucFn: tokenSuc,
+        failFn: tokenFail
+    });
+    // 手机号不为空，查找用户地址证明信息
+    if (phone != '' && access_token != '') {
+        getData({
+            url: base_url + '/zion/white_label/order_user_info',
+            data: {phone: phone, access_token: access_token, channel_code: partner_id, order_number: order_number},
+            async: false,
+            sucFn: addressInfo,
+            failFn: noAddressInfo
+        })
+    }
 
     var idCard_default = $('.fa-upload-pic img').attr('src');
     $('.prev-one').on('click', function () {
-        window.location = '/white_label/base_info.html?' +
+        window.location = '/invest.html?' +
             'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number + '&access_token=' + access_token;
     });
     $('.step-two').on('click', function () {
@@ -136,15 +158,7 @@ $(function () {
             }
         }
     });
-    // 手机号不为空，查找用户地址证明信息
-    if (phone != '' && access_token != '') {
-        getData({
-            url: base_url + '/zion/white_label/order_user_info',
-            data: {phone: phone, access_token: access_token, channel_code: partner_id, order_number: order_number},
-            sucFn: addressInfo,
-            failFn: noAddressInfo
-        })
-    }
+
 
     // 获取地址信息成功
     function addressInfo(res) {
@@ -209,7 +223,7 @@ $(function () {
         });
     }
 
-    //上传地址证明
+    /*    //上传地址证明
      $('#address-proof').change(function () {
      var $this = $(this);
      var val = $(this).val().toLowerCase();
@@ -250,7 +264,7 @@ $(function () {
      //上传组件
      $('.fa-upload-pic').find('a').click(function () {
      $(this).siblings('input').trigger('click');
-     });
+     });*/
 
     //获取焦点后移除红框
     $('input').on('focus', function () {
@@ -283,19 +297,10 @@ $(function () {
     });
     uploader_file('#fileMapping');
 
-    $('.uploader-demo').find('img').load(function () {
-        var w = $('.uploader-demo').find('img').width();
-        var h = $('.uploader-demo').find('img').height();
-        var warp_w = $('.file-item').width();
-        var warp_h = $('.file-item').height();
-        if ((w / h) < (warp_w / warp_h)) {
-            $('.uploader-demo').find('img').css({width: 'auto', height: '100%'});
-        } else {
-            $('.uploader-demo').find('img').css({
-                width: '100%',
-                height: 'auto',
-                'margin-top': Math.floor((warp_h - warp_w * h / w) / 2) + 'px'
-            });
-        }
-    })
+    function tokenSuc(res) {
+        console.log('合法用户');
+    }
+    function tokenFail(res) {
+        window.location='/verify_code.html?product_id=' + partner_id + '&partner_id=' + partner_id;
+    }
 });

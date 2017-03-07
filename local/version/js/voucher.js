@@ -95,9 +95,9 @@ $(function () {
         }
 
         if (order_number != '') {
-            window.location = '/auxiliary_order/shareAndSignature.html?product_id=' + product_id + '&partner_id=' + partner_id + '&phone=' + phone + '&access_token=' + res.body.token + '&order_number=' + order_number;
+            window.location = '/white_label/signature.html?product_id=' + product_id + '&partner_id=' + partner_id + '&phone=' + phone + '&access_token=' + res.body.token + '&order_number=' + order_number;
         } else {
-            window.location = '/white_label/base_info.html?product_id=' + product_id + '&partner_id=' + partner_id + '&phone=' + phone + '&access_token=' + res.body.token;
+            window.location = '/invest.html?product_id=' + product_id + '&partner_id=' + partner_id + '&phone=' + phone + '&access_token=' + res.body.token;
         }
     }
 
