@@ -243,11 +243,11 @@ body{
 /****** 立即预约 ********/
 
 #popup .modal-sm{
-    margin-top: 150px;
+    margin-top: 50px;
 }
 
 #con .modal-sm{
-    margin-top: 180px;
+    margin-top: 80px;
 }
 
 .form-control{
