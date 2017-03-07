@@ -32,9 +32,11 @@
         }
         .header{
             width: 100%;
-            height: 300px;
-            background: #223976;
             position: relative;
+        }
+        .header img{
+            width: 100%;
+            display: block;
         }
         .choose{
             width: 92%;
@@ -140,12 +142,15 @@
             margin-bottom: 0.20rem;
             background: #FFFFFF;
         }
-        .content ul li:first-child{
+        .content ul{
             margin-top: 0.70rem;
         }
+
+
+
         .content-head{
             overflow: hidden;
-            border-left: 3px solid red;
+            border-left: 3px solid #000000;
             border-bottom: 1px solid #ececec;
             border-top: 1px solid #ececec;
         }
@@ -180,7 +185,7 @@
             font-size: 0.22rem;
             color: #555555;
         }
-        #return_rate{
+        .colred{
             color: red;
             font-size: 0.4rem;
             text-align: center;
@@ -250,6 +255,12 @@
             color: #999999;
             margin-bottom: 0.30rem;
         }
+        .phone{
+            font-size: 0.24rem;
+            color: #999999;
+            text-align: center;
+            margin: 0.30rem 0 0.40rem;
+        }
 
     </style>
 
@@ -257,7 +268,7 @@
 <body>
     <div id="finance">
         <div class="header">
-            <img src="" alt="">
+            <img src="http://localhost:8080/version/dist/img/whitelabel/header-img.png" alt="">
             <div class="choose">
                 <div class="dollar">
                     <div class="active"><i></i><p>美元固收</p></div>
@@ -269,72 +280,28 @@
         </div>
         <div class="content">
             <ul class="taps1">
-                <li>
-                    <div class="content-head">
-                        <p class="content-title">安心计划6个月</p>
-                        <p class="content-explain">中小企业有抵押贷款组合</p>
-                    </div>
-                    <div class="content-body">
-                        <div class="content-left">
-                            <p id="return_rate">8%</p>
-                            <p class="return_rate">预计年话</p>
-                        </div>
-                        <div class="content-right">
-                            <p class="invest_term"><i></i>
-                                投资期限
-                                <span>6个月</span>
-                            </p>
-                            <p class="close_fund_start_interest_day"><i></i>
-                                起息日期
-                                <span>2017-09-09</span>
-                            </p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="content-head">
-                        <p class="content-title">安心计划6个月</p>
-                        <p class="content-explain">中小企业有抵押贷款组合</p>
-                    </div>
-                    <div class="content-body">
-                        <div class="content-left">
-                            <p id="return_rate">8%</p>
-                            <p class="return_rate">预计年话</p>
-                        </div>
-                        <div class="content-right">
-                            <p class="invest_term"><i></i>
-                                投资期限
-                                <span>6个月</span>
-                            </p>
-                            <p class="close_fund_start_interest_day"><i></i>
-                                起息日期
-                                <span>2017-09-09</span>
-                            </p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="content-head">
-                        <p class="content-title">安心计划6个月</p>
-                        <p class="content-explain">中小企业有抵押贷款组合</p>
-                    </div>
-                    <div class="content-body">
-                        <div class="content-left">
-                            <p id="return_rate">8%</p>
-                            <p class="return_rate">预计年话</p>
-                        </div>
-                        <div class="content-right">
-                            <p class="invest_term"><i></i>
-                                投资期限
-                                <span>6个月</span>
-                            </p>
-                            <p class="close_fund_start_interest_day"><i></i>
-                                起息日期
-                                <span>2017-09-09</span>
-                            </p>
-                        </div>
-                    </div>
-                </li>
+                <!--<li>-->
+                    <!--<div class="content-head">-->
+                        <!--<p class="content-title">安心计划6个月</p>-->
+                        <!--<p class="content-explain">中小企业有抵押贷款组合</p>-->
+                    <!--</div>-->
+                    <!--<div class="content-body">-->
+                        <!--<div class="content-left">-->
+                            <!--<p class="colred">8%</p>-->
+                            <!--<p class="return_rate">预计年话</p>-->
+                        <!--</div>-->
+                        <!--<div class="content-right">-->
+                            <!--<p class="invest_term"><i></i>-->
+                                <!--&nbsp;&nbsp;投资期限-->
+                                <!--<span>6个月</span>-->
+                            <!--</p>-->
+                            <!--<p class="close_fund_start_interest_day"><i></i>-->
+                                <!--&nbsp;&nbsp;起息日期-->
+                                <!--<span>2017-09-09</span>-->
+                            <!--</p>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
             </ul>
             <ul class="taps2" style="display: none">
                 <li>
@@ -356,21 +323,59 @@
                                     <span>$7.44B</span>
                                 </p>
                             </div>
-                            <p class="details-explain">1111111111111111111111111111111111111111111111111111111111111111111111111111</p>
+                            <p class="details-explain">产品介绍</p>
                         </div>
                     </div>
                 </li>
             </ul>
+            <p class="phone">咨询电话：400-094-1580</p>
         </div>
     </div>
 
     <script src="http://localhost:8080/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="http://localhost:8080/version/dist/js/main.min.js" type="text/javascript"></script>
     <script>
 
         $(function () {
+//            REM布局跟字体设置
             var FS= $(window).width()/7.5 + 'px';
             $('html').css('font-size',FS)
+//            获取美元固收列表
+            $.ajax({
+                type: 'get',
+                url: base_url + '/product/query_list',
+                data: {'app_id':getUrlParam('partner_id')},
+                contentType: "application/json; charset=utf-8",
+                success: function (res) {
+                    console.log(res.body)
+                    var taps1html = '';
+                    $.each( res.body , function ( i , item ) {
+                        taps1html += ' <a href="productDetails11.html?partner_id='+getUrlParam('partner_id')+'&product_id='+item.product_id+'">' +
+                            '<li> <div class="content-head"> ' +
+                            '<p class="content-title">'+item.product_name+'</p> ' +
+                            '<p class="content-explain">'+item.product_type_desc+'</p> </div> ' +
+                            '<div class="content-body"> <div class="content-left"> ' +
+                            '<p class="colred">'+item.return_rate+'% </p> <p class="return_rate">预计年话</p> ' +
+                            '</div> <div class="content-right"> ' +
+                            '<p class="invest_term"><i></i>&nbsp;&nbsp;投资期限 <span>'+item.invest_term+'个月</span> </p> ' +
+                            '<p class="close_fund_start_interest_day"><i>' +
+                            '</i>&nbsp;&nbsp;起息日期 <span>'+item.close_fund_start_interest_day+'</span> </p> </div> </div> </li></a>'
+                    })
+                    $('.taps1').html( taps1html )
+                },
+                error: function () {
+
+                }
+
+//                获取独角兽股权列表
+
+
+            })
+
         })
+
+
+
 
 //        切换
         $('.dollar').click(function () {

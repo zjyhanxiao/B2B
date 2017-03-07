@@ -16,21 +16,26 @@
     <title>产品详情</title>
 
     <style>
-        html,body,div,p,ul,li,span{
+        html,body,div,p,ul,li,span,table,tr,td,img {
             margin: 0px;
             padding: 0px;
         }
         ul,li{
             list-style: none;
         }
+        a{
+            text-decoration: none;
+        }
         html,body{
             width: 100%;
         }
         #finance{
             width: 100%;
+            background: #f6f6f4;
         }
         .header{
-
+            background: #FFFFFF;
+            margin-bottom: 0.20rem;
         }
         .header-nav{
             overflow: hidden;
@@ -71,6 +76,137 @@
             margin-top: 0.42rem;
             margin-bottom: 0.12rem;
         }
+        .main{
+            width: 100%;
+        }
+        .main div{
+            width: 100%;
+        }
+        table{
+            width: 100%;
+        }
+        tr{
+            width: 100%;
+            background: #FFFFFF;
+            margin-bottom: 0.10rem;
+            display: block;
+        }
+        table tr td:first-child{
+            display: block;
+            width: 100%;
+            font-size: 0.28rem;
+            color: #555555;
+            padding: 0.25rem 0.40rem 0.30rem 0.40rem;
+            border-bottom: 1px solid #e5e5e5;
+            box-sizing: border-box;
+        }
+        table tr td:last-child{
+            display: block;
+            width: 100%;
+            font-size: 0.26rem;
+            color: #999999;
+            padding: 0.30rem 0.40rem 0.30rem 0.40rem;
+            word-break:break-all;
+            box-sizing:border-box;
+        }
+        .table{
+            padding-bottom: 0.9rem;
+        }
+        .join{
+            width: 100%;
+            overflow: hidden;
+            position: fixed;
+            bottom: 0rem;
+            left: 0rem;
+        }
+        .join .consult{
+            border-top: 1px solid #000000;
+            box-sizing: border-box;
+            float: left;
+            display: block;
+            width: 50%;
+            height: 0.9rem;
+            line-height: 0.9rem;
+            font-size: 0.36rem;
+            background: #FFFFFF;
+            text-align: center;
+            color: #000000;
+            outline: none;
+        }
+        .join .btn{
+            float: left;
+            display: block;
+            width: 50%;
+            height: 0.9rem;
+            line-height: 0.9rem;
+            font-size: 0.36rem;
+            color: #FFFFFF;
+            background: #000000;
+            text-align: center;
+            outline: none;
+        }
+        .consultPage{
+            position: fixed;
+            left: 0rem;
+            top: 0rem;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+        .page{
+            width: 6.4rem;
+            margin: 0 auto;
+            margin-top: 4rem;
+            background: #FFFFFF;
+        }
+        .page-head{
+            width: 100%;
+            height: 0.9rem;
+            background: #000000;
+            position: relative;
+        }
+        .page-head p{
+
+            text-align: center;
+            font-size: 0.32rem;
+            line-height: 0.9rem;
+            color: #FFFFFF;
+        }
+        .page-head span{
+            display: block;
+            width: 0.3rem;
+            height: 0.3rem;
+            line-height: 0.3rem;
+            text-align: center;
+            color: #FFFFFF;
+            font-size: 0.5rem;
+            position: absolute;
+            right: 0.3rem;
+            top: 0.3rem;
+        }
+        .page-body{
+            width: 100%;
+        }
+        .page-body .phone,.email{
+            width: 0.7rem;
+            height: 0.6rem;
+            margin: 0.40rem auto 0.30rem;
+        }
+        .phone img{
+            width: 100%;
+            display: block;
+        }
+        .email img{
+            width: 100%;
+            display: block;
+        }
+        .page-body p{
+            font-size: 0.26rem;
+            color: #999999;
+            text-align: center;
+        }
+
 
     </style>
 
@@ -79,27 +215,76 @@
     <div id="finance">
         <div class="header">
             <div class="header-nav">
-                <p class="header-title">安心定期四期</p>
-                <p class="header-explain">中小企业有抵押贷款组合</p>
+                <p class="header-title">  </p>
+                <p class="header-explain">  </p>
             </div>
             <div class="header-content">
                 <div class="float">
-                    <p id="return_rate">18%</p>
+                    <p id="return_rate">  </p>
                     <p class="nape">预计年化</p>
                 </div>
                 <div class="float">
-                    <p id="invest_term">48个月</p>
+                    <p id="invest_term">  </p>
                     <p class="nape">投资期限</p>
                 </div>
                 <div class="float">
-                    <p id="close_fund_start_interest_day">2017-09-09</p>
+                    <p id="close_fund_start_interest_day">  </p>
                     <p class="nape">起息日期</p>
                 </div>
             </div>
         </div>
-        <div>
-            1111
+        <div class="main">
+            <div class="table">
+                <!--<table>-->
+                    <!--<tr>-->
+                        <!--<td>产品详情</td>-->
+                        <!--<td>产品详情产品详产品详情产品详产品详情产品详产品详情产品详产品详情产品详产品详情产品详</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>产品详情</td>-->
+                        <!--<td>产品详情产品详产品详情产品详产品详情产品详产品详情产品详产品详情产品详产品详情产品详</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>产品详情</td>-->
+                        <!--<td>产品详情产品详产品详情产品详产品详情产品详产品详情产品详产品详情产品详产品详情产品详</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>产品详情</td>-->
+                        <!--<td>产品详情产品详产品详情产品详产品详情产品详产品详情产品详产品详情产品详产品详情产品详</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>产品详情</td>-->
+                        <!--<td>产品详情产品详产品详情产品详产品详情产品详产品详情产品详产品详情产品详产品详情产品详</td>-->
+                    <!--</tr>-->
+                <!--</table>-->
+            </div>
+            <div class="join">
+                <a class="consult">立即咨询</a>
+                <a class="btn">立即加入</a>
+            </div>
         </div>
+
+        <div class="consultPage" style="display: none">
+            <div class="page">
+                <div class="page-head">
+                    <p class="page-title">  </p>
+                    <span class="close"> × </span>
+                </div>
+                <div class="page-body">
+                    <div class="phone">
+                        <img src="http://localhost:8080/version/dist/img/whitelabel/phone.png" alt="">
+                    </div>
+                    <p>美信金融客服</p>
+                    <p style="margin-bottom: 0.45rem">400-094-1580</p>
+                    <div class="email">
+                        <img src="http://localhost:8080/version/dist/img/whitelabel/email.png" alt="">
+                    </div>
+                    <p>美信金融邮箱</p>
+                    <p style="padding-bottom: 0.45rem">contact@meixinfinance.com</p>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 
@@ -107,12 +292,46 @@
 
 
     <script src="http://localhost:8080/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="http://localhost:8080/version/dist/js/main.min.js" type="text/javascript"></script>
     <script>
         $(function () {
             var FS= $(window).width()/7.5 + 'px';
             $('html').css('font-size',FS)
-        })
 
+//            获取产品详情
+            $.ajax({
+                type: 'get',
+                url: base_url + '/product/query_detail',
+                data: {'app_id':getUrlParam('partner_id'),'product_id':getUrlParam('product_id')},
+                contentType: "application/json; charset=utf-8",
+                success: function (res) {
+                    console.log(res.body)
+                    $('.header-title').html( res.body.product_name );
+                    $('.header-explain').html( res.body.product_type_desc );
+                    $('#return_rate').html( res.body.return_rate + '%' );
+                    $('#invest_term').html( res.body.invest_term + '个月' );
+                    $('#close_fund_start_interest_day').html( res.body.close_fund_start_interest_day );
+                    $('.table').html( res.body.product_desc );
+
+                    $('.page-title').html( res.body.product_name )
+
+                    $('.btn').attr('href','../invest.html?partner_id='+getUrlParam('partner_id')+'&product_id='+getUrlParam('product_id')+'')
+                },
+                error: function () {
+
+                }
+            })
+
+
+        })
+        
+//        浮层打开
+        $('.consult').click(function () {
+            $('.consultPage').fadeIn()
+        })
+        $('.close').click(function () {
+            $('.consultPage').fadeOut()
+        })
 
 
     </script>
