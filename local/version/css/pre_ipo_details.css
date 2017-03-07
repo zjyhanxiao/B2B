@@ -6,6 +6,10 @@ body{
     /*margin: 1rem 0 0 0;*/
 }
 
+.red-border{
+    border: 1px solid #ff3300;
+}
+
 .fund_title{
     padding-bottom: 10px;
     border-bottom: 1px solid #ccc;
@@ -209,11 +213,15 @@ body{
     display: inline-block;
     font-size: 2rem;
     line-height: 5rem;
-    border: none;
+    border: transparent;
     border-top: 1px solid #000;
     color: #000;
     margin: 0;
     background-color: #fff;
+}
+
+#consult:visited{
+    outline: none;
 }
 
 #appoint{
@@ -222,13 +230,25 @@ body{
     display: inline-block;
     font-size: 2rem;
     line-height: 5rem;
-    border: none;
+    border: transparent;
     color: #fff;
     margin: 0;
     background-color: #000;
 }
 
+#appoint:visited{
+    outline: none;
+}
+
 /****** 立即预约 ********/
+
+#popup .modal-sm{
+    margin-top: 150px;
+}
+
+#con .modal-sm{
+    margin-top: 180px;
+}
 
 .form-control{
     height: 40px;

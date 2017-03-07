@@ -167,7 +167,7 @@
 </body>
 <script src="http://zion.meixincn.com/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
 <script src="http://zion.meixincn.com/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
-<script src="http://zion.meixincn.com/vendor/js/parsley.min.js" type="text/javascript"></script>
+<!--<script src="http://zion.meixincn.com/vendor/js/parsley.min.js" type="text/javascript"></script>-->
 <script type="text/javascript" src="http://zion.meixincn.com/vendor/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="http://zion.meixincn.com/version/dist/js/main.min.js"></script>
 <script type="text/javascript">
@@ -257,7 +257,7 @@
         });
 
         $('input').on('focus',function () {
-            $(this).next('ul').hide();
+            $(this).removeClass('red-border');
         });
 
         $(".modal-body-success").hide();
@@ -266,14 +266,26 @@
             $(".form-group ul").show();
             var name =  $("#id_user_contact_name").val();
             var re_phone =  $("#recipient-phone").val();
-            if(re_phone.indexOf('+')==0){
-
-            }else {
-                re_phone = re_phone + '+86 '
-            }
             var email =  $("#id_email").val();
             var city =  $("#id_city").val();
-            if(name!=''&&re_phone!=''&&email!=''&&city!=''){
+            if(name==''){
+                $("#id_user_contact_name").addClass('red-border');
+                return false;
+            }if(re_phone==''){
+                $("#recipient-phone").addClass('red-border');
+                return false;
+            }if(email==''){
+                $("#id_email").addClass('red-border');
+                return false;
+            }if(city==''){
+                $("#id_city").addClass('red-border');
+                return false;
+            }else{
+                if(re_phone.indexOf('+')==0){
+
+                }else {
+                    re_phone = re_phone + '+86 '
+                }
                 var data = {'user_contact_name':name,'phone':re_phone,'email':email,'city':city,
                     'app_id':app_id,'product_id':product_id};
                 var p_data = JSON.stringify(data);
@@ -292,8 +304,6 @@
                         }
                     }
                 });
-            }else{
-
             }
 
         });
