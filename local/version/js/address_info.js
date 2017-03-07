@@ -17,6 +17,13 @@ $(function () {
         sucFn: tokenSuc,
         failFn: tokenFail
     });
+    // 获取 省市区地址信息
+    var country_data = {'city': '', 'country': '中国', 'region': ''};
+    getAddress(country_data, regionData);
+    function regionData(res) {
+        $('#country').empty().append("<option value=''>" + '请选择' + "</option>" + res);
+        $('#country').find('option:first').prop('selected', 'selected');
+    }
     // 手机号不为空，查找用户地址证明信息
     if (phone != '' && access_token != '') {
         getData({
@@ -124,15 +131,6 @@ $(function () {
         }
         return false;
     });
-
-
-    // 获取 省市区地址信息
-    var country_data = {'city': '', 'country': '中国', 'region': ''};
-    getAddress(country_data, regionData);
-    function regionData(res) {
-        $('#country').empty().append("<option value=''>" + '请选择' + "</option>" + res);
-        $('#country').find('option:first').prop('selected', 'selected');
-    }
 
     // 省变化，市变化
     $('#country').on('change', function () {
