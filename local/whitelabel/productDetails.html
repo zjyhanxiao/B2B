@@ -28,7 +28,7 @@
         }
         html,body{
             width: 100%;
-            font-family: "微软雅黑";
+            font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif
         }
         #finance{
             width: 100%;
@@ -318,7 +318,7 @@
 
                     $('.page-title').html( res.body.product_name )
 
-                    $('.btn').attr('href','../invest.html?partner_id='+getUrlParam('partner_id')+'&product_id='+getUrlParam('product_id')+'')
+                    $('.btn').attr('href','../invest.html?partner_id='+getUrlParam('partner_id')+'&product_id='+getUrlParam('product_id')+'&phone='+getUrlParam('phone')+'&access_token='+getUrlParam('access_token')+'')
                 },
                 error: function () {
 

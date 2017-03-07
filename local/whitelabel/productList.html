@@ -16,7 +16,7 @@
     <style>
 
 
-        html,body,div,p,ul,li,span{
+        html,body,div,p,ul,li,span,i{
             margin: 0px;
             padding: 0px;
         }
@@ -26,7 +26,7 @@
 
         html,body{
             width: 100%;
-            font-family: "微软雅黑";
+            font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif
         }
         #finance{
             width: 100%;
@@ -356,7 +356,7 @@
                     console.log(res.body)
                     var taps1html = '';
                     $.each( res.body , function ( i , item ) {
-                        taps1html += ' <a href="productDetails.html?partner_id='+getUrlParam('partner_id')+'&product_id='+item.product_id+'">' +
+                        taps1html += ' <a href="productDetails.html?partner_id='+getUrlParam('partner_id')+'&product_id='+item.product_id+'&phone='+getUrlParam('phone')+'&access_token='+getUrlParam('access_token')+'">' +
                             '<li> <div class="content-head"> ' +
                             '<p class="content-title">'+item.product_name+'</p> ' +
                             '<p class="content-explain">'+item.product_type_desc+'</p> </div> ' +
@@ -378,7 +378,7 @@
                 console.log( d )
                 var taps2html = '';
                 $.each( d , function ( i , item ) {
-                    taps2html += '<a href="pre_ipo_details.html?partner_id='+getUrlParam('partner_id')+'&product_id='+item.id+'">' +
+                    taps2html += '<a href="pre_ipo_details.html?partner_id='+getUrlParam('partner_id')+'&product_id='+item.id+'&phone='+getUrlParam('phone')+'&access_token='+getUrlParam('access_token')+'">' +
                         '<li> <div class="content-head">' +
                         ' <p class="content-title">'+item.name+'</p>' +
                         ' </div> <div class="content-body"> <div class="left">' +
