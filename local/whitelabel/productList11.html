@@ -237,8 +237,11 @@
         .logo{
             width: 1rem;
             height: 1rem;
-            background:red;
             margin: 0.30rem;
+        }
+        .logo img{
+            display: block;
+            width: 100%;
         }
         .details{
             overflow: hidden;
@@ -304,29 +307,29 @@
                 <!--</li>-->
             </ul>
             <ul class="taps2" style="display: none">
-                <li>
-                    <div class="content-head">
-                        <p class="content-title">UBER Pre-IPO股权投资</p>
-                    </div>
-                    <div class="content-body">
-                        <div class="left">
-                            <div class="logo">
-                                <img src="" alt="">
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div class="details">
-                                <p style="float: left">总投资金额：
-                                    <span>$7.44B</span>
-                                </p>
-                                <p class="assess">最新估值：
-                                    <span>$7.44B</span>
-                                </p>
-                            </div>
-                            <p class="details-explain">产品介绍</p>
-                        </div>
-                    </div>
-                </li>
+                <!--<li>-->
+                    <!--<div class="content-head">-->
+                        <!--<p class="content-title">UBER Pre-IPO股权投资</p>-->
+                    <!--</div>-->
+                    <!--<div class="content-body">-->
+                        <!--<div class="left">-->
+                            <!--<div class="logo">-->
+                                <!--<img src="" alt="">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="right">-->
+                            <!--<div class="details">-->
+                                <!--<p style="float: left">总投资金额：-->
+                                    <!--<span>$7.44B</span>-->
+                                <!--</p>-->
+                                <!--<p class="assess">最新估值：-->
+                                    <!--<span>$7.44B</span>-->
+                                <!--</p>-->
+                            <!--</div>-->
+                            <!--<p class="details-explain">产品介绍</p>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
             </ul>
             <p class="phone">咨询电话：400-094-1580</p>
         </div>
@@ -366,11 +369,28 @@
                 error: function () {
 
                 }
-
-//                获取独角兽股权列表
-
-
             })
+//                获取独角兽股权列表
+            $.getJSON("http://localhost:8080/version/dist/js/whiteLabel.json",function(d){
+                console.log( d )
+                var taps2html = '';
+                $.each( d , function ( i , item ) {
+                    taps2html += '<a href="/pre_ipo_details.html?partner_id='+getUrlParam('partner_id')+'&product_id='+item.id+'">' +
+                        '<li> <div class="content-head">' +
+                        ' <p class="content-title">'+item.name+'</p>' +
+                        ' </div> <div class="content-body"> <div class="left">' +
+                        ' <div class="logo"> ' +
+                        '<img src="'+item.logo+'" alt="">' +
+                        ' </div> </div> <div class="right"> <div class="details"> ' +
+                        '<p style="float: left">总投资金额： <span>'+item.total_funding+'</span> </p> ' +
+                        '<p class="assess">最新估值： <span>'+item.most_recent_valuation+'</span> </p> </div> ' +
+                        '<p class="details-explain">'+item.instruction+'</p> </div> </div> </li></a>';
+                })
+                $('.taps2').html( taps2html )
+
+            });
+
+
 
         })
 
