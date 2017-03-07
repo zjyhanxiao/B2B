@@ -56,7 +56,7 @@ $(function () {
         $.cookie('mx_token', res.body.mx_token);
         $.cookie('mx_secret', res.body.mx_secret);
         $('.user_button button').prop('disabled', false);
-        window.location = '/productList1.html'
+        window.location = '/productList.html'
     }
 
     // 登录失败，提示失败信息

@@ -81,7 +81,7 @@ $(function () {
     function login_success(res) {
         $.cookie('mx_token', res.body.mx_token);
         $.cookie('mx_secret', res.body.mx_secret);
-        window.location = '/productList1.html'
+        window.location = '/productList.html'
     }
 });
 
