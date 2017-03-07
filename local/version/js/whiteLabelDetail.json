@@ -199,24 +199,24 @@
     }],
     "investor_descriptions": [{
       "name": "Google",
-      "logo": "",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/google-200x200.7714256da16f.png",
       "description": "谷歌公司（Google Inc.）成立于1998年9月4日，由拉里·佩奇和谢尔盖·布林共同创建，被公认为全球最大的搜索引擎。"
     }, {
       "name": "Fidelity Investments",
-      "logo": "",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/Fidelity.png",
       "description": "美国富达投资集团是目前全球最大的专业基金公司，曾投资于Airbnb、Stripe、LinkedIn、SpaceX、Yelp等。"
     }, {
       "name": "Draper Fisher Jurvetson (DFJ)",
-      "logo": "",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/DFJ.png",
       "description": "全球著名的大型风险投资公司，旗下共管理着超过六十亿美元的资本，曾经投资于百度、Tumblr、Twitter、Unity、Tango等。"
     }, {
       "name": "Founders Fund",
-      "logo": "",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/founders_fund.png",
       "description": "Founders Fund以投资尖端技术科技公司著称，曾经投资于百度、Tumblr、Twitter、Unity、Tango等。"
     }],
     "founder_descriptions": [{
       "name": "埃隆·马斯克（Elon Musk）",
-      "picture": "",
+      "picture": "http://localhost:8080/version/dist/img/funds/investor/Elon_Musk.png",
       "description": "PayPal贝宝（最大的网上支付公司）、SpaceX太空探索技术公司、环保电动汽车公司特斯拉（Tesla）以及SolarCity四家公司的CEO。"
     }]
   },
@@ -273,28 +273,28 @@
     }],
     "investor_descriptions": [{
       "name": "Goldman Sachs",
-      "logo": "",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/Goldman_Sachs1.png",
       "description": "高盛集团（Goldman Sachs Group）是全世界历史最悠久及规模最大的投资银行之一，曾投资于Uber、Spotify、Pinterest、Flipboard、Oscar等。"
     }, {
       "name": "Microsoft ",
-      "logo": "",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/Microsoft.png",
       "description": "微软（Microsoft），美国跨国电脑科技公司，2015年被《财富》杂志评选为全球最大500家公司中的第95名。"
     }, {
       "name": "Fidelity Investments ",
-      "logo": "",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/Fidelity.png",
       "description": "美国富达投资集团（Fidelity Investment Group）是目前全球最大的专业基金公司，曾投资于Snapchat、Oscar、Airbnb、Pinterest、Spotify等。"
     }, {
       "name": "Kleiner Perkins Caufield & Byers ",
-      "logo": "",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/KPCB.png",
       "description": "KPCB（凯鹏华盈）成立于1972年，是美国最大的风险基金，曾投资于Airbnb、Houzz、Uber、Snapchat等。"
     }, {
       "name": "Jeff Bezos ",
-      "logo": "",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/Jeff_Bezos.png",
       "description": "美国互联网巨头亚马逊公司创始人及现任董事长兼CEO，华盛顿邮报大股东之一。"
     }],
     "founder_descriptions": [{
       "name": "特拉维斯·卡兰尼克（Travis Kalanick）",
-      "picture": "",
+      "picture": "http://localhost:8080/version/dist/img/funds/investor/Travis_Kalanick.png",
       "description": "毕业于UCLA，Uber、Red Swoosh、Scour的创始人兼CEO。"
     }]
   },
@@ -346,20 +346,20 @@
     }],
     "investor_descriptions": [{
       "name": "Goldman Sachs",
-      "logo": "",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/Goldman_Sachs1.png",
       "description": "高盛集团（Goldman Sachs Group）是全世界历史最悠久及规模最大的投资银行之一，曾投资于Uber、Spotify、Pinterest、Flipboard、Oscar等。"
     }, {
       "name": "Kleiner Perkins Caufield & Byers ",
-      "logo": "",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/KPCB.png",
       "description": "KPCB（凯鹏华盈）成立于1972年，是美国最大的风险基金，曾投资于Airbnb、Houzz、Uber、Snapchat等。"
     }, {
       "name": "可口可乐集团 ",
-      "logo": "",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/Coca_Cola_Company.png",
       "description": "可口可乐公司(Coca-Cola Company)成立于1892年，是全球最大的饮料公司，拥有全球48%市场占有率以及全球前三大饮料的二项。"
     }],
     "founder_descriptions": [{
       "name": "丹尼尔·艾克（Daniel Ek）",
-      "picture": "",
+      "picture": "http://localhost:8080/version/dist/img/funds/investor/Daniel_Ek.png",
       "description": "Spotify的创始人兼CEO，曾任职Stardoll的CTO。"
     }]
   },
@@ -416,20 +416,20 @@
     }],
     "investor_descriptions": [{
       "name": "阿里巴巴",
-      "logo": "",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/alibaba.png",
       "description": "阿里巴巴集团，全球最大的零售平台，、业务包括B2B贸易、网上零售、购物搜索引擎、第三方支付和云计算服务。"
     }, {
       "name": "滴滴出行 ",
-      "logo": "",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/dd1.png",
       "description": "滴滴出行是全球最大的移动端叫车平台，至今，滴滴已拥有3亿注册用户，近1500万注册司机，日完成订单突破1400万，业务覆盖全国360个城市。"
     }, {
       "name": "Andreessen Horowitz ",
-      "logo": "",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/andreessen-horowitz-lg.png",
       "description": "硅谷顶尖创投，曾投资于Skype, Facebook, Instagram, Twitter, Pinterest, Airbnb等。"
     }],
     "founder_descriptions": [{
       "name": "罗根·格林（Logan Green）",
-      "picture": "",
+      "picture": "http://localhost:8080/version/dist/img/funds/investor_backer/Logan_Green.png",
       "description": "毕业于UCSB，Lyft的创始人兼CEO。"
     }]
   },
@@ -486,24 +486,24 @@
     }],
     "investor_descriptions": [{
       "name": "Goldman Sachs",
-      "logo": "",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/Goldman_Sachs1.png",
       "description": "高盛集团（Goldman Sachs Group）是全世界历史最悠久及规模最大的投资银行之一，曾投资于Uber、Spotify、Pinterest、Flipboard、Oscar等。"
     }, {
       "name": "Fidelity Investments ",
-      "logo": "",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/Fidelity.png",
       "description": "美国富达投资集团（Fidelity Investment Group）是目前全球最大的专业基金公司，曾投资于Snapchat、Oscar、Airbnb、Pinterest、Spotify等。"
     }, {
       "name": "Andreessen Horowitz ",
-      "logo": "",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/andreessen-horowitz-lg.png",
       "description": "硅谷顶尖创投，曾投资于Skype, Facebook, Instagram, Twitter, Pinterest, Airbnb等。"
     }, {
       "name": "Bessemer Venture Partners ",
-      "logo": "",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/Bessemer_Venture_Partners.png",
       "description": "美国最古老的风投公司,曾投资于Smule、Pinterest、Fuze、Wix等。"
     }],
     "founder_descriptions": [{
       "name": "本·希伯尔曼（Ben Silbermann）",
-      "picture": "",
+      "picture": "http://localhost:8080/version/dist/img/funds/investor/Ben_Silbermann.png",
       "description": "毕业于美国耶鲁大学政治系，曾就职于谷歌，后来与校友创办美国Pinterest图片分享社交网站并担任首席执行官。"
     }]
   }

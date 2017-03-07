@@ -3,7 +3,12 @@ body{
 }
 
 #funds{
-    margin: 1rem 0 0 0;
+    /*margin: 1rem 0 0 0;*/
+}
+
+.fund_title{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
 }
 
 .fund_base_info{
@@ -16,8 +21,12 @@ body{
 .logo_img{
     width: 20%;
     height: auto;
-    margin: 20px 0;
+    margin: 20px 0 10px;
     /*background-color: yellow;*/
+}
+
+.fund_info{
+    padding-bottom: 10px;
 }
 
 .fund_info p{
@@ -29,14 +38,18 @@ body{
     width: 100%;
 }
 
-.funding_history_table th,
+.funding_history_table th{
+    text-align: center;
+}
+
 .funding_history_table td{
-    border: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
     text-align: center;
 }
 
 .investment_highlights{
-    padding: 1rem 2rem;
+    padding-bottom: 1rem;
     margin-bottom: 1rem;
     background-color: #fff;
 }
@@ -44,36 +57,52 @@ body{
 .investment_highlights p{
     font-size: 1.6rem;
     color: #f87a76;
-    line-height: 2rem;
-    height: 32px;
+    height: 40px;
+    padding: 1rem 2rem;
     border-bottom: 1px solid #ccc;
 }
 
 .investment_highlights_info_list{
+    margin: 1rem 2rem;
     padding: 0 1.5rem;
 }
 
 .investment_highlights_info_list li{
     font-size: 1.5rem;
+    list-style: none;
+    position: relative;
+}
+
+.dot{
+    display: inline-block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    top: 7px;
+    left: -20px;
+    border-radius: 50%;
+    background-color: #ff3300;
 }
 
 
 .funding_history{
     background-color: #fff;
-    padding: 1rem 2rem;
+    padding-bottom: 2rem;
+    /*padding: 1rem 2rem;*/
 }
 
 .funding_history p{
     font-size: 1.6rem;
     color: #a1d976;
-    line-height: 2rem;
-    height: 32px;
+    height: 40px;
+    padding: 1rem 2rem;
     border-bottom: 1px solid #ccc;
 }
 
 .funding_history_table{
-    width: 100%;
-    margin-left: -3%;
+    margin-right: 3%;
+    width: 97%;
+    /*margin-left: -3%;*/
 }
 
 
@@ -99,13 +128,14 @@ body{
 .investor_logo{
     float: left;
     width: 20%;
+    padding-right: 10px;
     display: inline-block;
+    border-right: 1px solid #ccc;
 }
 
 .investor_logo img{
     width: 100%;
     vertical-align: middle;
-    border-right: 1px solid #ccc;
 }
 
 .investor_text{
@@ -160,16 +190,106 @@ body{
 .appointment p{
     height: 60px;
     margin: 0;
-    background-color: #e50014;
+}
+
+#consult{
+    width: 50%;
+    float: left;
+    display: inline-block;
+    font-size: 2rem;
+    line-height: 5rem;
+    border: none;
+    border-top: 1px solid #000;
+    color: #000;
+    margin: 0;
+    background-color: #fff;
 }
 
 #appoint{
-    /*margin-top: 1rem;*/
+    width: 50%;
+    float: right;
+    display: inline-block;
     font-size: 2rem;
     line-height: 5rem;
     border: none;
     color: #fff;
-    background-color: transparent;
+    margin: 0;
+    background-color: #000;
 }
 
+/****** 立即预约 ********/
+
+.form-control{
+    height: 40px;
+    border-radius: 2px;
+}
+
+.parsley-errors-list{
+    padding: 0;
+}
+
+.parsley-errors-list li{
+    list-style: none;
+}
+
+#phone{
+    position: relative;
+}
+
+#countries_phone{
+    width: 80px;
+    border: none;
+    height: 34px;
+    background-color: transparent;
+    position: absolute;
+}
+
+#recipient-phone{
+    padding-left: 80px;
+}
+
+.modal-header{
+    background-color: #000;
+}
+
+.close span{
+    color: #fff;
+}
+
+#exampleModalLabel{
+    color: #fff;
+}
+
+#id_question{
+    resize: none;
+}
+
+#book_submit{
+    height: 40px;
+    background-color: #000;
+}
+
+#check{
+    background-color: #000;
+}
+
+/****** 咨询********/
+
+.text-center{
+    text-align: center;
+}
+
+.text-center img{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#con-title{
+    color: #fff;
+}
+
+.close{
+    color: #fff;
+    opacity: 1;
+}
 

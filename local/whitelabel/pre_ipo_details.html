@@ -76,11 +76,11 @@
     <div class="founder_descriptions">
         <p>创始人介绍</p>
         <div class="founder_wrapper">
-            <div class="founder_list">
-                <div class="founder_logo">
+            <div class="row founder_list">
+                <div class="col-sm-4 founder_logo">
                     <img src="" alt="">
                 </div>
-                <div class="founder_text">
+                <div class="col-sm-8 founder_text">
                     <p class="founder_name"></p>
                     <div class="founder_describe"></div>
                 </div>
@@ -88,14 +88,91 @@
         </div>
     </div>
     <div class="appointment">
-        <p>
-            <button id="appoint">立即预约</button>
-        </p>
+        <button id="consult" data-toggle="modal" data-target="#con">立即咨询</button>
+        <button id="appoint" data-toggle="modal"  data-target="#popup">立即预约</button>
     </div>
 </div>
+<div class="modal fade" id="popup" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">X</span>
+                </button>
+                <h4 class="modal-title text-center" id="exampleModalLabel">申购预约</h4>
+            </div>
+            <div class="is_book text-center" style="display: none; padding: 10px;">
+                <p>
+                    您已成功完成本产品的预约。美信的专业理财顾问将尽快与您取得联系。您可以在“我的账户”页面查看预约记录。
+                </p>
+                <a href="/" type="button" class="btn btn-primary" style="margin: 10px auto">查看所有产品</a>
+            </div>
+            <div class="modal-body">
+                <form class="appointment" data-parsley-validate>
+                    <div class="form-group">
+                        <input class="form-control" id="id_user_contact_name" maxlength="128" name="user_contact_name"
+                               placeholder="姓名" required="required" type="text" data-parsley-pattern-message="请输入姓名！">
+                    </div>
+                    <div class="form-group" id="phone">
+                        <select class="input-medium bfh-countries form-control" data-country="CN"
+                                id="countries_phone" required="">
+                            <option value="+86 ">+86 </option>
+                        </select>
+                        <input class="form-control bfh-phone" data-country="countries_phone"
+                                        id="recipient-phone" maxlength="64" name="phone"
+                                        data-parsley-pattern="/[\s\S]{9,}/"
+                                        placeholder="请填写您的手机号" required="required" data-parsley-pattern-message="请填写您的手机号！"
+                                        type="text">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" id="id_email" min="0" name="interested_amount"
+                               placeholder="请填写您的邮箱" required="required" type="text"
+                               data-parsley-pattern-message="请填写您的邮箱！">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" id="id_city" maxlength="255" name="city"
+                               placeholder="所在城市（会根据您所在的城市联系您）" required="required"
+                               data-parsley-pattern-message="请输入所在城市！" type="text">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="book_submit" style="width: 100%">立即提交</button>
+                </form>
+            </div>
+            <div class="modal-body-success text-center" style="padding: 10px;">
+                <p>
+                    您已成功完成本产品的预约。美信的专业理财顾问将尽快与您取得联系。您可以在“我的账户”页面查看预约记录。
+                </p>
+                <a href="javascript:;" type="button" id="check" class="btn btn-primary">查看所有产品</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="con" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">X</span>
+                </div>
+                <h4 class="modal-title text-center" id="con-title">申购预约</h4>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <img src="http://localhost:8080/version/dist/img/funds/appointment/phone.png" alt="">
+                    <p>美信金融客服电话</p>
+                    <p>400-094-1580</p>
+                </div>
+                <div class="text-center">
+                    <img src="http://localhost:8080/version/dist/img/funds/appointment/email.png" alt="">
+                    <p>美信金融客服邮箱</p>
+                    <p>contact@meixinfinance.com</p>
+                </div>
+            </div>
+        </div>
+    </div></div>
 </body>
 <script src="http://localhost:8080/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
 <script src="http://localhost:8080/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
+<script src="http://localhost:8080/vendor/js/parsley.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="http://localhost:8080/vendor/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="http://localhost:8080/version/dist/js/main.min.js"></script>
 <script type="text/javascript">
@@ -113,10 +190,12 @@
 </script>
 <script type="text/javascript">
     $(function () {
+        var name = '';
         var product_id = getUrlParam('product_id') || ''; // 获取通行证
         $.getJSON("http://localhost:8080/version/dist/js/whiteLabel.json",function(d){
             $.each(d,function(arr,info){
                 if(product_id==info["id"]){
+                    name = info["name"];
                     $(".logo_img").attr('src',info["logo"]);
                     $(".fund_title").html(info["name"]);
                     $(".total_funding").html(info["total_funding"]);
@@ -174,7 +253,60 @@
                     $(".founder_wrapper").empty().append(founder_descriptions);
                 }
             });
-        })
+        });
+
+        $('input').on('focus',function () {
+            $(this).next('ul').hide();
+        });
+
+        $("#book_submit").on('click',function () {
+            $(".form-group ul").show();
+        });
+
+        $(".modal-body-success").hide();
+
+        $("#appoint").on('click',function () {
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                contentType: 'application/json',
+                data: product,
+                url: base_url + '/white_label/',
+                success: function (res) {
+                    if(res.code==1){
+
+                    }else{
+
+                    }
+                }
+            });
+        });
+
+        $("#submit").on('click',function () {
+            var name =  $("#id_user_contact_name").val();
+            var phone =  $("#recipient-phone").val();
+            var email =  $("#id_email").val();
+            var city =  $("#id_city").val();
+
+            var data = {'name':name,'phone':phone,'email':email,'city':city};
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                contentType: 'application/json',
+                data: product,
+                url: base_url + '/white_label/',
+                success: function (res) {
+                    if(res.code==1){
+
+                    }else{
+
+                    }
+                }
+            });
+        });
     })
+</script>
+<script type="text/javascript">
+
 </script>
 </html>
