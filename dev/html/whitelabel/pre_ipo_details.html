@@ -134,9 +134,9 @@
             </div>
             <div class="modal-body-success text-center" style="padding: 10px;">
                 <p>
-                    您已成功完成本产品的预约。美信的专业理财顾问将尽快与您取得联系。您可以在“我的账户”页面查看预约记录。
+                    美信金融的专业理财顾问将尽快与您取得联系,请保持您的通讯畅通。
                 </p>
-                <a href="javascript:;" type="button" id="check" class="btn btn-primary">查看所有产品</a>
+                <a href="javascript:;" type="button" id="check" class="btn btn-primary">查看其他产品</a>
             </div>
         </div>
     </div>
@@ -150,7 +150,7 @@
                 </div>
                 <h4 class="modal-title text-center" id="con-title">申购预约</h4>
             </div>
-            <div class="modal-body">
+            <div class="con-modal-body">
                 <div class="text-center">
                     <img src="http://zion.meixincn.com/version/dist/img/funds/appointment/phone.png" alt="">
                     <p>美信金融客服电话</p>
@@ -266,29 +266,36 @@
             $(".form-group ul").show();
             var name =  $("#id_user_contact_name").val();
             var re_phone =  $("#recipient-phone").val();
+            if(re_phone.indexOf('+')==0){
+
+            }else {
+                re_phone = re_phone + '+86 '
+            }
             var email =  $("#id_email").val();
             var city =  $("#id_city").val();
-            if(name==''||re_phone==''||email==''||city==''){
-                return false;
-            }
-            var data = {'user_contact_name':name,'phone':re_phone,'email':email,'city':city,
-                        'app_id':app_id,'product_id':product_id};
-            var p_data = JSON.stringify(data);
-            $.ajax({
-                type: 'post',
-                dataType: 'json',
-                contentType: 'application/json',
-                data: p_data,
-                url: base_url + '/product/appointment',
-                success: function (res) {
-                    if(res.code=='success'){
-                        $(".modal-body-success").show();
-                        $(".modal-body").hide();
-                    }else{
-                        $(".appoint_err").show();
+            if(name!=''&&re_phone!=''&&email!=''&&city!=''){
+                var data = {'user_contact_name':name,'phone':re_phone,'email':email,'city':city,
+                    'app_id':app_id,'product_id':product_id};
+                var p_data = JSON.stringify(data);
+                $.ajax({
+                    type: 'post',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: p_data,
+                    url: base_url + '/product/appointment',
+                    success: function (res) {
+                        if(res.code=='success'){
+                            $(".modal-body-success").show();
+                            $(".modal-body").hide();
+                        }else{
+                            $(".appoint_err").show();
+                        }
                     }
-                }
-            });
+                });
+            }else{
+
+            }
+
         });
     })
 </script>

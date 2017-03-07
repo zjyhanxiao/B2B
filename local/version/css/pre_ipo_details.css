@@ -251,6 +251,7 @@ body{
     width: 80px;
     border: none;
     height: 34px;
+    outline: none;
     background-color: transparent;
     position: absolute;
 }
@@ -282,6 +283,34 @@ body{
 
 #check{
     background-color: #000;
+}
+
+#id_user_contact_name:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    background-color: #FFF!important;
+    background-image: none;
+    color: #000;
+}
+
+#recipient:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    background-color: #FFF!important;
+    background-image: none;
+    color: #000;
+}
+
+#id_email:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    background-color: #FFF!important;
+    background-image: none;
+    color: #000;
+}
+
+#id_city:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    background-color: #FFF!important;
+    background-image: none;
+    color: #000;
 }
 
 /****** 咨询********/
