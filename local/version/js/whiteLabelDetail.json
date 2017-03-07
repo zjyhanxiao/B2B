@@ -1,0 +1,510 @@
+
+{
+  "128": {
+    "id":"128",
+    "name": "滴滴出行 Pre-IPO股权投资",
+    "logo": "http://localhost:8080/version/dist/img/funds/logo/didi.png",
+    "total_funding": "$74.4亿",
+    "most_recent_valuation": "$337亿",
+    "investment_highlights": [
+      "滴滴出行是全球最大的移动端叫车平台，至今，滴滴已拥有3亿注册用户，近1500万注册司机，日完成订单突破1400万，业务覆盖全国360个城市。",
+      "滴滴出行具有知名公司及机构的投资上达74亿美元, 包括Apple、中国人寿、蚂蚁金服、腾讯、阿里巴巴、招商银行等。",
+      "滴滴出行入选《财富》杂志“2016年改变世界的50家公司”榜单。"
+    ],
+    "funding_history": [{
+      "date": "2015-07",
+      "round": "PE",
+      "amount": "$20亿",
+      "lead_investor": "--"
+    }, {
+      "date": "2014-12",
+      "round": "D轮",
+      "amount": "$7亿",
+      "lead_investor": "Temasek Holdings"
+    }, {
+      "date": "2014-01",
+      "round": "C轮",
+      "amount": "$1亿",
+      "lead_investor": "--"
+    }, {
+      "date": "2013-07",
+      "round": "B轮",
+      "amount": "$1500万",
+      "lead_investor": "腾讯"
+    }, {
+      "date": "2012-09",
+      "round": "A轮",
+      "amount": "$300万",
+      "lead_investor": "GSR Ventures"
+    }],
+    "investor_descriptions": [{
+      "name": "Apple",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/Apple.png",
+      "description": "苹果公司（Apple Inc. ）是美国的一家高科技公司。由史蒂夫·乔布斯、斯蒂夫·沃兹尼亚克和罗·韦恩等人于1976年4月1日创立，截至2014年6月，苹果公司已经连续三年成为全球市值最大公司。"
+    }, {
+      "name": "阿里巴巴",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/alibaba.png",
+      "description": "阿里巴巴集团，全球最大的零售平台，、业务包括B2B贸易、网上零售、购物搜索引擎、第三方支付和云计算服务。"
+    }, {
+      "name": "腾讯",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/tencent.png",
+      "description": "腾讯是目前中国内地市值最大的互联网公司。截至2014年4月，腾讯是全球第四大互联网公司，仅次于谷歌、亚马逊和Ebay。"
+    }, {
+      "name": "蚂蚁金服",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/mayijinfu.png",
+      "description": "前身是成立于2000年10月，独立于阿里巴巴集团之外的中国内资公司——浙江阿里巴巴电子商务有限公司。旗下产品有：支付宝、芝麻信用、蚂蚁聚宝、余额宝、招财宝、蚂蚁花呗等。"
+    }, {
+      "name": "中国人寿",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/CLICL.png",
+      "description": "中国人寿保险股份有限公司（China Life Insurance Company Limited），是中国规模最大的保险公司。主营业务是提供人寿保险及年金产品。"
+    }],
+    "founder_descriptions": [{
+      "name": "程维",
+      "picture": "http://localhost:8080/version/dist/img/funds/investor/chengwei.png",
+      "description": "程维，滴滴出行创始人兼CEO，曾在阿里巴巴集团任职八年，毕业于北京化工大学。 "
+    }]
+  },
+  "129": {
+    "id":"129",
+    "name": "Airbnb Pre-IPO股权投资",
+    "logo": "http://localhost:8080/version/dist/img/funds/logo/airbnb.png",
+    "total_funding": "$29.5亿",
+    "most_recent_valuation": "$100亿",
+    "investment_highlights": [
+      "Airbnb，是一个让大众出租住宿民宿的平台，为近年来共享经济发展的代表之一。目前，Airbnb在192个国家、33,000个城市中共有超过500,000笔出租资料。",
+      "Airbnb具有知名公司及机构的投资上达29.5亿美元, 包括Sequoia Capital、KPCB、Andreessen Horowitz、Y Combinator等。"
+    ],
+    "funding_history": [{
+      "date": "2016-09",
+      "round": "PE",
+      "amount": "$5.5亿",
+      "lead_investor": "CapitalG & TCV"
+    }, {
+      "date": "2015-11",
+      "round": "PE",
+      "amount": "$1亿",
+      "lead_investor": "FirstMark Capital"
+    }, {
+      "date": "2015-06",
+      "round": "E轮",
+      "amount": "$15亿",
+      "lead_investor": "General Atlantic & Hillhouse Capital Group & Tiger Global Management"
+    }, {
+      "date": "2014-08",
+      "round": "D轮",
+      "amount": "$4.75亿",
+      "lead_investor": "--"
+    }, {
+      "date": "2013-10",
+      "round": "C轮",
+      "amount": "$2亿",
+      "lead_investor": "Founders Fund"
+    }, {
+      "date": "2011-07",
+      "round": "B轮",
+      "amount": "$1.12亿",
+      "lead_investor": "Andreessen Horowitz"
+    }, {
+      "date": "2010-11",
+      "round": "A轮",
+      "amount": "$720万",
+      "lead_investor": "Greylock Partners"
+    }, {
+      "date": "2009-04",
+      "round": "种子轮",
+      "amount": "$60万",
+      "lead_investor": "Sequoia Capital"
+    }, {
+      "date": "2009-01",
+      "round": "种子轮",
+      "amount": "$2万",
+      "lead_investor": "Y Combinator"
+    }],
+    "investor_descriptions": [{
+      "name": "红杉资本",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/hongshan.png",
+      "description": "红杉资本（Sequoia Capital）曾投资众多知名的科技企业，例如苹果公司、Google、 YouTube、 PayPal、思科、甲骨文公司、WhatsApp、LinkedIn等。"
+    }, {
+      "name": "Andreessen Horowitz ",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/andreessen-horowitz-lg.png",
+      "description": "硅谷顶尖创投，曾投资于Skype, Facebook, Instagram, Twitter, Pinterest, Airbnb等。"
+    }, {
+      "name": "Y Combinator ",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/Y-Combinator-Logo1.png",
+      "description": "Y Combinator（简称YC）成立于2005年3月，是一家以投资种子阶段初创公司为业务的创投公司。曾投资于Scribd，Reddit，Airbnb，Dropbox等。"
+    }, {
+      "name": "Kleiner Perkins Caufield & Byers ",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/KPCB.png",
+      "description": "KPCB（凯鹏华盈）成立于1972年，是美国最大的风险基金，曾投资于Airbnb、Houzz、Uber、Snapchat等。"
+    }, {
+      "name": "Jeff Bezos ",
+      "logo": "http://localhost:8080/version/dist/img/funds/investor_backer/Jeff_Bezos.png",
+      "description": "美国互联网巨头亚马逊公司创始人及现任董事长兼CEO，华盛顿邮报大股东之一。"
+    }],
+    "founder_descriptions": [{
+      "name": "乔·杰比亚（Joe Gebbia）",
+      "picture": "http://localhost:8080/version/dist/img/funds/investor/Joe_Gebbia.png",
+      "description": "Joe是Airbnb的共同创始人兼首席产品官，也是公司董事和高级管理人员董事会成员。曾被《财富》杂志评选为40位40岁以下最具影响力的商界领导人之一。"
+    }, {
+      "name": "布莱恩·切斯基（Brian Chesky）",
+      "picture": "http://localhost:8080/version/dist/img/funds/investor/Brian_Chesky.png",
+      "description": "Brian是Airbnb的共同创始人兼首席执行官，毕业于罗德岛设计学院(RISD)。"
+    }, {
+      "name": "内森·布莱卡斯亚克（Nathan Blecharczyk）",
+      "picture": "http://localhost:8080/version/dist/img/funds/investor/Nathan_Blecharczyk.png",
+      "description": "Nathan是Airbnb的共同创始人兼首席技术官。他从哈佛大学获得计算机科学学位，成为Airbnb共同创始人之前，曾先后在微软、OPNET科技公司和Batiq任过职。"
+    }]
+  },
+  "130": {
+    "id":"130",
+    "name": "SpaceX Pre-IPO股权投资",
+    "logo": "http://localhost:8080/version/dist/img/funds/logo/shengxin_spacex.png",
+    "total_funding": "$11.5亿",
+    "most_recent_valuation": "$100亿",
+    "investment_highlights": [
+      "Elon Musk , SpaceX的创始人, 曾经成功使得3家自己创立的公司（特斯拉,Paypal,和 Solar City）IPO或被收购,估值15-300亿美金不等。",
+      "SpaceX具有知名公司及机构的投资上达11.5亿美元, 包括Google,DFJ,Founders Fund和富达基金。",
+      "SpaceX至今已与NASA签署了60项发射任务,合同金额合计70亿美元,是唯一盈利的私人航空公司。"
+    ],
+    "funding_history": [{
+      "date": "2015-01",
+      "round": "E轮",
+      "amount": "$10亿",
+      "lead_investor": "Google"
+    }, {
+      "date": "2012-12",
+      "round": "D轮",
+      "amount": "$3000万",
+      "lead_investor": "Draper Fisher Jurvetson (DFJ)"
+    }, {
+      "date": "2010-11",
+      "round": "C轮",
+      "amount": "$5000万",
+      "lead_investor": "--"
+    }, {
+      "date": "2009-08",
+      "round": "B轮",
+      "amount": "$3044万",
+      "lead_investor": "--"
+    }, {
+      "date": "2008-08",
+      "round": "A轮",
+      "amount": "$2000万",
+      "lead_investor": "Founder's Fund"
+    }, {
+      "date": "2006-03",
+      "round": "种子轮",
+      "amount": "$100万",
+      "lead_investor": "--"
+    }],
+    "investor_descriptions": [{
+      "name": "Google",
+      "logo": "",
+      "description": "谷歌公司（Google Inc.）成立于1998年9月4日，由拉里·佩奇和谢尔盖·布林共同创建，被公认为全球最大的搜索引擎。"
+    }, {
+      "name": "Fidelity Investments",
+      "logo": "",
+      "description": "美国富达投资集团是目前全球最大的专业基金公司，曾投资于Airbnb、Stripe、LinkedIn、SpaceX、Yelp等。"
+    }, {
+      "name": "Draper Fisher Jurvetson (DFJ)",
+      "logo": "",
+      "description": "全球著名的大型风险投资公司，旗下共管理着超过六十亿美元的资本，曾经投资于百度、Tumblr、Twitter、Unity、Tango等。"
+    }, {
+      "name": "Founders Fund",
+      "logo": "",
+      "description": "Founders Fund以投资尖端技术科技公司著称，曾经投资于百度、Tumblr、Twitter、Unity、Tango等。"
+    }],
+    "founder_descriptions": [{
+      "name": "埃隆·马斯克（Elon Musk）",
+      "picture": "",
+      "description": "PayPal贝宝（最大的网上支付公司）、SpaceX太空探索技术公司、环保电动汽车公司特斯拉（Tesla）以及SolarCity四家公司的CEO。"
+    }]
+  },
+  "131": {
+    "id":"131",
+    "name": "Uber Pre-IPO股权投资",
+    "logo": "http://localhost:8080/version/dist/img/funds/logo/uber.png",
+    "total_funding": "$88.1亿",
+    "most_recent_valuation": "$400亿",
+    "investment_highlights": [
+      "Uber是全球最大、最早的互联网叫车平台，至今，Uber打车软件可以在全球在超过300个城市，50个国家使用被福布斯杂志评为“全球十大科技公司”。",
+      "Uber具有知名公司及机构的投资上达88亿美元, 包括Goldman Sachs、KPCB、Microsoft、Fidelity Investments等。"
+    ],
+    "funding_history": [{
+      "date": "2016-06",
+      "round": "PE",
+      "amount": "$35亿",
+      "lead_investor": "Saudi Arabia's Public Investment Fund"
+    }, {
+      "date": "2016-02",
+      "round": "PE",
+      "amount": "$2亿",
+      "lead_investor": "Letterone Holdings SA"
+    }, {
+      "date": "2015-08",
+      "round": "PE",
+      "amount": "$1亿",
+      "lead_investor": "Tata Capital"
+    }, {
+      "date": "2015-07",
+      "round": "F轮",
+      "amount": "$10亿",
+      "lead_investor": "--"
+    }, {
+      "date": "2015-02",
+      "round": "E轮",
+      "amount": "$10亿",
+      "lead_investor": "Glade Brook Capital Partners"
+    }, {
+      "date": "2008-08",
+      "round": "A轮",
+      "amount": "$2000万",
+      "lead_investor": "Founder's Fund"
+    }, {
+      "date": "2008-08",
+      "round": "A轮",
+      "amount": "$2000万",
+      "lead_investor": "Founder's Fund"
+    }, {
+      "date": "2009-08",
+      "round": "B轮",
+      "amount": "$3044万",
+      "lead_investor": "--"
+    }],
+    "investor_descriptions": [{
+      "name": "Goldman Sachs",
+      "logo": "",
+      "description": "高盛集团（Goldman Sachs Group）是全世界历史最悠久及规模最大的投资银行之一，曾投资于Uber、Spotify、Pinterest、Flipboard、Oscar等。"
+    }, {
+      "name": "Microsoft ",
+      "logo": "",
+      "description": "微软（Microsoft），美国跨国电脑科技公司，2015年被《财富》杂志评选为全球最大500家公司中的第95名。"
+    }, {
+      "name": "Fidelity Investments ",
+      "logo": "",
+      "description": "美国富达投资集团（Fidelity Investment Group）是目前全球最大的专业基金公司，曾投资于Snapchat、Oscar、Airbnb、Pinterest、Spotify等。"
+    }, {
+      "name": "Kleiner Perkins Caufield & Byers ",
+      "logo": "",
+      "description": "KPCB（凯鹏华盈）成立于1972年，是美国最大的风险基金，曾投资于Airbnb、Houzz、Uber、Snapchat等。"
+    }, {
+      "name": "Jeff Bezos ",
+      "logo": "",
+      "description": "美国互联网巨头亚马逊公司创始人及现任董事长兼CEO，华盛顿邮报大股东之一。"
+    }],
+    "founder_descriptions": [{
+      "name": "特拉维斯·卡兰尼克（Travis Kalanick）",
+      "picture": "",
+      "description": "毕业于UCLA，Uber、Red Swoosh、Scour的创始人兼CEO。"
+    }]
+  },
+  "132": {
+    "id":"132",
+    "name": "Spotify Pre-IPO股权投资",
+    "logo": "http://localhost:8080/version/dist/img/funds/logo/Spotify.png",
+    "total_funding": "$15.6亿",
+    "most_recent_valuation": "$40亿",
+    "investment_highlights": [
+      "Spotify是全球最大的正版流媒体音乐服务平台，截止到2015年1月，Spotify已经拥有超过6000万的用户，其中1500万为付费用户。",
+      "Spotify具有知名公司及机构的投资上达15.6亿美元, 包括Goldman Sachs、 KPCB、可口可乐集团等。"
+    ],
+    "funding_history": [{
+      "date": "2015-06",
+      "round": "G轮",
+      "amount": "$5.26亿",
+      "lead_investor": "--"
+    }, {
+      "date": "2013-11",
+      "round": "F轮",
+      "amount": "$2.5亿",
+      "lead_investor": "TCV"
+    }, {
+      "date": "2012-11",
+      "round": "E轮",
+      "amount": "$1亿",
+      "lead_investor": "Goldman Sachs"
+    }, {
+      "date": "2011-06",
+      "round": "D轮",
+      "amount": "$1亿",
+      "lead_investor": "Accel Partners"
+    }, {
+      "date": "2010-02",
+      "round": "C轮",
+      "amount": "€1160万",
+      "lead_investor": "Founders Fund"
+    }, {
+      "date": "2009-08",
+      "round": "B轮",
+      "amount": "$5000万",
+      "lead_investor": "Horizons Ventures"
+    }, {
+      "date": "2008-10",
+      "round": "A轮",
+      "amount": "$2164万",
+      "lead_investor": "--"
+    }],
+    "investor_descriptions": [{
+      "name": "Goldman Sachs",
+      "logo": "",
+      "description": "高盛集团（Goldman Sachs Group）是全世界历史最悠久及规模最大的投资银行之一，曾投资于Uber、Spotify、Pinterest、Flipboard、Oscar等。"
+    }, {
+      "name": "Kleiner Perkins Caufield & Byers ",
+      "logo": "",
+      "description": "KPCB（凯鹏华盈）成立于1972年，是美国最大的风险基金，曾投资于Airbnb、Houzz、Uber、Snapchat等。"
+    }, {
+      "name": "可口可乐集团 ",
+      "logo": "",
+      "description": "可口可乐公司(Coca-Cola Company)成立于1892年，是全球最大的饮料公司，拥有全球48%市场占有率以及全球前三大饮料的二项。"
+    }],
+    "founder_descriptions": [{
+      "name": "丹尼尔·艾克（Daniel Ek）",
+      "picture": "",
+      "description": "Spotify的创始人兼CEO，曾任职Stardoll的CTO。"
+    }]
+  },
+  "133": {
+    "id":"133",
+    "name": "Lyft Pre-IPO股权投资",
+    "logo": "http://localhost:8080/version/dist/img/funds/logo/lyft.png",
+    "total_funding": "$20.1亿",
+    "most_recent_valuation": "$90亿",
+    "investment_highlights": [
+      "Lyft是美国第二大打车应用，截至2016年8月，Lyft的服务覆盖了美国近200座主要城市。",
+      "Lyft具有知名公司及机构的投资上达20亿美元, 包括阿里巴巴、滴滴出行、Andreessen Horowitz等。"
+    ],
+    "funding_history": [{
+      "date": "2015-12",
+      "round": "F轮",
+      "amount": "$10亿",
+      "lead_investor": "General Motors"
+    }, {
+      "date": "2015-05",
+      "round": "E轮",
+      "amount": "$1.5亿",
+      "lead_investor": "Icahn Enterprises"
+    }, {
+      "date": "2015-03",
+      "round": "E轮",
+      "amount": "$5.3亿",
+      "lead_investor": "Rakuten"
+    }, {
+      "date": "2014-04",
+      "round": "D轮",
+      "amount": "$2.5亿",
+      "lead_investor": "Coatue Management"
+    }, {
+      "date": "2013-05",
+      "round": "C轮",
+      "amount": "$6000万",
+      "lead_investor": "Andreessen Horowitz"
+    }, {
+      "date": "2013-01",
+      "round": "B轮",
+      "amount": "$1500万",
+      "lead_investor": "Founders Fund"
+    }, {
+      "date": "2011-09",
+      "round": "A轮",
+      "amount": "$600万",
+      "lead_investor": "Mayfield Fund"
+    }, {
+      "date": "2010-08",
+      "round": "种子轮",
+      "amount": "$120万",
+      "lead_investor": "FLOODGATE & K9 Ventures"
+    }],
+    "investor_descriptions": [{
+      "name": "阿里巴巴",
+      "logo": "",
+      "description": "阿里巴巴集团，全球最大的零售平台，、业务包括B2B贸易、网上零售、购物搜索引擎、第三方支付和云计算服务。"
+    }, {
+      "name": "滴滴出行 ",
+      "logo": "",
+      "description": "滴滴出行是全球最大的移动端叫车平台，至今，滴滴已拥有3亿注册用户，近1500万注册司机，日完成订单突破1400万，业务覆盖全国360个城市。"
+    }, {
+      "name": "Andreessen Horowitz ",
+      "logo": "",
+      "description": "硅谷顶尖创投，曾投资于Skype, Facebook, Instagram, Twitter, Pinterest, Airbnb等。"
+    }],
+    "founder_descriptions": [{
+      "name": "罗根·格林（Logan Green）",
+      "picture": "",
+      "description": "毕业于UCSB，Lyft的创始人兼CEO。"
+    }]
+  },
+  "134": {
+    "id":"134",
+    "name": "Pinterest Pre-IPO股权投资",
+    "logo": "http://localhost:8080/version/dist/img/funds/logo/pinterest.png",
+    "total_funding": "$13.2亿",
+    "most_recent_valuation": "$50亿",
+    "investment_highlights": [
+      "Pinterest是一个图片分享类的社交网站，截至2013年9月，Pinterest已进入全球最热门社交网站前十名。",
+      "Pinterest具有知名公司及机构的投资上达13.2亿美元, 包括Goldman Sachs、Andreessen Horowitz、Bessemer Venture Partners等。"
+    ],
+    "funding_history": [{
+      "date": "2015-05",
+      "round": "G轮",
+      "amount": "$1.86亿",
+      "lead_investor": "Goldman Sachs & Wellington Management"
+    }, {
+      "date": "2015-03",
+      "round": "F轮",
+      "amount": "$2亿",
+      "lead_investor": "SV Angel"
+    }, {
+      "date": "2013-10",
+      "round": "E轮",
+      "amount": "$2.25亿",
+      "lead_investor": "Fidelity Investments"
+    }, {
+      "date": "2013-02",
+      "round": "D轮",
+      "amount": "$2亿",
+      "lead_investor": "Valiant Capital Partners"
+    }, {
+      "date": "2012-05",
+      "round": "C轮",
+      "amount": "$1亿",
+      "lead_investor": "Rakuten"
+    }, {
+      "date": "2011-10",
+      "round": "B轮",
+      "amount": "$2700万",
+      "lead_investor": "Andreessen Horowitz"
+    }, {
+      "date": "2011-05",
+      "round": "A轮",
+      "amount": "$1000万",
+      "lead_investor": "Bessemer Venture Partners"
+    }, {
+      "date": "2010-01",
+      "round": "天使轮",
+      "amount": "$50万",
+      "lead_investor": "FirstMark Capital"
+    }],
+    "investor_descriptions": [{
+      "name": "Goldman Sachs",
+      "logo": "",
+      "description": "高盛集团（Goldman Sachs Group）是全世界历史最悠久及规模最大的投资银行之一，曾投资于Uber、Spotify、Pinterest、Flipboard、Oscar等。"
+    }, {
+      "name": "Fidelity Investments ",
+      "logo": "",
+      "description": "美国富达投资集团（Fidelity Investment Group）是目前全球最大的专业基金公司，曾投资于Snapchat、Oscar、Airbnb、Pinterest、Spotify等。"
+    }, {
+      "name": "Andreessen Horowitz ",
+      "logo": "",
+      "description": "硅谷顶尖创投，曾投资于Skype, Facebook, Instagram, Twitter, Pinterest, Airbnb等。"
+    }, {
+      "name": "Bessemer Venture Partners ",
+      "logo": "",
+      "description": "美国最古老的风投公司,曾投资于Smule、Pinterest、Fuze、Wix等。"
+    }],
+    "founder_descriptions": [{
+      "name": "本·希伯尔曼（Ben Silbermann）",
+      "picture": "",
+      "description": "毕业于美国耶鲁大学政治系，曾就职于谷歌，后来与校友创办美国Pinterest图片分享社交网站并担任首席执行官。"
+    }]
+  }
+}

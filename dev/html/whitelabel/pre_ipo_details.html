@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="hotcss" content="initial-dpr=1">
+    <title>股权投资</title>
+    <link href="http://zion.meixincn.com/vendor/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://zion.meixincn.com/version/dist/css/pre_ipo_details.min.css" rel="stylesheet">
+    <style>
+        @media (min-width: 315px) and (max-width: 460px){
+
+
+        }
+    </style>
+</head>
+<body>
+<div id="funds" style="">
+    <div class="fund_base_info">
+        <div class="fund_logo">
+            <img class="logo_img" src="" alt="logo">
+        </div>
+        <p class="fund_title"></p>
+        <div class="fund_info">
+            <p>总融资额: <span class="total_funding"></span></p>
+            <p>最新估值: <span class="most_recent_valuation"></span></p>
+        </div>
+    </div>
+    <div class="investment_highlights">
+        <p>投资亮点</p>
+        <ul class="investment_highlights_info_list">
+            <li class="">
+                <span class="dot"></span>
+                <span class="investment_highlights_info"></span>
+            </li>
+        </ul>
+    </div>
+    <div class="funding_history">
+        <p>融资历史</p>
+        <table class="funding_history_table">
+            <thead>
+            <tr>
+                <th style="width: 5%; border: none"></th>
+                <th style="width: 20%">日期</th>
+                <th style="width: 15%">轮次</th>
+                <th style="width: 20%">金额</th>
+                <th style="width: 25%">领投者</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="investor_descriptions">
+        <p>领投者介绍</p>
+        <div class="investor_wrapper">
+            <div class="investor_list">
+                <div class="investor_logo">
+                    <img src="" alt="">
+                </div>
+                <div class="investor_text">
+                    <p class="investor_name"></p>
+                    <div class="investor_describe"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="founder_descriptions">
+        <p>创始人介绍</p>
+        <div class="founder_wrapper">
+            <div class="founder_list">
+                <div class="founder_logo">
+                    <img src="" alt="">
+                </div>
+                <div class="founder_text">
+                    <p class="founder_name"></p>
+                    <div class="founder_describe"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="appointment">
+        <p>
+            <button id="appoint">立即预约</button>
+        </p>
+    </div>
+</div>
+</body>
+<script src="http://zion.meixincn.com/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="http://zion.meixincn.com/vendor/js/jquery.cookie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://zion.meixincn.com/vendor/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://zion.meixincn.com/version/dist/js/main.min.js"></script>
+<script type="text/javascript">
+    //获取url中的参数
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var s = window.location.search;
+        if (/[\u4e00-\u9fa5]/.test(s)) {
+            s = decodeURI(s);
+        }
+        var r = s.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]);
+        return null; //返回参数值
+    }
+</script>
+<script type="text/javascript">
+    $(function () {
+        var product_id = getUrlParam('product_id') || ''; // 获取通行证
+        $.getJSON("../version/dist/js/whiteLabel.json",function(d){
+            $.each(d,function(arr,info){
+                if(product_id==info["id"]){
+                    $(".logo_img").attr('src',info["logo"]);
+                    $(".fund_title").html(info["name"]);
+                    $(".total_funding").html(info["total_funding"]);
+                    $(".most_recent_valuation").html(info["most_recent_valuation"]);
+                }
+            });
+        });
+        $.getJSON("../version/dist/js/whiteLabelDetail.json",function(d){
+            $.each(d,function(arr,info){
+                if(product_id==info["id"]){
+                    var investment_highlights = '';
+                    $.each(info["investment_highlights"],function (i) {
+                        investment_highlights += '<li class="">'+
+                            '<span class="dot"></span>'+
+                            '<span class="investment_highlights_info">' + info["investment_highlights"][i] + '</span>'+
+                            '</li> '
+                    });
+                    $(".investment_highlights_info_list").empty().append(investment_highlights);
+                    var funding_history = '';
+                    $.each(info["funding_history"],function (i) {
+                        funding_history += '<tr class="">'+
+                            '<td style="border: none; color: #a1d976">●</td>'+
+                            '<td class="investment_highlights_info">' + info["funding_history"][i]["date"] + '</td>'+
+                            '<td class="investment_highlights_info">' + info["funding_history"][i]["round"] + '</td>'+
+                            '<td class="investment_highlights_info">' + info["funding_history"][i]["amount"] + '</td>'+
+                            '<td class="investment_highlights_info">' + info["funding_history"][i]["lead_investor"] + '</td>'+
+                            '</tr> '
+                    });
+                    $(".funding_history_table tbody").empty().append(funding_history);
+                    var investor_descriptions = '';
+                    $.each(info["investor_descriptions"],function (i) {
+                        investor_descriptions += ' <div class="investor_list">'+
+                            '<div class="investor_logo">'+
+                            '<img src="'+ info["investor_descriptions"][i]["logo"]+ '" alt="">'+
+                            '</div>'+
+                            '<div class="investor_text">'+
+                            '<p class="investor_name">'+ info["investor_descriptions"][i]["name"]+ '</p>'+
+                            '<div class="investor_describe">'+ info["investor_descriptions"][i]["description"]+ '</div>'+
+                            '</div>'+
+                            '</div>';
+                    });
+                    $(".investor_wrapper").empty().append(investor_descriptions);
+                    var founder_descriptions = '';
+                    $.each(info["founder_descriptions"],function (i) {
+                        founder_descriptions += ' <div class="founder_list">'+
+                            '<div class="founder_logo">'+
+                            '<img src="'+ info["founder_descriptions"][i]["picture"]+ '" alt="">'+
+                            '</div>'+
+                            '<div class="founder_text">'+
+                            '<p class="founder_name">'+ info["founder_descriptions"][i]["name"]+ '</p>'+
+                            '<div class="founder_describe">'+ info["founder_descriptions"][i]["description"]+ '</div>'+
+                            '</div>'+
+                            '</div>';
+                    });
+                    $(".founder_wrapper").empty().append(founder_descriptions);
+                }
+            });
+        })
+    })
+</script>
+</html>

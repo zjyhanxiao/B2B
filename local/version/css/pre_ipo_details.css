@@ -1,0 +1,174 @@
+body{
+    background-color: #f4f4f4;
+}
+
+#funds{
+    margin: 1rem 0 0 0;
+}
+
+.fund_base_info{
+    text-align: center;
+    margin-bottom: 1.5rem;
+    background-color: #fff;
+    font-size: 1.5rem;
+}
+
+.logo_img{
+    width: 20%;
+    height: auto;
+    margin: 20px 0;
+    /*background-color: yellow;*/
+}
+
+.fund_info p{
+    display: inline-block;
+    width: 48%;
+}
+
+.funding_history_table{
+    width: 100%;
+}
+
+.funding_history_table th,
+.funding_history_table td{
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.investment_highlights{
+    padding: 1rem 2rem;
+    margin-bottom: 1rem;
+    background-color: #fff;
+}
+
+.investment_highlights p{
+    font-size: 1.6rem;
+    color: #f87a76;
+    line-height: 2rem;
+    height: 32px;
+    border-bottom: 1px solid #ccc;
+}
+
+.investment_highlights_info_list{
+    padding: 0 1.5rem;
+}
+
+.investment_highlights_info_list li{
+    font-size: 1.5rem;
+}
+
+
+.funding_history{
+    background-color: #fff;
+    padding: 1rem 2rem;
+}
+
+.funding_history p{
+    font-size: 1.6rem;
+    color: #a1d976;
+    line-height: 2rem;
+    height: 32px;
+    border-bottom: 1px solid #ccc;
+}
+
+.funding_history_table{
+    width: 100%;
+    margin-left: -3%;
+}
+
+
+.investor_descriptions{
+    margin: 1rem 0;
+    background-color: #fff;
+    padding: 1rem 2rem;
+}
+
+.investor_descriptions>p{
+    font-size: 1.6rem;
+    line-height: 2rem;
+    height: 32px;
+    color: #efc54b;
+    border-bottom: 1px solid #ccc;
+}
+
+.investor_list{
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.investor_logo{
+    float: left;
+    width: 35%;
+    display: inline-block;
+}
+
+.investor_logo img{
+    width: 100%;
+    vertical-align: middle;
+    border-right: 1px solid #ccc;
+}
+
+.investor_text{
+    padding-left: 10px;
+    float: right;
+    width: 65%;
+    display: inline-block;
+}
+
+.founder_descriptions{
+    background-color: #fff;
+    padding: 1rem 2rem;
+}
+
+.founder_descriptions>p{
+    font-size: 1.6rem;
+    line-height: 2rem;
+    height: 32px;
+    color: #54c6f4;
+    border-bottom: 1px solid #ccc;
+}
+
+.founder_list{
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.founder_logo{
+    float: left;
+    width: 110px;
+    display: inline-block;
+}
+
+.founder_text{
+    padding-left: 10px;
+    float: right;
+    width: 65%;
+    display: inline-block;
+}
+
+.founder_logo img{
+    vertical-align: middle;
+    border-right: 1px solid #ccc;
+}
+
+
+.appointment{
+    text-align: center;
+}
+
+.appointment p{
+    height: 60px;
+    margin: 0;
+    background-color: #e50014;
+}
+
+#appoint{
+    /*margin-top: 1rem;*/
+    font-size: 2rem;
+    line-height: 5rem;
+    border: none;
+    color: #fff;
+    background-color: transparent;
+}
+
+
