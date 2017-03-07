@@ -98,7 +98,7 @@ body{
 
 .investor_logo{
     float: left;
-    width: 35%;
+    width: 20%;
     display: inline-block;
 }
 
@@ -111,7 +111,7 @@ body{
 .investor_text{
     padding-left: 10px;
     float: right;
-    width: 65%;
+    width: 80%;
     display: inline-block;
 }
 
@@ -135,18 +135,19 @@ body{
 
 .founder_logo{
     float: left;
-    width: 110px;
+    width: 25%;
     display: inline-block;
 }
 
 .founder_text{
     padding-left: 10px;
     float: right;
-    width: 65%;
+    width: 75%;
     display: inline-block;
 }
 
 .founder_logo img{
+    width: 100%;
     vertical-align: middle;
     border-right: 1px solid #ccc;
 }
