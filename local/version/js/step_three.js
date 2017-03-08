@@ -308,7 +308,7 @@ $(function () {
                 'alt="">' +
                 '</div>' +
                 '<div style="float: right; width: 70%; height:60px;">' +
-                '<p style="text-align: left; font-size: 18px; line-height: 60px; color: #159bd6;">' +
+                '<p style="text-align: left; font-size: 14px; line-height: 60px; color: #159bd6;">' +
                 '其他银行</p>' +
                 '</div>' +
                 '</div>' +
@@ -362,7 +362,7 @@ $(function () {
                 'alt="">' +
                 '</div>' +
                 '<div style="float: right; width: 70%; height:60px;">' +
-                '<p style="text-align: left; font-size: 18px; line-height: 60px; color: #159bd6;">' +
+                '<p style="text-align: left; font-size: 14px; line-height: 60px; color: #159bd6;">' +
                 '其他银行</p>' +
                 '</div>' +
                 '</div>' +
