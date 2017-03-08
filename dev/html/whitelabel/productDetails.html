@@ -211,11 +211,92 @@
             text-align: center;
         }
 
+        /******** OVERLAY *********/
 
+        div#document-loading, div#document-error {
+            width: 320px;
+            height: 180px;
+
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            margin: auto;
+            display: none;
+            font-size: 15px;
+        }
+
+        div#document-loading img, div#document-error img {
+            display: block;
+            margin: 0 auto;
+            width: 64px;
+            height: 64px;
+        }
+
+        div#document-loading p, div#document-error p {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* The Overlay (background) */
+        .overlay {
+            /* Height & width depends on how you want to reveal the overlay (see JS below) */
+            height: 100%;
+            width: 0;
+            position: fixed; /* Stay in whitelabel */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            background-color: #eee;
+            overflow-x: hidden; /* Disable horizontal scroll */
+            text-align: center;
+        }
+
+        .overlay-left-top {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            font-size: 16px;
+            color: #fff;
+            background: #fdad13;
+            width: 100%;
+            text-align: left;
+            padding: 8px 10px;
+        }
+
+        .overlay-left-top:hover {
+            cursor: pointer;
+        }
+
+        #document-preview-element {
+            height: 100%;
+            width: 90%;
+        }
     </style>
 
 </head>
 <body>
+<!-- The overlay -->
+<div id="document-preview" class="overlay">
+    <span class="overlay-left-top close-document-preview">&lt; 返回签字页面</span>
+
+    <div id="document-loading">
+        <img src="http://zion.meixincn.com/version/dist/img/channel/loading.gif"/>
+        <p>请稍后，正在生成文件...<br/><br/>Please wait, generating document...</p>
+    </div>
+    <div id="document-error">
+        <img src="http://zion.meixincn.com/version/dist/img/channel/error.png"/>
+        <p>暂时无法生成文件！请关闭重试。<br/><br/>Could not generate document! Please retry.</p>
+    </div>
+
+    <!-- Document -->
+    <div id="document-element-wrapper"></div>
+</div>
+
+
+    <!--主体-->
     <div id="finance">
         <div class="header">
             <div class="header-nav">
@@ -325,6 +406,33 @@
 
                 }
             })
+            // Populate PDF Document
+            function populatePDFDocument(url) {
+                $('#document-loading').hide();
+                $("#document-element-wrapper").html('<iframe id="document-preview-element" src="/vendor/pdfjs/web/viewer.html?file=' + url + '#page=1"></iframe>');
+                $("#document-preview-element").width($(window).width());
+                $("#document-preview-element").height($(window).height() - 45);
+                $("#document-preview-element").css('margin-top', '40px');
+            }
+
+            /** Close when someone clicks on the "x" symbol inside the overlay **/
+            function closeDocumentPreview() {
+                $("#document-element-wrapper").html("");
+                $("#document-preview").width("0%");
+            }
+
+            /**************************** 预览pdf文件 ****************************/
+            $("body").on('click', '.document_preview', function () {
+                $("#document-preview").width("100%");
+                $('#document-loading').show();
+                var document_url = $(this).data('url');
+                populatePDFDocument(document_url);
+                return false;
+            });
+
+            $("#document-preview .close-document-preview").click(function () {
+                closeDocumentPreview();
+            });
 
 
         })
