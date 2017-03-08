@@ -101,7 +101,6 @@ input[type="checkbox"] {
 
 .base-info-title {
     text-align: center;
-    margin-top: 50px;
     border-bottom: 2px solid #dbdada;
 }
 
@@ -834,7 +833,7 @@ div#document-loading p, div#document-error p {
 .productAndOrder {
     width: 75%;
     margin: 30px auto 0;
-    color: #555;
+    color: #ccc;
     font-size: 14px;
     height: 20px;
     line-height: 20px;
@@ -1232,6 +1231,9 @@ div#document-loading p, div#document-error p {
 
     .account_type button.savings {
         float: right;
+    }
+    .productAndOrder {
+        width: 90%;
     }
 }
 
