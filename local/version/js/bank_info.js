@@ -251,7 +251,7 @@ $(function () {
     });
 
     // 已选银行，再次切换银行
-    $('.changeBank').on('click', function () {
+    $('.bank_border').on('click', function () {
         $('.step-three').prop('disabled', false);
         $('input,textarea').val('');
         $('.error').remove();
