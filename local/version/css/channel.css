@@ -912,7 +912,7 @@ div#document-loading p, div#document-error p {
 
 .bank-cn, .bank-us, .bank-us-other, .bank-cn-other {
     display: none;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .other_bank {
