@@ -833,7 +833,7 @@ div#document-loading p, div#document-error p {
 .productAndOrder {
     width: 75%;
     margin: 30px auto 0;
-    color: #ccc;
+    color: #999;
     font-size: 14px;
     height: 20px;
     line-height: 20px;
