@@ -1255,9 +1255,10 @@ div#document-loading p, div#document-error p {
 .bank-list a {
     text-decoration: none;
 }
-.bank_border span{
+.bank_border .table_cell span{
     display: inline-block;
     word-break: break-all;
+    padding: 0 10px;
 }
 img{
     border: none!important;
