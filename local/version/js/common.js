@@ -39,7 +39,7 @@ $(function () {
     function logout_success() {
         $.cookie('mx_token', null);
         $.cookie('mx_secret', null);
-        window.location = '/login.html'
+        window.location = '/index.html'
     }
 
     function alertMsg(msg, ts, status) {
