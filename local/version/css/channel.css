@@ -1270,7 +1270,7 @@ div#document-loading p, div#document-error p {
 .bank_border .table_cell span {
     display: block;
     word-break: break-all;
-    padding: 0 10px;
+    padding-right: 16px;
 }
 
 img {
