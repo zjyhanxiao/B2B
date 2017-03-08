@@ -30,7 +30,7 @@ $(function () {
     });
 
     var d, h;
-    function scroll( fn ) {
+/*    function scroll( fn ) {
         var beforeScrollTop = $(window).scrollTop(),
             fn = fn || function() {};
         window.addEventListener("scroll", function() {
@@ -60,6 +60,51 @@ $(function () {
             $header.hide();
             $headerWhite.hide();
         }
-    });
-    
+    });*/
+
+
+    var scrollFunc = function (e) {
+        var $header = $(".nav-bg");
+        var $headerWhite = $(".nav-bg-white");
+        h = $(document).scrollTop();
+        e = e || window.event;
+        if (e.wheelDelta>0) {
+            console.log(e.wheelDelta);
+            //如果是IE/Opera/Chrome浏览器
+            if(h<100){
+                $header.fadeIn();
+                $headerWhite.fadeOut();
+            }if(h>=100){
+                console.log(h);
+                $header.fadeOut();
+                $headerWhite.fadeIn();
+            }
+        }else {
+            $header.hide();
+            $headerWhite.hide();
+        }
+
+        if (e.detail>0) {
+            //如果是Firefox浏览器
+            if(h<100){
+                $header.fadeIn();
+                $headerWhite.fadeOut();
+            }if(h>=100){
+                $header.fadeOut();
+                $headerWhite.fadeIn();
+            }
+        }else {
+            $header.hide();
+            $headerWhite.hide();
+        }
+    };
+
+    if (window.addEventListener) {
+        //非firefox
+        window.addEventListener('mousewheel', scrollFunc, false);
+
+        //firefox
+        window.addEventListener('DOMMouseScroll', scrollFunc, false);
+    }
+
 });
