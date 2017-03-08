@@ -90,48 +90,42 @@
                                 </div>
                                 <div class="changeBank">更换银行</div>
                             </div>
-                            <!--<div class="col-xs-5">
-                                <div class="bank_border dis_table" style="border-color: #153078;">
-                                    <div class="table_row">
-                                        <span class="bank_url table_cell"><img
-                                                src="https://prod-static.oss-cn-beijing.aliyuncs.com/vendor/banklogo/pc-bank-logo/nonuslogo/CMB.png">
-                                        </span>
-                                        <span class="bank_detail table_cell">
-                                            <span class="bank_name_en">China Merchants Bank (Hong Kong Branch)</span>
-                                            <span class="swift_code">SWIFT：CMBCHKHH</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-2 text-center" style="padding: 20px 0;">
-                                <img src="http://zion.meixincn.com/version/dist/img/change.png">
-                            </div>
-                            <div class="col-xs-5">
-                                <div class="bank_border">
-                                    <div class="bank_home">
-                                        <img src="http://zion.meixincn.com/version/dist/img/change_bank.png" alt="">更换银行
-                                    </div>
-                                </div>
-                            </div>-->
                         </div>
-                        <div class="row form-inline" style="margin-top: 30px;">
-                            <div class="bank_account_l"><label>ABA / Routing number</label></div>
-                            <div class="bank_account_r">
-                                <input type="text" class="form-control routing_number">
-                            </div>
-                        </div>
-                        <div class="row form-inline">
-                            <div class="bank_account_l"><label>银行账户 / Account number</label></div>
-                            <div class="bank_account_r">
-                                <input type="text" class="form-control account_number">
-                            </div>
-                        </div>
-                        <div class="row form-inline">
-                            <div class="bank_account_l"><label>账户类型 / Account type</label></div>
-                            <div class="bank_account_r account_type">
 
-                                <button class="form-control input-sm checking checked">Checking</button>
-                                <button class="form-control input-sm savings">Savings</button>
+                        <div class="row" style="margin-top: 30px;">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-inline">
+                                    <div class="bank_account_l"><label>ABA / Routing number</label></div>
+                                    <div class="bank_account_r">
+                                        <input type="text" class="form-control input-sm routing_number" maxlength="9"
+                                               placeholder="9位数字"
+                                               onkeyup="value=value.replace(/[\W]/g,'') "
+                                               onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-inline">
+                                    <div class="bank_account_l"><label>银行账户 / Account number</label></div>
+                                    <div class="bank_account_r">
+                                        <input type="text" class="form-control input-sm account_number" maxlength="24"
+                                               onkeyup="value=value.replace(/[\W]/g,'') "
+                                               onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-inline">
+                                    <div class="bank_account_l"><label>账户类型 / Account type</label></div>
+                                    <div class="bank_account_r account_type">
+                                        <button class="form-control input-sm checking checked">Checking</button>
+                                        <button class="form-control input-sm savings">Savings</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -151,68 +145,80 @@
                                 <div class="changeBank">更换银行</div>
                             </div>
                         </div>
-                        <!--                        <div class="row">
-                                                    <div class="col-md-10 col-md-offset-1 bank-name-wrapper">
-                                                        <div class="form-inline">
-                                                            <label>银行名称 / Bank name</label>
-                                                            <input type="text" class="form-control input-sm bank_name"
-                                                                   placeholder="标准银行名称(英语)">
-                                                        </div>
-                                                    </div>
-                                                </div>-->
-                        <div class="row">
-                            <div class="col-md-10 col-md-offset-1 ">
+                        <div class="row" style="margin-top: 30px;">
+                            <div class="col-md-10 col-md-offset-1">
                                 <div class="form-inline">
-                                    <label style="vertical-align: top;">银行地址 / Bank address</label>
-                                    <textarea style="height: 80px; font-size: 12px;"
-                                              class="form-control us-bank-address bank_address" type="text"
-                                              placeholder="标准银行地址(英语)"></textarea>
+                                    <div class="bank_account_l"><label>银行名称 / Bank name</label></div>
+                                    <div class="bank_account_r">
+                                        <input type="text" class="form-control input-sm bank_name"
+                                               placeholder="标准银行名称(英语)">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-10 col-md-offset-1 ">
+                            <div class="col-md-10 col-md-offset-1">
                                 <div class="form-inline">
-                                    <label>Swiftcode</label>
-                                    <input type="text" class="form-control input-sm swift_code" maxlength="11"
-                                           placeholder="8位或11位字母数字组合"
-                                           onkeyup="value=value.replace(/[\W]/g,'') "
-                                           onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row routing-number-wrapper">
-                            <div class="col-md-10 col-md-offset-1 ">
-                                <div class="form-inline">
-                                    <label>ABA / Routing number</label>
-                                    <input type="text" class="form-control input-sm routing_number" maxlength="9"
-                                           placeholder="9位数字"
-                                           onkeyup="value=value.replace(/[\W]/g,'') "
-                                           onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                                    <div class="bank_account_l"><label>银行地址 / Bank address</label></div>
+                                    <div class="bank_account_r">
+                                        <textarea style="height: 80px; font-size: 12px;"
+                                                  class="form-control us-bank-address bank_address" type="text"
+                                                  placeholder="标准银行地址(英语)"></textarea>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-10 col-md-offset-1 ">
+                            <div class="col-md-10 col-md-offset-1">
                                 <div class="form-inline">
-                                    <label>账户号 / Account number</label>
-                                    <input type="text" class="form-control input-sm account_number" maxlength="24"
-                                           onkeyup="value=value.replace(/[\W]/g,'') "
-                                           onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                                    <div class="bank_account_l"><label>Swiftcode</label></div>
+                                    <div class="bank_account_r">
+                                        <input type="text" class="form-control input-sm swift_code" maxlength="11"
+                                               placeholder="8位或11位字母数字组合"
+                                               onkeyup="value=value.replace(/[\W]/g,'') "
+                                               onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-10 col-md-offset-1 ">
+                            <div class="col-md-10 col-md-offset-1">
                                 <div class="form-inline">
-                                    <label style="float: left;">账户类型 / Account type</label>
-                                    <div class="col-xs-8 bank_account account_type" style="padding-left: 0;">
-                                        &nbsp;<button class="form-control input-sm checking checked">Checking</button>
+                                    <div class="bank_account_l"><label>ABA / Routing number</label></div>
+                                    <div class="bank_account_r">
+                                        <input type="text" class="form-control input-sm routing_number" maxlength="9"
+                                               placeholder="9位数字"
+                                               onkeyup="value=value.replace(/[\W]/g,'') "
+                                               onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-inline">
+                                    <div class="bank_account_l"><label>银行账户 / Account number</label></div>
+                                    <div class="bank_account_r">
+                                        <input type="text" class="form-control input-sm account_number" maxlength="24"
+                                               onkeyup="value=value.replace(/[\W]/g,'') "
+                                               onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-inline">
+                                    <div class="bank_account_l"><label>账户类型 / Account type</label></div>
+                                    <div class="bank_account_r account_type">
+                                        <button class="form-control input-sm checking checked">Checking</button>
                                         <button class="form-control input-sm savings">Savings</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                     <div class="bank-cn">
                         <div class="row bank_bottom">
@@ -232,10 +238,16 @@
                                 <div class="changeBank">更换银行</div>
                             </div>
                         </div>
-                        <div class="row form-inline" style="margin-top: 30px;">
-                            <div class="bank_account_l"><label>银行账户 / Account number</label></div>
-                            <div class="bank_account_r">
-                                <input type="text" class="form-control account_number">
+                        <div class="row" style="margin-top: 30px;">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-inline">
+                                    <div class="bank_account_l"><label>银行账户 / Account number</label></div>
+                                    <div class="bank_account_r">
+                                        <input type="text" class="form-control input-sm account_number" maxlength="24"
+                                               onkeyup="value=value.replace(/[\W]/g,'') "
+                                               onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -254,7 +266,7 @@
                                 <div class="dis_table">
                                     <div class="table_row">
                                         <span class="bank_url table_cell text-center"><img width="38"
-                                                                               src="/version/dist/img/other_bank.png">
+                                                                                           src="/version/dist/img/other_bank.png">
                                         </span>
                                         <span class="bank_detail table_cell text-left">
                                             <span style=" font-size: 16px; color:#555">香港／其他国家及地区银行</span>

@@ -22,45 +22,50 @@
                     <div class="col-md-4" id="address-effective-wrapper" style="padding: 0; height: 30px;">
                         <div class="form-inline">
                             <label for="address-effective" style="width: 30%;">有效期至</label>
-                            <input type="text" class="form-control input-sm date_input_style" maxlength="10" id="address-effective" required placeholder="YYYY-MM-DD">
+                            <input type="text" class="form-control input-sm date_input_style" maxlength="10"
+                                   id="address-effective" required placeholder="YYYY-MM-DD">
                         </div>
                     </div>
                     <div class="col-md-4"></div>
                 </div>
-                <form class="fa-steps col-sm-10 col-sm-offset-1">
-                    <div class="step-section text-center row">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-6 col-sm-12">
-                            <div id="passport-false" class="red text-center font-16" style="line-height: 40px; display: none;">请上传护照证件照片</div>
-                            <div class="uploader-demo">
-                                <div class="fileMapping uploader-list" id='fileMapping'>
-
-                                    <div class="file-item thumbnail">
-                                        <!--<span class="glyphicon glyphicon-remove"></span>-->
-                                        <img id="newImg" src="http://zion.meixincn.com/version/dist/img/channel/passport.png">
-                                        <div class="info"></div>
-                                    </div>
-
+                <div class="row">
+                    <form class="fa-steps col-sm-10 col-sm-offset-1">
+                        <div class="step-section text-center row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6 col-sm-12">
+                                <div id="passport-false" class="red text-center font-16"
+                                     style="line-height: 40px; display: none;">请上传护照证件照片
                                 </div>
-                                <div class="filePicker">点击上传</div>
+                                <div class="uploader-demo">
+                                    <div class="fileMapping uploader-list" id='fileMapping'>
+
+                                        <div class="file-item thumbnail">
+                                            <!--<span class="glyphicon glyphicon-remove"></span>-->
+                                            <img id="newImg"
+                                                 src="http://zion.meixincn.com/version/dist/img/channel/passport.png">
+                                            <div class="info"></div>
+                                        </div>
+
+                                    </div>
+                                    <div class="filePicker">点击上传</div>
+                                </div>
                             </div>
+                            <!--<div class="fa-upload-id-pic fa-upload-pic col-md-6 col-sm-12">
+                                <div id="address-false" class="red text-center font-16" style="line-height: 40px; display: none;">请上传地址证明照片</div>
+                                <img src="http://zion.meixincn.com/version/dist/img/channel/passport.png"><br/>
+                                <input id="address-proof" name="identity-proof" type="file" data-parsley-required-message="请上传护照证件照片！" required/>
+                                <a class="btn btn-primary">点击上传</a>
+                            </div>-->
+                            <div class="col-md-3"></div>
                         </div>
-                        <!--<div class="fa-upload-id-pic fa-upload-pic col-md-6 col-sm-12">
-                            <div id="address-false" class="red text-center font-16" style="line-height: 40px; display: none;">请上传地址证明照片</div>
-                            <img src="http://zion.meixincn.com/version/dist/img/channel/passport.png"><br/>
-                            <input id="address-proof" name="identity-proof" type="file" data-parsley-required-message="请上传护照证件照片！" required/>
-                            <a class="btn btn-primary">点击上传</a>
-                        </div>-->
-                        <div class="col-md-3"></div>
+                    </form>
+                </div>
+
+                <div class="upload-address-info row">
+                    <div class="col-md-12">
+                        <p class="font-12 orange" style="margin-bottom: 0;margin-top: 10px;">请在下面区域填写您身份证上的地址</p>
                     </div>
-                    <div class="upload-address-info">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-6 text-center">
-                            <p class="font-12">请在下面区域填写您地址证明上的地址，务必与证件上的地址确保一致。</p>
-                        </div>
-                        <div class="col-md-3"></div>
-                    </div>
-                </form>
+                </div>
                 <div class="row" id="address">
                     <div class="col-md-5">
                         <div class="form-inline">
@@ -74,7 +79,8 @@
                     <div class="col-md-5" id="address-detail-wrapper">
                         <div class="form-inline">
                             <label for="address-effective">详细地址</label>
-                            <textarea style="height: 100px; width: 63%; position: absolute;" class="form-control input-sm" id="address-detail"
+                            <textarea style="height: 100px; width: 63%; position: absolute;"
+                                      class="form-control input-sm" id="address-detail"
                                       required placeholder="请用中文填写
 比如：幸福里小区23号楼A单元423号"></textarea>
                         </div>
@@ -105,7 +111,9 @@
                     </div>
                     <div class="col-md-5" id="post-code-mb">
                         <div class="form-inline">
-                            <label for="post-code">邮编</label><input type="text" class="form-control input-sm" id="post-code" required placeholder="xxxxxx" maxlength="6">
+                            <label for="post-code">邮编</label><input type="text" class="form-control input-sm"
+                                                                    id="post-code" required placeholder="xxxxxx"
+                                                                    maxlength="6">
                         </div>
                     </div>
                 </div>

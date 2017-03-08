@@ -898,16 +898,16 @@ div#document-loading p, div#document-error p {
 }
 
 .bank_account_l {
-    width: 25%;
+    width: 30%;
     line-height: 34px;
 }
 
 .bank_account_r {
-    width: 75%;
+    width: 70%;
 }
 
 .bank_account_r .form-control {
-    width: 80%;
+    width: 98%;
 }
 
 .bank-cn, .bank-us, .bank-us-other, .bank-cn-other {
@@ -942,7 +942,7 @@ div#document-loading p, div#document-error p {
 }
 
 .account_type button.form-control {
-    width: 33%;
+    width: 48%;
     border-radius: 6px;
 }
 
