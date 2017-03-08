@@ -1085,6 +1085,14 @@ div#document-loading p, div#document-error p {
         width: 92% !important;
     }
 
+    .bank_url {
+        width: 18%;
+    }
+
+    .bank_detail {
+        width: 82%;
+    }
+
     .non-us-bank {
         width: 35% !important;
         float: left;
