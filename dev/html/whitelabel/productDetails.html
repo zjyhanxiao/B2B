@@ -425,7 +425,8 @@
             $("body").on('click', '.document_preview', function () {
                 $("#document-preview").width("100%");
                 $('#document-loading').show();
-                var document_url = $(this).data('url');
+                var document_url = $(this).attr('href');
+                console.log(document_url);
                 populatePDFDocument(document_url);
                 return false;
             });
