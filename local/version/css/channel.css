@@ -971,6 +971,7 @@ div#document-loading p, div#document-error p {
 .bank_url {
     float: left;
     width: 25%;
+    text-align: center;
 }
 
 .bank_border img {
@@ -1256,10 +1257,6 @@ div#document-loading p, div#document-error p {
 
 .bank-list a {
     text-decoration: none;
-}
-
-.bank_border .table_cell img {
-    margin: auto;
 }
 
 .bank_border .table_cell span {
