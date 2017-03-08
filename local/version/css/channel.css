@@ -1255,3 +1255,7 @@ div#document-loading p, div#document-error p {
 .bank-list a {
     text-decoration: none;
 }
+.bank_border span{
+    display: inline-block;
+    word-break: break-all;
+}
