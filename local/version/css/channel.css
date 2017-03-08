@@ -1259,3 +1259,6 @@ div#document-loading p, div#document-error p {
     display: inline-block;
     word-break: break-all;
 }
+img{
+    border: none!important;
+}
