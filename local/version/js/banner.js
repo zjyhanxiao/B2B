@@ -71,12 +71,16 @@ $(function () {
         if (e.wheelDelta > 0 || e.detail < 0) {
             //如果是IE/Opera/Chrome浏览器
             if (h < 100) {
-                $header.fadeIn();
+                if ($header.css('display') == 'none') {
+                    $header.fadeIn();
+                }
                 $headerWhite.hide();
             }
             if (h >= 100) {
+                if ($headerWhite.css('display') == 'none') {
+                    $headerWhite.fadeIn();
+                }
                 $header.hide();
-                $headerWhite.fadeIn();
             }
         } else {
             $header.hide();
