@@ -1256,7 +1256,7 @@ div#document-loading p, div#document-error p {
     text-decoration: none;
 }
 .bank_border .table_cell span{
-    display: inline-block;
+    display: block;
     word-break: break-all;
     padding: 0 10px;
 }
