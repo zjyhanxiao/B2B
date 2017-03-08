@@ -5,7 +5,7 @@ var product_id = getUrlParam('product_id') || ''; //获取产品id
 var order_number = getUrlParam('order_number') || ''; // 获取订单编号
 var access_token = getUrlParam('access_token') || ''; // 获取通行证
 if (access_token == '') {
-    window.location = '/verify_code.html?product_id=' + partner_id + '&partner_id=' + partner_id;
+    window.location = '/verify_code.html?product_id=' + product_id + '&partner_id=' + partner_id;
 }
 $(function () {
     var passport_photo_default = $('#fileMapping img').attr('src');
@@ -375,6 +375,6 @@ $(function () {
     }
 
     function tokenFail(res) {
-        window.location = '/verify_code.html?product_id=' + partner_id + '&partner_id=' + partner_id;
+        window.location = '/verify_code.html?product_id=' + product_id + '&partner_id=' + partner_id;
     }
 });
