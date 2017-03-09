@@ -529,7 +529,7 @@ $(function () {
         delete user_data['bank_non_us']['bank_name_cn'];
         if (order_number == '') {
             postData({
-                url: base_url + '/zion/white_label/operate_user',
+                url: base_url + '/zion/assist/operateUser',
                 data: JSON.stringify(user_data),
                 async: false,
                 contentType: "application/json; charset=utf-8",
@@ -537,7 +537,7 @@ $(function () {
                 failFn: failFn
             });
             postData({
-                url: base_url + '/zion/white_label/create_order',
+                url: base_url + '/zion/assist/createOrder',
                 data: JSON.stringify(user_data),
                 async: false,
                 contentType: "application/json; charset=utf-8",
@@ -546,7 +546,7 @@ $(function () {
             });
         } else {
             postData({
-                url: base_url + '/zion/white_label/operate_user',
+                url: base_url + '/zion/assist/operateUser',
                 data: JSON.stringify(user_data),
                 async: false,
                 contentType: "application/json; charset=utf-8",
@@ -562,7 +562,7 @@ $(function () {
             order_number = d.order_number;
         }
         if (order_number !== '') {
-            window.location = '/white_label/signature.html?' +
+            window.location = 'share.html?' +
                 'product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&access_token=' + access_token + '&order_number=' + order_number;
         }
     }
