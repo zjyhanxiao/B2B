@@ -390,7 +390,6 @@
                 data: {'app_id':getUrlParam('partner_id'),'product_id':getUrlParam('product_id')},
                 contentType: "application/json; charset=utf-8",
                 success: function (res) {
-                    console.log(res.body)
                     $('.header-title').html( res.body.product_name );
                     $('.header-explain').html( res.body.product_type_desc );
                     $('#return_rate').html( res.body.return_rate + '%' );
@@ -426,7 +425,6 @@
                 $("#document-preview").width("100%");
                 $('#document-loading').show();
                 var document_url = $(this).attr('href');
-                console.log(document_url);
                 populatePDFDocument(document_url);
                 return false;
             });
