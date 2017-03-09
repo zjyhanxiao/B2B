@@ -12,7 +12,7 @@ $(function () {
         $('#phone-code,#phone').prop('disabled', true);
         if (phone.indexOf(' ')) {
             $('#phone').val(phone.split(' ')[1]);
-            // $("#phone-code").val(d.phone.split(' ')[0]);
+            $("#phone-code").val(d.phone.split(' ')[0]);
         } else {
             $('#phone').val(phone);
         }
@@ -47,7 +47,7 @@ $(function () {
             $("#first_name").addClass('red-shadow');
             next_step = false;
         }
-        if (phone == '' || phone.length < 6) {
+        if ($('#phone').val() == '' || $('#phone').val().length < 6) {
             $("#phone").addClass('red-shadow');
             next_step = false;
         }
@@ -111,7 +111,7 @@ $(function () {
             user_data.channel_code = partner_id;
             user_data.product_id = product_id;
             user_data.order_number = order_number;
-            user_data.phone = phone;
+            user_data.phone = $("#phone-code").val() + ' ' + $('#phone').val();
             user_data.last_name = last_name;
             user_data.first_name = first_name;
             user_data.email = email;
