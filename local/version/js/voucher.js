@@ -33,6 +33,7 @@ $(function () {
         if (!(/^1\d{10}$/.test(phone))) {
             $("#error").html('请输入您的手机号码');
             $(this).prop('disabled', false);
+            return false;
         } else {
             var timer = null, i = 60;
             timer = setInterval(function () {
@@ -86,7 +87,7 @@ $(function () {
         }
     });
     function getCodeSuc(res) {
-
+        console.log('获取验证码成功');
     }
 
     function voucherSuc(res) {
@@ -102,7 +103,7 @@ $(function () {
     }
 
     function failFn(res) {
-        alert(res.msg);
+        $("#error").html(res.msg);
         $("#submit, #get_code").prop('disabled', false);
     }
 
