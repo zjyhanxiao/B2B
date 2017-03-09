@@ -21,11 +21,11 @@ $(function () {
 
 
     $('.phone').mouseover(function () {
-        $('.phone_before').css('display', 'none')
+        $('.phone_before').css('display', 'none');
         $('.phone_after').css('display', 'block')
     });
     $('.phone').mouseout(function () {
-        $('.phone_before').css('display', 'block')
+        $('.phone_before').css('display', 'block');
         $('.phone_after').css('display', 'none')
     });
 
