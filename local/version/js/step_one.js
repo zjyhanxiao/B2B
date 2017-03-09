@@ -327,6 +327,7 @@ $(function () {
     $('#fileMapping').click(function () {
         $('.filePicker input').trigger('click');
     });
+    /************************************** 图片上传 **************************************/
     uploader_file('#fileMapping');
 
     // 获取职业信息
