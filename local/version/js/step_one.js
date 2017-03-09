@@ -27,7 +27,7 @@ $(function () {
         var next_step = true;
         var last_name = $("#last_name").val();
         var first_name = $("#first_name").val();
-        // phone = $('#phone-code').val() + ' ' + $("#phone").val();
+        phone = $('#phone-code').val() + ' ' + $("#phone").val();
         var email = $("#email").val();
         var date_of_birth = $("#date-of-birth").val();
         var source_of_income = $("#source-of-income").val();
@@ -47,7 +47,7 @@ $(function () {
             $("#first_name").addClass('red-shadow');
             next_step = false;
         }
-        if ($('#phone').val() == '' || $('#phone').val().length < 6) {
+        if (phone == '' || phone.length < 6) {
             $("#phone").addClass('red-shadow');
             next_step = false;
         }
