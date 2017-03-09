@@ -2,7 +2,7 @@ $(function () {
     var user_data = {};// 定义用户信息数据
     var phone = getUrlParam('phone') || ''; // 通过手机号查找用户信息
     var partner_id = getUrlParam('partner_id') || ''; // 渠道编码
-    var product_id = getUrlParam('product_id') || ''; //获取产品id
+    var product_id = parseInt(getUrlParam('product_id')) || ''; //获取产品id
     var order_number = getUrlParam('order_number') || ''; // 获取订单编号
     var access_token = getUrlParam('access_token') || ''; // 获取通行证
     var bankUs = '', bankNonUs = '';
