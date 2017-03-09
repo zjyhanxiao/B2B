@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content ="width=device-width, initial-scale=1, user-scalable=no, minimal-ui"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="hotcss" content="initial-dpr=1">
+    <title>美信金融</title>
+
+    <style>
+        html,body,div,p,ul,li,span,i{
+            margin: 0px;
+            padding: 0px;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        html,body{
+            width: 100%;
+            font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif
+        }
+        #finance{
+            width: 100%;
+        }
+        .header{
+            width: 100%;
+            position: relative;
+        }
+        .header img{
+            display: block;
+            width: 100%;
+        }
+        .intro{
+            width: 100%;
+            position: absolute;
+            left: 0;
+            bottom: 0.47rem;
+        }
+        .intro p{
+            width: 100%;
+            text-align: center;
+            font-size: 0.24rem;
+            color: #FFFFFF;
+        }
+        .main{
+            width: 100%;
+            background: #f5f5f5;
+        }
+        .anxin{
+            width: 95%;
+            margin: 0 auto;
+            background: #FFFFFF;
+            overflow: hidden;
+            box-shadow: 0px 0px 10px rgba(23,29,76,0.2);
+        }
+        .left{
+            float: left;
+        }
+        .right{
+            float: left;
+        }
+        .anxin-title{
+            overflow: hidden;
+            padding: 0.45rem 0 0.30rem 0.3rem;
+        }
+        .anxin-title p{
+            font-size: 0.30rem;
+            color: #223976;
+            float: left;
+            line-height: 0.36rem;
+        }
+        .anxin-title i{
+            display: inline-block;
+            width: 0.32rem;
+            height: 0.36rem;
+            float: left;
+            background: url("../../version/dist/img/whitelabel/2.png");
+            background-size:cover;
+            margin-left: 0.2rem;
+        }
+        .anxin-body{
+            padding-left: 0.30rem;
+            padding-bottom: 0.50rem;
+        }
+        .anxin-body p{
+            font-size: 0.24rem;
+            color: #555555;
+        }
+        .logo{
+            width: 0.70rem;
+            height: 0.80rem;
+            margin-top: 0.7rem;
+            margin-left: 0.20rem;
+        }
+        .logo img{
+            width: 100%;
+            display: block;
+        }
+        .notice-header{
+            padding: 0.5rem 0 0.25rem;
+        }
+        .notice-header p{
+            margin-left: 0.2rem;
+            padding-left: 0.2rem;
+            font-size: 0.3rem;
+            color: #223976;
+            border-left: 3px solid #223976;
+            box-sizing: border-box;
+        }
+        .notice-body{
+            width: 100%;
+            height: auto;
+        }
+        .first{
+            overflow: hidden;
+            margin-left: 1rem;
+            margin-bottom: 0.2rem;
+        }
+        .first p{
+            font-size: 0.24rem;
+            color: #555555;
+        }
+        .first-logo{
+            width: 1.05rem;
+            height: 1.25rem;
+            margin-left: 0.7rem;
+        }
+        .first-logo img{
+            width: 100%;
+            display: block;
+        }
+        .secend{
+            overflow: hidden;
+            margin-left: 0.7rem;
+            padding-bottom: 0.2rem;
+        }
+        .secend p{
+            font-size: 0.24rem;
+            color: #555555;
+        }
+        .secend-logo{
+            width: 1.05rem;
+            height: 1.25rem;
+        }
+        .secend-logo img{
+            width: 100%;
+            display: block;
+        }
+        .secend .left{
+            margin-left: 0.7rem;
+        }
+        .guide{
+            width: 100%;
+            background: #FFFFFF;
+        }
+        .guide-header{
+            padding: 0.5rem 0 0.25rem;
+        }
+        .guide-header p{
+            margin-left: 0.2rem;
+            padding-left: 0.2rem;
+            font-size: 0.3rem;
+            color: #223976;
+            border-left: 3px solid #223976;
+            box-sizing: border-box;
+        }
+
+        .over{
+            overflow: hidden;
+            padding-left: 0.58rem;
+            padding-bottom: 0.30rem;
+        }
+        .one{
+            padding-top: 0.15rem;
+        }
+        .five{
+            padding-bottom: 0.50rem;
+        }
+        .step-img{
+            width: 1.71rem;
+            height: 1.34rem;
+            float: left;
+        }
+        .step-img img{
+            width: 100%;
+            display: block;
+        }
+        .over p{
+            float: left;
+            font-size: 0.26rem;
+            color: #555555;
+            line-height: 1.34rem;
+            margin-left: 0.2rem;
+        }
+        .phone{
+            padding: 0.4rem 0;
+        }
+        .phone p{
+            font-size: 0.26rem;
+            color: #3a5aaf;
+            text-align: center;
+        }
+        .why{
+            width: 100%;
+            background: #FFFFFF;
+        }
+        .why-header{
+            padding-top: 0.5rem;
+            padding-bottom: 0.4rem;
+        }
+        .why-header p{
+            font-size: 0.3rem;
+            color: #223976;
+            text-align: center;
+        }
+        .up{
+            overflow: hidden;
+        }
+        .up p{
+            font-size: 0.24rem;
+            color: #555555;
+            margin-bottom: 0.1rem;
+            margin-left: 0.4rem;
+        }
+        .up-img{
+            width: 2.23rem;
+            height: 1.86rem;
+            margin-left: 0.35rem;
+        }
+        .up-img img{
+            width: 100%;
+            display: block;
+        }
+
+
+
+
+        .down{
+            padding: 0.4rem 0 0.5rem;
+            overflow: hidden;
+        }
+        .down p{
+            font-size: 0.24rem;
+            color: #555555;
+            margin-bottom: 0.1rem;
+            margin-left: 1.15rem;
+        }
+        .down-img{
+            width: 2.74rem;
+            height: 1.70rem;
+            margin-left: 0.4rem;
+        }
+        .down-img img{
+            width: 100%;
+            display: block;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="finance">
+        <div class="header">
+            <img src="http://localhost:8080/version/dist/img/whitelabel/1.png" alt="">
+            <div class="intro">
+                <p>美信金融是由贝塔斯曼亚洲基金和梅花创投投资，</p>
+                <p>持有RIA牌照（注册投资顾问）的专业海外资产发行平台。</p>
+            </div>
+        </div>
+        <div class="main">
+            <div class="anxin">
+                <div class="left">
+                    <div class="anxin-title"><p>“安心计划”系列</p><i></i></div>
+                    <div class="anxin-body">
+                        <p style="margin-bottom: 0.15rem">是美信金融发行的定期定息型小额美元理财产品，</p>
+                        <p>专注于让投资人轻松理财并获得可预期的稳定回报。</p>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="logo">
+                        <img src="http://localhost:8080/version/dist/img/whitelabel/3.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="notice">
+                <div class="notice-header">
+                    <p>投资须知</p>
+                </div>
+                <div class="notice-body">
+                    <div class="first">
+                        <div class="left">
+                            <p style="margin-bottom: 0.15rem;margin-top: 0.25rem">所有产品均需要持有离岸账户才能</p>
+                            <p>购买，起投金额低至$10,000。</p>
+                        </div>
+                        <div class="right">
+                            <div class="first-logo">
+                                <img src="http://localhost:8080/version/dist/img/whitelabel/4.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="secend">
+                        <div class="right">
+                            <div class="secend-logo">
+                                <img src="http://localhost:8080/version/dist/img/whitelabel/5.png" alt="">
+                            </div>
+                        </div>
+                        <div class="left">
+                            <p style="margin-bottom: 0.15rem;margin-top: 0.25rem">在投资前请准备好个人护照和身份</p>
+                            <p>证图片，以便上传。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="guide">
+                <div class="guide-header">
+                    <p>投资指南</p>
+                </div>
+                <div class="guide-body">
+                    <div class="one over">
+                        <div class="step-img">
+                            <img src="http://localhost:8080/version/dist/img/whitelabel/11.png" alt="">
+                        </div>
+                        <p>按照页面提示完善认购信息。</p>
+                    </div>
+                    <div class="two over">
+                        <div class="step-img">
+                            <img src="http://localhost:8080/version/dist/img/whitelabel/22.png" alt="">
+                        </div>
+                        <p>按照页面提示完善认购信息。</p>
+                    </div>
+                    <div class="three over">
+                        <div class="step-img">
+                            <img src="http://localhost:8080/version/dist/img/whitelabel/33.png" alt="">
+                        </div>
+                        <p>按照页面提示完善认购信息。</p>
+                    </div>
+                    <div class="four over">
+                        <div class="step-img">
+                            <img src="http://localhost:8080/version/dist/img/whitelabel/44.png" alt="">
+                        </div>
+                        <p>按照页面提示完善认购信息。</p>
+                    </div>
+                    <div class="five over">
+                        <div class="step-img">
+                            <img src="http://localhost:8080/version/dist/img/whitelabel/55.png" alt="">
+                        </div>
+                        <p>按照页面提示完善认购信息。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="phone">
+                <p>如有任何问题</p>
+                <p>请致电美信客服 <a href="tel://400-898-9917">400-898-9917</a></p>
+            </div>
+            <div class="why">
+                <div class="why-header"><p>为什么选择美信？</p></div>
+                <div class="why-body">
+                    <div class="up">
+                        <div class="left">
+                            <p style="font-size: 0.26rem;color: #000000">海外顶级投顾，风控卓越</p>
+                            <p>只与海外最优质资产方合作，</p>
+                            <p>多道风控流程和尽职调查甄选资产，</p>
+                            <p>确保抵押资产雄厚、现金流稳定。</p>
+                        </div>
+                        <div class="right">
+                            <div class="up-img">
+                                <img src="http://localhost:8080/version/dist/img/whitelabel/6.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="down">
+                        <div class="right">
+                            <div class="down-img">
+                                <img src="http://localhost:8080/version/dist/img/whitelabel/7.png" alt="">
+                            </div>
+                        </div>
+                        <div class="left">
+                            <p style="font-size: 0.26rem;color: #000000">全程监管 透明规范</p>
+                            <p>第三方银行托管资金，</p>
+                            <p>第三方基金监管资金流，</p>
+                            <p>确保资金安全透明。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script src="http://localhost:8080/vendor/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script>
+    $(function () {
+//            REM布局跟字体设置
+        var FS= $(window).width()/7.5 + 'px';
+        $('html').css('font-size',FS)
+    })
+</script>
+</body>
+</html>
