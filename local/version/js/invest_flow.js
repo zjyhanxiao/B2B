@@ -1,5 +1,4 @@
 $(function () {
-    alert(1111);
     var product_id = getUrlParam('product_id') || '';
     var order_number = getUrlParam('order_number') || '';
     $('#fileMapping').height(Math.floor($('#fileMapping').width() * 200 / 340));  //设置图片上传组件高度
