@@ -4,7 +4,6 @@ $(function () {
     var partner_id = getUrlParam('partner_id') || ''; // 渠道编码
     var product_id = getUrlParam('product_id') || ''; //获取产品id
     var order_number = getUrlParam('order_number') || ''; // 获取订单编号
-    var access_token = getUrlParam('access_token') || ''; // 获取通行证
     var bankUs = '', bankNonUs = '';
 
     getCnBank(); // 默认加载非美国常用银行
@@ -27,7 +26,6 @@ $(function () {
         user_data.channel_code = partner_id;
         user_data.order_number = order_number;
         user_data.phone = phone;
-        user_data.access_token = access_token;
         $('.error').remove();
         $(this).prop('disabled', true);
         if ($('.banks').css('display') == 'block') {
