@@ -3,7 +3,13 @@ $(function () {
     var partner_id = getUrlParam('partner_id') || '';
     var phone = getUrlParam('phone') || '';
     var order_number = getUrlParam('order_number') || '';
-
+    if (phone != '') {
+        if(phone.indexOf(' ')){
+            $('#phone').val(phone.split(' ')[1]);
+        }else{
+            $('#phone').val(phone);
+        }
+    }
     if (product_id != '') {
         getData({
             url: base_url + '/white_label/product_info',
