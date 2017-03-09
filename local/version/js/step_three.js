@@ -284,15 +284,16 @@ $(function () {
                 html +=
                     '<a>' +
                     '<div class="col-md-4">' +
-                    '<div class="form-line choose-bank">' +
-                    '<div style="float: left; width: 30%; height:60px;">' +
-                    '<img class="bank-icon" style="margin-top: 10px;"' +
+                    '<div class="form-line choose-bank dis_table">' +
+                    '<div class="table_row">' +
+                    '<span class="table_cell" style=" width: 30%; height:60px;">' +
+                    '<img class="bank-icon"' +
                     'src="' + item.bank_url + '"' +
                     'alt="">' +
-                    '</div>' +
-                    '<div style="float: right; width: 70%; height:60px;">' +
-                    '<p style="text-align: left;">' + item.bank_name_cn + '</p>' +
+                    '</span>' +
+                    '<span  class="table_cell" style=" width: 70%; height:60px;">' +
                     '<p style="text-align: left;">' + item.bank_name_en + '</p>' +
+                    '</span>' +
                     '</div>' +
                     '</div>' +
                     '</div>' +
@@ -301,15 +302,17 @@ $(function () {
             html +=
                 '<a>' +
                 '<div class="col-md-4">' +
-                '<div class="form-line choose-bank">' +
-                '<div style="float: left; width: 30%; height:60px;">' +
-                '<img class="bank-icon" style="margin-top: 10px; width: 38px"' +
+                '<div class="form-line choose-bank dis_table" style="width: 100%;">' +
+                '<div class="table_row">' +
+                '<span class="table_cell" style="width: 30%; height:60px;">' +
+                '<img class="bank-icon" style=" width: 38px"' +
                 'src="/version/dist/img/other_bank.png"' +
                 'alt="">' +
-                '</div>' +
-                '<div style="float: right; width: 70%; height:60px;">' +
+                '</span>' +
+                '<span class="table_cell" style=" width: 70%; height:60px;">' +
                 '<p style="text-align: left; font-size: 14px; line-height: 60px; color: #159bd6;">' +
                 '其他银行</p>' +
+                '</span>' +
                 '</div>' +
                 '</div>' +
                 '</div>' +
@@ -339,14 +342,16 @@ $(function () {
                 html +=
                     '<a>' +
                     '<div class="col-md-4">' +
-                    '<div class="form-line choose-bank">' +
-                    '<div style="float: left; width: 30%; height:60px;">' +
-                    '<img class="bank-icon" style="margin-top: 10px;"' +
+                    '<div class="form-line choose-bank dis_table">' +
+                    '<div class="table_row">' +
+                    '<span class="table_cell" style=" width: 30%; height:60px;">' +
+                    '<img class="bank-icon"' +
                     'src="' + item.bank_url + '"' +
                     'alt="">' +
-                    '</div>' +
-                    '<div style="float: right; width: 70%; height:60px;">' +
+                    '</span>' +
+                    '<span  class="table_cell" style=" width: 70%; height:60px;">' +
                     '<p style="text-align: left;">' + item.bank_name_en + '</p>' +
+                    '</span>' +
                     '</div>' +
                     '</div>' +
                     '</div>' +
@@ -355,15 +360,17 @@ $(function () {
             html +=
                 '<a>' +
                 '<div class="col-md-4">' +
-                '<div class="form-line choose-bank">' +
-                '<div style="float: left; width: 30%; height:60px;">' +
-                '<img class="bank-icon" style="margin-top: 10px; width: 38px"' +
+                '<div class="form-line choose-bank dis_table" style="width: 100%;">' +
+                '<div class="table_row">' +
+                '<span class="table_cell" style="width: 30%; height:60px;">' +
+                '<img class="bank-icon" style=" width: 38px"' +
                 'src="/version/dist/img/other_bank.png"' +
                 'alt="">' +
-                '</div>' +
-                '<div style="float: right; width: 70%; height:60px;">' +
+                '</span>' +
+                '<span class="table_cell" style=" width: 70%; height:60px;">' +
                 '<p style="text-align: left; font-size: 14px; line-height: 60px; color: #159bd6;">' +
                 '其他银行</p>' +
+                '</span>' +
                 '</div>' +
                 '</div>' +
                 '</div>' +
