@@ -126,7 +126,7 @@ var uploader_file = function (id, url, imgAccept) {
                     'margin-top': Math.floor((warp_h - warp_w * h / w) / 2) + 'px'
                 });
             }
-        })
+        });
         $('.step-one,.step-two').prop('disabled', false);
     });
 

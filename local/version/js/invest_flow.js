@@ -4,7 +4,7 @@ $(function () {
     $('#fileMapping').height(Math.floor($('#fileMapping').width() * 200 / 340));  //设置图片上传组件高度
     /*********************************  图片自适应  *********************************/
     imgAuto();
-    $('.uploader-demo').find('img').load(function () {
+    $('#fileMapping').find('img').on('load',function () {
         imgAuto();
     });
     if (order_number != '' && $('.about_order').length) {
@@ -34,6 +34,7 @@ $(function () {
         alert(res.msg)
     }
     function imgAuto() {
+        $('.uploader-demo').find('img').removeAttr('style');
         var w = $('.uploader-demo').find('img').width();
         var h = $('.uploader-demo').find('img').height();
         var warp_w = $('#fileMapping').width();
