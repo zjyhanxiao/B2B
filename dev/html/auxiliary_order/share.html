@@ -63,7 +63,7 @@
         var partner_id = getUrlParam('partner_id') || '';
         var order_number = getUrlParam('order_number') || '';
         var phone = getUrlParam('phone') || '';
-        $('.href_link').html('http://zion.meixincn.com/invest.html?product_id=' + product_id + '&partner_id=' + partner_id + '&order_number=' + order_number);
+        $('.href_link').html('http://zion.meixincn.com/verify_code.html?product_id=' + product_id + '&partner_id=' + partner_id + '&order_number=' + order_number);
         $('.change_order').on('click', function () {
             window.location = '/auxiliary_order/stepOne.html?product_id=' + product_id + '&phone=' + phone + '&partner_id=' + partner_id + '&order_number=' + order_number;
         });
