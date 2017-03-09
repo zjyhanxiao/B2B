@@ -196,22 +196,7 @@ $(function () {
         var industry = $("#industry").val();
         if (industry != '') {
             var data = {'industry': industry};
-            var pd = JSON.stringify(data);
-            $.ajax({
-                type: 'post',
-                dataType: 'json',
-                contentType: 'application/json',
-                data: pd,
-                url: base_url + '/white_label/invest/access_careers',
-                success: function (res) {
-                    var d = res.body;
-                    var html = '';
-                    $.each(d, function (i) {
-                        html += '<option value="' + d[i].nameCn + '">' + d[i].nameCn + '</option>';
-                    });
-                    $("#occupation").empty().append("<option value=''>" + '请选择' + "</option>" + html);
-                }
-            });
+            getIndustry(data);
         } else {
             $("#occupation").empty();
         }
@@ -269,21 +254,8 @@ $(function () {
                 d.base_info.occupation != '' && d.base_info.occupation != null
             ) {
                 var occupation = d.base_info.occupation;
-                $.ajax({
-                    type: 'post',
-                    dataType: 'json',
-                    contentType: 'application/json',
-                    data: JSON.stringify({'industry': d.base_info.industry}),
-                    url: base_url + '/white_label/invest/access_careers',
-                    success: function (res) {
-                        var d = res.body;
-                        var html = '';
-                        $.each(d, function (i) {
-                            html += '<option value="' + d[i].nameCn + '">' + d[i].nameCn + '</option>';
-                        });
-                        $("#occupation").empty().append("<option value=''>" + '请选择' + "</option>" + html).val(occupation).prop('disabled', false);
-                    }
-                })
+                getIndustry({'industry': d.base_info.industry});
+                $("#occupation").val(occupation);
             }
         }
     }
@@ -376,5 +348,23 @@ $(function () {
 
     function tokenFail(res) {
         window.location = '/verify_code.html?product_id=' + product_id + '&partner_id=' + partner_id;
+    }
+
+    function getIndustry(data) {
+        postData({
+            data: JSON.stringify(data),
+            url: base_url + '/white_label/invest/access_careers',
+            contentType: 'application/json',
+            async: false,
+            sucFn: function (res) {
+                var d = res.body;
+                var html = '';
+                $.each(d, function (i) {
+                    html += '<option value="' + d[i].nameCn + '">' + d[i].nameCn + '</option>';
+                });
+                $("#occupation").empty().append("<option value=''>" + '请选择' + "</option>" + html).prop('disabled', false);
+            },
+            failFn:function(res){alert(res.message)}
+        });
     }
 });
