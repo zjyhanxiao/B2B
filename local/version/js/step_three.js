@@ -540,6 +540,9 @@ $(function () {
                 data: JSON.stringify(user_data),
                 async: false,
                 contentType: "application/json; charset=utf-8",
+                headers: {
+                    mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
+                },
                 sucFn: updateSuc,
                 failFn: failFn
             });
@@ -548,6 +551,9 @@ $(function () {
                 data: JSON.stringify(user_data),
                 async: false,
                 contentType: "application/json; charset=utf-8",
+                headers: {
+                    mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
+                },
                 sucFn: updateSuc,
                 failFn: failFn
             });
@@ -557,6 +563,9 @@ $(function () {
                 data: JSON.stringify(user_data),
                 async: false,
                 contentType: "application/json; charset=utf-8",
+                headers: {
+                    mx_secret: $.cookie('mx_secret'), mx_token: $.cookie('mx_token')
+                },
                 sucFn: updateSuc,
                 failFn: failFn
             });
