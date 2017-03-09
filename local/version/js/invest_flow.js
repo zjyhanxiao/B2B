@@ -2,6 +2,7 @@ $(function () {
     var product_id = getUrlParam('product_id') || '';
     var order_number = getUrlParam('order_number') || '';
     $('#fileMapping').height(Math.floor($('#fileMapping').width() * 200 / 340));  //设置图片上传组件高度
+    /*********************************  图片自适应  *********************************/
     imgAuto();
     $('.uploader-demo').find('img').load(function () {
         imgAuto();
