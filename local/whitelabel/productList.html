@@ -353,7 +353,6 @@
                 data: {'app_id':getUrlParam('partner_id')},
                 contentType: "application/json; charset=utf-8",
                 success: function (res) {
-                    console.log(res.body)
                     var taps1html = '';
                     $.each( res.body , function ( i , item ) {
                         taps1html += ' <a href="productDetails.html?partner_id='+getUrlParam('partner_id')+'&product_id='+item.product_id+'&phone='+getUrlParam('phone')+'&access_token='+getUrlParam('access_token')+'">' +
@@ -375,7 +374,6 @@
             })
 //                获取独角兽股权列表
             $.getJSON("http://localhost:8080/version/dist/js/whiteLabel.json",function(d){
-                console.log( d )
                 var taps2html = '';
                 $.each( d , function ( i , item ) {
                     taps2html += '<a href="pre_ipo_details.html?partner_id='+getUrlParam('partner_id')+'&product_id='+item.id+'&phone='+getUrlParam('phone')+'&access_token='+getUrlParam('access_token')+'">' +
@@ -405,7 +403,6 @@
             $(this).children().addClass('active')
             $(this).find('p').css('color','#000000')
             $(this).find('i').css({'background':'url("../../version/dist/img/whitelabel/dollaricon1.png")','background-size':'cover'})
-            console.log( $(this).parent('.dollar') )
             $(this).css('background','#ffffff')
             $(this).css('box-shadow','0px 0px 10px rgba(23,29,76,0.4)')
 
