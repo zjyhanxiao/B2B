@@ -12,7 +12,7 @@ $(function () {
         $('#phone-code,#phone').prop('disabled', true);
         if (phone.indexOf(' ')) {
             $('#phone').val(phone.split(' ')[1]);
-            $("#phone-code").val(d.phone.split(' ')[0]);
+            $("#phone-code").val(phone.split(' ')[0]);
         } else {
             $('#phone').val(phone);
         }
