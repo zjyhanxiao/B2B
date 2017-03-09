@@ -144,6 +144,7 @@ $(function () {
             function cityData(res) {
                 $('#city').empty().append("<option value=''>" + '请选择' + "</option>" + res).prop('disabled', false);
                 $('#city').find('option:first').prop('selected', 'selected');
+                $('#county').empty().append("<option value=''>" + '请选择' + "</option>");
             }
         }
     });

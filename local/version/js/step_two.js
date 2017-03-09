@@ -118,6 +118,7 @@ $(function () {
             var city_data = {'city': '', 'country': '中国', 'region': region};
             getAddress(city_data, cityData);
             function cityData(res) {
+                $('#county').empty().append("<option value=''>" + '请选择' + "</option>");
                 $('#city').empty().append("<option value=''>" + '请选择' + "</option>" + res).prop('disabled', false);
                 $('#city').find('option:first').prop('selected', 'selected');
             }
