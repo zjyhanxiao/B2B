@@ -2,20 +2,9 @@ $(function () {
     var product_id = getUrlParam('product_id') || '';
     var order_number = getUrlParam('order_number') || '';
     $('#fileMapping').height(Math.floor($('#fileMapping').width() * 200 / 340));  //设置图片上传组件高度
+    imgAuto();
     $('.uploader-demo').find('img').load(function () {
-        var w = $('.uploader-demo').find('img').width();
-        var h = $('.uploader-demo').find('img').height();
-        var warp_w = $('#fileMapping').width();
-        var warp_h = $('#fileMapping').height();
-        if ((w / h) < (warp_w / warp_h)) {
-            $('.uploader-demo').find('img').css({width: 'auto', height: '100%'});
-        } else {
-            $('.uploader-demo').find('img').css({
-                width: '100%',
-                height: 'auto',
-                'margin-top': Math.floor((warp_h - warp_w * h / w) / 2) + 'px'
-            });
-        }
+        imgAuto();
     });
     if (order_number != '' && $('.about_order').length) {
         $('.about_order').html('<span>订单</span>' + order_number);
@@ -42,5 +31,20 @@ $(function () {
 
     function getProductFail(res) {
         alert(res.msg)
+    }
+    function imgAuto() {
+        var w = $('.uploader-demo').find('img').width();
+        var h = $('.uploader-demo').find('img').height();
+        var warp_w = $('#fileMapping').width();
+        var warp_h = $('#fileMapping').height();
+        if ((w / h) < (warp_w / warp_h)) {
+            $('.uploader-demo').find('img').css({width: 'auto', height: '100%'});
+        } else {
+            $('.uploader-demo').find('img').css({
+                width: '100%',
+                height: 'auto',
+                'margin-top': Math.floor((warp_h - warp_w * h / w) / 2) + 'px'
+            });
+        }
     }
 });
