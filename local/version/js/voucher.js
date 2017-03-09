@@ -4,6 +4,7 @@ $(function () {
     var phone = getUrlParam('phone') || '';
     var order_number = getUrlParam('order_number') || '';
     if (phone != '') {
+        $('#phone').prop('disabled',true);
         if(phone.indexOf(' ')){
             $('#phone').val(phone.split(' ')[1]);
         }else{
